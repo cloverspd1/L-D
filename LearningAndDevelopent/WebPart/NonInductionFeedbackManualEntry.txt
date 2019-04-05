@@ -1,0 +1,3322 @@
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="/sites/AnugamUAT/SiteAssets/AnugamStyles/css/main.css" rel="stylesheet">
+<link href="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datatable/css/dataTables.bootstrap.min.css"
+      rel="stylesheet">
+<link href="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datatable/css/responsive.bootstrap.min.css"
+      rel="stylesheet">
+<link href="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datatable/css/responsive.bootstrap.min.css"
+      rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css"
+      rel="stylesheet">
+<link href="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datepicker/css/custom.css" rel="stylesheet">
+<link rel="stylesheet" href="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datepicker/css/datepicker.min.css" />
+
+<link href="https://bajajelect.sharepoint.com/sites/AnugamUAT/SiteAssets/JS/select2.min.css" rel="stylesheet">
+
+<!--<script type="text/javascript" src="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datepicker/js/bootstrap-datepicker.min.js"></script>-->
+<style>
+    .errorBorder-color {
+        padding: 0px !important;
+        color: red;
+        font-size: 19px;
+        margin-left: 33px;
+    }
+
+    .btn-primary {
+        color: #fff !important;
+        background-color: #337ab7 !important;
+        border-color: #2e6da4 !important;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 6px 12px !important;
+        margin-bottom: 0 !important;
+        font-size: 14px !important;
+        font-weight: 400;
+        line-height: 1.42857143;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        -ms-touch-action: manipulation;
+        touch-action: manipulation;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background-image: none;
+        border: 1px solid transparent;
+        border-radius: 4px;
+    }
+
+    .requiredfieldsstyle {
+        padding-left: 15px !important;
+        font-size: 12px;
+        font-style: italic;
+    }
+    
+ 
+</style>
+
+
+
+<div class="modal fade" id="myModalP_1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog ui-widget-content" role="document" style="width: 920px !important;">
+        <div class="modal-content" style="width: 1094px;/* padding-right: 8px; */margin-left: -61px;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="H4_2">
+                    Feedback User Details
+                </h4>
+            </div>
+            <div class="modal-body" style="height: auto !important;">
+                <div class="col-md-12 margin-top-15 padding-0">
+                    <div class="col-md-4">
+                        <label>
+                            Speaker Name
+                        </label>
+                        <input type="text" id="txtPopUpSpeakerName_1" maxlength="50" class="form-control PopUpRequiredField " style="width:100%;overflow-x: auto;overflow-y: auto;" readonly="readonly" />
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <label>
+                            Employee Code
+                        </label>
+                        <input type="text" id="txtPopUpEmployeeCode_1" maxlength="50" class="form-control PopUpRequiredField PopUpclearTextboxData" />
+                    </div>
+                    <div class="col-md-4">
+                        <label>
+                            Employee Name
+                        </label>
+                        <input type="text" id="txtPopUpEmployeeName_1" maxlength="50" class="form-control PopUpRequiredField PopUpclearTextboxData" />
+                    </div>
+                </div>
+                <div class="clear">
+                </div>
+                <div class="well margin-top-15">
+
+                    <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 border-style-1" style="width:900px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">Q1 . Was the Program objective covered by the Trainer?</label>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="col-md-12 padding-0">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpProgramObj_1" value="Very much" class="PopUpcommonCSSForRadio"> Very much
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpProgramObj_1" value="Somewhat" class="PopUpcommonCSSForRadio"> Somewhat
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpProgramObj_1" value="Not Really" class="PopUpcommonCSSForRadio"> Not Really
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpProgramObj_1" value="Not at All" class="PopUpcommonCSSForRadio"> Not at All
+                                    </label>
+                                </div>
+                                <!--<input type="text" id="txtProgramContentValue" class="form-control RequiredField clearTextboxData" />-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 border-style-1"  style="width:900px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">Q2 . Did the Trainer demonstrate a good understanding of the content and techniques?</label>
+                            </div>
+                            <div class="col-md-5 PopUpclsTrainDemons">
+                                <div class="col-md-12 padding-0">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpTrainDemons_1" value="Very much" class="PopUpcommonCSSForRadio"> Very much
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpTrainDemons_1" value="Somewhat" class="PopUpcommonCSSForRadio"> Somewhat
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpTrainDemons_1" value="Not Really" class="PopUpcommonCSSForRadio"> Not Really
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpTrainDemons_1" value="Not at All" class="PopUpcommonCSSForRadio"> Not at All
+                                    </label>
+                                </div>
+                                <!--<input type="text" id="txtTasksActivitiesValue" class="form-control RequiredField clearTextboxData" />-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 border-style-1"  style="width:900px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">Q3 . Did the Trainer encourage participation?</label>
+                            </div>
+                            <div class="col-md-5 PopUpclsTrainEncg">
+                                <div class="col-md-12 padding-0">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpTrainEncg_1" value="Very much" class="PopUpcommonCSSForRadio"> Very much
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpTrainEncg_1" value="Somewhat" class="PopUpcommonCSSForRadio"> Somewhat
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpTrainEncg_1" value="Not Really" class="PopUpcommonCSSForRadio"> Not Really
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpTrainEncg_1" value="Not at All" class="PopUpcommonCSSForRadio"> Not at All
+                                    </label>
+                                </div>
+                                <!--<input type="text" id="txtProgramUtilityValue" class="form-control RequiredField clearTextboxData" />-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 border-style-1"  style="width:900px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">Q4 . Was the trainer responsive towards the questions?</label>
+                            </div>
+                            <div class="col-md-5 PopUpclsTrainerResp">
+                                <div class="col-md-12 padding-0">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpTrainerResp_1" value="Very much" class="PopUpcommonCSSForRadio"> Very much
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpTrainerResp_1" value="Somewhat" class="PopUpcommonCSSForRadio"> Somewhat
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpTrainerResp_1" value="Not Really" class="PopUpcommonCSSForRadio"> Not Really
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpTrainerResp_1" value="Not at All" class="PopUpcommonCSSForRadio"> Not at All
+                                    </label>
+                                </div>
+                                <!--<input type="text" id="txtTrainerAbilityEncourage" class="form-control RequiredField clearTextboxData" />-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 border-style-1"  style="width:900px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">Q5 . Is the Course content useful and relevant to your current job role?</label>
+                            </div>
+                            <div class="col-md-5 PopUpclsCourseCont">
+                                <div class="col-md-12 padding-0">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpCourseCont_1" value="Very much" class="PopUpcommonCSSForRadio"> Very much
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpCourseCont_1" value="Somewhat" class="PopUpcommonCSSForRadio"> Somewhat
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpCourseCont_1" value="Not Really" class="PopUpcommonCSSForRadio"> Not Really
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpCourseCont_1" value="Not at All" class="PopUpcommonCSSForRadio"> Not at All
+                                    </label>
+                                </div>
+                                <!--<input type="text" id="txtTrainerAbilityCommunicate" class="form-control RequiredField clearTextboxData" />-->
+                            </div>
+                        </div>
+                    </div>
+                   
+                    
+                    
+                     <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 border-style-1"  style="width:900px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">Q6 . Did the course material complement well with the course content?</label>
+                            </div>
+                            <div class="col-md-5 PopUpclsCourseMat">
+                                <div class="col-md-12 padding-0">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpCourseMat_1" value="Very much" class="PopUpcommonCSSForRadio"> Very much
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpCourseMat_1" value="Somewhat" class="PopUpcommonCSSForRadio"> Somewhat
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpCourseMat_1" value="Not Really" class="PopUpcommonCSSForRadio"> Not Really
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpCourseMat_1" value="Not at All" class="PopUpcommonCSSForRadio"> Not at All
+                                    </label>
+                                </div>
+                                <!--<input type="text" id="txtFacilitiesValue" class="form-control RequiredField clearTextboxData" />-->
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    
+                    
+                     <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 border-style-1" style="width:1041px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">Q7 . Were the exercises & activities conducted during the session able to provide a clearer understanding of the course?</label>
+                            </div>
+                            <div class="col-md-5 PopUpclsCourseUndt">
+                                <div class="col-md-12 padding-0">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpCourseUndt_1" value="Very much" class="PopUpcommonCSSForRadio"> Very much
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpCourseUndt_1" value="Somewhat" class="PopUpcommonCSSForRadio"> Somewhat
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpCourseUndt_1" value="Not Really" class="PopUpcommonCSSForRadio"> Not Really
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpCourseUndt_1" value="Not at All" class="PopUpcommonCSSForRadio"> Not at All
+                                    </label>
+                                </div>
+                                <!--<input type="text" id="txtFacilitiesValue" class="form-control RequiredField clearTextboxData" />-->
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                     <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 border-style-1"  style="width:1041px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">Q8 . Was the time allocated to the training appropriate as per the content?</label>
+                            </div>
+                            <div class="col-md-5 PopUpclsTimeAlloctd">
+                                <div class="col-md-12 padding-0">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpTimeAlloctd_1" value="Very much" class="PopUpcommonCSSForRadio"> Very much
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpTimeAlloctd_1" value="Somewhat" class="PopUpcommonCSSForRadio"> Somewhat
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpTimeAlloctd_1" value="Not Really" class="PopUpcommonCSSForRadio"> Not Really
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpTimeAlloctd_1" value="Not at All" class="PopUpcommonCSSForRadio"> Not at All
+                                    </label>
+                                </div>
+                                <!--<input type="text" id="txtFacilitiesValue" class="form-control RequiredField clearTextboxData" />-->
+                            </div>
+                        </div>
+                    </div>
+
+                   
+                       <div class="col-md-12 margin-top-15">
+                    <br/><br/>
+                        <div class="col-md-12 border-style-1"  style="width:1041px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">Q9 . Were you satisfied with the facilities at the venue:</label>
+                            </div></div></div>
+
+                     
+                     
+                     <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 border-style-1"  style="width:1041px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a) Location</label>
+                            </div>
+                            <div class="col-md-5 PopUpclsFacilitiesLoc">
+                                <div class="col-md-12 padding-0">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpFacilitiesLoc_1" value="Very much" class="PopUpcommonCSSForRadio"> Very much
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpFacilitiesLoc_1" value="Somewhat" class="PopUpcommonCSSForRadio"> Somewhat
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpFacilitiesLoc_1" value="Not Really" class="PopUpcommonCSSForRadio"> Not Really
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpFacilitiesLoc_1" value="Not at All" class="PopUpcommonCSSForRadio"> Not at All
+                                    </label>
+                                </div>
+                                <!--<input type="text" id="txtFacilitiesValue" class="form-control RequiredField clearTextboxData" />-->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 border-style-1"  style="width:1041px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b) Ambience</label>
+                            </div>
+                            <div class="col-md-5 PopUpclsFacilitiesAmb">
+                                <div class="col-md-12 padding-0">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpFacilitiesAmb_1" value="Very much" class="PopUpcommonCSSForRadio"> Very much
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpFacilitiesAmb_1" value="Somewhat" class="PopUpcommonCSSForRadio"> Somewhat
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpFacilitiesAmb_1" value="Not Really" class="PopUpcommonCSSForRadio"> Not Really
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpFacilitiesAmb_1" value="Not at All" class="PopUpcommonCSSForRadio"> Not at All
+                                    </label>
+                                </div>
+                                <!--<input type="text" id="txtFacilitiesValue" class="form-control RequiredField clearTextboxData" />-->
+                            </div>
+                        </div>
+                    </div>
+                    
+                     <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 border-style-1"  style="width:1041px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c) Food</label>
+                            </div>
+                            <div class="col-md-5 PopUpclsFacilitiesFood">
+                                <div class="col-md-12 padding-0" style="width:435px">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpFacilitiesFood_1" value="Very much" class="PopUpcommonCSSForRadio"> Very much
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpFacilitiesFood_1" value="Somewhat" class="PopUpcommonCSSForRadio"> Somewhat
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpFacilitiesFood_1" value="Not Really" class="PopUpcommonCSSForRadio"> Not Really
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpFacilitiesFood_1" value="Not at All" class="PopUpcommonCSSForRadio"> Not at All
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpFacilitiesFood_1" value="NA" class="PopUpcommonCSSForRadio"> NA
+                                    </label>
+
+                                </div>
+                                <!--<input type="text" id="txtFacilitiesValue" class="form-control RequiredField clearTextboxData" />-->
+                            </div>
+                        </div>
+                    </div>
+                    
+                     <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 border-style-1"  style="width:1041px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d) Stay</label>
+                            </div>
+                            <div class="col-md-5 PopUpclsFacilitiesStay">
+                                <div class="col-md-12 padding-0" style="width:435px">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpFacilitiesStay_1" value="Very much" class="PopUpcommonCSSForRadio"> Very much
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpFacilitiesStay_1" value="Somewhat" class="PopUpcommonCSSForRadio"> Somewhat
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpFacilitiesStay_1" value="Not Really" class="PopUpcommonCSSForRadio"> Not Really
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpFacilitiesStay_1" value="Not at All" class="PopUpcommonCSSForRadio"> Not at All
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpFacilitiesStay_1" value="NA" class="PopUpcommonCSSForRadio"> NA
+                                    </label>
+
+                                </div>
+                                <!--<input type="text" id="txtFacilitiesValue" class="form-control RequiredField clearTextboxData" />-->
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                   
+
+
+
+                    <div class="clear"></div>
+                </div>
+
+                <div class="well margin-top-15">
+                    <div class="col-md-12 margin-top-15">
+                        <label>What is the knowledge/skill that you have learnt from the course? (Mention top two)</label>
+                    </div>
+                    <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 padding-0">
+                            <textarea class="form-control PopUpRequiredField PopUpclearTextboxData" maxlength="150" placeholder="Max 150 Characters" id="txtPopUpKnwskill_1"></textarea>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="well margin-top-15">
+                    <div class="col-md-12 margin-top-15">
+                        <label>Do you have any suggestions for improving the content or delivery of this module?</label>
+                    </div>
+                    <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 padding-0">
+                            <textarea class="form-control PopUpRequiredField PopUpclearTextboxData" maxlength="150" placeholder="Max 150 Characters" id="txtPopUpFeatureImproveForProgram_1"></textarea>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="well margin-top-15">
+                    <div class="col-md-12 margin-top-15">
+                        <label>Would you like to recommend this training to someone? Mention reason.</label>
+                    </div>
+                    <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 padding-0">
+                            <textarea class="form-control PopUpRequiredField PopUpclearTextboxData" maxlength="150" placeholder="Max 150 Characters" id="txtPopUpRecommemdation_1"></textarea>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+            <div class=" col-md-12 padding-0 margin-top-15">
+                <div id="divUpdateErrors_1" class="requiredfieldsstyle">
+                </div>
+            </div>
+            <div class="clear">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    Close
+                </button>
+                <input type="button" class="btn btn-primary btnValidations" id="btnUpdateDetails_1"
+                       value="Update" style="display:none;" />
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="myModalP" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog ui-widget-content" role="document" style="width: 920px !important;">
+        <div class="modal-content" style="width: 1094px;/* padding-right: 8px; */margin-left: -61px;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="H4_2">
+                    Feedback User Details
+                </h4>
+            </div>
+            <div class="modal-body" style="height: auto !important;">
+                <div class="col-md-12 margin-top-15 padding-0">
+                    <div class="col-md-4">
+                        <label>
+                            Speaker Name
+                        </label>
+                        <input type="text" id="txtPopUpSpeakerName" maxlength="50" class="form-control PopUpRequiredField " style="width:100%;overflow-x: auto;overflow-y: auto;" readonly="readonly" />
+                    </div>
+                    <div class="col-md-4">
+                        <label>
+                            Employee Name
+                        </label>
+                        <input type="text" id="txtPopUpEmployeeName" maxlength="50" class="form-control PopUpRequiredField PopUpclearTextboxData" />
+                    </div>
+                    <div class="col-md-4">
+                        <label>
+                            Employee Code
+                        </label>
+                        <input type="text" id="txtPopUpEmployeeCode" maxlength="50" class="form-control PopUpRequiredField PopUpclearTextboxData" />
+                    </div>
+                </div>
+                <div class="clear">
+                </div>
+                <div class="well margin-top-15">
+
+                    <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 border-style-1" style="width:1041px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">Q1 . Was the Program objective covered by the Trainer?</label>
+                            </div>
+                            <div class="col-md-5 clsPopUpProgramObj">
+                                <div class="col-md-12 padding-0">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpProgramObj" value="Very much" class="PopUpcommonCSSForRadio"> Very much
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpProgramObj" value="Somewhat" class="PopUpcommonCSSForRadio"> Somewhat
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpProgramObj" value="Not Really" class="PopUpcommonCSSForRadio"> Not Really
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpProgramObj" value="Not at All" class="PopUpcommonCSSForRadio"> Not at All
+                                    </label>
+                                </div>
+                                <!--<input type="text" id="txtProgramContentValue" class="form-control RequiredField clearTextboxData" />-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 border-style-1"  style="width:1041px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">Q2 . Did the Trainer demonstrate a good understanding of the content and techniques?</label>
+                            </div>
+                            <div class="col-md-5 PopUpclsTrainDemons">
+                                <div class="col-md-12 padding-0">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpTrainDemons" value="Very much" class="PopUpcommonCSSForRadio"> Very much
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpTrainDemons" value="Somewhat" class="PopUpcommonCSSForRadio"> Somewhat
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpTrainDemons" value="Not Really" class="PopUpcommonCSSForRadio"> Not Really
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpTrainDemons" value="Not at All" class="PopUpcommonCSSForRadio"> Not at All
+                                    </label>
+                                </div>
+                                <!--<input type="text" id="txtTasksActivitiesValue" class="form-control RequiredField clearTextboxData" />-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 border-style-1"  style="width:1041px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">Q3 . Did the Trainer encourage participation?</label>
+                            </div>
+                            <div class="col-md-5 PopUpclsTrainEncg">
+                                <div class="col-md-12 padding-0">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpTrainEncg" value="Very much" class="PopUpcommonCSSForRadio"> Very much
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpTrainEncg" value="Somewhat" class="PopUpcommonCSSForRadio"> Somewhat
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpTrainEncg" value="Not Really" class="PopUpcommonCSSForRadio"> Not Really
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpTrainEncg" value="Not at All" class="PopUpcommonCSSForRadio"> Not at All
+                                    </label>
+                                </div>
+                                <!--<input type="text" id="txtProgramUtilityValue" class="form-control RequiredField clearTextboxData" />-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 border-style-1"  style="width:1041px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">Q4 . Was the trainer responsive towards the questions?</label>
+                            </div>
+                            <div class="col-md-5 PopUpclsTrainerResp">
+                                <div class="col-md-12 padding-0">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpTrainerResp" value="Very much" class="PopUpcommonCSSForRadio"> Very much
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpTrainerResp" value="Somewhat" class="PopUpcommonCSSForRadio"> Somewhat
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpTrainerResp" value="Not Really" class="PopUpcommonCSSForRadio"> Not Really
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpTrainerResp" value="Not at All" class="PopUpcommonCSSForRadio"> Not at All
+                                    </label>
+                                </div>
+                                <!--<input type="text" id="txtTrainerAbilityEncourage" class="form-control RequiredField clearTextboxData" />-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 border-style-1"  style="width:1041px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">Q5 . Is the Course content useful and relevant to your current job role?</label>
+                            </div>
+                            <div class="col-md-5 PopUpclsCourseCont">
+                                <div class="col-md-12 padding-0">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpCourseCont" value="Very much" class="PopUpcommonCSSForRadio"> Very much
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpCourseCont" value="Somewhat" class="PopUpcommonCSSForRadio"> Somewhat
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpCourseCont" value="Not Really" class="PopUpcommonCSSForRadio"> Not Really
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpCourseCont" value="Not at All" class="PopUpcommonCSSForRadio"> Not at All
+                                    </label>
+                                </div>
+                                <!--<input type="text" id="txtTrainerAbilityCommunicate" class="form-control RequiredField clearTextboxData" />-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 border-style-1"  style="width:1041px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">Q6 . Did the course material complement well with the course content?</label>
+                            </div>
+                            <div class="col-md-5 PopUpclsCourseMat">
+                                <div class="col-md-12 padding-0">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpCourseMat" value="Very much" class="PopUpcommonCSSForRadio"> Very much
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpCourseMat" value="Somewhat" class="PopUpcommonCSSForRadio"> Somewhat
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpCourseMat" value="Not Really" class="PopUpcommonCSSForRadio"> Not Really
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpCourseMat" value="Not at All" class="PopUpcommonCSSForRadio"> Not at All
+                                    </label>
+                                </div>
+                                <!--<input type="text" id="txtFacilitiesValue" class="form-control RequiredField clearTextboxData" />-->
+                            </div>
+                        </div>
+                    </div>
+                    
+                     <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 border-style-1"  style="width:1041px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">Q7 . Were the exercises & activities conducted during the session able to provide a clearer understanding of the course?</label>
+                            </div>
+                            <div class="col-md-5 PopUpclsCourseUndt">
+                                <div class="col-md-12 padding-0">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpCourseUndt" value="Very much" class="PopUpcommonCSSForRadio"> Very much
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpCourseUndt" value="Somewhat" class="PopUpcommonCSSForRadio"> Somewhat
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpCourseUndt" value="Not Really" class="PopUpcommonCSSForRadio"> Not Really
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpCourseUndt" value="Not at All" class="PopUpcommonCSSForRadio"> Not at All
+                                    </label>
+                                </div>
+                                <!--<input type="text" id="txtFacilitiesValue" class="form-control RequiredField clearTextboxData" />-->
+                            </div>
+                        </div>
+                    </div>
+                    
+                     <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 border-style-1"  style="width:1041px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">Q8 . Was the time allocated to the training appropriate as per the content?</label>
+                            </div>
+                            <div class="col-md-5 PopUpclsTimeAlloctd">
+                                <div class="col-md-12 padding-0">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpTimeAlloctd" value="Very much" class="PopUpcommonCSSForRadio"> Very much
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpTimeAlloctd" value="Somewhat" class="PopUpcommonCSSForRadio"> Somewhat
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpTimeAlloctd" value="Not Really" class="PopUpcommonCSSForRadio"> Not Really
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpTimeAlloctd" value="Not at All" class="PopUpcommonCSSForRadio"> Not at All
+                                    </label>
+                                </div>
+                                <!--<input type="text" id="txtFacilitiesValue" class="form-control RequiredField clearTextboxData" />-->
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="col-md-12 margin-top-15">
+                    <br/><br/>
+                        <div class="col-md-12 border-style-1"  style="width:1041px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">Q9 . Were you satisfied with the facilities at the venue:</label>
+                            </div></div></div>
+                     
+                     <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 border-style-1"  style="width:1041px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a) Location</label>
+                            </div>
+                            <div class="col-md-5 PopUpclsFacilitiesLoc">
+                                <div class="col-md-12 padding-0">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpFacilitiesLoc" value="Very much" class="PopUpcommonCSSForRadio"> Very much
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpFacilitiesLoc" value="Somewhat" class="PopUpcommonCSSForRadio"> Somewhat
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpFacilitiesLoc" value="Not Really" class="PopUpcommonCSSForRadio"> Not Really
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpFacilitiesLoc" value="Not at All" class="PopUpcommonCSSForRadio"> Not at All
+                                    </label>
+                                </div>
+                                <!--<input type="text" id="txtFacilitiesValue" class="form-control RequiredField clearTextboxData" />-->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 border-style-1"  style="width:1041px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b) Ambience</label>
+                            </div>
+                            <div class="col-md-5 PopUpclsFacilitiesAmb">
+                                <div class="col-md-12 padding-0">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpFacilitiesAmb" value="Very much" class="PopUpcommonCSSForRadio"> Very much
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpFacilitiesAmb" value="Somewhat" class="PopUpcommonCSSForRadio"> Somewhat
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpFacilitiesAmb" value="Not Really" class="PopUpcommonCSSForRadio"> Not Really
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpFacilitiesAmb" value="Not at All" class="PopUpcommonCSSForRadio"> Not at All
+                                    </label>
+                                </div>
+                                <!--<input type="text" id="txtFacilitiesValue" class="form-control RequiredField clearTextboxData" />-->
+                            </div>
+                        </div>
+                    </div>
+                    
+                     <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 border-style-1"  style="width:1041px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c) Food</label>
+                            </div>
+                            <div class="col-md-5 PopUpclsFacilitiesFood">
+                                <div class="col-md-12 padding-0" style="width:435px">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpFacilitiesFood" value="Very much" class="PopUpcommonCSSForRadio"> Very much
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpFacilitiesFood" value="Somewhat" class="PopUpcommonCSSForRadio"> Somewhat
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpFacilitiesFood" value="Not Really" class="PopUpcommonCSSForRadio"> Not Really
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpFacilitiesFood" value="Not at All" class="PopUpcommonCSSForRadio"> Not at All
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpFacilitiesFood" value="NA" class="PopUpcommonCSSForRadio"> NA
+                                    </label>
+
+                                </div>
+                                <!--<input type="text" id="txtFacilitiesValue" class="form-control RequiredField clearTextboxData" />-->
+                            </div>
+                        </div>
+                    </div>
+                    
+                     <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 border-style-1"  style="width:1041px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d) Stay</label>
+                            </div>
+                            <div class="col-md-5 PopUpclsFacilitiesStay">
+                                <div class="col-md-12 padding-0" style="width:435px">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpFacilitiesStay" value="Very much" class="PopUpcommonCSSForRadio"> Very much
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpFacilitiesStay" value="Somewhat" class="PopUpcommonCSSForRadio"> Somewhat
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpFacilitiesStay" value="Not Really" class="PopUpcommonCSSForRadio"> Not Really
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpFacilitiesStay" value="Not at All" class="PopUpcommonCSSForRadio"> Not at All
+                                    </label>
+                                     <label class="radio-inline">
+                                        <input type="radio" name="PopUpFacilitiesStay" value="NA" class="PopUpcommonCSSForRadio"> NA
+                                    </label>
+
+                                </div>
+                                <!--<input type="text" id="txtFacilitiesValue" class="form-control RequiredField clearTextboxData" />-->
+                            </div>
+                        </div>
+                    </div>
+
+                  
+                    
+                    <div class="clear"></div>
+                </div>
+
+                <div class="well margin-top-15">
+                    <div class="col-md-12 margin-top-15">
+                        <label>What is the knowledge/skill that you have learnt from the course? (Mention top two)</label>
+                    </div>
+                    <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 padding-0">
+                            <textarea class="form-control PopUpRequiredField PopUpclearTextboxData" maxlength="150" placeholder="Max 150 Characters" id="txtPopUpKnwskill"></textarea>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="well margin-top-15">
+                    <div class="col-md-12 margin-top-15">
+                        <label>Do you have any suggestions for improving the content or delivery of this module?</label>
+                    </div>
+                    <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 padding-0">
+                            <textarea class="form-control PopUpRequiredField PopUpclearTextboxData" maxlength="150" placeholder="Max 150 Characters" id="txtPopUpFeatureImproveForProgram"></textarea>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="well margin-top-15">
+                    <div class="col-md-12 margin-top-15">
+                        <label>Would you like to recommend this training to someone? Mention reason.</label>
+                    </div>
+                    <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 padding-0">
+                            <textarea class="form-control PopUpRequiredField PopUpclearTextboxData" maxlength="150" placeholder="Max 150 Characters" id="txtPopUpRecommemdation"></textarea>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+            <div class=" col-md-12 padding-0 margin-top-15">
+                <div id="divUpdateErrors" class="requiredfieldsstyle">
+                </div>
+            </div>
+            <div class="clear">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    Close
+                </button>
+                <input type="button" class="btn btn-primary btnValidations" id="btnUpdateDetails"
+                       value="Update" style="display:none;" />
+            </div>
+        </div>
+    </div>
+</div>
+<!--POPUP END ********************-->
+<!--Program Name model dialoguebox Start-->
+<div class="col-md-12 margin-top-10 padding-0">
+    <div class="col-md-12 padding-0 page-content-header-style-1">
+        <h1 style="font-size:25px !Important;margin-left: 12px !Important;margin-right: 0px !Important;margin-top: 0px !Important; margin-bottom: 0px !Important;">
+            <b>Manual Learning & Development Program Feedback Form</b>
+        </h1>
+    </div>
+    <div class="col-md-12 padding-0">
+        <div class="col-md-12 padding-0 margin-top-15">
+            <div id="divErrorMessage" class="errorBorder-color"></div>
+        </div>
+        <div class="col-md-12 margin-top-15">
+            <label>
+                Program Name
+            </label><label style="color: red;font-size: 20px;">*</label>
+            <div id="divProgramName">
+            </div>
+        </div>
+        <div class="col-md-12 margin-top-15 padding-0">
+            <div class="col-md-4">
+                <label>
+                    Program Start Date
+                </label>
+                <input type="text" id="txtProgramStartDate" class="form-control" readonly="readonly" />
+            </div>
+            <div class="col-md-4">
+                <label>
+                    Program End Date
+                </label>
+                <input type="text" id="txtProgramEndDate" class="form-control" readonly="readonly" />
+            </div>
+            <div class="col-md-4">
+                <label>
+                    Program Location
+                </label>
+                <input id="txtProgramLocation" class="form-control clearTextboxData" readonly="readonly" />
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-12 margin-top-15 padding-0">
+        <div class="col-md-4">
+            <label>
+                Speaker Name
+            </label><label style="color: white;font-size: 20px;">*</label>
+            <textarea name="text" id="txtSpeakerName" class="form-control RequiredField" rows="1" cols="2" wrap="soft" readonly="readonly"> </textarea>
+            
+        </div>
+         <div class="col-md-4">
+            <label>
+                Employee Code
+            </label><label style="color: red;font-size: 20px;">*</label>
+            <input type="text" id="txtEmployeeCode" maxlength="50" class="form-control RequiredField clearTextboxData" />
+        </div>
+        
+        <div class="col-md-4">
+            <label>
+                Employee Name
+            </label><label style="color: red;font-size: 20px;">*</label>
+            <input type="text" id="txtEmployeeName" maxlength="50" class="form-control RequiredField clearTextboxData" />
+        </div>
+       
+    </div>
+    <div class="clear">
+    </div>
+    <div class="well margin-top-15">
+
+        <div class="col-md-12 margin-top-15">
+            <div class="col-md-12 border-style-1">
+                <div class="col-md-7">
+                    <label class="margin-bottom-0">Q1 . Was the Program objective covered by the Trainer?<b><span style="color:red;font-size:20px">*</span></b></label>
+                </div>
+                <div class="col-md-5 clsProgramObj">
+                    <div class="col-md-12 padding-0">
+                        <label class="radio-inline">
+                            <input type="radio" name="ProgramObj" value="Very much" class="commonCSSForRadio radioChecked1"> Very much
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="ProgramObj" value="Somewhat" class="commonCSSForRadio radioChecked1"> Somewhat
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="ProgramObj" value="Not Really" class="commonCSSForRadio radioChecked1"> Not Really
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="ProgramObj" value="Not at All" class="commonCSSForRadio radioChecked1"> Not at All
+                        </label>
+                    </div>
+                    <!--<input type="text" id="txtProgramContentValue" class="form-control RequiredField clearTextboxData" />-->
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 margin-top-15">
+            <div class="col-md-12 border-style-1">
+                <div class="col-md-7">
+                    <label class="margin-bottom-0">Q2 . Did the Trainer demonstrate a good understanding of the content and techniques?<b><span style="color:red;font-size:20px">*</span></b></label>
+                </div>
+                <div class="col-md-5 clsTrainDemons">
+                    <div class="col-md-12 padding-0">
+                        <label class="radio-inline">
+                            <input type="radio" name="TrainDemons" value="Very much" class="commonCSSForRadio radioChecked2"> Very much
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="TrainDemons" value="Somewhat" class="commonCSSForRadio radioChecked2"> Somewhat
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="TrainDemons" value="Not Really" class="commonCSSForRadio radioChecked2"> Not Really
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="TrainDemons" value="Not at All" class="commonCSSForRadio radioChecked2"> Not at All
+                        </label>
+                    </div>
+                    <!--<input type="text" id="txtTasksActivitiesValue" class="form-control RequiredField clearTextboxData" />-->
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 margin-top-15">
+            <div class="col-md-12 border-style-1">
+                <div class="col-md-7">
+                    <label class="margin-bottom-0">Q3 . Did the Trainer encourage participation?<b><span style="color:red;font-size:20px">*</span></b></label>
+                </div>
+                <div class="col-md-5 clsTrainEncg">
+                    <div class="col-md-12 padding-0">
+                        <label class="radio-inline">
+                            <input type="radio" name="TrainEncg" value="Very much" class="commonCSSForRadio radioChecked3"> Very much
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="TrainEncg" value="Somewhat" class="commonCSSForRadio radioChecked3"> Somewhat
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="TrainEncg" value="Not Really" class="commonCSSForRadio radioChecked3"> Not Really
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="TrainEncg" value="Not at All" class="commonCSSForRadio radioChecked3"> Not at All
+                        </label>
+                    </div>
+                    <!--<input type="text" id="txtProgramUtilityValue" class="form-control RequiredField clearTextboxData" />-->
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 margin-top-15">
+            <div class="col-md-12 border-style-1">
+                <div class="col-md-7">
+                    <label class="margin-bottom-0">Q4 . Was the trainer responsive towards the questions?<b><span style="color:red;font-size:20px">*</span></b></label>
+                </div>
+                <div class="col-md-5 clsTrainerResp">
+                    <div class="col-md-12 padding-0">
+                        <label class="radio-inline">
+                            <input type="radio" name="TrainerResp" value="Very much" class="commonCSSForRadio radioChecked4"> Very much
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="TrainerResp" value="Somewhat" class="commonCSSForRadio radioChecked4"> Somewhat
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="TrainerResp" value="Not Really" class="commonCSSForRadio radioChecked4"> Not Really
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="TrainerResp" value="Not at All" class="commonCSSForRadio radioChecked4"> Not at All
+                        </label>
+                    </div>
+                    <!--<input type="text" id="txtTrainerAbilityEncourage" class="form-control RequiredField clearTextboxData" />-->
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-12 margin-top-15">
+        
+        <br/><br/>
+        
+            <div class="col-md-12 border-style-1">
+                <div class="col-md-7">
+                    <label class="margin-bottom-0">Q5 . Is the Course content useful and relevant to your current job role?<b><span style="color:red;font-size:20px">*</span></b></label>
+                </div>
+                <div class="col-md-5 clsCourseCont">
+                    <div class="col-md-12 padding-0">
+                        <label class="radio-inline">
+                            <input type="radio" name="CourseCont" value="Very much" class="commonCSSForRadio radioChecked5"> Very much
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="CourseCont" value="Somewhat" class="commonCSSForRadio radioChecked5"> Somewhat
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="CourseCont" value="Not Really" class="commonCSSForRadio radioChecked5"> Not Really
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="CourseCont" value="Not at All" class="commonCSSForRadio radioChecked5"> Not at All
+                        </label>
+                    </div>
+                    <!--<input type="text" id="txtTrainerAbilityCommunicate" class="form-control RequiredField clearTextboxData" />-->
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 margin-top-15">
+            <div class="col-md-12 border-style-1">
+                <div class="col-md-7">
+                    <label class="margin-bottom-0">Q6 . Did the course material complement well with the course content?<b><span style="color:red;font-size:20px">*</span></b></label>
+                </div>
+                <div class="col-md-5 clsCourseMat">
+                    <div class="col-md-12 padding-0">
+                        <label class="radio-inline">
+                            <input type="radio" name="CourseMat" value="Very much" class="commonCSSForRadio radioChecked6"> Very much
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="CourseMat" value="Somewhat" class="commonCSSForRadio radioChecked6"> Somewhat
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="CourseMat" value="Not Really" class="commonCSSForRadio radioChecked6"> Not Really
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="CourseMat" value="Not at All" class="commonCSSForRadio radioChecked6"> Not at All
+                        </label>
+                    </div>
+                    <!--<input type="text" id="txtFacilitiesValue" class="form-control RequiredField clearTextboxData" />-->
+                </div>
+            </div>
+        </div>
+        
+        
+                     <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 border-style-1"  style="width:1041px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">Q7 . Were the exercises & activities conducted during the session able to provide a clearer understanding of the course?<b><span style="color:red;font-size:20px">*</span></b></label>
+                            </div>
+                            <div class="col-md-5 clsCourseUndt">
+                                <div class="col-md-12 padding-0">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="CourseUndt" value="Very much" class="commonCSSForRadio radioChecked7"> Very much
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="CourseUndt" value="Somewhat" class="commonCSSForRadio radioChecked7"> Somewhat
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="CourseUndt" value="Not Really" class="commonCSSForRadio radioChecked7"> Not Really
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="CourseUndt" value="Not at All" class="commonCSSForRadio radioChecked7"> Not at All
+                                    </label>
+                                </div>
+                                <!--<input type="text" id="txtFacilitiesValue" class="form-control RequiredField clearTextboxData" />-->
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    
+                    
+                    
+                     <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 border-style-1"  style="width:1041px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">Q8 . Was the time allocated to the training appropriate as per the content?<b><span style="color:red;font-size:20px">*</span></b></label>
+                            </div>
+                            <div class="col-md-5 clsTimeAlloctd">
+                                <div class="col-md-12 padding-0">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="TimeAlloctd" value="Very much" class="commonCSSForRadio radioChecked8"> Very much
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="TimeAlloctd" value="Somewhat" class="commonCSSForRadio radioChecked8"> Somewhat
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="TimeAlloctd" value="Not Really" class="commonCSSForRadio radioChecked8"> Not Really
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="TimeAlloctd" value="Not at All" class="commonCSSForRadio radioChecked8"> Not at All
+                                    </label>
+                                </div>
+                                <!--<input type="text" id="txtFacilitiesValue" class="form-control RequiredField clearTextboxData" />-->
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    
+                    <div class="col-md-12 margin-top-15">
+                    <br/><br/>
+                        <div class="col-md-12 border-style-1"  style="width:1041px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">Q9 . Were you satisfied with the facilities at the venue:<b><span style="color:red;font-size:20px">*</span></b></label>
+                            </div></div></div>
+
+                    
+                      
+
+                     
+                     
+                     <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 border-style-1"  style="width:1041px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a) Location</label>
+                            </div>
+                            <div class="col-md-5 clsFacilitiesLoc">
+                                <div class="col-md-12 padding-0">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="FacilitiesLoc" value="Very much" class="commonCSSForRadio radioChecked9"> Very much
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="FacilitiesLoc" value="Somewhat" class="commonCSSForRadio radioChecked9"> Somewhat
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="FacilitiesLoc" value="Not Really" class="commonCSSForRadio radioChecked9"> Not Really
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="FacilitiesLoc" value="Not at All" class="commonCSSForRadio radioChecked9"> Not at All
+                                    </label>
+                                </div>
+                                <!--<input type="text" id="txtFacilitiesValue" class="form-control RequiredField clearTextboxData" />-->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 border-style-1"  style="width:1041px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b) Ambience</label>
+                            </div>
+                            <div class="col-md-5 clsFacilitiesAmb">
+                                <div class="col-md-12 padding-0">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="FacilitiesAmb" value="Very much" class="commonCSSForRadio radioChecked10"> Very much
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="FacilitiesAmb" value="Somewhat" class="commonCSSForRadio radioChecked10"> Somewhat
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="FacilitiesAmb" value="Not Really" class="commonCSSForRadio radioChecked10"> Not Really
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="FacilitiesAmb" value="Not at All" class="commonCSSForRadio radioChecked10"> Not at All
+                                    </label>
+                                </div>
+                                <!--<input type="text" id="txtFacilitiesValue" class="form-control RequiredField clearTextboxData" />-->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 border-style-1"  style="width:1041px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c) Food</label>
+                            </div>
+                            <div class="col-md-5 clsFacilitiesFood">
+                                <div class="col-md-12 padding-0" style="width:435px">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="FacilitiesFood" value="Very much" class="commonCSSForRadio radioChecked11"> Very much
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="FacilitiesFood" value="Somewhat" class="commonCSSForRadio radioChecked11"> Somewhat
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="FacilitiesFood" value="Not Really" class="commonCSSForRadio radioChecked11"> Not Really
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="FacilitiesFood" value="Not at All" class="commonCSSForRadio radioChecked11"> Not at All
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="FacilitiesFood" value="NA" class="commonCSSForRadio radioChecked11"> NA
+                                    </label>
+                                </div>
+                                <!--<input type="text" id="txtFacilitiesValue" class="form-control RequiredField clearTextboxData" />-->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 border-style-1"  style="width:1041px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d) Stay</label>
+                            </div>
+                            <div class="col-md-5 clsFacilitiesStay">
+                                <div class="col-md-12 padding-0" style="width:435px">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="FacilitiesStay" value="Very much" class="commonCSSForRadio radioChecked12"> Very much
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="FacilitiesStay" value="Somewhat" class="commonCSSForRadio radioChecked12"> Somewhat
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="FacilitiesStay" value="Not Really" class="commonCSSForRadio radioChecked12"> Not Really
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="FacilitiesStay" value="Not at All" class="commonCSSForRadio radioChecked12"> Not at All
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="FacilitiesStay" value="NA" class="commonCSSForRadio radioChecked12"> NA
+                                    </label>
+
+                                </div>
+                                <!--<input type="text" id="txtFacilitiesValue" class="form-control RequiredField clearTextboxData" />-->
+                            </div>
+                        </div>
+                    </div>
+                    
+        <div class="clear"></div>
+    </div>
+
+    <div class="well margin-top-15">
+        <div class="col-md-12 margin-top-15">
+            <label>What is the knowledge/skill that you have learnt from the course? (Mention top two)<b><span style="color:red;font-size:20px">*</span></b></label>
+        </div>
+        <div class="col-md-12 margin-top-15">
+            <div class="col-md-12 padding-0">
+                <textarea class="form-control RequiredField clearTextboxData" maxlength="150" placeholder="Max 150 Characters" id="txtKnwskill"></textarea>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="well margin-top-15">
+        <div class="col-md-12 margin-top-15">
+            <label>Do you have any suggestions for improving the content or delivery of this module?<b><span style="color:red;font-size:20px">*</span></b></label>
+        </div>
+        <div class="col-md-12 margin-top-15">
+            <div class="col-md-12 padding-0">
+                <textarea class="form-control RequiredField clearTextboxData" maxlength="150" placeholder="Max 150 Characters" id="txtFeatureImproveForProgram"></textarea>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <div class="well margin-top-15">
+        <div class="col-md-12 margin-top-15">
+            <label>Would you like to recommend this training to someone? Mention reason.<b><span style="color:red;font-size:20px">*</span></b></label>
+        </div>
+        <div class="col-md-12 margin-top-15">
+            <div class="col-md-12 padding-0">
+                <textarea class="form-control RequiredField clearTextboxData" maxlength="150" placeholder="Max 150 Characters" id="txtRecommemdation"></textarea>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="clear">
+    </div>
+    <div class=" col-md-12 padding-0 margin-top-10">
+        <div id="divFeedBackSpeakerErrors" class="requiredfieldsstyle"></div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="col-md-12 margin-top-10">
+        <input type="button" class="btn btn-primary" id="btnAddSpeaker" value="Add" />
+    </div>
+</div>
+<div>
+    <div class="col-md-12">
+        <div class="col-md-12 padding-0 margin-top-15">
+            <div class="col-md-12 padding-0">
+                <label>
+                    Manual Feedback Details
+                </label>
+            </div>
+            <div class="col-md-12 padding-0">
+                <table id="tableFeedBackSpeaker" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                SlNo
+                            </th>
+                            <th>
+                                Program Name
+                            </th>
+                            <th>
+                                Program Start Date
+                            </th>
+                            <th>
+                                Program End Date
+                            </th>
+                            <th>
+                                Speaker Name
+                            </th>
+                            <th>
+                                Employee Name
+                            </th>
+                            <th width="20%" colspan="2">
+                                Action
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="tblFeedBackSpeakerBind"></tbody>
+                </table>
+            </div>
+            
+            
+<div class="col-md-12 margin-top-10">
+        <input type="button" class="btn btn-primary" id="btnSubmit" value="Submit" style="margin-left: -6px;" />
+        <input type="button" class="btn btn-primary" id="btnSaveAsDraft" value="Save As Draft" style="display:none;"/>
+     <br/><br/></div>
+   
+    <div class="col-md-12 padding-0">
+                <label>
+                    Online Feedback Details
+                </label>
+            </div>
+            <div class="col-md-12 padding-0">
+                <table id="tableFeedBackSpeaker_1" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                SlNo
+                            </th>
+                            <th>
+                                Program Name
+                            </th>
+                            <th>
+                                Program Start Date
+                            </th>
+                            <th>
+                                Program End Date
+                            </th>
+                            <th>
+                                Speaker Name
+                            </th>
+                            <th>
+                                Employee Name
+                            </th>
+                            <th width="20%" colspan="2">
+                                Action
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="tblFeedBackSpeakerBind_1"></tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+    
+
+</div>
+
+<div id="throbber" style="display:none;">
+<img src="https://bajajelect.sharepoint.com/sites/HR-TrainingManagementSystem/SiteAssets/AnugamStyles/img/712_1.gif" /><br/></br><h3><b style="color:#0072c6 !Important;font-size:32px">Please Wait...</b><h3></div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+<script src="https://bajajelect.sharepoint.com/sites/AnugamUAT/SiteAssets/JS/select2.min.js" type="text/javascript"></script>
+
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datatable/js/jquery.dataTables.min.js"></script>
+<script src="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datatable/js/dataTables.bootstrap.min.js"></script>
+<script src="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datatable/js/dataTables.responsive.min.js"></script>
+<script src="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datatable/js/responsive.bootstrap.js"></script>
+<script src="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datatable/js/datatables.scroller.min.js"></script>
+<script src="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datepicker/js/moment.min.js"></script>
+<script src="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datepicker/js/daterangepicker.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.js"></script>
+<script src="https://bajajelect.sharepoint.com/sites/AnugamUAT/SiteAssets/Webparts/alluploadreferences/jquery.blockUI.js"></script>
+
+
+
+
+<!-- bootstrap-daterangepicker -->
+<script>
+    $(document).ready(function () {
+    
+        PopulateProgramDropDown();
+    
+
+    });
+    
+    function isCurrentUserMemberOfGroup(groupName) {
+    var userIsInGroup = false;
+    $.ajax({
+        async: false,
+        headers: { "accept": "application/json; odata=verbose" },
+        method: "GET",
+        url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/currentuser/groups",
+        success: function (data) {
+            data.d.results.forEach( function (value) {
+                if (value.Title == groupName) {               
+                     userIsInGroup = true;
+                }
+            });
+        },
+        error: function (response) {
+            console.log(response.status);
+        },
+    });    
+    return userIsInGroup;
+}
+
+
+    function PopulateProgramDropDown() {
+        var listName = "NewInductionProgram";
+        var url = _spPageContextInfo.webAbsoluteUrl;
+        
+      var isAdmin = isCurrentUserMemberOfGroup("L&D Functional Admin");
+           	   
+        var UserEmail = LoginUserEmail();
+        getProgram(isAdmin, UserEmail, listName, url, function (data) {
+        
+          $.blockUI.defaults.css = {		
+											padding: 0,		
+								            margin: 0,		
+								            
+								            width: '30%',		
+								            top: '40%',		
+								            left: '35%',		
+								            textAlign: 'center',
+								            cursor: 'wait'};
+								            
+		       $.blockUI.defaults.overlayCSS.backgroundColor = '#fff';
+		       $.blockUI.defaults.overlayCSS.opacity = 0.9;
+		       $.blockUI.defaults.overlayCSS.cursor = 'pointer';
+
+
+		       $.blockUI({message: $('#throbber')});
+                
+           	   setTimeout(function () {
+                       
+            var TodayDate = new Date();
+            var items = data.d.results;
+            var pgmFinalData = []; var j = 0;
+            var arrPGM = [];
+            var arrPGMUnique = [];
+            for (var k = 0; k < items.length; k++) {
+                var ChkProgramEndDate = new Date(items[k].ProgramEndDate.split("/").reverse().join("-"));
+                var CreatedDate = new Date(items[k].CreatedDateCal.split("/").reverse().join("-"));
+                if (new Date(items[k].ProgramEndDate.split("/").reverse().join("-")) >= TodayDate || ChkProgramEndDate.setHours(0, 0, 0, 0) == TodayDate.setHours(0, 0, 0, 0) || CreatedDate >= ChkProgramEndDate) {
+                    var NameProgram = items[k].ProgramName;
+                    var ChckCnclPgm = items[k].ProgramName;
+	                var PrgrmCancellation = GetPgmCncld(ChckCnclPgm);
+	                if(PrgrmCancellation != 'Yes')
+                	{
+
+                    if (pgmFinalData[j++] != NameProgram) {
+                        pgmFinalData[j++] = NameProgram;
+                    }
+                    
+                    }
+                }
+            }
+            var uniqueProgramNames = '';
+            var result = [];
+            $.each(pgmFinalData, function (index, pgmFinalData) {
+                if ($.inArray(pgmFinalData, result) == -1) {
+                    result.push(pgmFinalData);
+                }
+            });
+            console.log(ChkProgramEndDate);
+            //var programBind = GroupByProgramData(pgmFinalData, 'ProgramName');
+            var inputElement = '<select id="ddlProgramName" class="form-control RequiredField"><option  value="">--Select Program--</option>';
+            // Add all the new items
+            for (var i = 0; i < result.length; i++) {
+                if (result[i] != undefined) {
+                    var itemId = result[i],
+                        itemVal = result[i];
+                    inputElement += '<option value="' + itemVal + '"selected>' + itemId + '</option>';
+                }
+            }
+            inputElement += '</select>';
+            $('#divProgramName').append(inputElement);
+            $("#ddlProgramName").each(function () {
+                $('option', this).each(function () {
+
+                    if ($(this).text() == '--Select Program--') {
+                        $(this).attr('selected', 'selected')
+                    };
+                });
+            });
+             $("#ddlProgramName").select2();
+            $('#ddlProgramName').on('change', function () {
+                var selectedProgramName = $(this).val();
+                $("#txtProgramLocation").val('');
+                $("#txtProgramStartDate").val('');
+                $("#txtProgramEndDate").val('');
+                $('#txtSpeakerName').val('');
+                getCallCommonFunct(selectedProgramName);
+            });
+            
+            $.unblockUI({
+                    onUnblock: function () {
+                        console.log('');
+                    }
+                });
+            }, 800);
+
+        }, function (data) {
+            alert("An error occured while getting ConfigParameters. Please try again");
+        });
+        
+                
+
+    }
+
+    function getSpeakerName(ProgramName) {
+        var SpeakerName = '';
+        var Spkr='';
+        var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('NewInductionProgram')/items?$filter=Status%20eq%20%27Active%27and%20ProgramName%20eq%20%27" + ProgramName + "%27 and FeedBackNeed eq 'Yes'";
+        $.ajax({
+            url: RestUrl,
+            method: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+            },
+            success: function (d) {
+                var arr = [];
+                i = 0;
+                $.each(d.d.results, function (index, results) {
+                    arr[i++] = index;
+                });
+                for (var k = 0; k < arr.length; k++) {
+                    var arrK = arr[k];
+                    if (d.d.results[arrK].ProgramName == ProgramName) {
+                        var ActivityID = d.d.results[arrK].ActivityID;
+                        SpeakerName = getSpeakerNameOnActivityID(ActivityID);
+                         Spkr= Spkr + SpeakerName + ",";
+                    }
+                }
+                  if(Spkr != '')
+                {
+                var lastChar = Spkr.slice(-1);
+                if (lastChar == ',') {
+                SpeakerName = Spkr.slice(0, -1);
+                }
+                //alert(SpeakerName);
+                }
+
+            },
+            error: function () { console.log('fail'); }
+        });
+        return SpeakerName;
+    }
+    function getSpeakerNameOnActivityID(ActivityID) {
+        var SpeakerName = '';
+        var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('FeedBackDetails')/items?$filter=ActiviTyID eq '" + ActivityID + "'";
+        $.ajax({
+            url: RestUrl,
+            method: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+            },
+            success: function (d) {
+              //  if (d.d.results.length > 0) {
+                //    SpeakerName = d.d.results[0].NameOfTheSpeaker;
+                //}
+                  var arr = [];
+            i = 0;
+            $.each(d.d.results, function (index, results) {
+                if (results.Status == "Active") {
+                    arr[i++] = index;
+                }
+            });
+			for (var j = 0; j < arr.length; j++) {
+                   var arrConfigK = arr[j];
+                    if(arrConfigK<=0){
+                        SpeakerName = d.d.results[arrConfigK].NameOfTheSpeaker + ",";
+                    }
+                    else if(arrConfigK>=1){
+                        SpeakerName = SpeakerName + d.d.results[arrConfigK].NameOfTheSpeaker + ",";
+                    }
+              }
+               var lastChar = SpeakerName.slice(-1);
+                if (lastChar == ',') {
+                SpeakerName = SpeakerName.slice(0, -1);
+                }
+
+            },
+            error: function () { console.log('fail'); }
+        });
+        return SpeakerName;
+    }
+    function getProgram(isAdmin, UserEmail, listName, siteurl, success, failure) {
+    
+    	if(!isAdmin)
+    	{
+    	var urlTest = siteurl + "/_vti_bin/listdata.svc/" + listName + "?$filter=CreatedByUser eq %27" + UserEmail + "%27 and Status eq 'Active' and FeedBackNeed eq 'Yes' and InductionProgram eq 'No'&$orderby= Created desc";
+    	}
+    	else
+    	{
+    	var urlTest = siteurl + "/_vti_bin/listdata.svc/" + listName + "?$filter=Status eq 'Active' and FeedBackNeed eq 'Yes' and InductionProgram eq 'No'&$orderby= Created desc";
+    	}
+        
+        $.ajax({
+            url: urlTest,
+            method: "GET",
+            headers: { "Accept": "application/json; odata=verbose" },
+            success: function (data) {
+                success(data);
+            },
+            error: function (data) {
+                failure(data);
+            }
+        });
+    }
+    
+    function getCallCommonFunct(selectedProgramName) {
+    
+    $.blockUI.defaults.css = {		
+											padding: 0,		
+								            margin: 0,		
+								            
+								            width: '30%',		
+								            top: '40%',		
+								            left: '35%',		
+								            textAlign: 'center',
+								            cursor: 'wait'};
+								            
+		       $.blockUI.defaults.overlayCSS.backgroundColor = '#fff';
+		       $.blockUI.defaults.overlayCSS.opacity = 0.9;
+		       $.blockUI.defaults.overlayCSS.cursor = 'pointer';
+
+
+		       $.blockUI({message: $('#throbber')});
+                
+                       setTimeout(function () {
+    
+          getProgramLocation(selectedProgramName);
+          getBindData_1(selectedProgramName);
+          getBindData(selectedProgramName);
+          var SpeakerName = getSpeakerName(selectedProgramName);
+          if (SpeakerName != '' && SpeakerName != null) {
+                    $('#txtSpeakerName').val(SpeakerName);
+           }
+           
+                   $.unblockUI({
+                    onUnblock: function () {
+                        console.log('');
+                    }
+                });
+            }, 600);
+
+
+        
+    }
+    function getProgramLocation(selectedProgramName) {
+        var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('NewInductionProgram')/items?$top=1000&?filter=Status%20eq%20%27Active%27and%20ProgramName%20eq%20%27" + selectedProgramName + "%27";
+        $.ajax({
+            url: RestUrl,
+            method: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+            },
+            success: function (d) {
+                var arr = [];
+                i = 0;
+                $.each(d.d.results, function (index, results) {
+                    arr[i++] = index;
+                });
+                for (var k = 0; k < arr.length; k++) {
+                    var arrK = arr[k];
+                    if (d.d.results[arrK].ProgramName == selectedProgramName) {
+                        var PgrmLocation = d.d.results[arrK].ProgramLocation;
+                        var PgrmStartDate = d.d.results[arrK].ProgramStartDate;
+                        var PgrmEndDate = d.d.results[arrK].ProgramEndDate;
+                        $("#txtProgramLocation").val(PgrmLocation);
+                        $("#txtProgramStartDate").val(PgrmStartDate);
+                        $("#txtProgramEndDate").val(PgrmEndDate);
+                        break;
+                    }
+                }
+            },
+            error: function () { console.log('fail'); }
+        });
+    }
+</script>
+<script>
+    var currentuserEmailID = "";
+    function LoginUserEmail() {
+        $.ajax({
+            async: false,
+            url: _spPageContextInfo.webServerRelativeUrl +
+                 "//_api/SP.UserProfiles.PeopleManager/GetMyProperties?$select=email",
+            method: "GET",
+            headers: {
+                "accept": "application/json;odata=verbose"
+            },
+            success: function (d) {
+                currentuserEmailID = d.d.Email;
+
+            },
+            error: function (err) {
+                alert(JSON.stringify(err));
+            }
+        });
+        return currentuserEmailID;
+    }
+    
+    $(document).ready(function () {
+ 
+ $("#ddlProgramName").select2();
+	
+ });
+
+</script>
+
+<script>
+    $('#btnAddSpeaker').click(function () {
+        if (IsValidData()) {           
+            $.blockUI.defaults.css = {		
+											padding: 0,		
+								            margin: 0,		
+								            width: '30%',		
+								            top: '40%',		
+								            left: '35%',		
+								            textAlign: 'center',
+								            cursor: 'wait'};
+								            
+		       $.blockUI.defaults.overlayCSS.backgroundColor = '#fff';
+		       $.blockUI.defaults.overlayCSS.opacity = 0.9;
+		       $.blockUI.defaults.overlayCSS.cursor = 'pointer';
+								            
+		       
+                $.blockUI({message: $('#throbber')});
+                
+                
+                setTimeout(function () {
+                AddDetails();
+                $.unblockUI({
+                    onUnblock: function () {
+                        console.log('');
+                    }
+                });
+            }, 600);
+        }
+    });
+    function AddDetails()
+    {
+        var ProgramName = $("#ddlProgramName").val();
+        var ProgramStartDate = $("#txtProgramStartDate").val();
+        var ProgramEndDate = $("#txtProgramEndDate").val();
+        var ProgramLocation = $("#txtProgramLocation").val();
+        
+        var ProgramObj = $('input[name=ProgramObj]:radio:checked').val();
+        var TrainDemons = $('input[name=TrainDemons]:radio:checked').val();
+        var TrainEncg = $('input[name=TrainEncg]:radio:checked').val();
+        var TrainerResp = $('input[name=TrainerResp]:radio:checked').val();
+        var CourseCont = $('input[name=CourseCont]:radio:checked').val();
+        var CourseMat = $('input[name=CourseMat]:radio:checked').val();
+        var CourseUndt = $('input[name=CourseUndt]:radio:checked').val();
+        var TimeAlloctd = $('input[name=TimeAlloctd]:radio:checked').val();
+        var FacilitiesLoc = $('input[name=FacilitiesLoc]:radio:checked').val();
+        var FacilitiesAmb= $('input[name=FacilitiesAmb]:radio:checked').val();
+        var FacilitiesFood = $('input[name=FacilitiesFood]:radio:checked').val();
+        var FacilitiesStay = $('input[name=FacilitiesStay]:radio:checked').val();
+        
+        var SpeakerName = $("#txtSpeakerName").val();
+        var EmployeeName = $("#txtEmployeeName").val();
+        var EmployeeCode = $("#txtEmployeeCode").val();
+        var CurrentLoginUser = LoginUserEmail();
+        
+        var KnwldgeSkill = $("#txtKnwskill").val();
+        var FeatureProgm = $("#txtFeatureImproveForProgram").val();
+        var Recommendation = $("#txtRecommemdation").val();
+
+
+        $.ajax({
+            url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('FeedbackSpeakerDetails')/items",
+            type: "POST",
+            async: false,
+            data: JSON.stringify({
+                '__metadata': { 'type': 'SP.Data.FeedbackSpeakerDetailsListItem' },
+                'Title': ProgramName,
+                'ProgramName': ProgramName,
+                'ProgramStartDate': ProgramStartDate,
+                'ProgramEndDate': ProgramEndDate,
+                'ProgramLocation': ProgramLocation,
+                'ProgramObj': ProgramObj,
+                'TrainDemons': TrainDemons,
+                'TrainEncg': TrainEncg,
+                'TrainerResp': TrainerResp,
+                'CourseCont': CourseCont,
+                'CourseMat': CourseMat,
+                'CourseUndt': CourseUndt,
+                'TimeAlloctd': TimeAlloctd,
+				'FacilitiesLoc': FacilitiesLoc,
+                'FacilitiesAmb': FacilitiesAmb,
+                'FacilitiesFood': FacilitiesFood,
+				'FacilitiesStay': FacilitiesStay,
+                'SpeakerName': SpeakerName,
+                'EmployeeName': EmployeeName,
+                'Status': "Default",
+                'CreatedByUser': CurrentLoginUser,
+                'EmployeeCode': EmployeeCode,
+                'KnwldgeSkill': KnwldgeSkill,
+                'FeatureProgm': FeatureProgm,
+                'Recommendation': Recommendation 
+            }),
+            headers: {
+                "Accept": "application/json;odata=verbose",
+                "content-type": "application/json; odata=verbose",
+                "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+            },
+            success: function (data) {
+                alert("Feedback added successfully");
+                
+                getBindData(ProgramName);
+                getBindData_1(ProgramName);
+                clearData();
+            },
+            error: function (err) {
+                alert("Error while adding item: " + JSON.stringify(err));
+            }
+        });
+    }
+
+    function clearData() {
+        //$('input:radio[name=Facilities]').attr('checked', false);
+        //$('input:radio[name=ProgramContent]').attr('checked', false);
+        //$('input:radio[name=TasksActivities]').attr('checked', false);
+        //$('input:radio[name=ProgramUtility]').attr('checked', false);
+        //$('input:radio[name=TrainerAbilityEncourage]').attr('checked', false);
+        //$('input:radio[name=TrainerAbilityCommunicate]').attr('checked', false);
+        $(".commonCSSForRadio").each(function (i) {
+            this.checked = false;
+        });
+        $('.clearTextboxData').each(function () {
+            $(this).val('');
+        });
+    }
+    function IsValidData() {
+        isValid = true;
+        $('.RequiredField').each(function () {
+            if ($.trim($(this).val()) == '' || $.trim($(this).val()) == '--Select Program--') {
+                isValid = false;
+                $(this).css({
+                    "border": "1px solid red"
+                });
+            }
+            else {
+                $(this).css({
+                    "border": ""
+                });
+            }
+        });
+        if ($('input[name="ProgramObj"]:checked').length == 0) {
+            isValid = false;
+            $('.clsProgramObj').css({
+                "border": "1px solid red"
+            });
+        }
+        else {
+            $('.clsProgramObj').css({
+                "border": ""
+            });
+        }
+        if ($('input[name="TrainDemons"]:checked').length == 0) {
+            isValid = false;
+            $('.clsTrainDemons').css({
+                "border": "1px solid red"
+            });
+        }
+        else {
+            $('.clsTrainDemons').css({
+                "border": ""
+            });
+        }
+        if ($('input[name="TrainEncg"]:checked').length == 0) {
+            isValid = false;
+            $('.clsTrainEncg').css({
+                "border": "1px solid red"
+            });
+        }
+        else {
+            $('.clsTrainEncg').css({
+                "border": ""
+            });
+        }
+
+        if ($('input[name="TrainerResp"]:checked').length == 0) {
+            isValid = false;
+            $('.clsTrainerResp').css({
+                "border": "1px solid red"
+            });
+        }
+        else {
+            $('.clsTrainerResp').css({
+                "border": ""
+            });
+        }
+        if ($('input[name="CourseCont"]:checked').length == 0) {
+            isValid = false;
+            $('.clsCourseCont').css({
+                "border": "1px solid red"
+            });
+        }
+        else {
+            $('.clsCourseCont').css({
+                "border": ""
+            });
+        }
+        if ($('input[name="CourseMat"]:checked').length == 0) {
+            isValid = false;
+            $('.clsCourseMat').css({
+                "border": "1px solid red"
+            });
+        }
+        else {
+            $('.clsCourseMat').css({
+                "border": ""
+            });
+        }
+        if ($('input[name="CourseUndt"]:checked').length == 0) {
+            isValid = false;
+            $('.clsCourseUndt').css({
+                "border": "1px solid red"
+            });
+        }
+        else {
+            $('.clsCourseUndt').css({
+                "border": ""
+            });
+        }
+        
+        if ($('input[name="TimeAlloctd"]:checked').length == 0) {
+            isValid = false;
+            $('.clsTimeAlloctd').css({
+                "border": "1px solid red"
+            });
+        }
+        else {
+            $('.clsTimeAlloctd').css({
+                "border": ""
+            });
+        }
+        
+        if ($('input[name="FacilitiesLoc"]:checked').length == 0) {
+            isValid = false;
+            $('.clsFacilitiesLoc').css({
+                "border": "1px solid red"
+            });
+        }
+        else {
+            $('.clsFacilitiesLoc').css({
+                "border": ""
+            });
+        }
+        
+        
+        if ($('input[name="FacilitiesAmb"]:checked').length == 0) {
+            isValid = false;
+            $('.clsFacilitiesAmb').css({
+                "border": "1px solid red"
+            });
+        }
+        else {
+            $('.clsFacilitiesAmb').css({
+                "border": ""
+            });
+        }
+
+		 if ($('input[name="FacilitiesFood"]:checked').length == 0) {
+            isValid = false;
+            $('.clsFacilitiesFood').css({
+                "border": "1px solid red"
+            });
+        }
+        else {
+            $('.clsFacilitiesFood').css({
+                "border": ""
+            });
+        }
+        
+         if ($('input[name="FacilitiesStay"]:checked').length == 0) {
+            isValid = false;
+            $('.clsFacilitiesStay').css({
+                "border": "1px solid red"
+            });
+        }
+        else {
+            $('.clsFacilitiesStay').css({
+                "border": ""
+            });
+        }
+
+
+        if (isValid == false) {
+            $('#divFeedBackSpeakerErrors').empty();
+            $('#divFeedBackSpeakerErrors').css('color', 'red');
+            $('#divFeedBackSpeakerErrors').append("Highlighted fields are mandatory");
+        }
+        else {
+            $('#divFeedBackSpeakerErrors').css('color', '');
+            $('#divFeedBackSpeakerErrors').empty();
+        }
+
+        return isValid;
+    }
+    $('.RequiredField').change(function () {
+        $(this).css({
+            "border": ""
+        });
+    });
+</script>
+<script>
+function getBindData_1(ProgramID) {
+        $("#tblFeedBackSpeakerBind_1").html("");
+        jQuery.ajax({
+            url: _spPageContextInfo.webAbsoluteUrl + "//_api/web/lists/getbytitle('InvitationFeedBack')/items?$filter=ProgramName eq %27" + ProgramID + "%27&$orderby=ID%20desc",
+            type: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+                "content-type": "application/json;odata=verbose",
+                "X-RequestDigest": $("#__REQUESTDIGEST").val()
+            },
+            success: function (d) {
+                var arr = [];
+                i1 = 0;
+                $.each(d.d.results, function (index, results) {
+                    if (results.Status == "Active" && results.FeedbackStatus == "Completed") {
+                        arr[i1++] = index;
+                    }
+                });
+                for (var j1 = 0; j1 < arr.length; j1++) {
+                    var arrConfigK1 = arr[j1];
+                    var index = parseInt(j1 + 1);
+
+                    var ProgramName = d.d.results[arrConfigK1].ProgramName;
+                    var ProgramStartDate = d.d.results[arrConfigK1].ProgramStartDate;
+                    var ProgramEndDate = d.d.results[arrConfigK1].ProgramEndDate;
+                    var ProgramLocation = d.d.results[arrConfigK1].ProgramLocation;
+                    
+                    var ProgramObj = d.d.results[arrConfigK1].ProgramObj;
+                    var TrainDemons = d.d.results[arrConfigK1].TrainDemons;
+                    
+                    var SpeakerID = d.d.results[arrConfigK1].ID;
+                    
+                    var TrainEncg = d.d.results[arrConfigK1].TrainEncg;
+                    var TrainerResp = d.d.results[arrConfigK1].TrainerResp;
+                    var CourseCont = d.d.results[arrConfigK1].CourseCont;
+                    var CourseMat = d.d.results[arrConfigK1].CourseMat;
+                    
+                    var CourseUndt = d.d.results[arrConfigK1].CourseUndt;
+                    var TimeAlloctd = d.d.results[arrConfigK1].TimeAlloctd;
+                    var FacilitiesLoc = d.d.results[arrConfigK1].FacilitiesLoc;
+                    var FacilitiesAmb = d.d.results[arrConfigK1].FacilitiesAmb;
+                    var FacilitiesFood = d.d.results[arrConfigK1].FacilitiesFood;
+                    var FacilitiesStay = d.d.results[arrConfigK1].FacilitiesStay;
+                    
+
+                    var SpeakerName = d.d.results[arrConfigK1].SpeakerName;
+                    var EmployeeName = d.d.results[arrConfigK1].EmployeeName;
+                    $("#tblFeedBackSpeakerBind_1").append("<tr><td style='display:none'>" + SpeakerID + "</td><td>" + index + "</td><td>" + ProgramName + "</td><td>" + ProgramStartDate + "</td><td >" + ProgramEndDate + "</td><td>" + SpeakerName + "</td><td >" + EmployeeName + "</td><td width='10%'><input type='button' data-toggle='modal'  data-edit='popup-1'data-val='" + SpeakerID + "' value='View' /></td></tr>");
+                }
+
+                $('[data-delete]').on('click', function (e) {
+                    var DeleteCheck = false;
+                    //var a = confirm("Do you want to delete the activity ?");
+                    //if (a == true) {
+                        //DeleteCheck = true;
+                        //a = true;
+                    //}
+                    //else {
+                        //DeleteCheck = false;
+                        //a = false;
+                    //}
+                    if (DeleteCheck == true) {
+                        SelectID = $(this).data('val');
+                        var requestUri = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getByTitle('InvitationFeedBack')/items(" + SelectID + ")";
+                        $.ajax({
+                            url: requestUri,
+                            type: "POST",
+                            headers: {
+                                "ACCEPT": "application/json;odata=verbose",
+                                "content-type": "application/json;odata=verbose",
+                                "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+                                "IF-MATCH": "*",
+                                "X-HTTP-Method": "DELETE"
+                            },
+                            success: function (data) {
+                                if (SelectID != "") {
+                                    var ProgramName = $("#ddlProgramName").val();
+                                    getBindData(ProgramName);
+                                    getBindData_1(ProgramName);
+                                }
+                            },
+                            error: function (error) {
+                                alert(JSON.stringify(error));
+                            },
+                        });
+                        e.preventDefault();
+                    }
+                });
+
+               
+
+            },
+            error: function () { console.log('fail'); }
+        });
+    }
+
+</script>
+
+<script>
+    var SelectID = "";
+    function getBindData(ProgramID) {
+        $("#tblFeedBackSpeakerBind").html("");
+        jQuery.ajax({
+            url: _spPageContextInfo.webAbsoluteUrl + "//_api/web/lists/getbytitle('FeedbackSpeakerDetails')/items?$filter=ProgramName eq %27" + ProgramID + "%27&$orderby=ID%20desc",
+            type: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+                "content-type": "application/json;odata=verbose",
+                "X-RequestDigest": $("#__REQUESTDIGEST").val()
+            },
+            success: function (d) {
+                var arr = [];
+                i = 0;
+                $.each(d.d.results, function (index, results) {
+                    if (results.Status == "Active" || results.Status == "Default" || results.Status == "SaveAsDraft") {
+                        arr[i++] = index;
+                    }
+                });
+                for (var j = 0; j < arr.length; j++) {
+                    var arrConfigK = arr[j];
+                    var index = parseInt(j + 1);
+
+                    var ProgramName = d.d.results[arrConfigK].ProgramName;
+                    var ProgramStartDate = d.d.results[arrConfigK].ProgramStartDate;
+                    var ProgramEndDate = d.d.results[arrConfigK].ProgramEndDate;
+                    var ProgramLocation = d.d.results[arrConfigK].ProgramLocation;
+                    
+                    var ProgramObj = d.d.results[arrConfigK].ProgramObj;
+                    var TrainDemons = d.d.results[arrConfigK].TrainDemons;
+                    var SpeakerID = d.d.results[arrConfigK].ID;
+                    var TrainEncg = d.d.results[arrConfigK].TrainEncg;
+                    var TrainerResp = d.d.results[arrConfigK].TrainerResp;
+                    var CourseCont = d.d.results[arrConfigK].CourseCont;
+                    var CourseMat= d.d.results[arrConfigK].CourseMat;
+                    var CourseUndt = d.d.results[arrConfigK].CourseUndt;
+                    var TimeAlloctd = d.d.results[arrConfigK].TimeAlloctd;
+                    var FacilitiesLoc = d.d.results[arrConfigK].FacilitiesLoc;
+                    var FacilitiesAmb = d.d.results[arrConfigK].FacilitiesAmb;
+                    var FacilitiesFood = d.d.results[arrConfigK].FacilitiesFood;
+                    var FacilitiesStay = d.d.results[arrConfigK].FacilitiesStay;
+                    
+                    
+                    var SpeakerName = d.d.results[arrConfigK].SpeakerName;
+                    var EmployeeName = d.d.results[arrConfigK].EmployeeName;
+                    $("#tblFeedBackSpeakerBind").append("<tr><td style='display:none'>" + SpeakerID + "</td><td>" + index + "</td><td>" + ProgramName + "</td><td>" + ProgramStartDate + "</td><td >" + ProgramEndDate + "</td><td>" + SpeakerName + "</td><td >" + EmployeeName + "</td><td width='10%'><input type='button' data-toggle='modal'  data-edit='popup-1'data-val='" + SpeakerID + "' value='View' /></td><td width='10%'><input type='button'  data-delete='popup-1'data-val='" + SpeakerID + "' value='Remove'> </td></tr>");
+                }
+
+                $('[data-delete]').on('click', function (e) {
+                    var DeleteCheck = false;
+                    var a = confirm("Do you want to delete the selected employee manual feedback details?");
+                    if (a == true) {
+                        DeleteCheck = true;
+                        a = true;
+                    }
+                    else {
+                        DeleteCheck = false;
+                        a = false;
+                    }
+                    if (DeleteCheck == true) {
+                        SelectID = $(this).data('val');
+                        var requestUri = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getByTitle('FeedbackSpeakerDetails')/items(" + SelectID + ")";
+                        $.ajax({
+                            url: requestUri,
+                            type: "POST",
+                            headers: {
+                                "ACCEPT": "application/json;odata=verbose",
+                                "content-type": "application/json;odata=verbose",
+                                "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+                                "IF-MATCH": "*",
+                                "X-HTTP-Method": "DELETE"
+                            },
+                            success: function (data) {
+                                if (SelectID != "") {
+                                    var ProgramName = $("#ddlProgramName").val();
+                                    getBindData(ProgramName);
+                                    getBindData_1(ProgramName);
+                                }
+                            },
+                            error: function (error) {
+                                alert(JSON.stringify(error));
+                            },
+                        });
+                        e.preventDefault();
+                    }
+                });
+
+                $('[data-edit]').on('click', function (e) {
+                    $('.clearTextboxData').each(function () {
+                        $(this).val('');
+                    });
+                    $(".PopUpcommonCSSForRadio").each(function (i) {
+                        this.checked = false;
+                    });
+
+                    SelectID = $(this).data('val');
+                    
+                    var requestUri = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getByTitle('FeedbackSpeakerDetails')/items(" + SelectID + ")";
+                    $.ajax({
+                        url: requestUri,
+                        type: "GET",
+                        async: false,
+                        headers: {
+                            "accept": "application/json;odata=verbose",
+                            "content-type": "application/json;odata=verbose",
+                            "X-RequestDigest": $("#__REQUESTDIGEST").val()
+                        },
+                        success: function (d) {
+
+if(d.d.ProgramName == ProgramID)
+{
+$('#myModalP').modal('show');
+                            $('input[name=PopUpProgramObj][value="' + d.d.ProgramObj + '"]').prop('checked', true);
+                            $('input[name=PopUpTrainDemons][value="' + d.d.TrainDemons + '"]').prop('checked', true);
+
+                            $('input[name=PopUpTrainEncg][value="' + d.d.TrainEncg + '"]').prop('checked', true);
+                            $('input[name=PopUpTrainerResp][value="' + d.d.TrainerResp + '"]').prop('checked', true);
+                            $('input[name=PopUpCourseCont][value="' + d.d.CourseCont + '"]').prop('checked', true);
+                            $('input[name=PopUpCourseMat][value="' + d.d.CourseMat + '"]').prop('checked', true);
+                            $('input[name=PopUpCourseUndt][value="' + d.d.CourseUndt + '"]').prop('checked', true);
+							$('input[name=PopUpTimeAlloctd][value="' + d.d.TimeAlloctd + '"]').prop('checked', true);
+							$('input[name=PopUpFacilitiesLoc][value="' + d.d.FacilitiesLoc + '"]').prop('checked', true);
+							$('input[name=PopUpFacilitiesAmb][value="' + d.d.FacilitiesAmb + '"]').prop('checked', true);
+                            $('input[name=PopUpFacilitiesFood][value="' + d.d.FacilitiesFood + '"]').prop('checked', true);
+                            $('input[name=PopUpFacilitiesStay][value="' + d.d.FacilitiesStay + '"]').prop('checked', true);
+                            
+
+                            $("#txtPopUpSpeakerName").val(d.d.SpeakerName);
+                            $("#txtPopUpEmployeeName").val(d.d.EmployeeName);
+                            $("#txtPopUpEmployeeCode").val(d.d.EmployeeCode);
+                            $("#txtProgramLocation").val(d.d.ProgramLocation);
+                            
+                            $("#txtPopUpKnwskill").val(d.d.KnwldgeSkill);
+                            $("#txtPopUpFeatureImproveForProgram").val(d.d.FeatureProgm);
+                            $("#txtPopUpRecommemdation").val(d.d.Recommendation);
+                            }
+                        },
+                        error: function () { console.log('fail'); }
+                    });
+                    
+                    
+                     var requestUri = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getByTitle('InvitationFeedBack')/items(" + SelectID + ")";
+                    $.ajax({
+                        url: requestUri,
+                        type: "GET",
+                        async: false,
+                        headers: {
+                            "accept": "application/json;odata=verbose",
+                            "content-type": "application/json;odata=verbose",
+                            "X-RequestDigest": $("#__REQUESTDIGEST").val()
+                        },
+                        success: function (d) {
+
+if(d.d.ProgramName == ProgramID)
+{
+$('#myModalP').modal('show');
+                            $('input[name=PopUpProgramObj][value="' + d.d.ProgramObj + '"]').prop('checked', true);
+                            $('input[name=PopUpTrainDemons][value="' + d.d.TrainDemons + '"]').prop('checked', true);
+
+                            $('input[name=PopUpTrainEncg][value="' + d.d.TrainEncg + '"]').prop('checked', true);
+                            $('input[name=PopUpTrainerResp][value="' + d.d.TrainerResp + '"]').prop('checked', true);
+                            $('input[name=PopUpCourseCont][value="' + d.d.CourseCont + '"]').prop('checked', true);
+                            $('input[name=PopUpCourseMat][value="' + d.d.CourseMat + '"]').prop('checked', true);
+                            
+                            $('input[name=PopUpCourseUndt][value="' + d.d.CourseUndt + '"]').prop('checked', true);
+                            $('input[name=PopUpTimeAlloctd][value="' + d.d.TimeAlloctd + '"]').prop('checked', true);
+                            $('input[name=PopUpFacilitiesLoc][value="' + d.d.FacilitiesLoc + '"]').prop('checked', true);
+                            $('input[name=PopUpFacilitiesAmb][value="' + d.d.FacilitiesAmb + '"]').prop('checked', true);
+                            $('input[name=PopUpFacilitiesFood][value="' + d.d.FacilitiesFood + '"]').prop('checked', true);
+                            $('input[name=PopUpFacilitiesStay][value="' + d.d.FacilitiesStay + '"]').prop('checked', true);
+                            
+
+                            
+                            $("#txtPopUpSpeakerName").val(d.d.SpeakerName);
+                            $("#txtPopUpEmployeeName").val(d.d.EmployeeName);
+                            $("#txtPopUpEmployeeCode").val(d.d.EmployeeCode);
+                            $("#txtProgramLocation").val(d.d.ProgramLocation);
+                            
+                            $("#txtPopUpKnwskill").val(d.d.KnwldgeSkill);
+                            $("#txtPopUpFeatureImproveForProgram").val(d.d.FeatureProgm);
+                            $("#txtPopUpRecommemdation").val(d.d.Recommendation);
+                            }
+                        },
+                        error: function () { console.log('fail'); }
+                    });
+                    
+
+                    
+                });
+
+            },
+            error: function () { console.log('fail'); }
+        });
+    }
+    $('#btnUpdateDetails').click(function () {
+        if (checkValidationOnUpdate() && SelectID != '' && SelectID != null) {
+            UpdateProgramDetaiails(SelectID);
+            $('#myModalP').modal('hide');
+        }
+    });
+    function checkValidationOnUpdate() {
+        isValid = true;
+        $('.PopUpRequiredField').each(function () {
+            if ($.trim($(this).val()) == '' || $.trim($(this).val()) == '--Select Program--') {
+                isValid = false;
+                $(this).css({
+                    "border": "1px solid red"
+                });
+            }
+            else {
+                $(this).css({
+                    "border": ""
+                });
+            }
+        });
+        if ($('input[name="PopUpProgramObj"]:checked').length == 0) {
+            isValid = false;
+            $('.clsPopUpProgramObj').css({
+                "border": "1px solid red"
+            });
+        }
+        else {
+            $('.clsPopUpProgramObj').css({
+                "border": ""
+            });
+        }
+        if ($('input[name="PopUpTrainDemons"]:checked').length == 0) {
+            isValid = false;
+            $('.PopUpclsTrainDemons').css({
+                "border": "1px solid red"
+            });
+        }
+        else {
+            $('.PopUpclsTrainDemons').css({
+                "border": ""
+            });
+        }
+        if ($('input[name="PopUpTrainEncg"]:checked').length == 0) {
+            isValid = false;
+            $('.PopUpclsTrainEncg').css({
+                "border": "1px solid red"
+            });
+        }
+        else {
+            $('.PopUpclsTrainEncg').css({
+                "border": ""
+            });
+        }
+
+        if ($('input[name="PopUpTrainerResp"]:checked').length == 0) {
+            isValid = false;
+            $('.PopUpclsTrainerResp').css({
+                "border": "1px solid red"
+            });
+        }
+        else {
+            $('.PopUpclsTrainerResp').css({
+                "border": ""
+            });
+        }
+        if ($('input[name="PopUpCourseCont"]:checked').length == 0) {
+            isValid = false;
+            $('.PopUpclsCourseCont').css({
+                "border": "1px solid red"
+            });
+        }
+        else {
+            $('.PopUpclsCourseCont').css({
+                "border": ""
+            });
+        }
+        if ($('input[name="PopUpCourseMat"]:checked').length == 0) {
+            isValid = false;
+            $('.PopUpclsCourseMat').css({
+                "border": "1px solid red"
+            });
+        }
+        else {
+            $('.PopUpclsCourseMat').css({
+                "border": ""
+            });
+        }
+        if ($('input[name="PopUpCourseUndt"]:checked').length == 0) {
+            isValid = false;
+            $('.PopUpclsCourseUndt').css({
+                "border": "1px solid red"
+            });
+        }
+        else {
+            $('.PopUpclsCourseUndt').css({
+                "border": ""
+            });
+        }
+        
+        if ($('input[name="PopUpTimeAlloctd"]:checked').length == 0) {
+            isValid = false;
+            $('.PopUpclsTimeAlloctd').css({
+                "border": "1px solid red"
+            });
+        }
+        else {
+            $('.PopUpclsTimeAlloctd').css({
+                "border": ""
+            });
+        }
+        
+        if ($('input[name="PopUpFacilitiesLoc"]:checked').length == 0) {
+            isValid = false;
+            $('.PopUpclsFacilitiesLoc').css({
+                "border": "1px solid red"
+            });
+        }
+        else {
+            $('.PopUpclsFacilitiesLoc').css({
+                "border": ""
+            });
+        }
+        
+         if ($('input[name="PopUpFacilitiesAmb"]:checked').length == 0) {
+            isValid = false;
+            $('.PopUpclsFacilitiesAmb').css({
+                "border": "1px solid red"
+            });
+        }
+        else {
+            $('.PopUpclsFacilitiesAmb').css({
+                "border": ""
+            });
+        }
+        
+        
+        if ($('input[name="PopUpFacilitiesFood"]:checked').length == 0) {
+            isValid = false;
+            $('.PopUpclsFacilitiesFood').css({
+                "border": "1px solid red"
+            });
+        }
+        else {
+            $('.PopUpclsFacilitiesFood').css({
+                "border": ""
+            });
+        }
+        
+        if ($('input[name="PopUpFacilitiesStay"]:checked').length == 0) {
+            isValid = false;
+            $('.PopUpclsFacilitiesStay').css({
+                "border": "1px solid red"
+            });
+        }
+        else {
+            $('.PopUpclsFacilitiesStay').css({
+                "border": ""
+            });
+        }
+
+
+
+        if (isValid == false) {
+            $('#divUpdateErrors').empty();
+            $('#divUpdateErrors').css('color', 'red');
+            $('#divUpdateErrors').append("Highlighted fields are mandatory");
+        }
+        else {
+            $('#divUpdateErrors').css('color', '');
+            $('#divUpdateErrors').empty();
+        }
+
+        return isValid;
+    }
+    function UpdateProgramDetaiails(SelectID) {
+    
+    
+        var ProgramObj = $('input[name=PopUpProgramObj]:radio:checked').val();
+        var TrainDemons = $('input[name=PopUpTrainDemons]:radio:checked').val();
+        var TrainEncg = $('input[name=PopUpTrainEncg]:radio:checked').val();
+        var TrainerResp = $('input[name=PopUpTrainerResp]:radio:checked').val();
+        var CourseCont = $('input[name=PopUpCourseCont]:radio:checked').val();
+        var CourseMat = $('input[name=PopUpCourseMat]:radio:checked').val();
+        var CourseUndt = $('input[name=PopUpCourseUndt]:radio:checked').val();
+        var TimeAlloctd = $('input[name=PopUpTimeAlloctd]:radio:checked').val();
+        var FacilitiesLoc = $('input[name=PopUpFacilitiesLoc]:radio:checked').val();
+        var FacilitiesAmb = $('input[name=PopUpFacilitiesAmb]:radio:checked').val();
+        var FacilitiesFood = $('input[name=PopUpFacilitiesFood]:radio:checked').val();
+        var FacilitiesStay = $('input[name=PopUpFacilitiesStay]:radio:checked').val();
+        var SpeakerName = $("#txtPopUpSpeakerName").val();
+        var EmployeeName = $("#txtPopUpEmployeeName").val();
+        var EmployeeCode = $("#txtPopUpEmployeeCode").val();
+        var CurrentLoginUser = LoginUserEmail();
+        
+        var KnwldgeSkill = $("#txtPopUpKnwskill").val();
+        var FeatureProgm = $("#txtPopUpFeatureImproveForProgram").val();
+        var Recommendation = $("#txtPopUpRecommemdation").val();
+
+        $.ajax({
+            url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getByTitle('FeedbackSpeakerDetails')/items(" + SelectID + ")",
+            type: "POST",
+            data: JSON.stringify({
+                '__metadata': { 'type': 'SP.Data.FeedbackSpeakerDetailsListItem' },
+                'ProgramObj': ProgramObj,
+                'TrainDemons': TrainDemons,
+                'TrainEncg': TrainEncg,
+                'TrainerResp': TrainerResp,
+                'CourseCont': CourseCont,
+                'CourseMat': CourseMat,
+                'CourseUndt': CourseUndt,
+                'TimeAlloctd': TimeAlloctd,
+                'FacilitiesLoc': FacilitiesLoc,
+				'FacilitiesAmb': FacilitiesAmb,
+                'FacilitiesFood': FacilitiesFood,
+                'FacilitiesStay': FacilitiesStay,
+                'Status': "Active",
+                'CreatedByUser': CurrentLoginUser,
+                'EmployeeCode': EmployeeCode,
+                'KnwldgeSkill': KnwldgeSkill,
+                'FeatureProgm': FeatureProgm,
+                'Recommendation': Recommendation
+            }),
+            headers: {
+                "Accept": "application/json;odata=verbose",
+                "content-type": "application/json; odata=verbose",
+                "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+                "X-HTTP-Method": "MERGE",
+                "If-Match": "*"
+            },
+            success: function (data) {
+                alert('Program details updated successfully');
+                
+                
+                var ProgramName = $('#ddlProgramName').val();
+                getBindData(ProgramName);
+                getBindData_1(ProgramName);
+
+            },
+            error: function (err) {
+                alert("Error while adding item: " + JSON.stringify(err));
+            }
+        });
+    }
+
+    $('#btnSaveAsDraft').click(function () {
+     if (validateGroup()) { 
+        var ddlPName = $('#ddlProgramName').val();   
+       $.blockUI.defaults.css = {		
+											padding: 0,		
+								            margin: 0,		
+								            width: '30%',		
+								            top: '40%',		
+								            left: '35%',		
+								            textAlign: 'center',
+								            cursor: 'wait'};
+								            
+		       $.blockUI.defaults.overlayCSS.backgroundColor = '#fff';
+		       $.blockUI.defaults.overlayCSS.opacity = 0.9;
+		       $.blockUI.defaults.overlayCSS.cursor = 'pointer';
+								            
+		       
+                $.blockUI({message: $('#throbber')});
+                
+                
+                setTimeout(function () {
+          
+            SaveasDraftDetails();
+            getBindData(ddlPName);
+            $.unblockUI({
+                onUnblock: function () {
+                    alert('Program saved as draft successfully');
+                    
+                }
+            });
+        }, 600);
+        }
+    });
+    function SaveasDraftDetails()
+    {
+        $("#tableFeedBackSpeaker tr:gt(0)").each(function () {
+            var this_row = $(this);
+            var FeedBackSpeakerID = $.trim(this_row.find('td:eq(0)').html());
+            if (FeedBackSpeakerID != '' && FeedBackSpeakerID != null) {
+                $.ajax({
+                    url: _spPageContextInfo.webAbsoluteUrl + "//_api/web/lists/getbytitle('FeedbackSpeakerDetails')/items(" + FeedBackSpeakerID + ")",
+                    type: "POST",
+                    async: false,
+                    data: JSON.stringify({
+                        '__metadata': { 'type': 'SP.Data.FeedbackSpeakerDetailsListItem' },
+                        'Status': 'SaveAsDraft'
+                    }),
+                    headers: {
+                        "Accept": "application/json;odata=verbose",
+                        "content-type": "application/json; odata=verbose",
+                        "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+                        "X-HTTP-Method": "MERGE",
+                        "If-Match": "*"
+                    },
+                    success: function (data) {
+                    },
+                    error: function (err) {
+                        alert("Error while adding item: " + JSON.stringify(err));
+                    }
+                });
+            }
+        });
+    }
+
+    $('#btnSubmit').click(function () {
+      if (validateGroup()) {  
+       $.blockUI.defaults.css = {		
+											padding: 0,		
+								            margin: 0,		
+								            width: '30%',		
+								            top: '40%',		
+								            left: '35%',		
+								            textAlign: 'center',
+								            cursor: 'wait'};
+								            
+		       $.blockUI.defaults.overlayCSS.backgroundColor = '#fff';
+		       $.blockUI.defaults.overlayCSS.opacity = 0.9;
+		       $.blockUI.defaults.overlayCSS.cursor = 'pointer';
+								            
+		       
+                $.blockUI({message: $('#throbber')});
+                
+                
+                setTimeout(function () {
+            InsertWeightDetails();
+            SaveDetails();
+            $.unblockUI({
+                onUnblock: function () {
+                    alert('Feedback submitted successfully');
+                    location.reload();
+                    
+                }
+            });
+        }, 600);   
+        }     
+    });
+    
+     function validateGroup() {
+     
+     var valid = true;
+     
+     if ($('#tblFeedBackSpeakerBind tr').length <= 0) {
+      		$('#divFeedBackSpeakerErrors').empty();
+            $('#divFeedBackSpeakerErrors').css('color', 'red');
+            $('#divFeedBackSpeakerErrors').append("Please add atleast one feedback details & submit");
+            valid = false;
+        }
+        else {
+            $('#divFeedBackSpeakerErrors').css('color', '');
+            $('#divFeedBackSpeakerErrors').empty();
+        }
+
+        return valid;
+
+ }
+
+    function SaveDetails()
+    {
+    
+        $("#tableFeedBackSpeaker tr:gt(0)").each(function () {
+            var this_row = $(this);
+            var FeedBackSpeakerID = $.trim(this_row.find('td:eq(0)').html());
+            if (FeedBackSpeakerID != '' && FeedBackSpeakerID != null) {
+                $.ajax({
+                    url: _spPageContextInfo.webAbsoluteUrl + "//_api/web/lists/getbytitle('FeedbackSpeakerDetails')/items(" + FeedBackSpeakerID + ")",
+                    type: "POST",
+                    async: false,
+                    data: JSON.stringify({
+                        '__metadata': { 'type': 'SP.Data.FeedbackSpeakerDetailsListItem' },
+                        'Status': 'Active'
+                    }),
+                    headers: {
+                        "Accept": "application/json;odata=verbose",
+                        "content-type": "application/json; odata=verbose",
+                        "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+                        "X-HTTP-Method": "MERGE",
+                        "If-Match": "*"
+                    },
+                    success: function (data) {
+                    },
+                    error: function (err) {
+                        alert("Error while adding item: " + JSON.stringify(err));
+                    }
+                });
+            }
+        });
+    }
+    
+    function getWieghtageValues()
+    {
+     var exists = false;
+        var WeightAgeID = ""; var pushExistingValues = [];
+        var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('Non-InductionWeightageMasters')/items";
+        $.ajax({
+            url: RestUrl,
+            method: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+            },
+            success: function (d) {
+                if (d.d.results.length > 0) {
+                    exists = true;
+                    pushExistingValues.push({
+                        WeightID:d.d.results[0].ID,
+                        ProgramObj:d.d.results[0].ProgramObj,
+                        TrainDemons:d.d.results[0].TrainDemons,
+                        TrainEncg:d.d.results[0].TrainEncg,
+                        TrainerResp:d.d.results[0].TrainerResp,
+                        CourseCont:d.d.results[0].CourseCont,
+                        CourseMat:d.d.results[0].CourseMat,
+                        CourseUndt:d.d.results[0].CourseUndt,
+                        TimeAlloctd:d.d.results[0].TimeAlloctd,
+						FacilitiesLoc:d.d.results[0].FacilitiesLoc,
+						FacilitiesAmb:d.d.results[0].FacilitiesAmb,
+						FacilitiesFood:d.d.results[0].FacilitiesFood,                      
+						FacilitiesStay:d.d.results[0].FacilitiesStay
+                    });
+                }
+            },
+            error: function () { console.log('fail'); }
+        });
+        return pushExistingValues;
+
+    }
+
+    function InsertWeightDetails() {
+        var ProgramName = $("#ddlProgramName").val();
+        var ProgramStartDate = $("#txtProgramStartDate").val();
+        var ProgramEndDate = $("#txtProgramEndDate").val();
+        var ProgramLocation = $("#txtProgramLocation").val();
+        
+        var alreadyExisit2 = getWieghtageValues();
+                var UpdateID1='';
+                if (alreadyExisit2.length > 0) {
+
+                 UpdateID1= alreadyExisit2[0].WeightID;
+                var ProgramObj = alreadyExisit2[0].ProgramObj;
+                var TrainDemons =  alreadyExisit2[0].TrainDemons;
+                var TrainEncg = alreadyExisit2[0].TrainEncg;
+                var TrainerResp =  alreadyExisit2[0].TrainerResp;
+                var CourseCont = alreadyExisit2[0].CourseCont;
+                var CourseMat = alreadyExisit2[0].CourseMat;
+                var CourseUndt = alreadyExisit2[0].CourseUndt;
+                var TimeAlloctd = alreadyExisit2[0].TimeAlloctd;
+                var FacilitiesLoc = alreadyExisit2[0].FacilitiesLoc;
+                var FacilitiesAmb = alreadyExisit2[0].FacilitiesAmb;
+                var FacilitiesFood = alreadyExisit2[0].FacilitiesFood;
+                var FacilitiesStay = alreadyExisit2[0].FacilitiesStay;
+					}
+
+        
+
+        //var FacilitiesValue = 10;
+
+        //var ProgramContentValue = 15;
+        //var TasksActivitiesValue = 40;
+       // var ProgramUtilityValue = 10;
+
+       // var TrainerAbilityEncourage = 10;
+       // var TrainerAbilityCommunicate = 15;
+
+        var SpeakerName = $("#txtSpeakerName").val();
+        var CurrentLoginUser = LoginUserEmail();
+        var TrainerSummary = parseInt(ProgramObj) + parseInt(TrainDemons) + parseInt(TrainEncg) + parseInt(TrainerResp);
+        var NewProgramSummary = parseInt(CourseCont) + parseInt(CourseMat) + parseInt(TimeAlloctd) + parseInt(CourseUndt);
+        var VenueSummary = parseFloat(FacilitiesLoc) + parseFloat(FacilitiesAmb) + parseFloat(FacilitiesFood) + parseFloat(FacilitiesStay);
+        $.ajax({
+            url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('OverAllProgramWeightAge')/items",
+            type: "POST",
+            async: false,
+            data: JSON.stringify({
+                '__metadata': { 'type': 'SP.Data.OverAllProgramWeightAgeListItem' },
+                'Title': ProgramName,
+                'ProgramName': ProgramName,
+                'ProgramStartDate': ProgramStartDate,
+                'ProgramEndDate': ProgramEndDate,
+                'ProgramLocation': ProgramLocation,
+
+                'ProgramObj': ProgramObj,
+                'TrainDemons': TrainDemons,
+                'TrainEncg': TrainEncg,
+                'TrainerResp': TrainerResp,
+                'TrainerSummary': TrainerSummary,
+
+                'CourseCont': CourseCont,
+                'CourseMat': CourseMat,
+                'TimeAlloctd': TimeAlloctd,
+                'CourseUndt': CourseUndt,
+                'NewProgramSummary': NewProgramSummary,
+                
+                'FacilitiesLoc': FacilitiesLoc,
+                'FacilitiesAmb': FacilitiesAmb,
+                'FacilitiesFood': FacilitiesFood,
+                'FacilitiesStay': FacilitiesStay,
+                'VenueSummary': VenueSummary,
+
+
+                'SpeakerName': SpeakerName,
+
+                'Status': "Active",
+                'CreatedByUser': CurrentLoginUser,
+
+            }),
+            headers: {
+                "Accept": "application/json;odata=verbose",
+                "content-type": "application/json; odata=verbose",
+                "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+            },
+            success: function (data) {
+            },
+            error: function (err) {
+                alert("Error while adding item: " + JSON.stringify(err));
+            }
+        });
+    }
+</script>
+
+
+<script>
+$("#txtEmployeeCode").change(function () {
+         var EmpCode = document.getElementById("txtEmployeeCode").value.trim(/^\s+|\s+$/g, '');
+         var selectedProgramName = $('#ddlProgramName').val();
+         //var ProgramName = $('#ProgramNameDynDropDown').val();
+         
+        var validempcode = CheckValidEmpCd(EmpCode,selectedProgramName)     
+		var OvrallFeedbck= GetOverAllFeedbck(EmpCode,selectedProgramName);
+		var OverallMAnFeedback = GetOverAllManFeedbck(EmpCode,selectedProgramName);
+		//var ManAddDetails = GetOverAllManAddDetails(EmpCode,selectedProgramName);
+		
+		if(validempcode <= 0)
+		{
+		 alert('Please enter only the participants employee code who have participated in the program');
+		 
+
+		 $('#txtEmployeeCode').val('');
+         $('#btnAddSpeaker').hide();
+		}
+		else if(OvrallFeedbck > 0 || OverallMAnFeedback >0 )
+         {                      
+         alert('Feedback already submitted for the entered employee code');
+         
+         $('#txtEmployeeCode').val('');
+         $('#btnAddSpeaker').hide();
+         }
+         else
+         {
+          $('#btnAddSpeaker').show();
+         }
+             
+
+    });
+    
+
+</script>
+
+<script>
+
+function CheckValidEmpCd(EmpCode,selectedProgramName) {
+        var CheckValidEmpCdCount = 0;
+        
+         var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('Invitation')/items?$filter=EmployeeCode eq '" + EmpCode + "' and ProgramName eq '" + selectedProgramName + "' and Confirmation eq 'Yes'";
+        $.ajax({
+            url: RestUrl,
+            method: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+            },
+            success: function (d) {
+                var arr = [];
+                i = 0;
+                $.each(d.d.results, function (index, results) {
+                   
+                        arr[i++] = index;
+                   
+                });
+                
+                if(arr.length > 0)
+                {
+                CheckValidEmpCdCount =arr.length;
+                }
+            },
+            error: function () { console.log('fail'); }
+        });
+
+return CheckValidEmpCdCount ;
+}
+
+
+function GetOverAllFeedbck(EmpCode,selectedProgramName) {
+        var OverallFdbckCount = 0;
+        
+         var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('InvitationFeedBack')/items?$filter=EmployeeCode eq '" + EmpCode + "' and ProgramName eq '" + selectedProgramName + "'";
+        $.ajax({
+            url: RestUrl,
+            method: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+            },
+            success: function (d) {
+                var arr = [];
+                i = 0;
+                $.each(d.d.results, function (index, results) {
+                    if (results.FeedbackStatus == "Completed") {
+                        arr[i++] = index;
+                    }
+                });
+                
+                if(arr.length > 0)
+                {
+                OverallFdbckCount =arr.length;
+                }
+            },
+            error: function () { console.log('fail'); }
+        });
+
+return OverallFdbckCount ;
+}
+
+function GetOverAllManFeedbck(EmpCode,selectedProgramName) {
+        var OverallManFdbckCount = 0;
+        
+         var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('FeedbackSpeakerDetails')/items?$filter=EmployeeCode eq '" + EmpCode + "' and ProgramName eq '" + selectedProgramName + "'";
+        $.ajax({
+            url: RestUrl,
+            method: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+            },
+            success: function (d) {
+                var arr = [];
+                i = 0;
+                $.each(d.d.results, function (index, results) {
+                     if (results.Status != "") {
+                        arr[i++] = index;
+                    }
+                });
+                
+                if(arr.length > 0)
+                {
+                OverallManFdbckCount =arr.length;
+                }
+            },
+            error: function () { console.log('fail'); }
+        });
+
+return OverallManFdbckCount ;
+}
+
+
+
+
+</script>
+
+
+<script>
+
+$('.clsProgramObj').change(function () {
+       
+        if ($(".radioChecked1").is(':checked') == false) {
+           
+            $('.clsProgramObj').css({
+                "border": "1px solid red"
+            });
+            
+        }
+        else {
+            $('.clsProgramObj').css({
+                "border": ""
+            });
+            $('#divFeedBackSpeakerErrors').empty();
+        }
+
+        
+         });
+
+$('.clsTrainDemons').change(function () {
+       
+        if ($(".radioChecked2").is(':checked') == false) {
+           
+            $('.clsTrainDemons').css({
+                "border": "1px solid red"
+            });
+            
+        }
+        else {
+            $('.clsTrainDemons').css({
+                "border": ""
+            });
+            $('#divFeedBackSpeakerErrors').empty();
+        }
+
+        
+         });
+
+$('.clsTrainEncg').change(function () {
+       
+        if ($(".radioChecked3").is(':checked') == false) {
+           
+            $('.clsTrainEncg').css({
+                "border": "1px solid red"
+            });
+            
+        }
+        else {
+            $('.clsTrainEncg').css({
+                "border": ""
+            });
+            $('#divFeedBackSpeakerErrors').empty();
+        }
+
+        
+         });
+
+
+$('.clsTrainerResp').change(function () {
+       
+        if ($(".radioChecked4").is(':checked') == false) {
+           
+            $('.clsTrainerResp').css({
+                "border": "1px solid red"
+            });
+            
+        }
+        else {
+            $('.clsTrainerResp').css({
+                "border": ""
+            });
+            $('#divFeedBackSpeakerErrors').empty();
+        }
+
+        
+         });
+         
+         
+         
+         $('.clsCourseCont').change(function () {
+       
+        if ($(".radioChecked5").is(':checked') == false) {
+           
+            $('.clsCourseCont').css({
+                "border": "1px solid red"
+            });
+            
+        }
+        else {
+            $('.clsCourseCont').css({
+                "border": ""
+            });
+            $('#divFeedBackSpeakerErrors').empty();
+        }
+
+        
+         });
+
+
+ $('.clsCourseMat').change(function () {
+       
+        if ($(".radioChecked6").is(':checked') == false) {
+           
+            $('.clsCourseMat').css({
+                "border": "1px solid red"
+            });
+            
+        }
+        else {
+            $('.clsCourseMat').css({
+                "border": ""
+            });
+            $('#divFeedBackSpeakerErrors').empty();
+        }
+
+        
+         });
+         
+         $('.clsCourseUndt').change(function () {
+       
+        if ($(".radioChecked7").is(':checked') == false) {
+           
+            $('.clsCourseUndt').css({
+                "border": "1px solid red"
+            });
+            
+        }
+        else {
+            $('.clsCourseUndt').css({
+                "border": ""
+            });
+            $('#divFeedBackSpeakerErrors').empty();
+        }
+
+        
+         });
+         
+         
+         $('.clsTimeAlloctd').change(function () {
+       
+        if ($(".radioChecked8").is(':checked') == false) {
+           
+            $('.clsTimeAlloctd').css({
+                "border": "1px solid red"
+            });
+            
+        }
+        else {
+            $('.clsTimeAlloctd').css({
+                "border": ""
+            });
+            $('#divFeedBackSpeakerErrors').empty();
+        }
+
+        
+         });
+         
+         
+         $('.clsFacilitiesLoc').change(function () {
+       
+        if ($(".radioChecked9").is(':checked') == false) {
+           
+            $('.clsFacilitiesLoc').css({
+                "border": "1px solid red"
+            });
+            
+        }
+        else {
+            $('.clsFacilitiesLoc').css({
+                "border": ""
+            });
+            $('#divFeedBackSpeakerErrors').empty();
+        }
+
+        
+         });
+         
+         
+          $('.clsFacilitiesAmb').change(function () {
+       
+        if ($(".radioChecked10").is(':checked') == false) {
+           
+            $('.clsFacilitiesAmb').css({
+                "border": "1px solid red"
+            });
+            
+        }
+        else {
+            $('.clsFacilitiesAmb').css({
+                "border": ""
+            });
+            $('#divFeedBackSpeakerErrors').empty();
+        }
+
+        
+         });
+         
+         
+         $('.clsFacilitiesFood').change(function () {
+       
+        if ($(".radioChecked11").is(':checked') == false) {
+           
+            $('.clsFacilitiesFood').css({
+                "border": "1px solid red"
+            });
+            
+        }
+        else {
+            $('.clsFacilitiesFood').css({
+                "border": ""
+            });
+            $('#divFeedBackSpeakerErrors').empty();
+        }
+
+        
+         });
+         
+         
+          $('.clsFacilitiesStay').change(function () {
+       
+        if ($(".radioChecked12").is(':checked') == false) {
+           
+            $('.clsFacilitiesStay').css({
+                "border": "1px solid red"
+            });
+            
+        }
+        else {
+            $('.clsFacilitiesStay').css({
+                "border": ""
+            });
+            $('#divFeedBackSpeakerErrors').empty();
+        }
+
+        
+         });
+
+
+
+
+function GetPgmCncld(ChckCnclPgm) {
+     
+        var IsProgramCancelled = "";
+
+        var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('ProgramMaster')/items?$filter=Title%20eq%20%27" + ChckCnclPgm + "%27";
+        $.ajax({
+            url: RestUrl,
+            method: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+            },
+            success: function (d) {
+                  if (d.d.results.length > 0) {
+                  var arr = [];
+                  i = 0;
+                  $.each(d.d.results, function (index, results) {
+                  arr[i++] = index;
+                  });
+	              for (var k = 0; k < arr.length; k++) {
+	              var arrK = arr[k];
+				  IsProgramCancelled = d.d.results[arrK].IsProgramCancelled;
+	              }
+                }
+                else
+                {
+                IsProgramCancelled = 0;
+               }
+            },
+            error: function () { console.log('fail'); }
+        });
+        return IsProgramCancelled;
+    }
+
+
+
+
+</script>
+

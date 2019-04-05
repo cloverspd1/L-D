@@ -1,0 +1,977 @@
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datatable/js/jquery.dataTables.min.js"></script>
+<script src="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datatable/js/dataTables.bootstrap.min.js"></script>
+<script src="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datatable/js/dataTables.responsive.min.js"></script>
+<script src="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datatable/js/responsive.bootstrap.js"></script>
+<script src="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datatable/js/datatables.scroller.min.js"></script>
+<script src="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datepicker/js/moment.min.js"></script>
+<script src="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datepicker/js/daterangepicker.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.js"></script>
+<script src="https://bajajelect.sharepoint.com/sites/AnugamUAT/SiteAssets/AnugamStyles/DataTable/js/buttons.flash.min.js"></script>
+<script src="https://bajajelect.sharepoint.com/sites/AnugamUAT/SiteAssets/AnugamStyles/DataTable/js/buttons.html5.min.js"></script>
+<script src="https://bajajelect.sharepoint.com/sites/AnugamUAT/SiteAssets/AnugamStyles/DataTable/js/buttons.print.min.js"></script>
+<script src="/sites/AnugamUAT/SiteAssets/AnugamStyles/exportToExcelJS/jquery.table2excel.js"></script>
+<script src="/sites/AnugamUAT/SiteAssets/AnugamStyles/exportToExcelJS/jquery.battatech.excelexport.js"></script>
+<script src="https://bajajelect.sharepoint.com/sites/AnugamUAT/SiteAssets/Webparts/alluploadreferences/jquery.blockUI.js"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="/sites/AnugamUAT/SiteAssets/AnugamStyles/css/main.css" rel="stylesheet">
+<link href="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datatable/css/dataTables.bootstrap.min.css"
+      rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css"
+      rel="stylesheet">
+<link href="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datepicker/css/custom.css" rel="stylesheet">
+<link rel="stylesheet" href="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datepicker/css/datepicker.min.css" />
+
+
+<link href="https://bajajelect.sharepoint.com/sites/AnugamUAT/SiteAssets/JS/select2.min.css" rel="stylesheet">
+<script src="https://bajajelect.sharepoint.com/sites/AnugamUAT/SiteAssets/JS/select2.min.js" type="text/javascript"></script>
+
+<style>
+    .errorBorder-color {
+        padding: 0px !important;
+        color: red;
+        font-size: 19px;
+        margin-left: 33px;
+    }
+
+    .margin-top-50 {
+        margin-top: 50px;
+    }
+
+    .dataTables_length {
+        position: absolute;
+        margin-top: -115px;
+    }
+
+    .dataTables_filter {
+        position: absolute;
+        margin-top: -115px;
+    }
+</style>
+
+
+<div>
+    <div class="col-md-12 padding-0 page-content-header-style-1">
+        <h1 style="font-size:25px !Important;;margin-left: 9px !Important;margin-right: 0px !Important;margin-top: 0px !Important; margin-bottom: 0px !Important;">
+            <b>Manager Feedback Report</b>
+        </h1>
+    </div>
+    <div class="col-md-12 padding-0">
+        <div class="col-md-12 padding-0 margin-top-15">
+            <div id="divErrorMessage" class="errorBorder-color"></div>
+        </div>
+        <div class="col-md-6 margin-top-15">
+            <label>
+                Program Name<b><span style="color:red;font-size:20px">*</span></b>
+            </label>
+            <div id="ddlProgramName">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 padding-0 margin-top-15" id="div_mng" style="display:none;">
+        <div class="col-md-10">
+            <label style="line-height: 40px;">
+                FEEDBACK FORM SUMMARY
+            </label>
+        </div>
+        <div class="col-md-2">
+            <label style="display:none">ABC</label>
+            <button type="button" id="btntotalProgramReport" style="display:none;" class="btn-block">Export to Excel</button>
+        </div>
+        <div class="col-md-12 padding-0" id="divClearCotentMISReport">
+            <div class="col-md-12">
+                <table style="width: 100%;" id='tblFinalReport'>
+                    <tr>
+                        <td>
+                            <div>
+                                <table class="table table-striped table-bordered dt-responsive nowrap margin-bottom-0 clearDataOnChange">
+                                    <thead>
+                                        <tr>
+                                            <th>Program Name</th>
+                                            <th id="thProgramName"></th>
+                                            <th>Training Start Date</th>
+                                            <th>Training End Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tbodyProgramDetails"></tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div>
+                                <table class="table table-striped table-bordered dt-responsive nowrap margin-bottom-0 clearDataOnChange">
+                                    <thead>
+                                        <tr>
+                                            <th>Session</th>
+                                            <th>Ratings</th>
+                                            <th>Rating out of 100</th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tbodyProgramWeightAge"></tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                    </tr>
+
+                    
+                      <tr id='tr_expexcel' style="display:none">
+                    <td>
+                    <div>
+                    
+                    <table class="table table-striped table-bordered dt-responsive nowrap margin-bottom-0 clearDataOnChange">
+                                    <thead>
+                                        <tr>
+                                            <th>Manager Name</th>
+                                            <th>Participant Name</th>
+                                            <th>Participant Code</th>
+                                            <th style="color:#ff8000;" data-toggle="tooltip" title="Do you see an ATTITUDINAL development in the employee after attending the program?">Q1</th>
+                                            <th style="color:#ff8000;" data-toggle="tooltip" title="Has the program been able to enhance KNOWLEDGE of the employee?">Q2</th>
+                                            <th style="color:#ff8000;" data-toggle="tooltip" title="Do you see an enhancement in the SKILLS of the employee after attending the program?">Q3</th>
+                                            <th style="color:#bf00ff;" data-toggle="tooltip" title="Is the employee CONFIDENT in applying the learnings from the program?">Q4</th>
+                                            <th style="color:#bf00ff;" data-toggle="tooltip" title="Does the employee display COMMITMENT to utilize the learnings of the program?">Q5</th>
+                                            <th style="color:#bf00ff;" data-toggle="tooltip" title="Is the employee keen to apply the learnings in his day-to-day tasks?">Q6</th>
+                                            <th style="color:#bf00ff;" data-toggle="tooltip" title="Do you see an inclination of the participant towards more such training programs?">Q7</th>
+                                            <th data-toggle="tooltip" title="Suggestions on how we can improve retention of learning.">Q8</th>
+                                            <th data-toggle="tooltip" title="Comment on the change that the employee has undergone after attending the program.">Q9</th>
+                                            <th data-toggle="tooltip" title="Would you recommend extending this learning program to other members of your team? Give reason.">Q10</th>
+                                            <th data-toggle="tooltip" title="Mention a Learning intervention you have undergone in BEL or other organization which in your view was very effective. If possible, share the below details.">Q11</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody id="Div_17"></tbody>
+                                </table>
+
+                    </div>
+                    </td>
+                    </tr>
+                    <tr>
+                    </tr>
+                    <tr>
+                    </tr>
+					<tr>
+                    </tr>
+
+                    <tr>
+                    <td>
+                    
+                <div id="div_Qs"><br/><br/>
+<ul>
+<li>
+<span style="color:#ff8000;"><b>Q1</b></span>-Do you see an ATTITUDINAL development in the employee after attending the program?
+</li>
+<li>
+<span style="color:#ff8000;"><b>Q2</b></span>-Has the program been able to enhance KNOWLEDGE of the employee?
+</li>
+<li>
+<span style="color:#ff8000;"><b>Q3</b></span>-Do you see an enhancement in the SKILLS of the employee after attending the program?
+</li>
+<li>
+<span style="color:#bf00ff;"><b>Q4</b></span>-Is the employee CONFIDENT in applying the learnings from the program?
+</li>
+<li>
+<span style="color:#bf00ff;"><b>Q5</b></span>-Does the employee display COMMITMENT to utilize the learnings of the program?
+</li>
+<li>
+<span style="color:#bf00ff;"><b>Q6</b></span>-Is the employee keen to apply the learnings in his day-to-day tasks?
+</li>
+<li>
+<span style="color:#bf00ff;"><b>Q7</b></span>-Do you see an inclination of the participant towards more such training programs?
+</li>
+<li>
+<b>Q8</b>-Suggestions on how we can improve retention of learning.
+</li>
+<li>
+<b>Q9</b>-Comment on the change that the employee has undergone after attending the program.	
+</li>
+<li>
+<b>Q10</b>-Would you recommend extending this learning program to other members of your team? Give reason.
+</li>
+<li>
+<b>Q11</b>-Mention a Learning intervention you have undergone in BEL or other organization which in your view was very effective. If possible, share the below details.
+</li>
+
+</ul>
+</div>
+                    
+                    </td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="throbber" style="display:none;">
+<img src="https://bajajelect.sharepoint.com/sites/HR-TrainingManagementSystem/SiteAssets/AnugamStyles/img/712_1.gif" /><br/></br><h3><b style="color:#0072c6 !Important;font-size:32px">Please Wait...</b><h3></div>
+
+
+<script language="javascript" type="text/javascript">
+    $(document).ready(function () {
+    
+    			
+        PopulateProgramDropDown();
+    });
+    
+    function isCurrentUserMemberOfGroup(groupName) {
+    var userIsInGroup = false;
+    $.ajax({
+        async: false,
+        headers: { "accept": "application/json; odata=verbose" },
+        method: "GET",
+        url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/currentuser/groups",
+        success: function (data) {
+            data.d.results.forEach( function (value) {
+                if (value.Title == groupName) {               
+                     userIsInGroup = true;
+                }
+            });
+        },
+        error: function (response) {
+            console.log(response.status);
+        },
+    });    
+    return userIsInGroup;
+}
+
+
+
+    function PopulateProgramDropDown() {
+    
+  	    var isAdmin = isCurrentUserMemberOfGroup("L&D Functional Admin");
+  	    
+        var listName = "NewInductionProgram";
+        var url = _spPageContextInfo.webAbsoluteUrl;
+        var UserEmail = LoginUserEmail();
+        getProgram(isAdmin,UserEmail, listName, url, function (data) {
+        $.blockUI.defaults.css = {		
+											padding: 0,		
+								            margin: 0,		
+								            width: '30%',		
+								            top: '40%',		
+								            left: '35%',		
+								            textAlign: 'center',
+								            cursor: 'wait'};
+								            
+		       $.blockUI.defaults.overlayCSS.backgroundColor = '#fff';
+		       $.blockUI.defaults.overlayCSS.opacity = 0.9;
+		       $.blockUI.defaults.overlayCSS.cursor = 'pointer';
+
+
+		       $.blockUI({message: $('#throbber')});
+                
+                       setTimeout(function () {
+                       
+            var TodayDate = new Date();
+            var day = TodayDate.getDate();
+            var mm = TodayDate.getMonth() + 1;
+            var Year = TodayDate.getFullYear();
+            var items = data.d.results;
+            var pgmFinalData = []; var j = 0;
+            var arrPGM = [];
+            var arrPGMUnique = [];
+            for (var k = 0; k < items.length; k++) {
+                var ChkProgramEndDate = new Date(items[k].ProgramEndDate.split("/").reverse().join("-"));
+                //if (new Date(items[k].ProgramEndDate.split("/").reverse().join("-")) <= TodayDate || ChkProgramEndDate.setHours(0, 0, 0, 0) == TodayDate.setHours(0, 0, 0, 0)) {
+                    var NameProgram = items[k].ProgramName;
+                    var ChckCnclPgm = items[k].ProgramName;
+	                //var PrgrmCancellation = GetPgmCncld(ChckCnclPgm);
+	                //if(PrgrmCancellation != 'Yes')
+                	//{
+
+                    if (pgmFinalData[j++] != NameProgram) {
+                        pgmFinalData[j++] = NameProgram;
+                    }
+                    //}
+                //}
+            }
+            var uniqueProgramNames = '';
+            var result = [];
+            $.each(pgmFinalData, function (index, pgmFinalData) {
+                if ($.inArray(pgmFinalData, result) == -1) {
+                    result.push(pgmFinalData);
+                }
+            });
+            console.log(ChkProgramEndDate);
+            //var programBind = GroupByProgramData(pgmFinalData, 'ProgramName');
+            var inputElement = '<select id="ProgramNameDynDropDown" class="form-control"><option  value="">--Select Program--</option>';
+            // Add all the new items
+            for (var i = 0; i < result.length; i++) {
+                if (result[i] != undefined) {
+                    var itemId = result[i],
+                        itemVal = result[i];
+                    inputElement += '<option value="' + itemVal + '"selected>' + itemId + '</option>';
+                }
+            }
+            inputElement += '</select>';
+            $('#ddlProgramName').append(inputElement);
+            $("#ProgramNameDynDropDown").each(function () {
+                $('option', this).each(function () {
+                    if ($(this).text() == '--Select Program--') {
+                        $(this).attr('selected', 'selected')
+                    };
+                });
+            });
+            $("#ProgramNameDynDropDown").select2();
+            $('#ProgramNameDynDropDown').on('change', function () {
+                var selectedProgramName = $(this).val();
+                var UserEmailID = LoginUserEmail();
+                $("#divTotalProgramReport").empty();
+                $("#div_mng").show();
+                $("#thProgramName").empty();
+                $("#thProgramName").append(selectedProgramName);
+                $('.clearDataOnChange').find("tr:not(:first)").remove();
+                getTotlaUserEmployeeDetails(selectedProgramName);
+                    
+            });
+            
+                    $.unblockUI({
+                    onUnblock: function () {
+                        console.log('');
+                    }
+                });
+            }, 600);
+
+
+        }, function (data) {
+            alert("An error occured while getting ConfigParameters. Please try again");
+        });
+    }
+
+
+    function getProgram(isAdmin,UserEmail, listName, siteurl, success, failure) {
+	    if(!isAdmin)
+	    {
+        var urlTest = siteurl + "/_vti_bin/listdata.svc/" + listName + "?$filter=CreatedByUser eq %27" + UserEmail + "%27 and Status eq 'Active' and InductionProgram eq 'No' and FeedBackNeed eq 'Yes'&$orderby= Created desc";
+        }
+        else
+        {
+        var urlTest = siteurl + "/_vti_bin/listdata.svc/" + listName + "?$filter=Status eq 'Active' and InductionProgram eq 'No' and FeedBackNeed eq 'Yes'&$orderby= Created desc";
+        }
+        $.ajax({
+            url: urlTest,
+            method: "GET",
+            headers: { "Accept": "application/json; odata=verbose" },
+            success: function (data) {
+                success(data);
+            },
+            error: function (data) {
+                failure(data);
+            }
+        });
+    }
+    function GroupByProgramData(items, propertyName) {
+        var result = [];
+        $.each(items, function (index, item) {
+            if ($.inArray(item[propertyName], result) == -1) {
+                result.push(item[propertyName]);
+            }
+        });
+        return result;
+    }
+
+</script>
+<script>
+    function getOnlineFeedEmployeeDetails(selectedProgramName) {
+        var UserEmail = LoginUserEmail(); var pushOnlineFeedData = [];
+		
+		
+	    var InductionUndtRating = 0; var InductionValInfoRating = 0; var InductionQueriesRating = 0; var InductionTimeRating = 0; var InductionLocRating = 0; var InductionAmbRating = 0; 
+        var InductionFoodRating = 0; var InductionStayRating = 0; 
+        
+        var totalPersons = 0;
+        var InductionUndt1 = 0; var InductionUndt2 = 0; var InductionUndt3 = 0; var InductionUndt4 = 0;
+        var InductionValInfo1 = 0; var InductionValInfo2 = 0; var InductionValInfo3 = 0; var InductionValInfo4 = 0;
+        var InductionQueries1 = 0; var InductionQueries2 = 0; var InductionQueries3 = 0; var InductionQueries4 = 0;
+        var InductionTime1 = 0; var InductionTime2 = 0; var InductionTime3 = 0; var InductionTime4 = 0;
+        var InductionLoc1 = 0; var InductionLoc2 = 0; var InductionLoc3 = 0; var InductionLoc4 = 0;
+        var InductionAmb1 = 0; var InductionAmb2 = 0; var InductionAmb3 = 0; var InductionAmb4 = 0;
+        var InductionFood1 = 0; var InductionFood2 = 0; var InductionFood3 = 0; var InductionFood4 = 0;
+        var InductionStay1 = 0; var InductionStay2 = 0; var InductionStay3 = 0; var InductionStay4 = 0;
+
+        var SpeakerName = ''; var ProgramStartDate = ""; var ProgramEndDate = ""; var ProgramLocation = "";
+        var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_vti_bin/listdata.svc/InductionFeedback?$filter=ProgramName eq '" + selectedProgramName + "' and FeedbackStatus eq 'Completed'"; 
+        $.ajax({
+            url: RestUrl,
+            method: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+            },
+            success: function (d) {
+                var arr = [];
+                i = 0;
+                $.each(d.d.results, function (index, results) {
+                    arr[i++] = index;
+                });
+                totalPersons = arr.length;
+                var PgmContent
+                for (var k = 0; k < arr.length; k++) {
+                    var arrK = arr[k];
+                    if (d.d.results[arrK].ProgramName == selectedProgramName) {
+                        SpeakerName = d.d.results[arrK].SpeakerName;
+                        
+						temp=SpeakerName.split(",")
+						newArr=[]						
+						for(var i=0;i<temp.length;i++){
+						isIn=0
+						
+						for(var j=0;j<newArr.length;j++){
+						
+						if(temp[i]==newArr[j]){
+						isIn=1
+						}
+						}
+						
+						if(isIn==0){
+						newArr.push(temp[i])
+						}
+						}
+						
+						if(newArr.length > 0)
+						{
+						SpeakerName = newArr;
+						}
+						else
+						{
+						SpeakerName = "NA";
+						}
+
+                        ProgramStartDate = d.d.results[arrK].ProgramStartDate;
+                        ProgramEndDate = d.d.results[arrK].ProgramEndDate
+                        ProgramLocation = d.d.results[arrK].ProgramLocation;
+                        InductionUndtRating = d.d.results[arrK].InductionUndtRating;
+                        InductionValInfoRating = d.d.results[arrK].InductionValInfoRating;
+                        InductionQueriesRating = d.d.results[arrK].InductionQueriesRating;
+                        InductionTimeRating = d.d.results[arrK].InductionTimeRating;
+                        InductionLocRating = d.d.results[arrK].InductionLocRating;
+                        InductionAmbRating = d.d.results[arrK].InductionAmbRating;
+                        InductionFoodRating = d.d.results[arrK].InductionFoodRating;
+                        InductionStayRating = d.d.results[arrK].InductionStayRating;
+                        
+                        if (InductionUndtRating == 1 || InductionUndtRating == 2 || InductionUndtRating == 3 || InductionUndtRating == 4) {
+                            if (InductionUndtRating == 1) { InductionUndt1 = InductionUndt1 + 1 };
+                            if (InductionUndtRating == 2) { InductionUndt2 = InductionUndt2 + 1 };
+                            if (InductionUndtRating == 3) InductionUndt3 = InductionUndt3 + 1;
+                            if (InductionUndtRating == 4) InductionUndt4 = InductionUndt4 + 1;
+                        }
+                        if (InductionValInfoRating == 1 || InductionValInfoRating == 2 || InductionValInfoRating == 3 || InductionValInfoRating == 4) {
+                            if (InductionValInfoRating == 1) InductionValInfo1 = InductionValInfo1 + 1;
+                            if (InductionValInfoRating == 2) InductionValInfo2 = InductionValInfo2 + 1;
+                            if (InductionValInfoRating == 3) InductionValInfo3 = InductionValInfo3 + 1;
+                            if (InductionValInfoRating == 4) InductionValInfo4 = InductionValInfo4 + 1;
+                        }
+                        if (InductionQueriesRating == 1 || InductionQueriesRating == 2 || InductionQueriesRating == 3 || InductionQueriesRating == 4) {
+                            if (InductionQueriesRating == 1) InductionQueries1 = InductionQueries1 + 1;
+                            if (InductionQueriesRating == 2) InductionQueries2 = InductionQueries2 + 1;
+                            if (InductionQueriesRating == 3) InductionQueries3 = InductionQueries3 + 1;
+                            if (InductionQueriesRating == 4) InductionQueries4 = InductionQueries4 + 1;
+                        }
+                        if (InductionTimeRating == 1 || InductionTimeRating == 2 || InductionTimeRating == 3 || InductionTimeRating == 4) {
+                            if (InductionTimeRating == 1) InductionTime1 = InductionTime1 + 1;
+                            if (InductionTimeRating == 2) InductionTime2 = InductionTime2 + 1;
+                            if (InductionTimeRating == 3) InductionTime3 = InductionTime3 + 1;
+                            if (InductionTimeRating == 4) InductionTime4 = InductionTime4 + 1;
+                        }
+                        if (InductionLocRating == 1 || InductionLocRating == 2 || InductionLocRating == 3 || InductionLocRating == 4) {
+                            if (InductionLocRating == 1) InductionLoc1 = InductionLoc1 + 1;
+                            if (InductionLocRating == 2) InductionLoc2 = InductionLoc2 + 1;
+                            if (InductionLocRating == 3) InductionLoc3 = InductionLoc3 + 1;
+                            if (InductionLocRating == 4) InductionLoc4 = InductionLoc4 + 1;
+                        }
+                        if (InductionAmbRating == 1 || InductionAmbRating == 2 || InductionAmbRating == 3 || InductionAmbRating == 4) {
+                            if (InductionAmbRating == 1) InductionAmb1 = InductionAmb1 + 1;
+                            if (InductionAmbRating == 2) InductionAmb2 = InductionAmb2 + 1;
+                            if (InductionAmbRating == 3) InductionAmb3 = InductionAmb3 + 1;
+                            if (InductionAmbRating == 4) InductionAmb4 = InductionAmb4 + 1;
+                        }
+                        if (InductionFoodRating == 1 || InductionFoodRating == 2 || InductionFoodRating == 3 || InductionFoodRating == 4) {
+                            if (InductionFoodRating == 1) InductionFood1 = InductionFood1 + 1;
+                            if (InductionFoodRating == 2) InductionFood2 = InductionFood2 + 1;
+                            if (InductionFoodRating == 3) InductionFood3 = InductionFood3 + 1;
+                            if (InductionFoodRating == 4) InductionFood4 = InductionFood4 + 1;
+                        }
+                        if (InductionStayRating == 1 || InductionStayRating == 2 || InductionStayRating == 3 || InductionStayRating == 4) {
+                            if (InductionStayRating == 1) InductionStay1 = InductionStay1 + 1;
+                            if (InductionStayRating == 2) InductionStay2 = InductionStay2 + 1;
+                            if (InductionStayRating == 3) InductionStay3 = InductionStay3 + 1;
+                            if (InductionStayRating == 4) InductionStay4 = InductionStay4 + 1;
+                        }
+                                                
+                    }
+                }
+                if (InductionUndtRating != 0 && InductionValInfoRating != 0 && InductionQueriesRating != 0 && InductionTimeRating != 0 && InductionLocRating != 0
+                    && InductionAmbRating != 0 && InductionFoodRating != 0 && InductionStayRating != 0) {
+                    pushOnlineFeedData.push({
+                        InductionUndt1: InductionUndt1, InductionUndt2 : InductionUndt2, InductionUndt3 : InductionUndt3 , InductionUndt4 : InductionUndt4 ,
+                        InductionValInfo1 : InductionValInfo1 , InductionValInfo2 : InductionValInfo2 , InductionValInfo3 : InductionValInfo3 , InductionValInfo4 : InductionValInfo4,
+                        InductionQueries1 : InductionQueries1 , InductionQueries2 : InductionQueries2 , InductionQueries3 : InductionQueries3 , InductionQueries4 : InductionQueries4,
+                        InductionTime1: InductionTime1, InductionTime2: InductionTime2, InductionTime3: InductionTime3, InductionTime4: InductionTime4,
+                        InductionLoc1: InductionLoc1, InductionLoc2: InductionLoc2, InductionLoc3: InductionLoc3, InductionLoc4: InductionLoc4,
+                        InductionAmb1: InductionAmb1, InductionAmb2: InductionAmb2, InductionAmb3: InductionAmb3, InductionAmb4: InductionAmb4,
+                        InductionFood1: InductionFood1, InductionFood2: InductionFood2, InductionFood3: InductionFood3, InductionFood4: InductionFood4,
+                        InductionStay1: InductionStay1, InductionStay2: InductionStay2, InductionStay3: InductionStay3, InductionStay4: InductionStay4,
+                        SpeakerName: SpeakerName, ProgramStartDate: ProgramStartDate,
+                        ProgramEndDate: ProgramEndDate, ProgramLocation: ProgramLocation, totalPersons: totalPersons
+                    });
+                }
+            },
+            error: function (data) {
+                $('#divTotalProgramReport').append("<span>Error Retreiving Records. Error : " + JSON.stringify(data) + "</span>")
+            }
+        });
+        return pushOnlineFeedData;
+    }
+    
+    function getParticipantsInvited(ProgramName) {
+        var Invited;
+        var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('Invitation')/items?$filter=ProgramName%20eq%20%27" + ProgramName + "%27 and Confirmation eq 'Yes'";
+        $.ajax({
+            url: RestUrl,
+            method: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+            },
+            success: function (d) {
+                if (d.d.results.length > 0) {
+                    Invited = d.d.results.length;
+                }
+                else {
+                    Invited = 0;
+                }
+
+            },
+            error: function (err) {
+                alert(JSON.stringify(err));
+            }
+        });
+        return Invited;
+    }
+
+    function getTotlaUserEmployeeDetails(selectedProgramName) {
+    
+    
+     $.blockUI.defaults.css = {		
+											padding: 0,		
+								            margin: 0,		
+								            width: '30%',		
+								            top: '40%',		
+								            left: '35%',		
+								            textAlign: 'center',
+								            cursor: 'wait'};
+								            
+		       $.blockUI.defaults.overlayCSS.backgroundColor = '#fff';
+		       $.blockUI.defaults.overlayCSS.opacity = 0.9;
+		       $.blockUI.defaults.overlayCSS.cursor = 'pointer';
+
+
+		       $.blockUI({message: $('#throbber')});
+                
+                       setTimeout(function () {
+
+
+        var UserEmail = LoginUserEmail();
+        
+        var AttitudnlRating = 0; var knwldgRating = 0; var SkillsRating = 0; var ConfidentRating = 0; var CommitmntRating = 0; var LearningRating = 0; 
+        var InclinationRating = 0;
+        
+        var totalPersons = 0;
+        var totalparticipant = 0;
+        var Attitudnl1 = 0; var Attitudnl2 = 0; var Attitudnl3 = 0; var Attitudnl4 = 0;
+        var knwldg1 = 0; var knwldg2 = 0; var knwldg3 = 0; var knwldg4 = 0;
+        var Skills1 = 0; var Skills2 = 0; var Skills3 = 0; var Skills4 = 0;
+        var Confident1 = 0; var Confident2 = 0; var Confident3 = 0; var Confident4 = 0;
+        var Commitmnt1 = 0; var Commitmnt2 = 0; var Commitmnt3 = 0; var Commitmnt4 = 0;
+        var Learning1 = 0; var Learning2 = 0; var Learning3 = 0; var Learning4 = 0;
+        var Inclination1 = 0; var Inclination2 = 0; var Inclination3 = 0; var Inclination4 = 0;
+        
+        $('#tr_expexcel').show();
+        var ProgramName_1 = $("#ProgramNameDynDropDown").children("option").filter(":selected").text();
+          getBindData(ProgramName_1);
+
+
+        var SpeakerName = ''; var ProgramStartDate = ""; var ProgramEndDate = ""; var ProgramLocation = "";
+        
+        
+        
+        var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_vti_bin/listdata.svc/ManagerFeedback?$filter=ProgramName eq '" + selectedProgramName + "' and FeedbackStatus eq 'Completed'";
+        $.ajax({
+            url: RestUrl,
+            method: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+            },
+            success: function (d) {
+                var arr = [];
+                i = 0;
+                $.each(d.d.results, function (index, results) {
+                    arr[i++] = index;
+                });
+                totalPersons = arr.length;
+                var PgmContent
+                for (var k = 0; k < arr.length; k++) {
+                    var arrK = arr[k];
+                    if (d.d.results[arrK].ProgramName == selectedProgramName) {
+                        SpeakerName = d.d.results[arrK].SpeakerName;
+                        
+                        temp=SpeakerName.split(",")
+						newArr=[]						
+						for(var i=0;i<temp.length;i++){
+						isIn=0
+						
+						for(var j=0;j<newArr.length;j++){
+						
+						if(temp[i]==newArr[j]){
+						isIn=1
+						}
+						}
+						
+						if(isIn==0){
+						newArr.push(temp[i])
+						}
+						}
+						
+						if(newArr.length > 0)
+						{
+						SpeakerName = newArr;
+						}
+						else
+						{
+						SpeakerName = "NA";
+						}
+						
+                        ProgramStartDate = d.d.results[arrK].ProgramStartDate;
+                        ProgramEndDate = d.d.results[arrK].ProgramEndDate
+                        ProgramLocation = d.d.results[arrK].ProgramLocation;
+                        
+                        AttitudnlRating = d.d.results[arrK].AttitudnlRating;
+                        knwldgRating = d.d.results[arrK].KnwldgRating;
+                        SkillsRating = d.d.results[arrK].SkillsRating;
+                        ConfidentRating = d.d.results[arrK].ConfidentRating;
+                        CommitmntRating = d.d.results[arrK].CommitmntRating;
+                        LearningRating = d.d.results[arrK].LearningRating;
+                        InclinationRating = d.d.results[arrK].InclinationRating;
+                        
+                        if (AttitudnlRating == 1 || AttitudnlRating == 2 || AttitudnlRating == 3 || AttitudnlRating == 4) {
+                            if (AttitudnlRating == 1) { Attitudnl1 = Attitudnl1 + 1 };
+                            if (AttitudnlRating == 2) { Attitudnl2 = Attitudnl2 + 1 };
+                            if (AttitudnlRating == 3) Attitudnl3 = Attitudnl3 + 1;
+                            if (AttitudnlRating == 4) Attitudnl4 = Attitudnl4 + 1;
+                        }
+                        if (knwldgRating == 1 || knwldgRating == 2 || knwldgRating == 3 || knwldgRating == 4) {
+                            if (knwldgRating == 1) knwldg1 = knwldg1 + 1;
+                            if (knwldgRating == 2) knwldg2 = knwldg2 + 1;
+                            if (knwldgRating == 3) knwldg3 = knwldg3 + 1;
+                            if (knwldgRating == 4) knwldg4 = knwldg4 + 1;
+                        }
+                        if (SkillsRating == 1 || SkillsRating == 2 || SkillsRating == 3 || SkillsRating == 4) {
+                            if (SkillsRating == 1) Skills1 = Skills1 + 1;
+                            if (SkillsRating == 2) Skills2 = Skills2 + 1;
+                            if (SkillsRating == 3) Skills3 = Skills3 + 1;
+                            if (SkillsRating == 4) Skills4 = Skills4 + 1;
+                        }
+                        if (ConfidentRating == 1 || ConfidentRating == 2 || ConfidentRating == 3 || ConfidentRating == 4) {
+                            if (ConfidentRating == 1) Confident1 = Confident1 + 1;
+                            if (ConfidentRating == 2) Confident2 = Confident2 + 1;
+                            if (ConfidentRating == 3) Confident3 = Confident3 + 1;
+                            if (ConfidentRating == 4) Confident4 = Confident4 + 1;
+                        }
+                        if (CommitmntRating == 1 || CommitmntRating== 2 || CommitmntRating == 3 || CommitmntRating == 4) {
+                            if (CommitmntRating == 1) Commitmnt1 = Commitmnt1 + 1;
+                            if (CommitmntRating == 2) Commitmnt2 = Commitmnt2 + 1;
+                            if (CommitmntRating == 3) Commitmnt3 = Commitmnt3 + 1;
+                            if (CommitmntRating == 4) Commitmnt4 = Commitmnt4 + 1;
+                        }
+                        if (LearningRating == 1 || LearningRating == 2 || LearningRating == 3 || LearningRating == 4) {
+                            if (LearningRating == 1) Learning1 = Learning1 + 1;
+                            if (LearningRating == 2) Learning2 = Learning2 + 1;
+                            if (LearningRating == 3) Learning3 = Learning3 + 1;
+                            if (LearningRating == 4) Learning4 = Learning4 + 1;
+                        }
+                        if (InclinationRating == 1 || InclinationRating == 2 || InclinationRating == 3 || InclinationRating == 4) {
+                            if (InclinationRating == 1) Inclination1 = Inclination1 + 1;
+                            if (InclinationRating == 2) Inclination2 = Inclination2 + 1;
+                            if (InclinationRating == 3) Inclination3 = Inclination3 + 1;
+                            if (InclinationRating == 4) Inclination4 = Inclination4 + 1;
+                        }
+
+                    }
+                }
+                var getProgramWeightAge = OVerAllFeedbackWeightAge(selectedProgramName);
+                //var OnlineData = getOnlineFeedEmployeeDetails(selectedProgramName);
+                totalparticipant = getParticipantsInvited(selectedProgramName);
+                var totlaCheck = 0;
+                if (AttitudnlRating != '' && AttitudnlRating != null) {
+                    if (getProgramWeightAge.length > 0) {
+                        totlaCheck = totlaCheck + 1;
+                        
+                        //var onLinetotalPersons = OnlineData[0].totalPersons;
+                        var totalusr = totalPersons;
+                        
+                        var KSASummary = getProgramWeightAge[0].KSASummary * AttitudnlRating + getProgramWeightAge[0].KSASummary * knwldgRating + getProgramWeightAge[0].KSASummary * knwldgRating;
+                        
+                        var AttitudnlAvg = (((Attitudnl1 * 1 * getProgramWeightAge[0].attitudinal) / 4) + ((Attitudnl2 * 2 * getProgramWeightAge[0].attitudinal) / 4)
+                            + ((Attitudnl3 * 3 * getProgramWeightAge[0].attitudinal) / 4) + ((Attitudnl4 * getProgramWeightAge[0].attitudinal)));
+                        var knwldgavg = (((knwldg1 * 1 * getProgramWeightAge[0].Knowledge) / 4) + ((knwldg2 * 2 * getProgramWeightAge[0].Knowledge) / 4)
+                            + ((knwldg3 * 3 * getProgramWeightAge[0].Knowledge) / 4) + ((knwldg4  * getProgramWeightAge[0].Knowledge)));
+                        var skillsAvg = (((Skills1 * 1 * getProgramWeightAge[0].skills) / 4) + ((Skills2 * 2 * getProgramWeightAge[0].skills) / 4)
+                            + ((Skills3 * 3 * getProgramWeightAge[0].skills) / 4) + ((Skills4 * getProgramWeightAge[0].skills)));
+                            
+
+                        var avgKSASummary = (AttitudnlAvg + knwldgavg + skillsAvg) / totalPersons;
+
+                        var ConfidentAvg = (((Confident1 * 1 * getProgramWeightAge[0].confident) / 4) + ((Confident2 * 2 * getProgramWeightAge[0].confident) / 4)
+                            + ((Confident3 * 3 * getProgramWeightAge[0].confident) / 4) + ((Confident4 * getProgramWeightAge[0].confident)));
+                        var CommitmntAvg = (((Commitmnt1 * 1 * getProgramWeightAge[0].commitment) / 4) + ((Commitmnt2 * 2 * getProgramWeightAge[0].commitment) / 4)
+                            + ((Commitmnt3 * 3 * getProgramWeightAge[0].commitment) / 4) + ((Commitmnt4 * getProgramWeightAge[0].commitment)));
+                        var LearningAvg = (((Learning1 * 1 * getProgramWeightAge[0].learning) / 4) + ((Learning2 * 2 * getProgramWeightAge[0].learning) / 4)
+                            + ((Learning3 * 3 * getProgramWeightAge[0].learning) / 4) + ((Learning4 * getProgramWeightAge[0].learning)));
+                        var InclinationAvg = (((Inclination1 * 1 * getProgramWeightAge[0].inclination) / 4) + ((Inclination2 * 2 * getProgramWeightAge[0].inclination) / 4)
+                            + ((Inclination3 * 3 * getProgramWeightAge[0].inclination) / 4) + ((Inclination4 * getProgramWeightAge[0].inclination)));
+                            
+
+                        var avgAppLrnSummary  = (ConfidentAvg + CommitmntAvg + LearningAvg + InclinationAvg) / totalPersons;
+                        
+      
+                        var KSASummaryAvg = ((avgKSASummary * 100) / getProgramWeightAge[0].KSASummary).toFixed(2);
+
+                        var AppLrnSummaryAvg = ((avgAppLrnSummary * 100) / getProgramWeightAge[0].LearningSummary).toFixed(2);
+
+                        var totalRating = avgKSASummary + avgAppLrnSummary;
+                        var totalsWeight = getProgramWeightAge[0].KSASummary + getProgramWeightAge[0].LearningSummary;
+
+                        var FinalTotal = totalPersons;
+                        $('#tbodyProgramDetails').append("<tr><td><b>No of participants</b></td><td>" + totalparticipant + "</td><td>" + ProgramStartDate + "</td><td>" + ProgramEndDate + "</td></tr>"
+                                                              + "<tr><td><b>Faculty Name</b></td><td>" + SpeakerName + "</td><td><b>Location</b></td><td>" + ProgramLocation + "</td></tr>"
+                                                              + "<tr><td><b>No. of Manager Feedback</b></td><td>" + FinalTotal  + "</td></tr>");
+						
+						
+                        $('#tbodyProgramWeightAge').append("<tr><td style='color:#ff8000;'>1. Enhancement of KSA</td><td><b>" + avgKSASummary.toFixed(2) + "</b></td><td><b>" + ((avgKSASummary.toFixed(2) * 100) / getProgramWeightAge[0].KSASummary).toFixed(2) + "</b></td></tr>"
+                            + "<tr><td style='color:#bf00ff;'>2. Application of learnings</td><td><b>" + avgAppLrnSummary.toFixed(2) + "</b></td><td><b>" + ((avgAppLrnSummary.toFixed(2) * 100) / getProgramWeightAge[0].LearningSummary).toFixed(2) + "</b></td></tr>"
+                            + "<tr><td><b>Feedback Score</b></td><td><b>" + totalRating.toFixed(2) + "</b></td></tr>");
+                        $('#btntotalProgramReport').show();
+
+                    }
+                }                
+                 if(getProgramWeightAge.length == 0 && AttitudnlRating == 0)
+                {
+                	$("#div_mng").hide();
+                	$("#div_Qs").hide();
+	                alert('No records found');
+	                window.location.reload();
+                }
+
+            },
+            error: function (data) {
+                $('#divTotalProgramReport').append("<span>Error Retreiving Records. Error : " + JSON.stringify(data) + "</span>")
+            }
+        });
+        
+         $.unblockUI({
+                    onUnblock: function () {
+                        console.log('');
+                    }
+                });
+            }, 600);
+
+    }
+
+
+</script>
+<script>
+    var currentuserEmailID = "";
+    function LoginUserEmail() {
+        $.ajax({
+            async: false,
+            url: _spPageContextInfo.webServerRelativeUrl +
+                 "//_api/SP.UserProfiles.PeopleManager/GetMyProperties?$select=email",
+            method: "GET",
+            headers: {
+                "accept": "application/json;odata=verbose"
+            },
+            success: function (d) {
+                currentuserEmailID = d.d.Email;
+
+            },
+            error: function (err) {
+                alert(JSON.stringify(err));
+            }
+        });
+        return currentuserEmailID;
+    }
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var ProgramName = $('#ddlProgramName').val();
+        $("#btntotalProgramReport").click(function () {
+            $('#tblFinalReport').show();
+            $('#div_Qs').show();
+            $('.dataTables_length,.dataTables_filter,.dataTables_info,.dataTables_paginate').remove();
+            $("#tblFinalReport").battatech_excelexport({
+                containerid: "tblFinalReport"
+                , datatype: 'table'
+                , worksheetName: ProgramName + ' ' + ' Manager Feedback Report'
+            });
+        });
+    });
+</script>
+<script>
+    function OVerAllFeedbackWeightAge(ProgramName) {
+        var getOVerAllFeedbackWeightAge = [];
+        var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('ManagerOverallWeightAge')/items?$filter=ProgramName eq '" + ProgramName + "'";
+        $.ajax({
+            url: RestUrl,
+            method: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+            },
+            success: function (d) {
+                var arr = [];
+                i = 0;
+                $.each(d.d.results, function (index, results) {
+                    arr[i++] = index;
+                });
+                MISUsers = [];
+                for (var k = 0; k < arr.length; k++) {
+                    var arrK = arr[k];
+                    var attitudinal = d.d.results[arrK].attitudinal;
+                    var Knowledge = d.d.results[arrK].Knowledge;
+                    var skills = d.d.results[arrK].skills;
+                    var confident = d.d.results[arrK].confident;
+                    var commitment = d.d.results[arrK].commitment;
+                    var learning = d.d.results[arrK].learning;
+                    var inclination = d.d.results[arrK].inclination;
+
+                    var KSASummary = d.d.results[arrK].KSASummary;
+                    var LearningSummary = d.d.results[arrK].LearningSummary;
+                    
+                    getOVerAllFeedbackWeightAge.push({
+                        attitudinal: attitudinal,
+                        Knowledge: Knowledge,
+                        skills: skills,
+                        confident: confident,
+                        commitment: commitment,
+                        learning: learning,
+                        inclination: inclination,                      
+
+                        KSASummary: KSASummary,
+                        LearningSummary: LearningSummary
+                    });
+                }
+            },
+            error: function () { console.log('fail'); }
+        });
+        return getOVerAllFeedbackWeightAge;
+    }
+    
+    function GetPgmCncld(ChckCnclPgm) {
+     
+        var IsProgramCancelled = "";
+
+        var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('ProgramMaster')/items?$filter=Title%20eq%20%27" + ChckCnclPgm + "%27";
+        $.ajax({
+            url: RestUrl,
+            method: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+            },
+            success: function (d) {
+                  if (d.d.results.length > 0) {
+                  var arr = [];
+                  i = 0;
+                  $.each(d.d.results, function (index, results) {
+                  arr[i++] = index;
+                  });
+	              for (var k = 0; k < arr.length; k++) {
+	              var arrK = arr[k];
+				  IsProgramCancelled = d.d.results[arrK].IsProgramCancelled;
+	              }
+                }
+                else
+                {
+                IsProgramCancelled = 0;
+               }
+            },
+            error: function () { console.log('fail'); }
+        });
+        return IsProgramCancelled;
+    }
+</script>
+
+<script>
+function getBindData(ProgramName_1) {
+        //$("#tblFeedBackSpeakerBind").html("");
+        jQuery.ajax({
+            url: _spPageContextInfo.webAbsoluteUrl + "//_api/web/lists/getbytitle('ManagerFeedback')/items?$filter=ProgramName eq %27" + ProgramName_1 + "%27&$orderby=ID%20desc",
+            type: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+                "content-type": "application/json;odata=verbose",
+                "X-RequestDigest": $("#__REQUESTDIGEST").val()
+            },
+            success: function (d) {
+                var arr = [];
+                i = 0;
+                $.each(d.d.results, function (index, results) {
+                    if (results.Status == "Active") {
+                        arr[i++] = index;
+                    }
+                });
+                for (var j = 0; j < arr.length; j++) {
+                    var arrConfigK = arr[j];
+                    var index = parseInt(j + 1);
+
+                    var ProgramName = d.d.results[arrConfigK].ProgramName;
+                    
+                    var ReportingName = d.d.results[arrConfigK].ReportingName;
+                    var ReportingECode = d.d.results[arrConfigK].ReportingECode;
+                      
+                    var EmployeeName = d.d.results[arrConfigK].EmployeeName;
+                    var EmployeeCode = d.d.results[arrConfigK].EmployeeCode;
+                    
+                    var Attitudnl = d.d.results[arrConfigK].Attitudnl;
+                    var knwldg = d.d.results[arrConfigK].knwldg;
+                    var Skills = d.d.results[arrConfigK].Skills;
+                    var Confident = d.d.results[arrConfigK].Confident;
+                    var Commitmnt = d.d.results[arrConfigK].Commitmnt;
+                    var Learning = d.d.results[arrConfigK].Learning;
+                    var Inclination = d.d.results[arrConfigK].Inclination;
+                    
+                    var Suggestions = d.d.results[arrConfigK].Suggestions;
+                    var EmpChanges = d.d.results[arrConfigK].EmpChanges;
+                    var Recommendations = d.d.results[arrConfigK].Recommendations;
+                    
+                    var MngPgmName = d.d.results[arrConfigK].MngPgmName;
+                    var MngTrnName = d.d.results[arrConfigK].MngTrnName;
+                    var MngTrnOrg = d.d.results[arrConfigK].MngTrnOrg;
+					
+					var mng_details = "Program Name : " + MngPgmName + "Trainer Name : " + MngTrnName + " Organization : " + MngTrnOrg;
+                    
+                    $("#Div_17").append("<tr><td>" + ReportingName + "</td><td>" + EmployeeName + "</td><td >" + EmployeeCode + "</td><td>" + Attitudnl + "</td><td>" + knwldg + "</td><td>" + Skills + "</td><td>" + Confident + "</td><td>" + Commitmnt + "</td><td>" + Learning + "</td><td>" + Inclination + "</td><td data-toggle='tooltip' style='max-width:150px;'  title='"+ Suggestions +"'>" + Suggestions + "</td><td data-toggle='tooltip' style='max-width:150px;'  title='"+ EmpChanges +"'>" + EmpChanges + "</td><td data-toggle='tooltip' style='max-width:150px;'  title='"+ Recommendations +"'>" + Recommendations + "</td><td data-toggle='tooltip' style='max-width:150px;'  title='"+ mng_details +"'>" + mng_details + "</td></tr>");
+                }
+                
+            },
+            error: function () { console.log('fail'); }
+        });
+    }
+
+</script>

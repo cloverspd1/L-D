@@ -1,0 +1,299 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="/sites/AnugamUAT/SiteAssets/AnugamStyles/css/main.css" rel="stylesheet">
+<link href="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datatable/css/dataTables.bootstrap.min.css"
+      rel="stylesheet">
+<link href="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datatable/css/responsive.bootstrap.min.css"
+      rel="stylesheet">
+<link href="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datatable/css/responsive.bootstrap.min.css"
+      rel="stylesheet">
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+<div>
+
+    <div class="col-md-12">
+        <div class="col-md-12 padding-0 margin-top-15">
+            <div class="col-md-12">
+                <label>
+                    Current Program Details
+                </label>
+            </div>
+            <div class="col-md-12">
+                <table id="tableActivity" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                Program Name
+                            </th>
+                            <th>
+                                Start Date
+                            </th>
+                            <th>
+                                End Date
+                            </th>
+                            <th>
+                                Created Date
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="tblConfigParametersBind"></tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-12 padding-0 margin-top-15">
+            <div class="col-md-12">
+                <label>
+                    Completed Program Details
+                </label>
+            </div>
+            <div class="col-md-12">
+                <table id="tableCompletedProgram" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                Program Name
+                            </th>
+                            <th>
+                                Start Date
+                            </th>
+                            <th>
+                                End Date
+                            </th>
+                            <th>
+                                Created Date
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="tblCompletedProgram"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datatable/js/jquery.dataTables.min.js"></script>
+<script src="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datatable/js/dataTables.bootstrap.min.js"></script>
+<script src="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datatable/js/dataTables.responsive.min.js"></script>
+<script src="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datatable/js/responsive.bootstrap.js"></script>
+<script src="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datatable/js/datatables.scroller.min.js"></script>
+<script src="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datepicker/js/moment.min.js"></script>
+<script src="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datepicker/js/daterangepicker.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.js"></script>
+<!-- Datatables -->
+
+<script>
+    var currentuserEmailID = "";
+    function LoginUserEmail() {
+
+        $.ajax({
+            async: false,
+            url: _spPageContextInfo.webServerRelativeUrl +
+                 "//_api/SP.UserProfiles.PeopleManager/GetMyProperties?$select=email",
+            method: "GET",
+            headers: {
+                "accept": "application/json;odata=verbose"
+            },
+            success: function (d) {
+                currentuserEmailID = d.d.Email;
+
+            },
+            error: function (err) {
+                alert(JSON.stringify(err));
+            }
+        });
+        return currentuserEmailID;
+    }
+
+</script>
+<script>
+    var CurrentUserEmail = LoginUserEmail();
+    jQuery.ajax({
+        url: _spPageContextInfo.webAbsoluteUrl + "//_api/web/lists/getbytitle('NewInductionProgram')/items",
+        type: "GET",
+        headers: {
+            "accept": "application/json;odata=verbose",
+            "content-type": "application/json;odata=verbose",
+            "X-RequestDigest": $("#__REQUESTDIGEST").val()
+        },
+        success: function (d) {
+            var arr = []; var arrSaveAsDrat = [];
+            i = 0; arrS = 0;
+            $.each(d.d.results, function (index, results) {
+                var ProgramEndDate = results.ProgramEndDate;
+                var ChkProgramEndDate = new Date(ProgramEndDate.split("/").reverse().join("-"));
+                var GetDate = new Date();
+                var ccDate = GetDate.setHours(0, 0, 0);
+                var Final = new Date(ccDate);
+                //|| ChkProgramEndDate.setHours(0, 0, 0, 0) == GetDate.setHours(0, 0, 0, 0)
+                if (ChkProgramEndDate >= Final) {
+                    if (results.Status == "Active" || results.Status == "SaveAsDraft") {
+                        arr[i++] = index;
+                    }
+                }
+                //if (results.Status == "SaveAsDraft" && ChkProgramEndDate >= Final) {
+                //    arrSaveAsDrat[arrS++] = index;
+                //}
+            });
+            var duplocateProgram = '';
+            var i = 1;
+            for (var j = 0; j < arr.length; j++) {
+                var arrConfigK = arr[j];
+                if (duplocateProgram != d.d.results[arrConfigK].ProgramName) {
+
+                    duplocateProgram = d.d.results[arrConfigK].ProgramName;
+
+                    var index = parseInt(i);
+                    var ProgramName = d.d.results[arrConfigK].ProgramName;
+                    var ProgramSdate = d.d.results[arrConfigK].ProgramStartDate;
+                    var ProgramEdate = d.d.results[arrConfigK].ProgramEndDate;
+                    var ProgramCreatedDate = d.d.results[arrConfigK].CreatedDateCal;
+                    var ActivityID = d.d.results[arrConfigK].ID;
+                    $("#tblConfigParametersBind").append("<tr><td>" + ProgramName + "</td><td>" + ProgramSdate + "</td><td>" + ProgramEdate + "</td><td>" + ProgramCreatedDate + "</td></tr>");
+                    i++;
+                }
+            }
+            //var dsaveDraftuplocateProgram = '';
+            //var k = 1;
+            //for (var j = 0; j < arrSaveAsDrat.length; j++) {
+            //    var arrConfigK = arrSaveAsDrat[j];
+            //    if (dsaveDraftuplocateProgram != d.d.results[arrConfigK].ProgramName) {
+
+            //        dsaveDraftuplocateProgram = d.d.results[arrConfigK].ProgramName;
+
+            //        var index = parseInt(i);
+            //        var ProgramName = d.d.results[arrConfigK].ProgramName;
+            //        var ProgramSdate = d.d.results[arrConfigK].ProgramStartDate;
+            //        var ProgramEdate = d.d.results[arrConfigK].ProgramEndDate;
+            //        var ProgramCreatedDate = d.d.results[arrConfigK].CreatedDateCal;
+            //        var ActivityID = d.d.results[arrConfigK].ID;
+            //        $("#tblConfigParametersBind").append("<tr><td>" + ProgramName + "</td><td>" + ProgramSdate + "</td><td>" + ProgramEdate + "</td><td>" + ProgramCreatedDate + "</td></tr>");
+            //        k++;
+            //    }
+            //}
+        },
+        error: function () { console.log('fail'); }
+    });
+</script>
+
+<script>
+    var CurrentUserEmail = LoginUserEmail();
+    jQuery.ajax({
+        url: _spPageContextInfo.webAbsoluteUrl + "//_api/web/lists/getbytitle('NewInductionProgram')/items",
+        type: "GET",
+        headers: {
+            "accept": "application/json;odata=verbose",
+            "content-type": "application/json;odata=verbose",
+            "X-RequestDigest": $("#__REQUESTDIGEST").val()
+        },
+        success: function (d) {
+            var arr = []; var arrSaveAsDrat = [];
+            i = 0; arrS = 0;
+            $.each(d.d.results, function (index, results) {
+                var ProgramEndDate = results.ProgramEndDate;
+                var ChkProgramEndDate = new Date(ProgramEndDate.split("/").reverse().join("-"));
+                var GetDate = new Date();
+                if (ChkProgramEndDate < GetDate && ChkProgramEndDate.setHours(0, 0, 0, 0) != GetDate.setHours(0, 0, 0, 0)) {
+                    if (results.Status == "Active") {
+
+                        arr[i++] = index;
+                    }
+                }
+                //if (results.Status == "SaveAsDraft" && ChkProgramEndDate < GetDate && ChkProgramEndDate.setHours(0, 0, 0, 0) != GetDate.setHours(0, 0, 0, 0)) {
+
+                //    arrSaveAsDrat[arrS++] = index;
+
+                //}
+            });
+            var duplocateProgram = '';
+            var i = 1;
+            for (var j = 0; j < arr.length; j++) {
+                var arrConfigK = arr[j];
+                if (duplocateProgram != d.d.results[arrConfigK].ProgramName) {
+
+                    duplocateProgram = d.d.results[arrConfigK].ProgramName;
+
+                    var index = parseInt(i);
+                    var ProgramName = d.d.results[arrConfigK].ProgramName;
+                    var ProgramSdate = d.d.results[arrConfigK].ProgramStartDate;
+                    var ProgramEdate = d.d.results[arrConfigK].ProgramEndDate;
+                    var ProgramCreatedDate = d.d.results[arrConfigK].CreatedDateCal;
+                    var ActivityID = d.d.results[arrConfigK].ID;
+                    $("#tblCompletedProgram").append("<tr><td>" + ProgramName + "</td><td>" + ProgramSdate + "</td><td>" + ProgramEdate + "</td><td>" + ProgramCreatedDate + "</td></tr>");
+                    i++;
+                }
+            }
+            //var saveAsDrftduplocateProgram = '';
+            //var k = 1;
+            //for (var j = 0; j < arrSaveAsDrat.length; j++) {
+            //    var arrConfigK = arrSaveAsDrat[j];
+            //    if (duplocateProgram != d.d.results[arrConfigK].ProgramName) {
+
+            //        duplocateProgram = d.d.results[arrConfigK].ProgramName;
+
+            //        var index = parseInt(i);
+            //        var ProgramName = d.d.results[arrConfigK].ProgramName;
+            //        var ProgramSdate = d.d.results[arrConfigK].ProgramStartDate;
+            //        var ProgramEdate = d.d.results[arrConfigK].ProgramEndDate;
+            //        var ProgramCreatedDate = d.d.results[arrConfigK].CreatedDateCal;
+            //        var ActivityID = d.d.results[arrConfigK].ID;
+            //        $("#tblCompletedProgram").append("<tr><td>" + ProgramName + "</td><td>" + ProgramSdate + "</td><td>" + ProgramEdate + "</td><td>" + ProgramCreatedDate + "</td></tr>");
+            //        k++;
+            //    }
+            //}
+            $('[data-View]').click(function () {
+                ProgramName = $(this).data('val');
+                $('#myProgramActivities').modal('show');
+                $('#txtProgramName').val('');
+                $('#txtProgramLocation').val('');
+                $('#txtProgramEndDate').val('');
+                $('#txtProgramStartDate').val('');
+                $.ajax({
+                    async: false,
+                    url: _spPageContextInfo.webAbsoluteUrl + "//_api/web/lists/getbytitle('NewInductionProgram')/items?filter=ProgramName eq %27" + ProgramName + "%27",
+                    type: "GET",
+                    headers: {
+                        "accept": "application/json;odata=verbose",
+                        "content-type": "application/json;odata=verbose",
+                        "X-RequestDigest": $("#__REQUESTDIGEST").val()
+                    },
+                    success: function (d) {
+                        var arr = [];
+                        i = 0;
+                        $.each(d.d.results, function (index, results) {
+                            if (results.Status == "Active" && results.ProgramName == ProgramName) {
+                                arr[i++] = index;
+                            }
+                        });
+                        $("#tblProgramActvitiesBind").empty();
+                        for (var k = 0; k < arr.length; k++) {
+                            var arrConfigK = arr[k];
+
+                            $('#txtProgramName').val(d.d.results[arrConfigK].ProgramName);
+                            $('#txtProgramStartDate').val(d.d.results[arrConfigK].ProgramStartDate);
+                            $('#txtProgramEndDate').val(d.d.results[arrConfigK].ProgramEndDate);
+                            $('#txtProgramLocation').val(d.d.results[arrConfigK].ProgramLocation);
+
+
+                            var ActivityName = d.d.results[arrConfigK].ActivityName;
+                            var Duration = d.d.results[arrConfigK].ActivityDuration;
+                            var StartDate = d.d.results[arrConfigK].ActivityStartDate;
+                            var EndDate = d.d.results[arrConfigK].ActivityEndDate;
+                            $("#tblProgramActvitiesBind").append("<tr><td>" + ActivityName + "</td><td>" + Duration + "</td><td id='actStartDate'>" + StartDate + "</td><td id='actEndDate'>" + EndDate + "</td></tr>");
+                        }
+                    },
+                    error: function () { console.log('fail'); }
+                });
+
+            });
+
+        },
+        error: function () { console.log('fail'); }
+    });
+</script>

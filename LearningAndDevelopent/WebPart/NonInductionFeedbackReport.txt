@@ -1,0 +1,1632 @@
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datatable/js/jquery.dataTables.min.js"></script>
+<script src="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datatable/js/dataTables.bootstrap.min.js"></script>
+<script src="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datatable/js/dataTables.responsive.min.js"></script>
+<script src="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datatable/js/responsive.bootstrap.js"></script>
+<script src="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datatable/js/datatables.scroller.min.js"></script>
+<script src="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datepicker/js/moment.min.js"></script>
+<script src="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datepicker/js/daterangepicker.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.js"></script>
+<script src="https://bajajelect.sharepoint.com/sites/AnugamUAT/SiteAssets/AnugamStyles/DataTable/js/buttons.flash.min.js"></script>
+<script src="https://bajajelect.sharepoint.com/sites/AnugamUAT/SiteAssets/AnugamStyles/DataTable/js/buttons.html5.min.js"></script>
+<script src="https://bajajelect.sharepoint.com/sites/AnugamUAT/SiteAssets/AnugamStyles/DataTable/js/buttons.print.min.js"></script>
+<script src="/sites/AnugamUAT/SiteAssets/AnugamStyles/exportToExcelJS/jquery.table2excel.js"></script>
+<script src="/sites/AnugamUAT/SiteAssets/AnugamStyles/exportToExcelJS/jquery.battatech.excelexport.js"></script>
+<script src="https://bajajelect.sharepoint.com/sites/AnugamUAT/SiteAssets/Webparts/alluploadreferences/jquery.blockUI.js"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="/sites/AnugamUAT/SiteAssets/AnugamStyles/css/main.css" rel="stylesheet">
+<link href="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datatable/css/dataTables.bootstrap.min.css"
+      rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css"
+      rel="stylesheet">
+<link href="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datepicker/css/custom.css" rel="stylesheet">
+<link rel="stylesheet" href="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datepicker/css/datepicker.min.css" />
+
+<link href="https://bajajelect.sharepoint.com/sites/AnugamUAT/SiteAssets/JS/select2.min.css" rel="stylesheet">
+<script src="https://bajajelect.sharepoint.com/sites/AnugamUAT/SiteAssets/JS/select2.min.js" type="text/javascript"></script>
+
+<style>
+    .errorBorder-color {
+        padding: 0px !important;
+        color: red;
+        font-size: 19px;
+        margin-left: 33px;
+    }
+
+    .margin-top-50 {
+        margin-top: 50px;
+    }
+
+    .dataTables_length {
+        position: absolute;
+        margin-top: -115px;
+    }
+
+    .dataTables_filter {
+        position: absolute;
+        margin-top: -115px;
+    }
+</style>
+
+
+<div>
+    <div class="col-md-12 padding-0 page-content-header-style-1">
+        <h1 style="font-size:25px !Important;;margin-left: 9px !Important;margin-right: 0px !Important;margin-top: 0px !Important; margin-bottom: 0px !Important;">
+            <b>Learning & Development Feedback Report</b>
+        </h1>
+    </div>
+    <div class="col-md-12 padding-0">
+        <div class="col-md-12 padding-0 margin-top-15">
+            <div id="divErrorMessage" class="errorBorder-color"></div>
+        </div>
+        <div class="col-md-6 margin-top-15">
+            <label>
+                Program Name<b><span style="color:red;font-size:20px">*</span></b>
+            </label>
+            <div id="ddlProgramName">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 padding-0 margin-top-15" id="div_nonind" style="display:none;">
+        <div class="col-md-10">
+            <label style="line-height: 40px;">
+                FEEDBACK FORM SUMMARY
+            </label>
+        </div>
+        <div class="col-md-2">
+            <label style="display:none">ABC</label>
+            <table style="margin-left: -144px">
+            <tr>
+            <td>
+            <button type="button" id="btntotalProgramReport" style="display:none;" class="btn-block">Export to Excel</button></td>
+            <td>&nbsp;&nbsp;&nbsp;</td>
+            <td><button type="button" id="btnGenReport" style="display:none;" class="btn-block">Generate Report</button></td>
+            </tr>
+            </table>            
+        </div>
+        <div class="col-md-12 padding-0" id="divClearCotentMISReport">
+            <div class="col-md-12">
+                <table style="width: 100%;" id='tblFinalReport'>
+                    <tr>
+                        <td>
+                            <div>
+                                <table class="table table-striped table-bordered dt-responsive nowrap margin-bottom-0 clearDataOnChange">
+                                    <thead>
+                                        <tr>
+                                            <th>Program Name</th>
+                                            <th id="thProgramName"></th>
+                                            <th>Training Start Date</th>
+                                            <th>Training End Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tbodyProgramDetails"></tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>
+                                <table class="table table-striped table-bordered dt-responsive nowrap margin-bottom-0 clearDataOnChange">
+                                    <thead>
+                                        <tr>
+                                            <th>Session</th>
+                                            <th>Ratings</th>
+                                            <th>Rating out of 100</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tbodyProgramWeightAge"></tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                    </tr>
+                    
+                    <tr id='tr_expexcel' style="display:none">
+                    <td>
+                    <div>
+                    
+                    <table class="table table-striped table-bordered dt-responsive nowrap margin-bottom-0 clearDataOnChange">
+                                    <thead>
+                                        <tr>
+                                            <th>Particpant Name</th>
+                                            <th>Particpant EmpCode</th>
+                                            <th style="color:#ff8000;" data-toggle="tooltip" title="Was the Program objective covered by the Trainer?">Q1</th>
+                                            <th style="color:#ff8000;" data-toggle="tooltip" title="Did the Trainer demonstrate a good understanding of the content and techniques?">Q2</th>
+                                            <th style="color:#ff8000;" data-toggle="tooltip" title="Did the Trainer encourage participation?">Q3</th>
+                                            <th style="color:#ff8000;" data-toggle="tooltip" title="Was the trainer responsive towards the questions?">Q4</th>
+                                            <th style="color:#bf00ff;" data-toggle="tooltip" title="Is the Course content useful and relevant to your current job role?">Q5</th>
+                                            <th style="color:#bf00ff;" data-toggle="tooltip" title="Did the course material complement well with the course content?">Q6</th>
+                                            <th style="color:#bf00ff;" data-toggle="tooltip" title="Were the exercises & activities conducted during the session able to provide a clearer understanding of the course?">Q7</th>
+                                            <th style="color:#bf00ff;" data-toggle="tooltip" title="Was the time allocated to the training appropriate as per the content?">Q8</th>
+                                            <th style="color:#00bfff;" data-toggle="tooltip" title="Were you satisfied with the facilities at the venue:Location">Q9</th>
+                                            <th style="color:#00bfff;" data-toggle="tooltip" title="Were you satisfied with the facilities at the venue:Ambience">Q10</th>
+                                            <th style="color:#00bfff;" data-toggle="tooltip" title="Were you satisfied with the facilities at the venue:Food">Q11</th>
+                                            <th style="color:#00bfff;" data-toggle="tooltip" title="Were you satisfied with the facilities at the venue:Stay">Q12</th>
+                                            <th data-toggle="tooltip" title="What is the knowledge/skill that you have learnt from the course? (Mention top two)">Q13</th>
+                                            <th data-toggle="tooltip" title="Do you have any suggestions for improving the content or delivery of this module?">Q14</th>
+                                            <th data-toggle="tooltip" title="Would you like to recommend this training to someone? Mention reason.">Q15</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody id="Div_17"></tbody>
+                                </table>
+
+                    </div>
+                    </td>
+                    </tr>
+                    
+                    <tr>
+                    </tr>
+                    <tr>
+                    </tr>
+					<tr>
+                    </tr>
+
+                    <tr>
+                    <td>
+                    
+                <div id="div_Qs"><br/><br/>
+<ul>
+<li>
+<span style="color:#ff8000;"><b>Q1</b></span>-Was the Program objective covered by the Trainer?
+</li>
+<li>
+<span style="color:#ff8000;"><b>Q2</b></span>-Did the Trainer demonstrate a good understanding of the content and techniques?
+</li>
+<li>
+<span style="color:#ff8000;"><b>Q3</b></span>-Did the Trainer encourage participation?
+</li>
+<li>
+<span style="color:#ff8000;"><b>Q4</b></span>-Was the trainer responsive towards the questions?
+</li>
+<li>
+<span style="color:#bf00ff;"><b>Q5</b></span>-Is the Course content useful and relevant to your current job role?
+</li>
+<li>
+<span style="color:#bf00ff;"><b>Q6</b></span>-Did the course material complement well with the course content?
+</li>
+<li>
+<span style="color:#bf00ff;"><b>Q7</b></span>-Were the exercises & activities conducted during the session able to provide a clearer understanding of the course?
+</li>
+<li>
+<span style="color:#bf00ff;"><b>Q8</b></span>-Was the time allocated to the training appropriate as per the content?
+</li>
+<li>
+<span style="color:#00bfff;"><b>Q9</b></span>-Were you satisfied with the facilities at the venue:Location
+</li>
+<li>
+<span style="color:#00bfff;"><b>Q10</b></span>-Were you satisfied with the facilities at the venue:Ambience
+</li>
+<li>
+<span style="color:#00bfff;"><b>Q11</b></span>-Were you satisfied with the facilities at the venue:Food
+</li>
+<li>
+<span style="color:#00bfff;"><b>Q12</b></span>-Were you satisfied with the facilities at the venue:Stay
+</li>
+<li>
+<b>Q13</b>-What is the knowledge/skill that you have learnt from the course? (Mention top two)
+</li>
+<li>
+<b>Q14</b>-Do you have any suggestions for improving the content or delivery of this module?
+</li>
+<li>
+<b>Q15</b>-Would you like to recommend this training to someone? Mention reason.
+</li>
+
+</ul>
+</div>
+                    
+                    </td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="throbber" style="display:none;">
+<img src="https://bajajelect.sharepoint.com/sites/HR-TrainingManagementSystem/SiteAssets/AnugamStyles/img/712_1.gif" /><br/></br><h3><b style="color:#0072c6 !Important;font-size:32px">Please Wait...</b><h3></div>
+
+
+<script language="javascript" type="text/javascript">
+    $(document).ready(function () {
+								
+			
+        PopulateProgramDropDown();
+        
+        
+        
+        	
+    });
+    
+    function isCurrentUserMemberOfGroup(groupName) {
+    var userIsInGroup = false;
+    $.ajax({
+        async: false,
+        headers: { "accept": "application/json; odata=verbose" },
+        method: "GET",
+        url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/currentuser/groups",
+        success: function (data) {
+            data.d.results.forEach( function (value) {
+                if (value.Title == groupName) {               
+                     userIsInGroup = true;
+                }
+            });
+        },
+        error: function (response) {
+            console.log(response.status);
+        },
+    });    
+    return userIsInGroup;
+}
+
+
+    function PopulateProgramDropDown() {
+    
+    	var isAdmin = isCurrentUserMemberOfGroup("L&D Functional Admin");
+    
+        var listName = "NewInductionProgram";
+        var url = _spPageContextInfo.webAbsoluteUrl;
+        var UserEmail = LoginUserEmail();
+        getProgram(isAdmin,UserEmail, listName, url, function (data) {
+        
+        $.blockUI.defaults.css = {		
+											padding: 0,		
+								            margin: 0,		
+								            width: '30%',		
+								            top: '40%',		
+								            left: '35%',		
+								            textAlign: 'center',
+								            cursor: 'wait'};
+								            
+		       $.blockUI.defaults.overlayCSS.backgroundColor = '#fff';
+		       $.blockUI.defaults.overlayCSS.opacity = 0.9;
+		       $.blockUI.defaults.overlayCSS.cursor = 'pointer';
+
+
+		       $.blockUI({message: $('#throbber')});
+                
+                       setTimeout(function () {	
+                       
+            var TodayDate = new Date();
+            var day = TodayDate.getDate();
+            var mm = TodayDate.getMonth() + 1;
+            var Year = TodayDate.getFullYear();
+            var items = data.d.results;
+            var pgmFinalData = []; var j = 0;
+            var arrPGM = [];
+            var arrPGMUnique = [];
+            for (var k = 0; k < items.length; k++) {
+                var ChkProgramEndDate = new Date(items[k].ProgramEndDate.split("/").reverse().join("-"));
+                if (new Date(items[k].ProgramEndDate.split("/").reverse().join("-")) <= TodayDate || ChkProgramEndDate.setHours(0, 0, 0, 0) == TodayDate.setHours(0, 0, 0, 0)) {
+                    var NameProgram = items[k].ProgramName;
+                    var ChckCnclPgm = items[k].ProgramName;
+	                //var PrgrmCancellation = GetPgmCncld(ChckCnclPgm);
+	                //if(PrgrmCancellation != 'Yes')
+                	//{
+
+                    if (pgmFinalData[j++] != NameProgram) {
+                        pgmFinalData[j++] = NameProgram;
+                    }
+                    
+                    //}
+                }
+            }
+            var uniqueProgramNames = '';
+            var result = [];
+            $.each(pgmFinalData, function (index, pgmFinalData) {
+                if ($.inArray(pgmFinalData, result) == -1) {
+                    result.push(pgmFinalData);
+                }
+            });
+            console.log(ChkProgramEndDate);
+            //var programBind = GroupByProgramData(pgmFinalData, 'ProgramName');
+            var inputElement = '<select id="ProgramNameDynDropDown" class="form-control"><option  value="">--Select Program--</option>';
+            // Add all the new items
+            for (var i = 0; i < result.length; i++) {
+                if (result[i] != undefined) {
+                    var itemId = result[i],
+                        itemVal = result[i];
+                    inputElement += '<option value="' + itemVal + '"selected>' + itemId + '</option>';
+                }
+            }
+            inputElement += '</select>';
+            $('#ddlProgramName').append(inputElement);
+            $("#ProgramNameDynDropDown").each(function () {
+                $('option', this).each(function () {
+                    if ($(this).text() == '--Select Program--') {
+                        $(this).attr('selected', 'selected')
+                    };
+                });
+            });
+            $("#ProgramNameDynDropDown").select2();
+            $('#ProgramNameDynDropDown').on('change', function () {
+                var selectedProgramName = $(this).val();
+                var UserEmailID = LoginUserEmail();
+                $("#divTotalProgramReport").empty();
+                $("#div_nonind").show();
+                $("#thProgramName").empty();
+                $("#thProgramName").append(selectedProgramName);
+                $('.clearDataOnChange').find("tr:not(:first)").remove();
+                
+                getTotlaUserEmployeeDetails(selectedProgramName);
+                
+            });           
+            
+            
+            
+                           $.unblockUI({
+                    onUnblock: function () {
+                        console.log('');
+                    }
+                });
+            }, 600);
+
+            
+
+        }, function (data) {
+            alert("An error occured while getting ConfigParameters. Please try again");
+        });
+    }
+    
+    
+
+
+    function getProgram(isAdmin,UserEmail, listName, siteurl, success, failure) {
+    
+	    if(!isAdmin)
+	    {
+        var urlTest = siteurl + "/_vti_bin/listdata.svc/" + listName + "?$filter=CreatedByUser eq %27" + UserEmail + "%27 and Status eq 'Active' and FeedBackNeed eq 'Yes' and InductionProgram eq 'No'&$orderby= Created desc";
+        }
+        else
+        {
+        var urlTest = siteurl + "/_vti_bin/listdata.svc/" + listName + "?$filter=Status eq 'Active' and FeedBackNeed eq 'Yes' and InductionProgram eq 'No'&$orderby= Created desc";
+        }
+        $.ajax({
+            url: urlTest,
+            method: "GET",
+            headers: { "Accept": "application/json; odata=verbose" },
+            success: function (data) {
+                success(data);
+            },
+            error: function (data) {
+                failure(data);
+            }
+        });
+    }
+    function GroupByProgramData(items, propertyName) {
+        var result = [];
+        $.each(items, function (index, item) {
+            if ($.inArray(item[propertyName], result) == -1) {
+                result.push(item[propertyName]);
+            }
+        });
+        return result;
+    }
+
+</script>
+<script>
+    function getOnlineFeedEmployeeDetails(selectedProgramName) {
+        var UserEmail = LoginUserEmail(); var pushOnlineFeedData = [];
+		
+		
+	    var ProgramObjRating = 0; var TrainDemonsRating = 0; var TrainEncgRating = 0; var TrainerRespRating = 0; var CourseContRating = 0; var CourseMatRating = 0; 
+        var CourseUndtRating = 0; var TimeAlloctdRating = 0; var FacilitiesLocRating = 0; var FacilitiesAmbRating = 0;
+        var FacilitiesFoodRating = 0; var FacilitiesStayRating = 0;
+
+
+        var totalPersons = 0;
+        var ProgramObj1 = 0; var ProgramObj2 = 0; var ProgramObj3 = 0; var ProgramObj4 = 0;
+        var TrainDemons1 = 0; var TrainDemons2 = 0; var TrainDemons3 = 0; var TrainDemons4 = 0;
+        var TrainEncg1 = 0; var TrainEncg2 = 0; var TrainEncg3 = 0; var TrainEncg4 = 0;
+        var TrainerResp1 = 0; var TrainerResp2 = 0; var TrainerResp3 = 0; var TrainerResp4 = 0;
+        var CourseCont1 = 0; var CourseCont2 = 0; var CourseCont3 = 0; var CourseCont4 = 0;
+        var CourseMat1 = 0; var CourseMat2 = 0; var CourseMat3 = 0; var CourseMat4 = 0;
+        var CourseUndt1 = 0; var CourseUndt2 = 0; var CourseUndt3 = 0; var CourseUndt4 = 0;
+        var TimeAlloctd1 = 0; var TimeAlloctd2 = 0; var TimeAlloctd3 = 0; var TimeAlloctd4 = 0;
+        var FacilitiesLoc1 = 0; var FacilitiesLoc2 = 0; var FacilitiesLoc3 = 0; var FacilitiesLoc4 = 0;
+        var FacilitiesAmb1 = 0; var FacilitiesAmb2 = 0; var FacilitiesAmb3 = 0; var FacilitiesAmb4 = 0;
+        var FacilitiesFood1 = 0; var FacilitiesFood2 = 0; var FacilitiesFood3 = 0; var FacilitiesFood4 = 0; var FacilitiesFood5 = 0;
+        var FacilitiesStay1 = 0; var FacilitiesStay2 = 0; var FacilitiesStay3 = 0; var FacilitiesStay4 = 0; var FacilitiesStay5 = 0;
+
+        var SpeakerName = ''; var ProgramStartDate = ""; var ProgramEndDate = ""; 
+        var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_vti_bin/listdata.svc/InvitationFeedBack?$filter=ProgramName eq '" + selectedProgramName + "' and FeedbackStatus eq 'Completed'"; 
+        $.ajax({
+            url: RestUrl,
+            method: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+            },
+            success: function (d) {
+                var arr = [];
+                i = 0;
+                $.each(d.d.results, function (index, results) {
+                    arr[i++] = index;
+                });
+                totalPersons = arr.length;
+                var PgmContent
+                for (var k = 0; k < arr.length; k++) {
+                    var arrK = arr[k];
+                    if (d.d.results[arrK].ProgramName == selectedProgramName) {
+                        //SpeakerName = d.d.results[arrK].SpeakerName;
+                        
+                        SpeakerName = d.d.results[arrK].SpeakerName;
+                       
+                        temp=SpeakerName.split(",")
+						newArr=[]						
+						for(var i=0;i<temp.length;i++){
+						isIn=0
+						
+						for(var j=0;j<newArr.length;j++){
+						
+						if(temp[i]==newArr[j]){
+						isIn=1
+						}
+						}
+						
+						if(isIn==0){
+						newArr.push(temp[i])
+						}
+						}
+						
+						if(newArr.length > 0)
+						{
+						SpeakerName = newArr;
+						}
+						else
+						{
+						SpeakerName = "NA";
+						}
+						
+                        ProgramStartDate = d.d.results[arrK].ProgramStartDate;
+                        ProgramEndDate = d.d.results[arrK].ProgramEndDate
+                        
+                        if(d.d.results[arrK].ProgramLocation != "" && d.d.results[arrK].ProgramLocation != null)
+                        {
+                        ProgramLocation = d.d.results[arrK].ProgramLocation;
+                        }
+
+
+                        ProgramObjRating = d.d.results[arrK].ProgramObjRating;
+                        TrainDemonsRating = d.d.results[arrK].TrainDemonsRating;
+                        TrainEncgRating = d.d.results[arrK].TrainEncgRating;
+                        TrainerRespRating = d.d.results[arrK].TrainerRespRating;
+                        CourseContRating = d.d.results[arrK].CourseContRating;
+                        CourseMatRating = d.d.results[arrK].CourseMatRating;
+                        CourseUndtRating = d.d.results[arrK].CourseUndtRating;
+                        TimeAlloctdRating = d.d.results[arrK].TimeAlloctdRating;
+                        FacilitiesLocRating = d.d.results[arrK].FacilitiesLocRating;
+                        FacilitiesAmbRating = d.d.results[arrK].FacilitiesAmbRating;
+                        FacilitiesFoodRating = d.d.results[arrK].FacilitiesFoodRating;
+                        FacilitiesStayRating = d.d.results[arrK].FacilitiesStayRating;
+                        
+                        if (ProgramObjRating == 1 || ProgramObjRating == 2 || ProgramObjRating == 3 || ProgramObjRating == 4) {
+                            if (ProgramObjRating == 1) { ProgramObj1 = ProgramObj1 + 1 };
+                            if (ProgramObjRating == 2) { ProgramObj2 = ProgramObj2 + 1 };
+                            if (ProgramObjRating == 3) ProgramObj3 = ProgramObj3 + 1;
+                            if (ProgramObjRating == 4) ProgramObj4 = ProgramObj4 + 1;
+                        }
+                        if (TrainDemonsRating == 1 || TrainDemonsRating == 2 || TrainDemonsRating == 3 || TrainDemonsRating == 4) {
+                            if (TrainDemonsRating == 1) TrainDemons1 = TrainDemons1 + 1;
+                            if (TrainDemonsRating == 2) TrainDemons2 = TrainDemons2 + 1;
+                            if (TrainDemonsRating == 3) TrainDemons3 = TrainDemons3 + 1;
+                            if (TrainDemonsRating == 4) TrainDemons4 = TrainDemons4 + 1;
+                        }
+                        if (TrainEncgRating == 1 || TrainEncgRating == 2 || TrainEncgRating == 3 || TrainEncgRating == 4) {
+                            if (TrainEncgRating == 1) TrainEncg1 = TrainEncg1 + 1;
+                            if (TrainEncgRating == 2) TrainEncg2 = TrainEncg2 + 1;
+                            if (TrainEncgRating == 3) TrainEncg3 = TrainEncg3 + 1;
+                            if (TrainEncgRating == 4) TrainEncg4 = TrainEncg4 + 1;
+                        }
+                        if (TrainerRespRating == 1 || TrainerRespRating == 2 || TrainerRespRating == 3 || TrainerRespRating == 4) {
+                            if (TrainerRespRating == 1) TrainerResp1 = TrainerResp1 + 1;
+                            if (TrainerRespRating == 2) TrainerResp2 = TrainerResp2 + 1;
+                            if (TrainerRespRating == 3) TrainerResp3 = TrainerResp3 + 1;
+                            if (TrainerRespRating == 4) TrainerResp4 = TrainerResp4 + 1;
+                        }
+                        if (CourseContRating == 1 || CourseContRating == 2 || CourseContRating == 3 || CourseContRating == 4) {
+                            if (CourseContRating == 1) CourseCont1 = CourseCont1 + 1;
+                            if (CourseContRating == 2) CourseCont2 = CourseCont2 + 1;
+                            if (CourseContRating == 3) CourseCont3 = CourseCont3 + 1;
+                            if (CourseContRating == 4) CourseCont4 = CourseCont4 + 1;
+                        }
+                        if (CourseMatRating == 1 || CourseMatRating == 2 || CourseMatRating == 3 || CourseMatRating == 4) {
+                            if (CourseMatRating == 1) CourseMat1 = CourseMat1 + 1;
+                            if (CourseMatRating == 2) CourseMat2 = CourseMat2 + 1;
+                            if (CourseMatRating == 3) CourseMat3 = CourseMat3 + 1;
+                            if (CourseMatRating == 4) CourseMat4 = CourseMat4 + 1;
+                        }
+                        if (CourseUndtRating == 1 || CourseUndtRating == 2 || CourseUndtRating == 3 || CourseUndtRating == 4) {
+                            if (CourseUndtRating == 1) CourseUndt1 = CourseUndt1 + 1;
+                            if (CourseUndtRating == 2) CourseUndt2 = CourseUndt2 + 1;
+                            if (CourseUndtRating == 3) CourseUndt3 = CourseUndt3 + 1;
+                            if (CourseUndtRating == 4) CourseUndt4 = CourseUndt4 + 1;
+                        }
+                        if (TimeAlloctdRating == 1 || TimeAlloctdRating == 2 || TimeAlloctdRating == 3 || TimeAlloctdRating == 4) {
+                            if (TimeAlloctdRating == 1) TimeAlloctd1 = TimeAlloctd1 + 1;
+                            if (TimeAlloctdRating == 2) TimeAlloctd2 = TimeAlloctd2 + 1;
+                            if (TimeAlloctdRating == 3) TimeAlloctd3 = TimeAlloctd3 + 1;
+                            if (TimeAlloctdRating == 4) TimeAlloctd4 = TimeAlloctd4 + 1;
+                        }
+                        if (FacilitiesLocRating == 1 || FacilitiesLocRating == 2 || FacilitiesLocRating == 3 || FacilitiesLocRating == 4) {
+                            if (FacilitiesLocRating == 1) FacilitiesLoc1 = FacilitiesLoc1 + 1;
+                            if (FacilitiesLocRating == 2) FacilitiesLoc2 = FacilitiesLoc2 + 1;
+                            if (FacilitiesLocRating == 3) FacilitiesLoc3 = FacilitiesLoc3 + 1;
+                            if (FacilitiesLocRating == 4) FacilitiesLoc4 = FacilitiesLoc4 + 1;
+                        }
+                        if (FacilitiesAmbRating == 1 || FacilitiesAmbRating == 2 || FacilitiesAmbRating == 3 || FacilitiesAmbRating == 4) {
+                            if (FacilitiesAmbRating == 1) FacilitiesAmb1 = FacilitiesAmb1 + 1;
+                            if (FacilitiesAmbRating == 2) FacilitiesAmb2 = FacilitiesAmb2 + 1;
+                            if (FacilitiesAmbRating == 3) FacilitiesAmb3 = FacilitiesAmb3 + 1;
+                            if (FacilitiesAmbRating == 4) FacilitiesAmb4 = FacilitiesAmb4 + 1;
+                        }
+                        if (FacilitiesFoodRating == 1 || FacilitiesFoodRating == 2 || FacilitiesFoodRating == 3 || FacilitiesFoodRating == 4 || FacilitiesFoodRating == 0) {
+                            if (FacilitiesFoodRating == 1) FacilitiesFood1 = FacilitiesFood1 + 1;
+                            if (FacilitiesFoodRating == 2) FacilitiesFood2 = FacilitiesFood2 + 1;
+                            if (FacilitiesFoodRating == 3) FacilitiesFood3 = FacilitiesFood3 + 1;
+                            if (FacilitiesFoodRating == 4) FacilitiesFood4 = FacilitiesFood4 + 1;
+                            if (FacilitiesFoodRating == 0) FacilitiesFood5 = FacilitiesFood5 + 1;
+                        }
+                        if (FacilitiesStayRating == 1 || FacilitiesStayRating == 2 || FacilitiesStayRating == 3 || FacilitiesStayRating == 4 || FacilitiesStayRating == 0) {
+                            if (FacilitiesStayRating == 1) FacilitiesStay1 = FacilitiesStay1 + 1;
+                            if (FacilitiesStayRating == 2) FacilitiesStay2 = FacilitiesStay2 + 1;
+                            if (FacilitiesStayRating == 3) FacilitiesStay3 = FacilitiesStay3 + 1;
+                            if (FacilitiesStayRating == 4) FacilitiesStay4 = FacilitiesStay4 + 1;
+                            if (FacilitiesStayRating == 0) FacilitiesStay5 = FacilitiesStay5 + 1;
+                        }
+
+
+                        
+                    }
+                }
+                if (ProgramObjRating != 0 && TrainDemonsRating != 0 && TrainEncgRating != 0 && TrainerRespRating != 0 && CourseContRating != 0
+                    && CourseMatRating != 0 && CourseUndtRating != 0 && TimeAlloctdRating != 0 && FacilitiesLocRating != 0 && FacilitiesAmbRating != 0) {
+                    pushOnlineFeedData.push({
+                        ProgramObj1: ProgramObj1, ProgramObj2: ProgramObj2, ProgramObj3: ProgramObj3, ProgramObj4: ProgramObj4,
+                        TrainDemons1: TrainDemons1, TrainDemons2: TrainDemons2, TrainDemons3: TrainDemons3, TrainDemons4: TrainDemons4,
+                        TrainEncg1: TrainEncg1, TrainEncg2: TrainEncg2, TrainEncg3: TrainEncg3, TrainEncg4: TrainEncg4,
+                        TrainerResp1: TrainerResp1, TrainerResp2: TrainerResp2, TrainerResp3: TrainerResp3, TrainerResp4: TrainerResp4,
+                        CourseCont1: CourseCont1, CourseCont2: CourseCont2, CourseCont3: CourseCont3, CourseCont4: CourseCont4,
+                        CourseMat1: CourseMat1, CourseMat2: CourseMat2, CourseMat3: CourseMat3, CourseMat4: CourseMat4,
+                        CourseUndt1: CourseUndt1, CourseUndt2: CourseUndt2, CourseUndt3: CourseUndt3, CourseUndt4: CourseUndt4,
+                        TimeAlloctd1: TimeAlloctd1, TimeAlloctd2: TimeAlloctd2, TimeAlloctd3: TimeAlloctd3, TimeAlloctd4: TimeAlloctd4,
+                        FacilitiesLoc1: FacilitiesLoc1, FacilitiesLoc2: FacilitiesLoc2, FacilitiesLoc3: FacilitiesLoc3, FacilitiesLoc4: FacilitiesLoc4,
+                        FacilitiesAmb1: FacilitiesAmb1, FacilitiesAmb2: FacilitiesAmb2, FacilitiesAmb3: FacilitiesAmb3, FacilitiesAmb4: FacilitiesAmb4,
+                        FacilitiesFood1: FacilitiesFood1, FacilitiesFood2: FacilitiesFood2, FacilitiesFood3: FacilitiesFood3, FacilitiesFood4: FacilitiesFood4, FacilitiesFood5: FacilitiesFood5,
+                        FacilitiesStay1: FacilitiesStay1, FacilitiesStay2: FacilitiesStay2, FacilitiesStay3: FacilitiesStay3, FacilitiesStay4: FacilitiesStay4, FacilitiesStay5: FacilitiesStay5,
+                        SpeakerName: SpeakerName, ProgramStartDate: ProgramStartDate,
+                        ProgramEndDate: ProgramEndDate, ProgramLocation: ProgramLocation, totalPersons: totalPersons
+                    });
+                }
+            },
+            error: function (data) {
+                $('#divTotalProgramReport').append("<span>Error Retreiving Records. Error : " + JSON.stringify(data) + "</span>")
+            }
+        });
+        return pushOnlineFeedData;
+    }
+     function getOnlineFeedEmployeeDetails_1(selectedProgramName) {
+        
+        var totalPersons = 0;
+
+        var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_vti_bin/listdata.svc/InvitationFeedBack?$filter=ProgramName eq '" + selectedProgramName + "' and FeedbackStatus ne 'Completed'"; 
+        $.ajax({
+            url: RestUrl,
+            method: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+            },
+            success: function (d) {
+                var arr = [];
+                i = 0;
+                $.each(d.d.results, function (index, results) {
+                    arr[i++] = index;
+                });
+                totalPersons = arr.length;
+                
+            },
+            error: function (data) {
+                $('#divTotalProgramReport').append("<span>Error Retreiving Records. Error : " + JSON.stringify(data) + "</span>")
+            }
+        });
+        return totalPersons;
+    }
+    function getTotlaUserEmployeeDetails(selectedProgramName) {
+    
+    
+     $.blockUI.defaults.css = {		
+											padding: 0,		
+								            margin: 0,		
+								            width: '30%',		
+								            top: '40%',		
+								            left: '35%',		
+								            textAlign: 'center',
+								            cursor: 'wait'};
+								            
+		       $.blockUI.defaults.overlayCSS.backgroundColor = '#fff';
+		       $.blockUI.defaults.overlayCSS.opacity = 0.9;
+		       $.blockUI.defaults.overlayCSS.cursor = 'pointer';
+
+
+		       $.blockUI({message: $('#throbber')});
+                
+                       setTimeout(function () {
+
+        var UserEmail = LoginUserEmail();
+        
+        var ProgramObjRating = 0; var TrainDemonsRating = 0; var TrainEncgRating = 0; var TrainerRespRating = 0; var CourseContRating = 0; var CourseMatRating = 0; 
+        var CourseUndtRating = 0; var TimeAlloctdRating = 0; var FacilitiesLocRating = 0; var FacilitiesAmbRating = 0;
+        var FacilitiesFoodRating = 0; var FacilitiesStayRating = 0;
+
+        var totalPersons = 0;
+        var ProgramObj1 = 0; var ProgramObj2 = 0; var ProgramObj3 = 0; var ProgramObj4 = 0;
+        var TrainDemons1 = 0; var TrainDemons2 = 0; var TrainDemons3 = 0; var TrainDemons4 = 0;
+        var TrainEncg1 = 0; var TrainEncg2 = 0; var TrainEncg3 = 0; var TrainEncg4 = 0;
+        var TrainerResp1 = 0; var TrainerResp2 = 0; var TrainerResp3 = 0; var TrainerResp4 = 0;
+        var CourseCont1 = 0; var CourseCont2 = 0; var CourseCont3 = 0; var CourseCont4 = 0;
+        var CourseMat1 = 0; var CourseMat2 = 0; var CourseMat3 = 0; var CourseMat4 = 0;
+        var CourseUndt1 = 0; var CourseUndt2 = 0; var CourseUndt3 = 0; var CourseUndt4 = 0;
+        var TimeAlloctd1 = 0; var TimeAlloctd2 = 0; var TimeAlloctd3 = 0; var TimeAlloctd4 = 0;
+        var FacilitiesLoc1 = 0; var FacilitiesLoc2 = 0; var FacilitiesLoc3 = 0; var FacilitiesLoc4 = 0;
+        var FacilitiesAmb1 = 0; var FacilitiesAmb2 = 0; var FacilitiesAmb3 = 0; var FacilitiesAmb4 = 0;
+        var FacilitiesFood1 = 0; var FacilitiesFood2 = 0; var FacilitiesFood3 = 0; var FacilitiesFood4 = 0; var FacilitiesFood5 = 0;
+        var FacilitiesStay1 = 0; var FacilitiesStay2 = 0; var FacilitiesStay3 = 0; var FacilitiesStay4 = 0; var FacilitiesStay5 = 0;
+        
+          $('#tr_expexcel').show();
+          var ProgramName_1 = $("#ProgramNameDynDropDown").children("option").filter(":selected").text();
+          
+           var SpeakerName = ''; var ProgramStartDate = ""; var ProgramEndDate = "";
+           
+          getBindData(ProgramName_1);
+          getBindData_1(ProgramName_1);
+          
+         
+          
+          var isAdmin = isCurrentUserMemberOfGroup("L&D Functional Admin");
+   	    if(!isAdmin)
+   	    {
+        var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_vti_bin/listdata.svc/FeedbackSpeakerDetails?$filter=ProgramName eq '" + selectedProgramName + "' and Status eq 'Active'";
+        }
+        else
+        {
+        var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_vti_bin/listdata.svc/FeedbackSpeakerDetails?$filter=ProgramName eq '" + selectedProgramName + "' and Status eq 'Active'";
+        }
+        $.ajax({
+            url: RestUrl,
+            method: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+            },
+            success: function (d) {
+                var arr = [];
+                i = 0;
+                $.each(d.d.results, function (index, results) {
+                    arr[i++] = index;
+                });
+                totalPersons = arr.length;
+                var PgmContent
+                for (var k = 0; k < arr.length; k++) {
+                    var arrK = arr[k];
+                    if (d.d.results[arrK].ProgramName == selectedProgramName) {
+                        SpeakerName = d.d.results[arrK].SpeakerName;
+                       
+                        temp=SpeakerName.split(",")
+						newArr=[]						
+						for(var i=0;i<temp.length;i++){
+						isIn=0
+						
+						for(var j=0;j<newArr.length;j++){
+						
+						if(temp[i]==newArr[j]){
+						isIn=1
+						}
+						}
+						
+						if(isIn==0){
+						newArr.push(temp[i])
+						}
+						}
+						
+						if(newArr.length > 0)
+						{
+						SpeakerName = newArr;
+						}
+						else
+						{
+						SpeakerName = "NA";
+						}
+
+                        ProgramStartDate = d.d.results[arrK].ProgramStartDate;
+                        ProgramEndDate = d.d.results[arrK].ProgramEndDate
+                        if(d.d.results[arrK].ProgramLocation != "" && d.d.results[arrK].ProgramLocation != null)
+                        {
+                        ProgramLocation = d.d.results[arrK].ProgramLocation;
+                        }
+                        
+                        ProgramObjRating = d.d.results[arrK].ProgramObjRating;
+                        TrainDemonsRating = d.d.results[arrK].TrainDemonsRating;
+                        TrainEncgRating = d.d.results[arrK].TrainEncgRating;
+                        TrainerRespRating = d.d.results[arrK].TrainerRespRating;
+                        CourseContRating = d.d.results[arrK].CourseContRating;
+                        CourseMatRating = d.d.results[arrK].CourseMatRating;
+                        CourseUndtRating = d.d.results[arrK].CourseUndtRating;
+                        TimeAlloctdRating = d.d.results[arrK].TimeAlloctdRating;
+                        FacilitiesLocRating = d.d.results[arrK].FacilitiesLocRating;
+                        FacilitiesAmbRating = d.d.results[arrK].FacilitiesAmbRating;
+                        FacilitiesFoodRating = d.d.results[arrK].FacilitiesFoodRating;
+                        FacilitiesStayRating = d.d.results[arrK].FacilitiesStayRating;
+
+                        if (ProgramObjRating == 1 || ProgramObjRating == 2 || ProgramObjRating == 3 || ProgramObjRating == 4) {
+                            if (ProgramObjRating == 1) { ProgramObj1 = ProgramObj1 + 1 };
+                            if (ProgramObjRating == 2) { ProgramObj2 = ProgramObj2 + 1 };
+                            if (ProgramObjRating == 3) ProgramObj3 = ProgramObj3 + 1;
+                            if (ProgramObjRating == 4) ProgramObj4 = ProgramObj4 + 1;
+                        }
+                        if (TrainDemonsRating == 1 || TrainDemonsRating == 2 || TrainDemonsRating == 3 || TrainDemonsRating == 4) {
+                            if (TrainDemonsRating == 1) TrainDemons1 = TrainDemons1 + 1;
+                            if (TrainDemonsRating == 2) TrainDemons2 = TrainDemons2 + 1;
+                            if (TrainDemonsRating == 3) TrainDemons3 = TrainDemons3 + 1;
+                            if (TrainDemonsRating == 4) TrainDemons4 = TrainDemons4 + 1;
+                        }
+                        if (TrainEncgRating == 1 || TrainEncgRating == 2 || TrainEncgRating == 3 || TrainEncgRating == 4) {
+                            if (TrainEncgRating == 1) TrainEncg1 = TrainEncg1 + 1;
+                            if (TrainEncgRating == 2) TrainEncg2 = TrainEncg2 + 1;
+                            if (TrainEncgRating == 3) TrainEncg3 = TrainEncg3 + 1;
+                            if (TrainEncgRating == 4) TrainEncg4 = TrainEncg4 + 1;
+                        }
+                        if (TrainerRespRating == 1 || TrainerRespRating == 2 || TrainerRespRating == 3 || TrainerRespRating == 4) {
+                            if (TrainerRespRating == 1) TrainerResp1 = TrainerResp1 + 1;
+                            if (TrainerRespRating == 2) TrainerResp2 = TrainerResp2 + 1;
+                            if (TrainerRespRating == 3) TrainerResp3 = TrainerResp3 + 1;
+                            if (TrainerRespRating == 4) TrainerResp4 = TrainerResp4 + 1;
+                        }
+                        if (CourseContRating == 1 || CourseContRating == 2 || CourseContRating == 3 || CourseContRating == 4) {
+                            if (CourseContRating == 1) CourseCont1 = CourseCont1 + 1;
+                            if (CourseContRating == 2) CourseCont2 = CourseCont2 + 1;
+                            if (CourseContRating == 3) CourseCont3 = CourseCont3 + 1;
+                            if (CourseContRating == 4) CourseCont4 = CourseCont4 + 1;
+                        }
+                        if (CourseMatRating == 1 || CourseMatRating == 2 || CourseMatRating == 3 || CourseMatRating == 4) {
+                            if (CourseMatRating == 1) CourseMat1 = CourseMat1 + 1;
+                            if (CourseMatRating == 2) CourseMat2 = CourseMat2 + 1;
+                            if (CourseMatRating == 3) CourseMat3 = CourseMat3 + 1;
+                            if (CourseMatRating == 4) CourseMat4 = CourseMat4 + 1;
+                        }
+                        if (CourseUndtRating == 1 || CourseUndtRating == 2 || CourseUndtRating == 3 || CourseUndtRating == 4) {
+                            if (CourseUndtRating == 1) CourseUndt1 = CourseUndt1 + 1;
+                            if (CourseUndtRating == 2) CourseUndt2 = CourseUndt2 + 1;
+                            if (CourseUndtRating == 3) CourseUndt3 = CourseUndt3 + 1;
+                            if (CourseUndtRating == 4) CourseUndt4 = CourseUndt4 + 1;
+                        }
+                        if (TimeAlloctdRating == 1 || TimeAlloctdRating == 2 || TimeAlloctdRating == 3 || TimeAlloctdRating == 4) {
+                            if (TimeAlloctdRating == 1) TimeAlloctd1 = TimeAlloctd1 + 1;
+                            if (TimeAlloctdRating == 2) TimeAlloctd2 = TimeAlloctd2 + 1;
+                            if (TimeAlloctdRating == 3) TimeAlloctd3 = TimeAlloctd3 + 1;
+                            if (TimeAlloctdRating == 4) TimeAlloctd4 = TimeAlloctd4 + 1;
+                        }
+                        if (FacilitiesLocRating == 1 || FacilitiesLocRating == 2 || FacilitiesLocRating == 3 || FacilitiesLocRating == 4) {
+                            if (FacilitiesLocRating == 1) FacilitiesLoc1 = FacilitiesLoc1 + 1;
+                            if (FacilitiesLocRating == 2) FacilitiesLoc2 = FacilitiesLoc2 + 1;
+                            if (FacilitiesLocRating == 3) FacilitiesLoc3 = FacilitiesLoc3 + 1;
+                            if (FacilitiesLocRating == 4) FacilitiesLoc4 = FacilitiesLoc4 + 1;
+                        }
+                        if (FacilitiesAmbRating == 1 || FacilitiesAmbRating == 2 || FacilitiesAmbRating == 3 || FacilitiesAmbRating == 4) {
+                            if (FacilitiesAmbRating == 1) FacilitiesAmb1 = FacilitiesAmb1 + 1;
+                            if (FacilitiesAmbRating == 2) FacilitiesAmb2 = FacilitiesAmb2 + 1;
+                            if (FacilitiesAmbRating == 3) FacilitiesAmb3 = FacilitiesAmb3 + 1;
+                            if (FacilitiesAmbRating == 4) FacilitiesAmb4 = FacilitiesAmb4 + 1;
+                        }
+                        if (FacilitiesFoodRating == 1 || FacilitiesFoodRating == 2 || FacilitiesFoodRating == 3 || FacilitiesFoodRating == 4 || FacilitiesFoodRating == 0) {
+                            if (FacilitiesFoodRating == 1) FacilitiesFood1 = FacilitiesFood1 + 1;
+                            if (FacilitiesFoodRating == 2) FacilitiesFood2 = FacilitiesFood2 + 1;
+                            if (FacilitiesFoodRating == 3) FacilitiesFood3 = FacilitiesFood3 + 1;
+                            if (FacilitiesFoodRating == 4) FacilitiesFood4 = FacilitiesFood4 + 1;
+                            if (FacilitiesFoodRating == 0) FacilitiesFood5 = FacilitiesFood5 + 1;
+                        }
+                        if (FacilitiesStayRating == 1 || FacilitiesStayRating == 2 || FacilitiesStayRating == 3 || FacilitiesStayRating == 4 || FacilitiesStayRating == 0) {
+                            if (FacilitiesStayRating == 1) FacilitiesStay1 = FacilitiesStay1 + 1;
+                            if (FacilitiesStayRating == 2) FacilitiesStay2 = FacilitiesStay2 + 1;
+                            if (FacilitiesStayRating == 3) FacilitiesStay3 = FacilitiesStay3 + 1;
+                            if (FacilitiesStayRating == 4) FacilitiesStay4 = FacilitiesStay4 + 1;
+                            if (FacilitiesStayRating == 0) FacilitiesStay5 = FacilitiesStay5 + 1;
+                        }
+
+
+                    }
+                }
+                var getProgramWeightAge = OVerAllFeedbackWeightAge(selectedProgramName);
+                var OnlineData = getOnlineFeedEmployeeDetails(selectedProgramName);
+                
+                var taskNames = GetMISEmpDetails(selectedProgramName);
+	            console.log(taskNames);
+	            //var MISReportEmployees = groupBy(taskNames,'Day');
+            
+	            var MISDupEmpRemv  = groupBy(taskNames,'EmpCode');
+	            console.log(MISDupEmpRemv);
+	            
+	            if(MISDupEmpRemv.length > 0)
+	            {
+	            var ParticipantsInvited = MISDupEmpRemv.length;
+	            }
+	            else
+	            {
+	            var ParticipantsInvited = "0";
+	            }
+
+                 //getParticipantsInvited(selectedProgramName);
+                var NoOfFbPen = 0;//getOnlineFeedEmployeeDetails_1(selectedProgramName);
+                
+                var totlaCheck = 0;
+                if (OnlineData.length > 0 && ProgramObjRating != '' && ProgramObjRating != null) {
+                    if (getProgramWeightAge.length > 0) {
+                        totlaCheck = totlaCheck + 1;
+                        
+                        var onLinetotalPersons = OnlineData[0].totalPersons;
+                        var totalusr = onLinetotalPersons + totalPersons;
+                        
+                        var TrainerSummary = getProgramWeightAge[0].TrainerSummary * ProgramObjRating + getProgramWeightAge[0].TrainerSummary * TrainDemonsRating  + getProgramWeightAge[0].TrainerSummary * TrainEncgRating + getProgramWeightAge[0].TrainerSummary * TrainerRespRating;
+                        
+                        var ProgramObjAvg = (((ProgramObj1 * 1 * getProgramWeightAge[0].ProgramObj) / 4) + ((ProgramObj2 * 2 * getProgramWeightAge[0].ProgramObj) / 4)
+                            + ((ProgramObj3 * 3 * getProgramWeightAge[0].ProgramObj) / 4) + ((ProgramObj4 * getProgramWeightAge[0].ProgramObj)));
+                        var TrainDemonsavg = (((TrainDemons1 * 1 * getProgramWeightAge[0].TrainDemons) / 4) + ((TrainDemons2 * 2 * getProgramWeightAge[0].TrainDemons) / 4)
+                            + ((TrainDemons3 * 3 * getProgramWeightAge[0].TrainDemons) / 4) + ((TrainDemons4 * getProgramWeightAge[0].TrainDemons)));
+                        var TrainEncgAvg = (((TrainEncg1 * 1 * getProgramWeightAge[0].TrainEncg) / 4) + ((TrainEncg2 * 2 * getProgramWeightAge[0].TrainEncg) / 4)
+                            + ((TrainEncg3 * 3 * getProgramWeightAge[0].TrainEncg) / 4) + ((TrainEncg4 * getProgramWeightAge[0].TrainEncg)));
+                        var TrainerRespAvg = (((TrainerResp1 * 1 * getProgramWeightAge[0].TrainerResp) / 4) + ((TrainerResp2 * 2 * getProgramWeightAge[0].TrainerResp) / 4)
+                            + ((TrainerResp3 * 3 * getProgramWeightAge[0].TrainerResp) / 4) + ((TrainerResp4 * getProgramWeightAge[0].TrainerResp)));
+
+
+                        var avgTrainerSummary = (ProgramObjAvg + TrainDemonsavg + TrainEncgAvg + TrainerRespAvg) / totalPersons;
+
+                        var CourseContAvg = (((CourseCont1 * 1 * getProgramWeightAge[0].CourseCont) / 4) + ((CourseCont2 * 2 * getProgramWeightAge[0].CourseCont) / 4)
+                            + ((CourseCont3 * 3 * getProgramWeightAge[0].CourseCont) / 4) + ((CourseCont4 * getProgramWeightAge[0].CourseCont)));
+                        var CourseMatAvg = (((CourseMat1 * 1 * getProgramWeightAge[0].CourseMat) / 4) + ((CourseMat2 * 2 * getProgramWeightAge[0].CourseMat) / 4)
+                            + ((CourseMat3 * 3 * getProgramWeightAge[0].CourseMat) / 4) + ((CourseMat4 * getProgramWeightAge[0].CourseMat)));
+                        var CourseUndtAvg = (((CourseUndt1 * 1 * getProgramWeightAge[0].CourseUndt) / 4) + ((CourseUndt2 * 2 * getProgramWeightAge[0].CourseUndt) / 4)
+                            + ((CourseUndt3 * 3 * getProgramWeightAge[0].CourseUndt) / 4) + ((CourseUndt4 * getProgramWeightAge[0].CourseUndt)));
+                        var TimeAlloctdAvg = (((TimeAlloctd1 * 1 * getProgramWeightAge[0].TimeAlloctd) / 4) + ((TimeAlloctd2 * 2 * getProgramWeightAge[0].TimeAlloctd) / 4)
+                            + ((TimeAlloctd3 * 3 * getProgramWeightAge[0].TimeAlloctd) / 4) + ((TimeAlloctd4 * getProgramWeightAge[0].TimeAlloctd)));
+                            
+
+                        var avgProgramSummary = (CourseContAvg + CourseMatAvg + CourseUndtAvg + TimeAlloctdAvg) / totalPersons;
+
+                        var FacilitiesLocAvg = (((FacilitiesLoc1 * 1 * getProgramWeightAge[0].FacilitiesLoc) / 4) + ((FacilitiesLoc2 * 2 * getProgramWeightAge[0].FacilitiesLoc) / 4)
+                            + ((FacilitiesLoc3 * 3 * getProgramWeightAge[0].FacilitiesLoc) / 4) + ((FacilitiesLoc4 * getProgramWeightAge[0].FacilitiesLoc)));
+                        var FacilitiesAmbAvg = (((FacilitiesAmb1 * 1 * getProgramWeightAge[0].FacilitiesAmb) / 4) + ((FacilitiesAmb2 * 2 * getProgramWeightAge[0].FacilitiesAmb) / 4)
+                            + ((FacilitiesAmb3 * 3 * getProgramWeightAge[0].FacilitiesAmb) / 4) + ((FacilitiesAmb4 * getProgramWeightAge[0].FacilitiesAmb)));
+                         var FacilitiesFoodAvg = (((FacilitiesFood5 * 0 * getProgramWeightAge[0].FacilitiesFood) / 4) + ((FacilitiesFood1 * 1 * getProgramWeightAge[0].FacilitiesFood) / 4) + ((FacilitiesFood2 * 2 * getProgramWeightAge[0].FacilitiesFood) / 4)
+                            + ((FacilitiesFood3 * 3 * getProgramWeightAge[0].FacilitiesFood) / 4) + ((FacilitiesFood4 * getProgramWeightAge[0].FacilitiesFood)));
+                         var FacilitiesStayAvg = (((FacilitiesStay5 * 0 * getProgramWeightAge[0].FacilitiesStay) / 4) + ((FacilitiesStay1 * 1 * getProgramWeightAge[0].FacilitiesStay) / 4) + ((FacilitiesStay2 * 2 * getProgramWeightAge[0].FacilitiesStay) / 4)
+                            + ((FacilitiesStay3 * 3 * getProgramWeightAge[0].FacilitiesStay) / 4) + ((FacilitiesStay4 * getProgramWeightAge[0].FacilitiesStay)));
+                             
+                        
+						var avgVenueSummary = (FacilitiesLocAvg + FacilitiesAmbAvg + FacilitiesFoodAvg + FacilitiesStayAvg) / totalPersons;     
+                            
+                        var pgmSummaryAvg = ((avgProgramSummary * 100) / getProgramWeightAge[0].NewProgramSummary).toFixed(2);;
+                        var TrnSummaryAvg = ((avgTrainerSummary * 100) / getProgramWeightAge[0].TrainerSummary).toFixed(2);
+                        var VenSummaryAvg = ((avgVenueSummary * 100) / getProgramWeightAge[0].VenueSummary).toFixed(2);
+
+                        //var ratFacilities = (FacilitiesAvg) / totalPersons;
+                        var totalRating = avgProgramSummary + avgTrainerSummary + avgVenueSummary;
+                        var totalsWeight = getProgramWeightAge[0].VenueSummary + getProgramWeightAge[0].TrainerSummary + getProgramWeightAge[0].NewProgramSummary;
+
+
+                        
+                        var onLineProgramObjAvg = (((OnlineData[0].ProgramObj1 * 1 * getProgramWeightAge[0].ProgramObj) / 4) + ((OnlineData[0].ProgramObj2 * 2 * getProgramWeightAge[0].ProgramObj) / 4)
+                            + ((OnlineData[0].ProgramObj3 * 3 * getProgramWeightAge[0].ProgramObj) / 4) + ((OnlineData[0].ProgramObj4 * getProgramWeightAge[0].ProgramObj)));
+                        var onLineTrainDemonsavg = (((OnlineData[0].TrainDemons1 * 1 * getProgramWeightAge[0].TrainDemons) / 4) + ((OnlineData[0].TrainDemons2 * 2 * getProgramWeightAge[0].TrainDemons) / 4)
+                            + ((OnlineData[0].TrainDemons3 * 3 * getProgramWeightAge[0].TrainDemons) / 4) + ((OnlineData[0].TrainDemons4 * getProgramWeightAge[0].TrainDemons)));
+                        var onLineTrainEncgAvg = (((OnlineData[0].TrainEncg1 * 1 * getProgramWeightAge[0].TrainEncg) / 4) + ((OnlineData[0].TrainEncg2 * 2 * getProgramWeightAge[0].TrainEncg) / 4)
+                            + ((OnlineData[0].TrainEncg3 * 3 * getProgramWeightAge[0].TrainEncg) / 4) + ((OnlineData[0].TrainEncg4 * getProgramWeightAge[0].TrainEncg)));
+						var onLineTrainerRespAvg = (((OnlineData[0].TrainerResp1 * 1 * getProgramWeightAge[0].TrainerResp) / 4) + ((OnlineData[0].TrainerResp2 * 2 * getProgramWeightAge[0].TrainerResp) / 4)
+                            + ((OnlineData[0].TrainerResp3 * 3 * getProgramWeightAge[0].TrainerResp) / 4) + ((OnlineData[0].TrainerResp4 * getProgramWeightAge[0].TrainerResp)));
+
+
+
+                        var onLineavgTrainerSummary = (onLineProgramObjAvg + onLineTrainDemonsavg + onLineTrainEncgAvg + onLineTrainerRespAvg) / onLinetotalPersons;
+
+                        var onLineCourseContAvg = (((OnlineData[0].CourseCont1 * 1 * getProgramWeightAge[0].CourseCont) / 4) + ((OnlineData[0].CourseCont2 * 2 * getProgramWeightAge[0].CourseCont) / 4)
+                            + ((OnlineData[0].CourseCont3 * 3 * getProgramWeightAge[0].CourseCont) / 4) + ((OnlineData[0].CourseCont4 * getProgramWeightAge[0].CourseCont)));
+                        var onLineCourseMatAvg = (((OnlineData[0].CourseMat1 * 1 * getProgramWeightAge[0].CourseMat) / 4) + ((OnlineData[0].CourseMat2 * 2 * getProgramWeightAge[0].CourseMat) / 4)
+                            + ((OnlineData[0].CourseMat3 * 3 * getProgramWeightAge[0].CourseMat) / 4) + ((OnlineData[0].CourseMat4 * getProgramWeightAge[0].CourseMat)));
+                        var onLineCourseUndtAvg = (((OnlineData[0].CourseUndt1 * 1 * getProgramWeightAge[0].CourseUndt) / 4) + ((OnlineData[0].CourseUndt2 * 2 * getProgramWeightAge[0].CourseUndt) / 4)
+                            + ((OnlineData[0].CourseUndt3 * 3 * getProgramWeightAge[0].CourseUndt) / 4) + ((OnlineData[0].CourseUndt4 * getProgramWeightAge[0].CourseUndt)));
+                         var onLineTimeAlloctdAvg = (((OnlineData[0].TimeAlloctd1 * 1 * getProgramWeightAge[0].TimeAlloctd) / 4) + ((OnlineData[0].TimeAlloctd2 * 2 * getProgramWeightAge[0].TimeAlloctd) / 4)
+                            + ((OnlineData[0].TimeAlloctd3 * 3 * getProgramWeightAge[0].TimeAlloctd) / 4) + ((OnlineData[0].TimeAlloctd4 * getProgramWeightAge[0].TimeAlloctd)));
+    
+
+                        var onLineavgProgramSummary = (onLineCourseContAvg + onLineCourseMatAvg + onLineCourseUndtAvg + onLineTimeAlloctdAvg) / onLinetotalPersons;
+
+                        var onLineFacilitiesLocAvg = (((OnlineData[0].FacilitiesLoc1 * 1 * getProgramWeightAge[0].FacilitiesLoc) / 4) + ((OnlineData[0].FacilitiesLoc2 * 2 * getProgramWeightAge[0].FacilitiesLoc) / 4)
+                            + ((OnlineData[0].FacilitiesLoc3 * 3 * getProgramWeightAge[0].FacilitiesLoc) / 4) + ((OnlineData[0].FacilitiesLoc4 * getProgramWeightAge[0].FacilitiesLoc)));
+                        var onLineFacilitiesAmbAvg = (((OnlineData[0].FacilitiesAmb1 * 1 * getProgramWeightAge[0].FacilitiesAmb) / 4) + ((OnlineData[0].FacilitiesAmb2 * 2 * getProgramWeightAge[0].FacilitiesAmb) / 4)
+                            + ((OnlineData[0].FacilitiesAmb3 * 3 * getProgramWeightAge[0].FacilitiesAmb) / 4) + ((OnlineData[0].FacilitiesAmb4 * getProgramWeightAge[0].FacilitiesAmb)));
+                        var onLineFacilitiesFoodAvg = (((OnlineData[0].FacilitiesFood5 * 0 * getProgramWeightAge[0].FacilitiesFood) / 4) + ((OnlineData[0].FacilitiesFood1 * 1 * getProgramWeightAge[0].FacilitiesFood) / 4) + ((OnlineData[0].FacilitiesFood2 * 2 * getProgramWeightAge[0].FacilitiesFood) / 4)
+                            + ((OnlineData[0].FacilitiesFood3 * 3 * getProgramWeightAge[0].FacilitiesFood) / 4) + ((OnlineData[0].FacilitiesFood4 * getProgramWeightAge[0].FacilitiesFood)));
+                        var onLineFacilitiesStayAvg = (((OnlineData[0].FacilitiesStay5 * 0 * getProgramWeightAge[0].FacilitiesStay) / 4) + ((OnlineData[0].FacilitiesStay1 * 1 * getProgramWeightAge[0].FacilitiesStay) / 4) + ((OnlineData[0].FacilitiesStay2 * 2 * getProgramWeightAge[0].FacilitiesStay) / 4)
+                            + ((OnlineData[0].FacilitiesStay3 * 3 * getProgramWeightAge[0].FacilitiesStay) / 4) + ((OnlineData[0].FacilitiesStay4 * getProgramWeightAge[0].FacilitiesStay)));
+    
+                            
+                        var onLineavgVenueSummary = (onLineFacilitiesLocAvg + onLineFacilitiesAmbAvg + onLineFacilitiesFoodAvg + onLineFacilitiesStayAvg ) / onLinetotalPersons;
+    
+    
+
+                        var onLineTrnSummaryAvg = ((onLineavgTrainerSummary * 100) / getProgramWeightAge[0].TrainerSummary).toFixed(2);;
+                        var onLinePgmSummaryAvg = ((onLineavgProgramSummary * 100) / getProgramWeightAge[0].NewProgramSummary).toFixed(2);
+                        var onLineVenSummaryAvg = ((onLineavgVenueSummary * 100) / getProgramWeightAge[0].VenueSummary).toFixed(2);
+
+                        //var onLineratFacilities = (onLineFacilitiesAvg) / onLinetotalPersons;
+                        var onLinetotalRating = onLineavgTrainerSummary + onLineavgProgramSummary + onLineavgVenueSummary;
+                        var onLinetotalsWeight = getProgramWeightAge[0].TrainerSummary + getProgramWeightAge[0].NewProgramSummary + getProgramWeightAge[0].VenueSummary;
+
+                        var FinalTotal = totalPersons + onLinetotalPersons;
+                        NoOfFbPen = ParticipantsInvited - FinalTotal;
+                        $('#tbodyProgramDetails').append("<tr><td><b>No. of attendees</b></td><td id='td_ParticipantsInvited'>" + ParticipantsInvited + "</td><td id='td_ProgramStartDate'>" + ProgramStartDate + "</td><td id='td_ProgramEndDate'>" + ProgramEndDate + "</td></tr>"
+                                                              + "<tr><td><b>Faculty Name</b></td><td id='td_SpeakerName'>" + SpeakerName + "</td><td><b>Location</b></td><td id='td_ProgramLocation'>" + ProgramLocation + "</td></tr>"
+                                                              + "<tr><td><b>No. of feedback recieved</b></td><td id='td_FinalTotal'>" + FinalTotal + "</td>"
+                                                              + "<td><b>No. of feedback pending</b></td><td id='td_NoOfFbPen'>" + NoOfFbPen + "</td></tr>");
+						
+						var finalProgramObj =(ProgramObjAvg + onLineProgramObjAvg)/totalusr;
+						var finalTrainDemons =(TrainDemonsavg + onLineTrainDemonsavg)/totalusr;
+						var finalTrainEncg =(TrainEncgAvg + onLineTrainEncgAvg)/totalusr;
+						var finalTrainerResp =(TrainerRespAvg + onLineTrainerRespAvg)/totalusr;
+						
+						
+						var finalpgmsummary12 =(CourseContAvg + onLineCourseContAvg + CourseMatAvg + onLineCourseMatAvg + CourseUndtAvg + onLineCourseUndtAvg + TimeAlloctdAvg + onLineTimeAlloctdAvg)/totalusr;
+						
+						var finalvensummary12 =(FacilitiesLocAvg + onLineFacilitiesLocAvg + FacilitiesAmbAvg + onLineFacilitiesAmbAvg + FacilitiesFoodAvg + onLineFacilitiesFoodAvg + FacilitiesStayAvg + onLineFacilitiesStayAvg)/totalusr;
+						
+						
+
+                        var finalavgTrainerSummary = (finalProgramObj + finalTrainDemons + finalTrainEncg + finalTrainerResp);
+                        var finalavgPgmsmmary = (finalpgmsummary12);
+                        var finalavgVensmmary = (finalvensummary12);
+                        var finaltotalRating = finalavgTrainerSummary + finalavgPgmsmmary + finalavgVensmmary;
+
+                        $('#tbodyProgramWeightAge').append("<tr><td style='color:#ff8000;'>1. Trainer Summary</td><td id='td_trnsumm'><b>" + finalavgTrainerSummary.toFixed(2) + "</b></td><td id='td_trnsumm100'><b>" + ((finalavgTrainerSummary.toFixed(2) * 100) / getProgramWeightAge[0].TrainerSummary).toFixed(2) + "</b></td></tr>"
+                            + "<tr><td style='color:#bf00ff;'>2. Program Summary</td><td id='td_prgmsumm'><b>" + finalavgPgmsmmary.toFixed(2) + "</b></td><td id='td_prgmsumm100'><b>" + ((finalavgPgmsmmary.toFixed(2) * 100) / getProgramWeightAge[0].NewProgramSummary).toFixed(2) + "</b></td></tr>"
+                            + "<tr><td style='color:#00bfff;'>3. Venue Summary</td><td id='td_vensumm'><b>" + finalavgVensmmary.toFixed(2) + "</b></td><td id='td_vensumm100'><b>" + ((finalavgVensmmary.toFixed(2) * 100) / getProgramWeightAge[0].VenueSummary).toFixed(2) + "</b></td></tr>"
+                            + "<tr><td><b>Feedback Score</b></td><td id='td_finscore'><b>" + finaltotalRating.toFixed(2) + "</b></td></tr>");
+                        $('#btntotalProgramReport').show();
+                        $('#btnGenReport').show();
+
+                    }
+                }
+                if (OnlineData.length > 0 && totlaCheck == 0) {
+                    if (getProgramWeightAge.length > 0) {
+                        var onLinetotalPersons = OnlineData[0].totalPersons;
+                        var onLineProgramObjAvg = (((OnlineData[0].ProgramObj1 * 1 * getProgramWeightAge[0].ProgramObj) / 4) + ((OnlineData[0].ProgramObj2 * 2 * getProgramWeightAge[0].ProgramObj) / 4)
+                            + ((OnlineData[0].ProgramObj3 * 3 * getProgramWeightAge[0].ProgramObj) / 4) + ((OnlineData[0].ProgramObj4 * getProgramWeightAge[0].ProgramObj)));
+                        var onLineTrainDemonsavg = (((OnlineData[0].TrainDemons1 * 1 * getProgramWeightAge[0].TrainDemons) / 4) + ((OnlineData[0].TrainDemons2 * 2 * getProgramWeightAge[0].TrainDemons) / 4)
+                            + ((OnlineData[0].TrainDemons3 * 3 * getProgramWeightAge[0].TrainDemons) / 4) + ((OnlineData[0].TrainDemons4 * getProgramWeightAge[0].TrainDemons)));
+                        var onLineTrainEncgAvg = (((OnlineData[0].TrainEncg1 * 1 * getProgramWeightAge[0].TrainEncg) / 4) + ((OnlineData[0].TrainEncg2 * 2 * getProgramWeightAge[0].TrainEncg) / 4)
+                            + ((OnlineData[0].TrainEncg3 * 3 * getProgramWeightAge[0].TrainEncg) / 4) + ((OnlineData[0].TrainEncg4 * getProgramWeightAge[0].TrainEncg)));
+                        var onLineTrainerRespAvg = (((OnlineData[0].TrainerResp1 	* 1 * getProgramWeightAge[0].TrainerResp) / 4) + ((OnlineData[0].TrainerResp2 * 2 * getProgramWeightAge[0].TrainerResp) / 4)
+                            + ((OnlineData[0].TrainerResp3 * 3 * getProgramWeightAge[0].TrainerResp) / 4) + ((OnlineData[0].TrainerResp4 * getProgramWeightAge[0].TrainerResp)));
+    
+
+
+                        var onLineavgTrainerSummary = (onLineProgramObjAvg + onLineTrainDemonsavg + onLineTrainEncgAvg + onLineTrainerRespAvg) / onLinetotalPersons;
+
+                        var onLineCourseContAvg = (((OnlineData[0].CourseCont1 * 1 * getProgramWeightAge[0].CourseCont) / 4) + ((OnlineData[0].CourseCont2 * 2 * getProgramWeightAge[0].CourseCont) / 4)
+                            + ((OnlineData[0].CourseCont3 * 3 * getProgramWeightAge[0].CourseCont) / 4) + ((OnlineData[0].CourseCont4 * getProgramWeightAge[0].CourseCont)));
+                        var onLineCourseMatAvg = (((OnlineData[0].CourseMat1  * 1 * getProgramWeightAge[0].CourseMat) / 4) + ((OnlineData[0].CourseMat2 * 2 * getProgramWeightAge[0].CourseMat) / 4)
+                            + ((OnlineData[0].CourseMat3 * 3 * getProgramWeightAge[0].CourseMat) / 4) + ((OnlineData[0].CourseMat4 * getProgramWeightAge[0].CourseMat)));
+                         var onLineCourseUndtAvg = (((OnlineData[0].CourseUndt1 * 1 * getProgramWeightAge[0].CourseUndt) / 4) + ((OnlineData[0].CourseUndt2 * 2 * getProgramWeightAge[0].CourseUndt) / 4)
+                            + ((OnlineData[0].CourseUndt3 * 3 * getProgramWeightAge[0].CourseUndt) / 4) + ((OnlineData[0].CourseUndt4 * getProgramWeightAge[0].CourseUndt)));
+                          var onLineTimeAlloctdAvg = (((OnlineData[0].TimeAlloctd1 * 1 * getProgramWeightAge[0].TimeAlloctd) / 4) + ((OnlineData[0].TimeAlloctd2 * 2 * getProgramWeightAge[0].TimeAlloctd) / 4)
+                            + ((OnlineData[0].TimeAlloctd3 * 3 * getProgramWeightAge[0].TimeAlloctd) / 4) + ((OnlineData[0].TimeAlloctd4 * getProgramWeightAge[0].TimeAlloctd)));
+   
+    
+
+                        var onLineProgramSummary = (onLineCourseContAvg + onLineCourseMatAvg + onLineCourseUndtAvg + onLineTimeAlloctdAvg) / onLinetotalPersons;
+
+                        var onLineFacilitiesLocAvg = (((OnlineData[0].FacilitiesLoc1 * 1 * getProgramWeightAge[0].FacilitiesLoc) / 4) + ((OnlineData[0].FacilitiesLoc2 * 2 * getProgramWeightAge[0].FacilitiesLoc) / 4)
+                            + ((OnlineData[0].FacilitiesLoc3 * 3 * getProgramWeightAge[0].FacilitiesLoc) / 4) + ((OnlineData[0].FacilitiesLoc4 * getProgramWeightAge[0].FacilitiesLoc)));
+                        var onLineFacilitiesAmbAvg = (((OnlineData[0].FacilitiesAmb1 * 1 * getProgramWeightAge[0].FacilitiesAmb) / 4) + ((OnlineData[0].FacilitiesAmb2 * 2 * getProgramWeightAge[0].FacilitiesAmb) / 4)
+                            + ((OnlineData[0].FacilitiesAmb3 * 3 * getProgramWeightAge[0].FacilitiesAmb) / 4) + ((OnlineData[0].FacilitiesAmb4 * getProgramWeightAge[0].FacilitiesAmb)));
+                        var onLineFacilitiesFoodAvg = (((OnlineData[0].FacilitiesFood5 * 0 * getProgramWeightAge[0].FacilitiesFood) / 4) + ((OnlineData[0].FacilitiesFood1 * 1 * getProgramWeightAge[0].FacilitiesFood) / 4) + ((OnlineData[0].FacilitiesFood2 * 2 * getProgramWeightAge[0].FacilitiesFood) / 4)
+                            + ((OnlineData[0].FacilitiesFood3 * 3 * getProgramWeightAge[0].FacilitiesFood) / 4) + ((OnlineData[0].FacilitiesFood4 * getProgramWeightAge[0].FacilitiesFood)));
+                        var onLineFacilitiesStayAvg = (((OnlineData[0].FacilitiesStay5 * 0 * getProgramWeightAge[0].FacilitiesStay) / 4) + ((OnlineData[0].FacilitiesStay1 * 1 * getProgramWeightAge[0].FacilitiesStay) / 4) + ((OnlineData[0].FacilitiesStay2 * 2 * getProgramWeightAge[0].FacilitiesStay) / 4)
+                            + ((OnlineData[0].FacilitiesStay3 * 3 * getProgramWeightAge[0].FacilitiesStay) / 4) + ((OnlineData[0].FacilitiesStay4 * getProgramWeightAge[0].FacilitiesStay)));
+    
+    
+                        var onLineVenueSummary = (onLineFacilitiesLocAvg + onLineFacilitiesAmbAvg + onLineFacilitiesFoodAvg + onLineFacilitiesStayAvg) / onLinetotalPersons;
+
+                        var onLinetrnSummaryAvg = ((onLineavgTrainerSummary * 100) / getProgramWeightAge[0].TrainerSummary).toFixed(2);;
+                        var onLinetpgmSummaryAvg = ((onLineProgramSummary * 100) / getProgramWeightAge[0].NewProgramSummary).toFixed(2);
+                        var onLinevenSummary = ((onLineVenueSummary * 100) / getProgramWeightAge[0].VenueSummary).toFixed(2);
+
+                        //var onLineratFacilities = (onLineFacilitiesAvg) / onLinetotalPersons;
+                        var onLinetotalRating = onLineavgTrainerSummary + onLineProgramSummary + onLineVenueSummary;
+                        var onLinetotalsWeight = getProgramWeightAge[0].TrainerSummary + getProgramWeightAge[0].NewProgramSummary + getProgramWeightAge[0].VenueSummary;
+
+                        var FinalTotal = totalPersons + onLinetotalPersons;
+                        NoOfFbPen = ParticipantsInvited - FinalTotal;
+
+                        
+                        
+                        $('#tbodyProgramDetails').append("<tr><td><b>No. of attendees</b></td><td id='td_ParticipantsInvited'>" + ParticipantsInvited + "</td><td id='td_ProgramStartDate'>" + OnlineData[0].ProgramStartDate + "</td><td id='td_ProgramEndDate'>" + OnlineData[0].ProgramEndDate + "</td></tr>"
+                                                              + "<tr><td><b>Faculty Name</b></td><td id='td_SpeakerName'>" + OnlineData[0].SpeakerName + "</td><td><b>Location</b></td><td id='td_ProgramLocation'>" + ProgramLocation + "</td></tr>"
+                                                              + "<tr><td><b>No. of feedback recieved</b></td><td id='td_FinalTotal'>" + FinalTotal + "</td>"
+                                                              + "<td><b>No. of feedback pending</b></td><td id='td_NoOfFbPen'>" + NoOfFbPen + "</td></tr>");
+
+
+
+
+
+                        var finalavgtrainSummary = onLineavgTrainerSummary ;
+                        var finalavgprgramSummary = onLineProgramSummary ;
+                        var finalvenuesummar1 = onLineVenueSummary;
+                        var finaltotalRating = onLinetotalRating;
+
+                        $('#tbodyProgramWeightAge').append("<tr><td style='color:#ff8000;'>1. Trainer Summary</td><td id='td_trnsumm'><b>" + finalavgtrainSummary.toFixed(2) + "</b></td><td id='td_trnsumm100'><b>" + ((finalavgtrainSummary.toFixed(2) * 100) / getProgramWeightAge[0].TrainerSummary).toFixed(2) + "</b></td></tr>"
+                            + "<tr><td style='color:#bf00ff;'>2. Program Summary</td><td id='td_prgmsumm'><b>" + finalavgprgramSummary.toFixed(2) + "</b></td><td id='td_prgmsumm100'><b>" + ((finalavgprgramSummary.toFixed(2) * 100) / getProgramWeightAge[0].NewProgramSummary).toFixed(2) + "</b></td></tr>"
+                            + "<tr><td style='color:#00bfff;'>3. Venue Summary</td><td id='td_vensumm'><b>" + finalvenuesummar1.toFixed(2) + "</b></td><td id='td_vensumm100'><b>" + ((finalvenuesummar1.toFixed(2) * 100) / getProgramWeightAge[0].VenueSummary).toFixed(2) + "</b></td></tr>"
+                            + "<tr><td><b>Feedback Score</b></td><td id='td_finscore'><b>" + finaltotalRating.toFixed(2) + "</b></td></tr>");
+                        $('#btntotalProgramReport').show();
+                        $('#btnGenReport').show();
+                    }
+                }
+                else {
+                    if (getProgramWeightAge.length > 0 && ProgramObjRating != '' && ProgramObjRating != null && totlaCheck == 0) {
+                    
+                    
+                     var TrainerSummary = getProgramWeightAge[0].TrainerSummary * ProgramObjRating + getProgramWeightAge[0].TrainerSummary * TrainDemonsRating  + getProgramWeightAge[0].TrainerSummary * TrainEncgRating + getProgramWeightAge[0].TrainerSummary * TrainerRespRating;
+                        
+                        var ProgramObjAvg = (((ProgramObj1 * 1 * getProgramWeightAge[0].ProgramObj) / 4) + ((ProgramObj2 * 2 * getProgramWeightAge[0].ProgramObj) / 4)
+                            + ((ProgramObj3 * 3 * getProgramWeightAge[0].ProgramObj) / 4) + ((ProgramObj4 * getProgramWeightAge[0].ProgramObj)));
+                        var TrainDemonsavg = (((TrainDemons1 * 1 * getProgramWeightAge[0].TrainDemons) / 4) + ((TrainDemons2 * 2 * getProgramWeightAge[0].TrainDemons) / 4)
+                            + ((TrainDemons3 * 3 * getProgramWeightAge[0].TrainDemons) / 4) + ((TrainDemons4 * getProgramWeightAge[0].TrainDemons)));
+                        var TrainEncgAvg = (((TrainEncg1 * 1 * getProgramWeightAge[0].TrainEncg) / 4) + ((TrainEncg2 * 2 * getProgramWeightAge[0].TrainEncg) / 4)
+                            + ((TrainEncg3 * 3 * getProgramWeightAge[0].TrainEncg) / 4) + ((TrainEncg4 * getProgramWeightAge[0].TrainEncg)));
+                        var TrainerRespAvg = (((TrainerResp1 * 1 * getProgramWeightAge[0].TrainerResp) / 4) + ((TrainerResp2 * 2 * getProgramWeightAge[0].TrainerResp) / 4)
+                            + ((TrainerResp3 * 3 * getProgramWeightAge[0].TrainerResp) / 4) + ((TrainerResp4 * getProgramWeightAge[0].TrainerResp)));
+
+
+                        var avgTrainerSummary = (ProgramObjAvg + TrainDemonsavg + TrainEncgAvg + TrainerRespAvg) / totalPersons;
+
+                        var CourseContAvg = (((CourseCont1 * 1 * getProgramWeightAge[0].CourseCont) / 4) + ((CourseCont2 * 2 * getProgramWeightAge[0].CourseCont) / 4)
+                            + ((CourseCont3 * 3 * getProgramWeightAge[0].CourseCont) / 4) + ((CourseCont4 * getProgramWeightAge[0].CourseCont)));
+                        var CourseMatAvg = (((CourseMat1 * 1 * getProgramWeightAge[0].CourseMat) / 4) + ((CourseMat2 * 2 * getProgramWeightAge[0].CourseMat) / 4)
+                            + ((CourseMat3 * 3 * getProgramWeightAge[0].CourseMat) / 4) + ((CourseMat4 * getProgramWeightAge[0].CourseMat)));
+                        var CourseUndtAvg = (((CourseUndt1 * 1 * getProgramWeightAge[0].CourseUndt) / 4) + ((CourseUndt2 * 2 * getProgramWeightAge[0].CourseUndt) / 4)
+                            + ((CourseUndt3 * 3 * getProgramWeightAge[0].CourseUndt) / 4) + ((CourseUndt4 * getProgramWeightAge[0].CourseUndt)));
+                        var TimeAlloctdAvg = (((TimeAlloctd1 * 1 * getProgramWeightAge[0].TimeAlloctd) / 4) + ((TimeAlloctd2 * 2 * getProgramWeightAge[0].TimeAlloctd) / 4)
+                            + ((TimeAlloctd3 * 3 * getProgramWeightAge[0].TimeAlloctd) / 4) + ((TimeAlloctd4 * getProgramWeightAge[0].TimeAlloctd)));
+                            
+
+                        var avgProgramSummary = (CourseContAvg + CourseMatAvg + CourseUndtAvg + TimeAlloctdAvg) / totalPersons;
+
+                        var FacilitiesLocAvg = (((FacilitiesLoc1 * 1 * getProgramWeightAge[0].FacilitiesLoc) / 4) + ((FacilitiesLoc2 * 2 * getProgramWeightAge[0].FacilitiesLoc) / 4)
+                            + ((FacilitiesLoc3 * 3 * getProgramWeightAge[0].FacilitiesLoc) / 4) + ((FacilitiesLoc4 * getProgramWeightAge[0].FacilitiesLoc)));
+                        var FacilitiesAmbAvg = (((FacilitiesAmb1 * 1 * getProgramWeightAge[0].FacilitiesAmb) / 4) + ((FacilitiesAmb2 * 2 * getProgramWeightAge[0].FacilitiesAmb) / 4)
+                            + ((FacilitiesAmb3 * 3 * getProgramWeightAge[0].FacilitiesAmb) / 4) + ((FacilitiesAmb4 * getProgramWeightAge[0].FacilitiesAmb)));
+                         var FacilitiesFoodAvg = (((FacilitiesFood5 * 0 * getProgramWeightAge[0].FacilitiesFood) / 4) + ((FacilitiesFood1 * 1 * getProgramWeightAge[0].FacilitiesFood) / 4) + ((FacilitiesFood2 * 2 * getProgramWeightAge[0].FacilitiesFood) / 4)
+                            + ((FacilitiesFood3 * 3 * getProgramWeightAge[0].FacilitiesFood) / 4) + ((FacilitiesFood4 * getProgramWeightAge[0].FacilitiesFood)));
+                         var FacilitiesStayAvg = (((FacilitiesStay5 * 0 * getProgramWeightAge[0].FacilitiesStay) / 4) + ((FacilitiesStay1 * 1 * getProgramWeightAge[0].FacilitiesStay) / 4) + ((FacilitiesStay2 * 2 * getProgramWeightAge[0].FacilitiesStay) / 4)
+                            + ((FacilitiesStay3 * 3 * getProgramWeightAge[0].FacilitiesStay) / 4) + ((FacilitiesStay4 * getProgramWeightAge[0].FacilitiesStay)));
+                             
+                        
+						var avgVenueSummary = (FacilitiesLocAvg + FacilitiesAmbAvg + FacilitiesFoodAvg + FacilitiesStayAvg) / totalPersons;     
+                          
+                         NoOfFbPen = ParticipantsInvited - totalPersons;   
+                            
+                        $('#tbodyProgramDetails').append("<tr><td><b>No. of attendees</b></td><td id='td_ParticipantsInvited'>" + ParticipantsInvited + "</td><td id='td_ProgramStartDate'>" + ProgramStartDate + "</td><td id='td_ProgramEndDate'>" + ProgramEndDate + "</td></tr>"
+                                        + "<tr><td><b>Faculty Name</b></td><td id='td_SpeakerName'>" + SpeakerName + "</td><td><b>Location</b></td><td id='td_ProgramLocation'>" + ProgramLocation + "</td></tr>"
+                                        + "<tr><td><b>No. of feedback recieved</b></td><td id='td_FinalTotal'>" + totalPersons + "</td>"
+                                        + "<td><b>No. of feedback pending</b></td><td id='td_NoOfFbPen'>" + NoOfFbPen + "</td></tr>");
+                        
+                        var pgmSummaryAvg = ((avgProgramSummary * 100) / getProgramWeightAge[0].NewProgramSummary).toFixed(2);;
+                        var TrnSummaryAvg = ((avgTrainerSummary * 100) / getProgramWeightAge[0].TrainerSummary).toFixed(2);
+                        var VenSummaryAvg = ((avgVenueSummary * 100) / getProgramWeightAge[0].VenueSummary).toFixed(2);
+
+                        //var ratFacilities = (FacilitiesAvg) / totalPersons;
+                        var totalRating = avgProgramSummary + avgTrainerSummary + avgVenueSummary;
+                        var totalsWeight = getProgramWeightAge[0].VenueSummary + getProgramWeightAge[0].TrainerSummary + getProgramWeightAge[0].NewProgramSummary;
+
+
+
+                        $('#tbodyProgramWeightAge').append("<tr><td style='color:#ff8000;'>1. Trainer Summary</td><td id='td_trnsumm'><b>" + avgProgramSummary.toFixed(2) + "</b></td><td id='td_trnsumm100'><b>" + ((avgProgramSummary.toFixed(2) * 100) / getProgramWeightAge[0].TrainerSummary).toFixed(2) + "</b></td></tr>"
+                            + "<tr><td style='color:#ff8000;'>2. Program Summary</td><td id='td_prgmsumm'><b>" + avgTrainerSummary .toFixed(2) + "</b></td><td id='td_prgmsumm100'><b>" + ((avgTrainerSummary.toFixed(2) * 100) / getProgramWeightAge[0].NewProgramSummary).toFixed(2) + "</b></td></tr>"
+                            + "<tr><td style='color:#00bfff;'>3. Venue Summary</td><td id='td_vensumm'><b>" + avgVenueSummary.toFixed(2) + "</b></td><td id='td_vensumm100'><b>" + ((avgVenueSummary.toFixed(2) * 100) / getProgramWeightAge[0].VenueSummary).toFixed(2) + "</b></td></tr>"
+                            + "<tr><td><b>Feedback Score</b></td><td id='td_finscore'><b>" + totalRating.toFixed(2) + "</b></td></tr>");
+                        $('#btntotalProgramReport').show();
+                        $('#btnGenReport').show();
+                    }
+                }
+                
+                if(getProgramWeightAge.length == 0 && ProgramObjRating == 0 && OnlineData.length == 0)
+                {
+                $("#div_nonind").hide();
+                $("#div_Qs").hide();
+                alert('No records found');
+                 window.location.reload();
+                }
+            },
+            error: function (data) {
+                $('#divTotalProgramReport').append("<span>Error Retreiving Records. Error : " + JSON.stringify(data) + "</span>")
+            }
+        });
+        
+                       $.unblockUI({
+                    onUnblock: function () {
+                        console.log('');
+                    }
+                });
+            }, 600);
+
+        
+    }
+
+
+</script>
+<script>
+    var currentuserEmailID = "";
+    function LoginUserEmail() {
+        $.ajax({
+            async: false,
+            url: _spPageContextInfo.webServerRelativeUrl +
+                 "//_api/SP.UserProfiles.PeopleManager/GetMyProperties?$select=email",
+            method: "GET",
+            headers: {
+                "accept": "application/json;odata=verbose"
+            },
+            success: function (d) {
+                currentuserEmailID = d.d.Email;
+
+            },
+            error: function (err) {
+                alert(JSON.stringify(err));
+            }
+        });
+        return currentuserEmailID;
+    }
+</script>
+
+<script>
+
+function getBindData_1(ProgramName_1) {
+        //$("#tblFeedBackSpeakerBind_1").html("");
+        jQuery.ajax({
+            url: _spPageContextInfo.webAbsoluteUrl + "//_api/web/lists/getbytitle('InvitationFeedBack')/items?$filter=ProgramName eq %27" + ProgramName_1 + "%27&$orderby=ID%20desc",
+            type: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+                "content-type": "application/json;odata=verbose",
+                "X-RequestDigest": $("#__REQUESTDIGEST").val()
+            },
+            success: function (d) {
+                var arr = [];
+                i1 = 0;
+                $.each(d.d.results, function (index, results) {
+                    if (results.Status == "Active" && results.FeedbackStatus == "Completed") {
+                        arr[i1++] = index;
+                    }
+                });
+                for (var j1 = 0; j1 < arr.length; j1++) {
+                    var arrConfigK1 = arr[j1];
+                    var index = parseInt(j1 + 1);
+
+                    var ProgramName = d.d.results[arrConfigK1].ProgramName;
+                    var ProgramStartDate = d.d.results[arrConfigK1].ProgramStartDate;
+                    var ProgramEndDate = d.d.results[arrConfigK1].ProgramEndDate;
+                    if(d.d.results[arrConfigK1].ProgramLocation != "" && d.d.results[arrConfigK1].ProgramLocation != null)
+                    {
+                    ProgramLocation = d.d.results[arrConfigK1].ProgramLocation;
+                    }
+                    
+                    
+                    var ProgramObj = d.d.results[arrConfigK1].ProgramObj;
+                    var TrainDemons = d.d.results[arrConfigK1].TrainDemons;
+                    var SpeakerID = d.d.results[arrConfigK1].ID;
+                    var TrainEncg = d.d.results[arrConfigK1].TrainEncg;
+                    var TrainerResp = d.d.results[arrConfigK1].TrainerResp;
+                    var CourseCont = d.d.results[arrConfigK1].CourseCont;
+                    var CourseMat= d.d.results[arrConfigK1].CourseMat;
+                    var CourseUndt = d.d.results[arrConfigK1].CourseUndt;
+                    var TimeAlloctd = d.d.results[arrConfigK1].TimeAlloctd;
+                    var FacilitiesLoc = d.d.results[arrConfigK1].FacilitiesLoc;
+                    var FacilitiesAmb = d.d.results[arrConfigK1].FacilitiesAmb;
+                    var FacilitiesFood = d.d.results[arrConfigK1].FacilitiesFood;
+                    var FacilitiesStay = d.d.results[arrConfigK1].FacilitiesStay;
+                    
+                    var KnwldgeSkill = d.d.results[arrConfigK1].KnwldgeSkill;
+                    var FeatureProgm = d.d.results[arrConfigK1].FeatureProgm;
+                    var Recommendation = d.d.results[arrConfigK1].Recommendation;
+                    
+
+                    var SpeakerName = d.d.results[arrConfigK1].SpeakerName;
+                    var EmployeeName = d.d.results[arrConfigK1].EmployeeName;
+                    var EmployeeCode = d.d.results[arrConfigK1].EmployeeCode;
+					$("#Div_17").append("<tr><td>" + EmployeeName + "</td><td>" + EmployeeCode + "</td><td>" + ProgramObj + "</td><td >" + TrainDemons + "</td><td>" + TrainEncg + "</td><td>" + TrainerResp + "</td><td>" + CourseCont + "</td><td>" + CourseMat + "</td><td>" + CourseUndt + "</td><td>" + TimeAlloctd + "</td><td>" + FacilitiesLoc + "</td><td>" + FacilitiesAmb + "</td><td>" + FacilitiesFood + "</td><td>" + FacilitiesStay + "</td><td data-toggle='tooltip' style='max-width:150px;'  title='"+ KnwldgeSkill +"'>" + KnwldgeSkill + "</td><td data-toggle='tooltip' style='max-width:150px;'  title='"+ FeatureProgm +"'>" + FeatureProgm + "</td><td data-toggle='tooltip' style='max-width:150px;'  title='"+ Recommendation +"'>" + Recommendation + "</td></tr>");
+                }
+                
+                
+                
+            },
+            error: function () { console.log('fail'); }
+        });
+    }
+
+
+
+function getBindData(ProgramName_1) {
+        //$("#tblFeedBackSpeakerBind").html("");
+        jQuery.ajax({
+            url: _spPageContextInfo.webAbsoluteUrl + "//_api/web/lists/getbytitle('FeedbackSpeakerDetails')/items?$filter=ProgramName eq %27" + ProgramName_1 + "%27&$orderby=ID%20desc",
+            type: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+                "content-type": "application/json;odata=verbose",
+                "X-RequestDigest": $("#__REQUESTDIGEST").val()
+            },
+            success: function (d) {
+                var arr = [];
+                i = 0;
+                $.each(d.d.results, function (index, results) {
+                    if (results.Status == "Active") {
+                        arr[i++] = index;
+                    }
+                });
+                for (var j = 0; j < arr.length; j++) {
+                    var arrConfigK = arr[j];
+                    var index = parseInt(j + 1);
+
+                    var ProgramName = d.d.results[arrConfigK].ProgramName;
+                    var ProgramStartDate = d.d.results[arrConfigK].ProgramStartDate;
+                    var ProgramEndDate = d.d.results[arrConfigK].ProgramEndDate;
+                    if(d.d.results[arrConfigK].ProgramLocation != "" && d.d.results[arrConfigK].ProgramLocation != null)
+                    {
+                    ProgramLocation = d.d.results[arrConfigK].ProgramLocation;
+                    }
+                    
+                   
+					
+                    var ProgramObj = d.d.results[arrConfigK].ProgramObj;
+                    var TrainDemons = d.d.results[arrConfigK].TrainDemons;
+                    var SpeakerID = d.d.results[arrConfigK].ID;
+                    var TrainEncg = d.d.results[arrConfigK].TrainEncg;
+                    var TrainerResp = d.d.results[arrConfigK].TrainerResp;
+                    var CourseCont = d.d.results[arrConfigK].CourseCont;
+                    var CourseMat= d.d.results[arrConfigK].CourseMat;
+                    var CourseUndt = d.d.results[arrConfigK].CourseUndt;
+                    var TimeAlloctd = d.d.results[arrConfigK].TimeAlloctd;
+                    var FacilitiesLoc = d.d.results[arrConfigK].FacilitiesLoc;
+                    var FacilitiesAmb = d.d.results[arrConfigK].FacilitiesAmb;
+                    var FacilitiesFood = d.d.results[arrConfigK].FacilitiesFood;
+                    var FacilitiesStay = d.d.results[arrConfigK].FacilitiesStay;
+                    
+                    var KnwldgeSkill = d.d.results[arrConfigK].KnwldgeSkill;
+                    var FeatureProgm = d.d.results[arrConfigK].FeatureProgm;
+                    var Recommendation = d.d.results[arrConfigK].Recommendation;
+                    
+
+
+                    var SpeakerName = d.d.results[arrConfigK].SpeakerName;
+                    var EmployeeName = d.d.results[arrConfigK].EmployeeName;
+                    var EmployeeCode = d.d.results[arrConfigK].EmployeeCode;
+					$("#Div_17").append("<tr><td>" + EmployeeName + "</td><td>" + EmployeeCode + "</td><td>" + ProgramObj + "</td><td >" + TrainDemons + "</td><td>" + TrainEncg + "</td><td>" + TrainerResp + "</td><td>" + CourseCont + "</td><td>" + CourseMat + "</td><td>" + CourseUndt + "</td><td>" + TimeAlloctd + "</td><td>" + FacilitiesLoc + "</td><td>" + FacilitiesAmb + "</td><td>" + FacilitiesFood + "</td><td>" + FacilitiesStay + "</td><td  data-toggle='tooltip' style='max-width:150px;'  title='"+ KnwldgeSkill +"'>" + KnwldgeSkill + "</td><td data-toggle='tooltip' style='max-width:150px;'  title='"+ FeatureProgm +"'>" + FeatureProgm + "</td><td data-toggle='tooltip' style='max-width:150px;'  title='"+ Recommendation +"'>" + Recommendation + "</td></tr>");
+ 
+                }
+                
+            },
+            error: function () { console.log('fail'); }
+        });
+    }
+
+
+
+</script>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var ProgramName = $('#ddlProgramName').val();
+        $("#btntotalProgramReport").click(function () {
+        
+      
+            $('#tblFinalReport').show();
+            $('#div_Qs').show();
+            $('.dataTables_length,.dataTables_filter,.dataTables_info,.dataTables_paginate').remove();
+            $("#tblFinalReport").battatech_excelexport({
+                containerid: "tblFinalReport"
+                , datatype: 'table'
+                , worksheetName: ProgramName + ' ' + ' Over All Feedback Report'
+            });
+        });
+        
+        function DeleteChildItems(ProgramName)
+{
+    getItems("/_api/web/lists/getByTitle('FinalGeneratedReport')/items?$filter=ProgramName eq %27" + ProgramName + "%27").done(function(data){
+        var noChildItems = data.d.results.length; //number of child items to be deleted
+        data.d.results.forEach(function(item){
+            var childId = item.ID;
+            deleteItem("/_api/Web/Lists/GetByTitle('FinalGeneratedReport')/getItemById("+childId+")",item).done(function(d_data){
+                //deleted child item.
+            });
+        });
+    });
+}
+
+
+function getItems(url){
+    return $.ajax({
+        url: _spPageContextInfo.webAbsoluteUrl + url,
+        type: "GET",
+        headers: {
+            "accept": "application/json;odata=verbose",
+        }
+    });
+}
+
+function deleteItem(url, oldItem) {
+    return $.ajax({
+        url: _spPageContextInfo.webAbsoluteUrl + url,
+        type: "DELETE",
+        headers: {
+            "accept": "application/json;odata=verbose",
+            "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+            "If-Match": oldItem.__metadata.etag
+        }
+    });
+}
+
+
+        
+        $("#btnGenReport").click(function () {
+        
+        
+        var ProgramName = document.getElementById("thProgramName").innerText;
+        
+        
+        DeleteChildItems(ProgramName);
+        
+        var ProgramStartDate = document.getElementById("td_ProgramStartDate").innerText;
+        var ProgramEndDate = document.getElementById("td_ProgramEndDate").innerText;
+        var ProgramLocation = document.getElementById("td_ProgramLocation").innerText;
+        var FacultyName = document.getElementById("td_SpeakerName").innerText;
+        var NoOfAttendees = document.getElementById("td_ParticipantsInvited").innerText;
+        var NoOfFeedbckRcvd = document.getElementById("td_FinalTotal").innerText;
+        var NoOfFeedbckPnd = document.getElementById("td_NoOfFbPen").innerText;
+        var isInduction = "N";
+        var TrainerSummaryScr = document.getElementById("td_trnsumm").innerText;
+        var PrgrmSummaryScr = document.getElementById("td_prgmsumm").innerText;
+        var VenueSummayScr = document.getElementById("td_vensumm").innerText;
+        var TrainerSummaryScrOut100 = document.getElementById("td_trnsumm100").innerText;
+        var PrgrmSummaryScrOut100 = document.getElementById("td_prgmsumm100").innerText;
+        var VenueSummayScrOut100 = document.getElementById("td_vensumm100").innerText;
+        
+        var FinalFeedbackScr = document.getElementById("td_finscore").innerText;
+         
+        var Creator = LoginUserEmail();
+        
+        var appWebUrl = window.location.protocol + "//" + window.location.host + _spPageContextInfo.webServerRelativeUrl;
+      
+        $.ajax({
+            url: appWebUrl + "//_api/web/lists/getbytitle('FinalGeneratedReport')/items",
+            type: "POST",
+            data: JSON.stringify({
+                '__metadata': { 'type': 'SP.Data.FinalGeneratedReportListItem' },
+                'Title': ProgramName,
+                'ProgramName': ProgramName,
+                'ProgramStartDate': ProgramStartDate,
+                'ProgramEndDate': ProgramEndDate,
+                'ProgramLocation': ProgramLocation,
+                'FacultyName': FacultyName,
+                'NoOfAttendees': NoOfAttendees,
+                'NoOfFeedbckRcvd': NoOfFeedbckRcvd,
+                'NoOfFeedbckPnd': NoOfFeedbckPnd,
+                'ReportCreator': Creator,
+                'isInduction': isInduction,
+          
+                'TrainerSummaryScr': TrainerSummaryScr,
+                'PrgrmSummaryScr': PrgrmSummaryScr,
+                'VenueSummayScr': VenueSummayScr,
+                'TrainerSummaryScrOut100': TrainerSummaryScrOut100,
+                'PrgrmSummaryScrOut100': PrgrmSummaryScrOut100,
+                'VenueSummayScrOut100': VenueSummayScrOut100,
+                'FinalFeedbackScr': FinalFeedbackScr
+                
+            }),
+            headers: {
+                "Accept": "application/json;odata=verbose",
+                "content-type": "application/json; odata=verbose",
+                "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+            },
+            success: function (data) {
+               
+                //var pgmId = data.d.ID;
+                //var ProgramID = pgmId.toString();
+                //GetProgramDetails(ProgramID);
+                alert("Report Generated Successfully.");
+            },
+            error: function (err) {
+                alert("Error while adding item: " + JSON.stringify(err));
+            }
+        });
+              
+        });
+
+    });
+</script>
+<script>
+    function OVerAllFeedbackWeightAge(ProgramName) {
+        var getOVerAllFeedbackWeightAge = [];
+        var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('OverAllProgramWeightAge')/items?$filter=ProgramName eq '" + ProgramName + "'";
+        $.ajax({
+            url: RestUrl,
+            method: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+            },
+            success: function (d) {
+                var arr = [];
+                i = 0;
+                $.each(d.d.results, function (index, results) {
+                    arr[i++] = index;
+                });
+                MISUsers = [];
+                for (var k = 0; k < arr.length; k++) {
+                    var arrK = arr[k];
+                    var ProgramObj = d.d.results[arrK].ProgramObj;
+                    var TrainDemons = d.d.results[arrK].TrainDemons;
+                    var TrainEncg = d.d.results[arrK].TrainEncg;
+                    var TrainerResp = d.d.results[arrK].TrainerResp;
+                    var CourseCont = d.d.results[arrK].CourseCont;
+                    var CourseMat = d.d.results[arrK].CourseMat;
+                    var CourseUndt = d.d.results[arrK].CourseUndt;
+                    var TimeAlloctd = d.d.results[arrK].TimeAlloctd;
+                    var FacilitiesLoc = d.d.results[arrK].FacilitiesLoc;
+                    var FacilitiesAmb = d.d.results[arrK].FacilitiesAmb;
+                    var FacilitiesFood = d.d.results[arrK].FacilitiesFood;
+                    var FacilitiesStay = d.d.results[arrK].FacilitiesStay;
+
+                    var TrainerSummary = d.d.results[arrK].TrainerSummary;
+                    var NewProgramSummary = d.d.results[arrK].NewProgramSummary;
+                    var VenueSummary = d.d.results[arrK].VenueSummary;
+                    getOVerAllFeedbackWeightAge.push({
+                        ProgramObj: ProgramObj,
+                        TrainDemons: TrainDemons,
+                        TrainEncg: TrainEncg,
+                        TrainerResp: TrainerResp,
+                        CourseCont: CourseCont,
+                        CourseMat: CourseMat,
+                        CourseUndt: CourseUndt,
+                        TimeAlloctd: TimeAlloctd,
+                        FacilitiesLoc: FacilitiesLoc,
+                        FacilitiesAmb: FacilitiesAmb,
+                        FacilitiesFood: FacilitiesFood,
+                        FacilitiesStay: FacilitiesStay,                        
+
+                        TrainerSummary: TrainerSummary,
+                        NewProgramSummary: NewProgramSummary,
+                        VenueSummary: VenueSummary
+                    });
+                }
+            },
+            error: function () { console.log('fail'); }
+        });
+        return getOVerAllFeedbackWeightAge;
+    }
+    
+    function GetPgmCncld(ChckCnclPgm) {
+     
+        var IsProgramCancelled = "";
+
+        var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('ProgramMaster')/items?$filter=Title%20eq%20%27" + ChckCnclPgm + "%27";
+        $.ajax({
+            url: RestUrl,
+            method: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+            },
+            success: function (d) {
+                  if (d.d.results.length > 0) {
+                  var arr = [];
+                  i = 0;
+                  $.each(d.d.results, function (index, results) {
+                  arr[i++] = index;
+                  });
+	              for (var k = 0; k < arr.length; k++) {
+	              var arrK = arr[k];
+				  IsProgramCancelled = d.d.results[arrK].IsProgramCancelled;
+	              }
+                }
+                else
+                {
+                IsProgramCancelled = 0;
+               }
+            },
+            error: function () { console.log('fail'); }
+        });
+        return IsProgramCancelled;
+    }
+    
+    
+    function getParticipantsInvited(ProgramName) {
+        var Invited;
+        var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('InvitationFeedBack')/items?$top=5000&$filter=ProgramName eq '" + ProgramName + "'";
+
+        $.ajax({
+            url: RestUrl,
+            method: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+            },
+            success: function (d) {
+                if (d.d.results.length > 0) {
+                    Invited = d.d.results.length;
+                }
+                else {
+                    Invited = 0;
+                }
+
+            },
+            error: function (err) {
+                alert(JSON.stringify(err));
+            }
+        });
+        return Invited;
+    }
+    
+      function GetMISEmpDetails(selectedProgramName) {
+        var MISUsers = [];
+
+        var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('MISReportForInvities')/items?$top=5000&$filter=ProgramName eq '" + selectedProgramName + "' and Attendance eq 'Y'";
+        $.ajax({
+            url: RestUrl,
+            method: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+            },
+            success: function (d) {
+                var arr = [];
+                i = 0;
+                $.each(d.d.results, function (index, results) {
+                    arr[i++] = index;
+                });
+                MISUsers = [];
+                for (var k = 0; k < arr.length; k++) {
+                    var arrK = arr[k];
+                    var EmpCode = d.d.results[arrK].EmpCode;
+                    MISUsers.push({
+                        EmpCode: EmpCode
+                    });
+                }
+            },
+            error: function () { console.log('fail'); }
+        });
+        return MISUsers;
+    }
+    
+    function groupBy(items,propertyName)
+{
+    var result = [];
+    $.each(items, function(index, item) {
+       if ($.inArray(item[propertyName], result)==-1) {
+          result.push(item[propertyName]);
+       }
+    });
+    return result;
+}
+
+</script>

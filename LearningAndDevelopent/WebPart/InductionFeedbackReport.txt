@@ -1,0 +1,1502 @@
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datatable/js/jquery.dataTables.min.js"></script>
+<script src="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datatable/js/dataTables.bootstrap.min.js"></script>
+<script src="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datatable/js/dataTables.responsive.min.js"></script>
+<script src="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datatable/js/responsive.bootstrap.js"></script>
+<script src="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datatable/js/datatables.scroller.min.js"></script>
+<script src="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datepicker/js/moment.min.js"></script>
+<script src="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datepicker/js/daterangepicker.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.js"></script>
+<script src="https://bajajelect.sharepoint.com/sites/AnugamUAT/SiteAssets/AnugamStyles/DataTable/js/buttons.flash.min.js"></script>
+<script src="https://bajajelect.sharepoint.com/sites/AnugamUAT/SiteAssets/AnugamStyles/DataTable/js/buttons.html5.min.js"></script>
+<script src="https://bajajelect.sharepoint.com/sites/AnugamUAT/SiteAssets/AnugamStyles/DataTable/js/buttons.print.min.js"></script>
+<script src="/sites/AnugamUAT/SiteAssets/AnugamStyles/exportToExcelJS/jquery.table2excel.js"></script>
+<script src="/sites/AnugamUAT/SiteAssets/AnugamStyles/exportToExcelJS/jquery.battatech.excelexport.js"></script>
+<script src="https://bajajelect.sharepoint.com/sites/AnugamUAT/SiteAssets/Webparts/alluploadreferences/jquery.blockUI.js"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="/sites/AnugamUAT/SiteAssets/AnugamStyles/css/main.css" rel="stylesheet">
+<link href="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datatable/css/dataTables.bootstrap.min.css"
+      rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css"
+      rel="stylesheet">
+<link href="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datepicker/css/custom.css" rel="stylesheet">
+<link rel="stylesheet" href="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datepicker/css/datepicker.min.css" />
+
+
+<link href="https://bajajelect.sharepoint.com/sites/AnugamUAT/SiteAssets/JS/select2.min.css" rel="stylesheet">
+<script src="https://bajajelect.sharepoint.com/sites/AnugamUAT/SiteAssets/JS/select2.min.js" type="text/javascript"></script>
+
+<style>
+    .errorBorder-color {
+        padding: 0px !important;
+        color: red;
+        font-size: 19px;
+        margin-left: 33px;
+    }
+
+    .margin-top-50 {
+        margin-top: 50px;
+    }
+
+    .dataTables_length {
+        position: absolute;
+        margin-top: -115px;
+    }
+
+    .dataTables_filter {
+        position: absolute;
+        margin-top: -115px;
+    }
+</style>
+
+
+<div>
+    <div class="col-md-12 padding-0 page-content-header-style-1">
+        <h1 style="font-size:25px !Important;;margin-left: 9px !Important;margin-right: 0px !Important;margin-top: 0px !Important; margin-bottom: 0px !Important;">
+            <b>Anugam Feedback Report</b>
+        </h1>
+    </div>
+    <div class="col-md-12 padding-0">
+        <div class="col-md-12 padding-0 margin-top-15">
+            <div id="divErrorMessage" class="errorBorder-color"></div>
+        </div>
+        <div class="col-md-6 margin-top-15">
+            <label>
+                Program Name<b><span style="color:red;font-size:20px">*</span></b>
+            </label>
+            <div id="ddlProgramName">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 padding-0 margin-top-15" id="div_ind" style="display:none;">
+        <div class="col-md-10">
+            <label style="line-height: 40px;">
+                FEEDBACK FORM SUMMARY
+            </label>
+        </div>
+        <div class="col-md-2">
+            <label style="display:none">ABC</label>
+            <table style="margin-left: -144px">
+            <tr>
+            <td>
+            <button type="button" id="btntotalProgramReport" style="display:none;" class="btn-block">Export to Excel</button></td>
+            <td>&nbsp;&nbsp;&nbsp;</td>
+            <td><button type="button" id="btnGenReport" style="display:none;" class="btn-block">Generate Report</button></td>
+            </tr>
+            </table>
+            <button type="button" id="btnPartFB" style="display:none;" class="btn-block">Export to Excel Participants Feedback</button>
+        </div>
+        <div class="col-md-12 padding-0" id="divClearCotentMISReport">
+            <div class="col-md-12">
+                <table style="width: 100%;" id='tblFinalReport'>
+                    <tr>
+                        <td>
+                            <div>
+                                <table class="table table-striped table-bordered dt-responsive nowrap margin-bottom-0 clearDataOnChange">
+                                    <thead>
+                                        <tr>
+                                            <th>Program Name</th>
+                                            <th id="thProgramName"></th>
+                                            <th>Training Start Date</th>
+                                            <th>Training End Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tbodyProgramDetails"></tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div>
+                                <table class="table table-striped table-bordered dt-responsive nowrap margin-bottom-0 clearDataOnChange">
+                                    <thead>
+                                        <tr>
+                                            <th>Session</th>
+                                            <th>Ratings</th>
+                                            <th>Rating out of 100</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tbodyProgramWeightAge"></tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                    </tr>
+
+                    <tr id='tr_expexcel' style="display:none">
+                    <td>
+                    <div>
+                    
+                    <table class="table table-striped table-bordered dt-responsive nowrap margin-bottom-0 clearDataOnChange">
+                                    <thead>
+                                        <tr>
+                                            <th>Particpant Name</th>
+                                            <th>Particpant EmpCode</th>
+                                            <th style="color:#bf00ff;" data-toggle="tooltip" title="Was the Induction process helpful in providing a better understanding about the organization?">Q1</th>
+                                            <th style="color:#bf00ff;" data-toggle="tooltip" title="Did the Induction process provide valuable information about systems and processes?">Q2</th>
+                                            <th style="color:#bf00ff;" data-toggle="tooltip" title="Were your queries addressed during the program?">Q3</th>
+                                            <th style="color:#bf00ff;" data-toggle="tooltip" title="Was the time allocated to the program appropriate?">Q4</th>
+                                            <th style="color:#00bfff;" data-toggle="tooltip" title="Were you satisfied with the facilities at the venue:Location">Q5</th>
+                                            <th style="color:#00bfff;" data-toggle="tooltip" title="Were you satisfied with the facilities at the venue:Ambience">Q6</th>
+                                            <th style="color:#00bfff;" data-toggle="tooltip" title="Were you satisfied with the facilities at the venue:Food">Q7</th>
+                                            <th style="color:#00bfff;" data-toggle="tooltip" title="Were you satisfied with the facilities at the venue:Stay">Q8</th>
+                                            <th data-toggle="tooltip" title="Do you have any suggestions to improve the program?">Q9</th>
+                                            <th data-toggle="tooltip" title="What was the most valuable aspect of the program?">Q10</th>
+                                            <th data-toggle="tooltip" title="What was the least valuable aspect of the program?">Q11</th>
+                                            <th data-toggle="tooltip" title="Your overall comment on the program.">Q12</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="Div_17"></tbody>
+                                </table>
+
+                    </div>
+                    </td>
+                    </tr>
+                    <tr>
+                    </tr>
+                    <tr>
+                    </tr>
+					<tr>
+                    </tr>
+
+                    <tr>
+                    <td>
+                    
+                <div id="div_Qs"><br/><br/>
+<ul>
+<li>
+<span style="color:#bf00ff;"><b>Q1</b></span>-Was the Induction process helpful in providing a better understanding about the organization?
+</li>
+<li>
+<span style="color:#bf00ff;"><b>Q2</b></span>-Did the Induction process provide valuable information about systems and processes?
+</li>
+<li>
+<span style="color:#bf00ff;"><b>Q3</b></span>-Were your queries addressed during the program?
+</li>
+<li>
+<span style="color:#bf00ff;"><b>Q4</b></span>-Was the time allocated to the program appropriate?
+</li>
+<li>
+<span style="color:#00bfff;"><b>Q5</b></span>-Were you satisfied with the facilities at the venue:Location
+</li>
+<li>
+<span style="color:#00bfff;"><b>Q6</b></span>-Were you satisfied with the facilities at the venue:Ambience
+</li>
+<li>
+<span style="color:#00bfff;"><b>Q7</b></span>-Were you satisfied with the facilities at the venue:Food
+</li>
+<li>
+<span style="color:#00bfff;"><b>Q8</b></span>-Were you satisfied with the facilities at the venue:Stay
+</li>
+<li>
+<b>Q9</b>-Do you have any suggestions to improve the program?
+</li>
+<li>
+<b>Q10</b>-What was the most valuable aspect of the program?
+</li>
+<li>
+<b>Q11</b>-What was the least valuable aspect of the program?
+</li>
+<li>
+<b>Q12</b>-Your overall comment on the program.
+</li>
+
+</ul>
+</div>
+                    
+                    </td>
+                    </tr>
+                    
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="throbber" style="display:none;">
+<img src="https://bajajelect.sharepoint.com/sites/HR-TrainingManagementSystem/SiteAssets/AnugamStyles/img/712_1.gif" /><br/></br><h3><b style="color:#0072c6 !Important;font-size:32px">Please Wait...</b><h3></div>
+
+
+<script language="javascript" type="text/javascript">
+    $(document).ready(function () {
+    			
+        PopulateProgramDropDown();
+        	
+    });
+    
+    function isCurrentUserMemberOfGroup(groupName) {
+    var userIsInGroup = false;
+    $.ajax({
+        async: false,
+        headers: { "accept": "application/json; odata=verbose" },
+        method: "GET",
+        url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/currentuser/groups",
+        success: function (data) {
+            data.d.results.forEach( function (value) {
+                if (value.Title == groupName) {               
+                     userIsInGroup = true;
+                }
+            });
+        },
+        error: function (response) {
+            console.log(response.status);
+        },
+    });    
+    return userIsInGroup;
+}
+    
+
+    function PopulateProgramDropDown() {
+    
+                       
+	    var isAdmin = isCurrentUserMemberOfGroup("L&D Functional Admin");
+	    //console.log(isAdmin);
+                       
+        var listName = "NewInductionProgram";
+        var url = _spPageContextInfo.webAbsoluteUrl;
+        var UserEmail = LoginUserEmail();
+        getProgram(isAdmin,UserEmail, listName, url, function (data) {
+        
+            $.blockUI.defaults.css = {		
+											padding: 0,		
+								            margin: 0,		
+								            width: '30%',		
+								            top: '40%',		
+								            left: '35%',		
+								            textAlign: 'center',
+								            cursor: 'wait'};
+								            
+		       $.blockUI.defaults.overlayCSS.backgroundColor = '#fff';
+		       $.blockUI.defaults.overlayCSS.opacity = 0.9;
+		       $.blockUI.defaults.overlayCSS.cursor = 'pointer';
+
+
+		       $.blockUI({message: $('#throbber')});
+                
+                       setTimeout(function () {
+
+            var TodayDate = new Date();
+            var day = TodayDate.getDate();
+            var mm = TodayDate.getMonth() + 1;
+            var Year = TodayDate.getFullYear();
+            var items = data.d.results;
+            var pgmFinalData = []; var j = 0;
+            var arrPGM = [];
+            var arrPGMUnique = [];
+            for (var k = 0; k < items.length; k++) {
+                var ChkProgramEndDate = new Date(items[k].ProgramEndDate.split("/").reverse().join("-"));
+               // if (new Date(items[k].ProgramEndDate.split("/").reverse().join("-")) <= TodayDate || ChkProgramEndDate.setHours(0, 0, 0, 0) == TodayDate.setHours(0, 0, 0, 0)) {
+                    var NameProgram = items[k].ProgramName;
+                    var ChckCnclPgm = items[k].ProgramName;
+	               // var PrgrmCancellation = GetPgmCncld(ChckCnclPgm);
+	                //if(PrgrmCancellation != 'Yes')
+                	//{
+
+                    if (pgmFinalData[j++] != NameProgram) {
+                        pgmFinalData[j++] = NameProgram;
+                    }
+                    
+                    //}
+                //}
+            }
+            
+            
+            var uniqueProgramNames = '';
+            var result = [];
+            $.each(pgmFinalData, function (index, pgmFinalData) {
+                if ($.inArray(pgmFinalData, result) == -1) {
+                    result.push(pgmFinalData);
+                }
+            });
+            console.log(ChkProgramEndDate);
+            //var programBind = GroupByProgramData(pgmFinalData, 'ProgramName');
+            var inputElement = '<select id="ProgramNameDynDropDown" class="form-control"><option  value="">--Select Program--</option>';
+            // Add all the new items
+            for (var i = 0; i < result.length; i++) {
+                if (result[i] != undefined) {
+                    var itemId = result[i],
+                        itemVal = result[i];
+                    inputElement += '<option value="' + itemVal + '"selected>' + itemId + '</option>';
+                }
+            }
+            inputElement += '</select>';
+            $('#ddlProgramName').append(inputElement);
+            $("#ProgramNameDynDropDown").each(function () {
+                $('option', this).each(function () {
+                    if ($(this).text() == '--Select Program--') {
+                        $(this).attr('selected', 'selected')
+                    };
+                });
+            });
+            
+            $("#ProgramNameDynDropDown").select2();
+            $('#ProgramNameDynDropDown').on('change', function () {
+                var selectedProgramName = $(this).val();
+                var UserEmailID = LoginUserEmail();
+                $("#divTotalProgramReport").empty();
+                $("#div_ind").show();
+                $("#thProgramName").empty();
+                $("#thProgramName").append(selectedProgramName);
+                $('.clearDataOnChange').find("tr:not(:first)").remove();
+                getTotlaUserEmployeeDetails(selectedProgramName);
+            });
+            
+                           $.unblockUI({
+                    onUnblock: function () {
+                        console.log('');
+                    }
+                });
+            }, 600);
+
+
+        }, function (data) {
+            alert("An error occured while getting ConfigParameters. Please try again");
+        });
+    }
+
+
+    function getProgram(isAdmin,UserEmail, listName, siteurl, success, failure) {
+	    if(!isAdmin)
+	    {
+        var urlTest = siteurl + "/_vti_bin/listdata.svc/" + listName + "?$filter=CreatedByUser eq %27" + UserEmail + "%27 and Status eq 'Active' and FeedBackNeed eq 'Yes' and InductionProgram eq 'Yes'&$orderby= Created desc";
+        }
+        else
+        {
+        var urlTest = siteurl + "/_vti_bin/listdata.svc/" + listName + "?$filter= Status eq 'Active' and FeedBackNeed eq 'Yes' and InductionProgram eq 'Yes'&$orderby= Created desc";
+        }
+        $.ajax({
+            url: urlTest,
+            method: "GET",
+            headers: { "Accept": "application/json; odata=verbose" },
+            success: function (data) {
+                success(data);
+            },
+            error: function (data) {
+                failure(data);
+            }
+        });
+    }
+    function GroupByProgramData(items, propertyName) {
+        var result = [];
+        $.each(items, function (index, item) {
+            if ($.inArray(item[propertyName], result) == -1) {
+                result.push(item[propertyName]);
+            }
+        });
+        return result;
+    }
+
+</script>
+<script>
+    function getOnlineFeedEmployeeDetails(selectedProgramName) {
+        var UserEmail = LoginUserEmail(); var pushOnlineFeedData = [];
+		
+		
+	    var InductionUndtRating = 0; var InductionValInfoRating = 0; var InductionQueriesRating = 0; var InductionTimeRating = 0; var InductionLocRating = 0; var InductionAmbRating = 0; 
+        var InductionFoodRating = 0; var InductionStayRating = 0; 
+        
+        var totalPersons = 0;
+        var InductionUndt1 = 0; var InductionUndt2 = 0; var InductionUndt3 = 0; var InductionUndt4 = 0;
+        var InductionValInfo1 = 0; var InductionValInfo2 = 0; var InductionValInfo3 = 0; var InductionValInfo4 = 0;
+        var InductionQueries1 = 0; var InductionQueries2 = 0; var InductionQueries3 = 0; var InductionQueries4 = 0;
+        var InductionTime1 = 0; var InductionTime2 = 0; var InductionTime3 = 0; var InductionTime4 = 0;
+        var InductionLoc1 = 0; var InductionLoc2 = 0; var InductionLoc3 = 0; var InductionLoc4 = 0;
+        var InductionAmb1 = 0; var InductionAmb2 = 0; var InductionAmb3 = 0; var InductionAmb4 = 0;
+        var InductionFood1 = 0; var InductionFood2 = 0; var InductionFood3 = 0; var InductionFood4 = 0; var InductionFood5 = 0;
+
+        var InductionStay1 = 0; var InductionStay2 = 0; var InductionStay3 = 0; var InductionStay4 = 0; var InductionStay5 = 0;
+
+        var SpeakerName = ''; var ProgramStartDate = ""; var ProgramEndDate = ""; 
+        var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_vti_bin/listdata.svc/InductionFeedback?$filter=ProgramName eq '" + selectedProgramName + "' and FeedbackStatus eq 'Completed'"; 
+        $.ajax({
+            url: RestUrl,
+            method: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+            },
+            success: function (d) {
+                var arr = [];
+                i = 0;
+                $.each(d.d.results, function (index, results) {
+                    arr[i++] = index;
+                });
+                totalPersons = arr.length;
+                var PgmContent
+                for (var k = 0; k < arr.length; k++) {
+                    var arrK = arr[k];
+                    if (d.d.results[arrK].ProgramName == selectedProgramName) {
+                        //SpeakerName = d.d.results[arrK].SpeakerName;
+                        
+                        SpeakerName = d.d.results[arrK].SpeakerName;
+                       
+                        temp=SpeakerName.split(",")
+						newArr=[]						
+						for(var i=0;i<temp.length;i++){
+						isIn=0
+						
+						for(var j=0;j<newArr.length;j++){
+						
+						if(temp[i]==newArr[j]){
+						isIn=1
+						}
+						}
+						
+						if(isIn==0){
+						newArr.push(temp[i])
+						}
+						}
+						
+						if(newArr.length > 0)
+						{
+						SpeakerName = newArr;
+						}
+						else
+						{
+						SpeakerName = "NA";
+						}
+						
+                        ProgramStartDate = d.d.results[arrK].ProgramStartDate;
+                        ProgramEndDate = d.d.results[arrK].ProgramEndDate
+
+						if(d.d.results[arrK].ProgramLocation != "" && d.d.results[arrK].ProgramLocation != null)
+                        {
+                        ProgramLocation = d.d.results[arrK].ProgramLocation;
+                        }
+
+
+
+                        InductionUndtRating = d.d.results[arrK].InductionUndtRating;
+                        InductionValInfoRating = d.d.results[arrK].InductionValInfoRating;
+                        InductionQueriesRating = d.d.results[arrK].InductionQueriesRating;
+                        InductionTimeRating = d.d.results[arrK].InductionTimeRating;
+                        InductionLocRating = d.d.results[arrK].InductionLocRating;
+                        InductionAmbRating = d.d.results[arrK].InductionAmbRating;
+                        InductionFoodRating = d.d.results[arrK].InductionFoodRating;
+                        InductionStayRating = d.d.results[arrK].InductionStayRating;
+                        
+                        if (InductionUndtRating == 1 || InductionUndtRating == 2 || InductionUndtRating == 3 || InductionUndtRating == 4) {
+                            if (InductionUndtRating == 1) { InductionUndt1 = InductionUndt1 + 1 };
+                            if (InductionUndtRating == 2) { InductionUndt2 = InductionUndt2 + 1 };
+                            if (InductionUndtRating == 3) InductionUndt3 = InductionUndt3 + 1;
+                            if (InductionUndtRating == 4) InductionUndt4 = InductionUndt4 + 1;
+                        }
+                        if (InductionValInfoRating == 1 || InductionValInfoRating == 2 || InductionValInfoRating == 3 || InductionValInfoRating == 4) {
+                            if (InductionValInfoRating == 1) InductionValInfo1 = InductionValInfo1 + 1;
+                            if (InductionValInfoRating == 2) InductionValInfo2 = InductionValInfo2 + 1;
+                            if (InductionValInfoRating == 3) InductionValInfo3 = InductionValInfo3 + 1;
+                            if (InductionValInfoRating == 4) InductionValInfo4 = InductionValInfo4 + 1;
+                        }
+                        if (InductionQueriesRating == 1 || InductionQueriesRating == 2 || InductionQueriesRating == 3 || InductionQueriesRating == 4) {
+                            if (InductionQueriesRating == 1) InductionQueries1 = InductionQueries1 + 1;
+                            if (InductionQueriesRating == 2) InductionQueries2 = InductionQueries2 + 1;
+                            if (InductionQueriesRating == 3) InductionQueries3 = InductionQueries3 + 1;
+                            if (InductionQueriesRating == 4) InductionQueries4 = InductionQueries4 + 1;
+                        }
+                        if (InductionTimeRating == 1 || InductionTimeRating == 2 || InductionTimeRating == 3 || InductionTimeRating == 4) {
+                            if (InductionTimeRating == 1) InductionTime1 = InductionTime1 + 1;
+                            if (InductionTimeRating == 2) InductionTime2 = InductionTime2 + 1;
+                            if (InductionTimeRating == 3) InductionTime3 = InductionTime3 + 1;
+                            if (InductionTimeRating == 4) InductionTime4 = InductionTime4 + 1;
+                        }
+                        if (InductionLocRating == 1 || InductionLocRating == 2 || InductionLocRating == 3 || InductionLocRating == 4) {
+                            if (InductionLocRating == 1) InductionLoc1 = InductionLoc1 + 1;
+                            if (InductionLocRating == 2) InductionLoc2 = InductionLoc2 + 1;
+                            if (InductionLocRating == 3) InductionLoc3 = InductionLoc3 + 1;
+                            if (InductionLocRating == 4) InductionLoc4 = InductionLoc4 + 1;
+                        }
+                        if (InductionAmbRating == 1 || InductionAmbRating == 2 || InductionAmbRating == 3 || InductionAmbRating == 4) {
+                            if (InductionAmbRating == 1) InductionAmb1 = InductionAmb1 + 1;
+                            if (InductionAmbRating == 2) InductionAmb2 = InductionAmb2 + 1;
+                            if (InductionAmbRating == 3) InductionAmb3 = InductionAmb3 + 1;
+                            if (InductionAmbRating == 4) InductionAmb4 = InductionAmb4 + 1;
+                        }
+                        if (InductionFoodRating == 1 || InductionFoodRating == 2 || InductionFoodRating == 3 || InductionFoodRating == 4 || InductionFoodRating == 0) {
+                            if (InductionFoodRating == 1) InductionFood1 = InductionFood1 + 1;
+                            if (InductionFoodRating == 2) InductionFood2 = InductionFood2 + 1;
+                            if (InductionFoodRating == 3) InductionFood3 = InductionFood3 + 1;
+                            if (InductionFoodRating == 4) InductionFood4 = InductionFood4 + 1;
+                            if (InductionFoodRating == 0) InductionFood5 = InductionFood5 + 1;
+
+                        }
+                        if (InductionStayRating == 1 || InductionStayRating == 2 || InductionStayRating == 3 || InductionStayRating == 4 || InductionStayRating == 0) {
+                            if (InductionStayRating == 1) InductionStay1 = InductionStay1 + 1;
+                            if (InductionStayRating == 2) InductionStay2 = InductionStay2 + 1;
+                            if (InductionStayRating == 3) InductionStay3 = InductionStay3 + 1;
+                            if (InductionStayRating == 4) InductionStay4 = InductionStay4 + 1;
+                            if (InductionStayRating == 0) InductionStay5 = InductionStay5 + 1;
+                        }
+                                                
+                    }
+                }
+                if (InductionUndtRating != 0 && InductionValInfoRating != 0 && InductionQueriesRating != 0 && InductionTimeRating != 0 && InductionLocRating != 0
+                    && InductionAmbRating != 0) {
+                    pushOnlineFeedData.push({
+                        InductionUndt1: InductionUndt1, InductionUndt2 : InductionUndt2, InductionUndt3 : InductionUndt3 , InductionUndt4 : InductionUndt4 ,
+                        InductionValInfo1 : InductionValInfo1 , InductionValInfo2 : InductionValInfo2 , InductionValInfo3 : InductionValInfo3 , InductionValInfo4 : InductionValInfo4,
+                        InductionQueries1 : InductionQueries1 , InductionQueries2 : InductionQueries2 , InductionQueries3 : InductionQueries3 , InductionQueries4 : InductionQueries4,
+                        InductionTime1: InductionTime1, InductionTime2: InductionTime2, InductionTime3: InductionTime3, InductionTime4: InductionTime4,
+                        InductionLoc1: InductionLoc1, InductionLoc2: InductionLoc2, InductionLoc3: InductionLoc3, InductionLoc4: InductionLoc4,
+                        InductionAmb1: InductionAmb1, InductionAmb2: InductionAmb2, InductionAmb3: InductionAmb3, InductionAmb4: InductionAmb4,
+                        InductionFood1: InductionFood1, InductionFood2: InductionFood2, InductionFood3: InductionFood3, InductionFood4: InductionFood4,InductionFood5: InductionFood5,
+                        InductionStay1: InductionStay1, InductionStay2: InductionStay2, InductionStay3: InductionStay3, InductionStay4: InductionStay4,InductionStay5: InductionStay5,
+                        SpeakerName: SpeakerName, ProgramStartDate: ProgramStartDate,
+                        ProgramEndDate: ProgramEndDate, ProgramLocation: ProgramLocation, totalPersons: totalPersons
+                    });
+                }
+            },
+            error: function (data) {
+                $('#divTotalProgramReport').append("<span>Error Retreiving Records. Error : " + JSON.stringify(data) + "</span>")
+            }
+        });
+        return pushOnlineFeedData;
+    }
+    
+    function getOnlineFeedEmployeeDetails_1(selectedProgramName) {
+        var totalPersons = 0;
+
+        var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_vti_bin/listdata.svc/InductionFeedback?$filter=ProgramName eq '" + selectedProgramName + "' and FeedbackStatus ne 'Completed'"; 
+        $.ajax({
+            url: RestUrl,
+            method: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+            },
+            success: function (d) {
+                var arr = [];
+                i = 0;
+                $.each(d.d.results, function (index, results) {
+                    arr[i++] = index;
+                });
+                totalPersons = arr.length;
+                
+            },
+            error: function (data) {
+                $('#divTotalProgramReport').append("<span>Error Retreiving Records. Error : " + JSON.stringify(data) + "</span>")
+            }
+        });
+        return totalPersons;
+    }
+    function getTotlaUserEmployeeDetails(selectedProgramName) {
+    
+    
+     $.blockUI.defaults.css = {		
+											padding: 0,		
+								            margin: 0,		
+								            width: '30%',		
+								            top: '40%',		
+								            left: '35%',		
+								            textAlign: 'center',
+								            cursor: 'wait'};
+								            
+		       $.blockUI.defaults.overlayCSS.backgroundColor = '#fff';
+		       $.blockUI.defaults.overlayCSS.opacity = 0.9;
+		       $.blockUI.defaults.overlayCSS.cursor = 'pointer';
+
+
+		       $.blockUI({message: $('#throbber')});
+                
+                       setTimeout(function () {
+
+        var UserEmail = LoginUserEmail();
+        
+        var InductionUndtRating = 0; var InductionValInfoRating = 0; var InductionQueriesRating = 0; var InductionTimeRating = 0; var InductionLocRating = 0; var InductionAmbRating = 0; 
+        var InductionFoodRating = 0; var InductionStayRating = 0; 
+        
+        var totalPersons = 0;
+        var InductionUndt1 = 0; var InductionUndt2 = 0; var InductionUndt3 = 0; var InductionUndt4 = 0;
+        var InductionValInfo1 = 0; var InductionValInfo2 = 0; var InductionValInfo3 = 0; var InductionValInfo4 = 0;
+        var InductionQueries1 = 0; var InductionQueries2 = 0; var InductionQueries3 = 0; var InductionQueries4 = 0;
+        var InductionTime1 = 0; var InductionTime2 = 0; var InductionTime3 = 0; var InductionTime4 = 0;
+        var InductionLoc1 = 0; var InductionLoc2 = 0; var InductionLoc3 = 0; var InductionLoc4 = 0;
+        var InductionAmb1 = 0; var InductionAmb2 = 0; var InductionAmb3 = 0; var InductionAmb4 = 0;
+        var InductionFood1 = 0; var InductionFood2 = 0; var InductionFood3 = 0; var InductionFood4 = 0;var InductionFood5 = 0;
+        var InductionStay1 = 0; var InductionStay2 = 0; var InductionStay3 = 0; var InductionStay4 = 0;var InductionStay5 = 0;
+
+        
+         $('#tr_expexcel').show();
+        var ProgramName_1 = $("#ProgramNameDynDropDown").children("option").filter(":selected").text();
+          getBindData(ProgramName_1);
+          getBindData_1(ProgramName_1);
+
+        var SpeakerName = ''; var ProgramStartDate = ""; var ProgramEndDate = ""; 
+        
+   	    var isAdmin = isCurrentUserMemberOfGroup("L&D Functional Admin");
+   	    if(!isAdmin)
+   	    {
+        var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_vti_bin/listdata.svc/InductionFeedbackSpeakerDetails?$filter=ProgramName eq '" + selectedProgramName + "' and Status eq 'Active'";
+        }
+        else
+        {
+        var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_vti_bin/listdata.svc/InductionFeedbackSpeakerDetails?$filter=ProgramName eq '" + selectedProgramName + "' and Status eq 'Active'";
+        }
+        $.ajax({
+            url: RestUrl,
+            method: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+            },
+            success: function (d) {
+                var arr = [];
+                i = 0;
+                $.each(d.d.results, function (index, results) {
+                    arr[i++] = index;
+                });
+                totalPersons = arr.length;
+                var PgmContent
+                for (var k = 0; k < arr.length; k++) {
+                    var arrK = arr[k];
+                    if (d.d.results[arrK].ProgramName == selectedProgramName) {
+                        SpeakerName = d.d.results[arrK].SpeakerName;
+						
+						temp=SpeakerName.split(",")
+						newArr=[]						
+						for(var i=0;i<temp.length;i++){
+						isIn=0
+						
+						for(var j=0;j<newArr.length;j++){
+						
+						if(temp[i]==newArr[j]){
+						isIn=1
+						}
+						}
+						
+						if(isIn==0){
+						newArr.push(temp[i])
+						}
+						}
+						
+						if(newArr.length > 0)
+						{
+						SpeakerName = newArr;
+						}
+						else
+						{
+						SpeakerName = "NA";
+						}
+
+						
+                        ProgramStartDate = d.d.results[arrK].ProgramStartDate;
+                        ProgramEndDate = d.d.results[arrK].ProgramEndDate
+                        if(d.d.results[arrK].ProgramLocation != "" && d.d.results[arrK].ProgramLocation != null)
+                        {
+                        ProgramLocation = d.d.results[arrK].ProgramLocation;
+                        }
+
+                        
+                        InductionUndtRating = d.d.results[arrK].InductionUndtRating;
+                        InductionValInfoRating = d.d.results[arrK].InductionValInfoRating;
+                        InductionQueriesRating = d.d.results[arrK].InductionQueriesRating;
+                        InductionTimeRating = d.d.results[arrK].InductionTimeRating;
+                        InductionLocRating = d.d.results[arrK].InductionLocRating;
+                        InductionAmbRating = d.d.results[arrK].InductionAmbRating;
+                        InductionFoodRating = d.d.results[arrK].InductionFoodRating;
+                        InductionStayRating = d.d.results[arrK].InductionStayRating;
+                        
+                        if (InductionUndtRating == 1 || InductionUndtRating == 2 || InductionUndtRating == 3 || InductionUndtRating == 4) {
+                            if (InductionUndtRating == 1) { InductionUndt1 = InductionUndt1 + 1 };
+                            if (InductionUndtRating == 2) { InductionUndt2 = InductionUndt2 + 1 };
+                            if (InductionUndtRating == 3) InductionUndt3 = InductionUndt3 + 1;
+                            if (InductionUndtRating == 4) InductionUndt4 = InductionUndt4 + 1;
+                        }
+                        if (InductionValInfoRating == 1 || InductionValInfoRating == 2 || InductionValInfoRating == 3 || InductionValInfoRating == 4) {
+                            if (InductionValInfoRating == 1) InductionValInfo1 = InductionValInfo1 + 1;
+                            if (InductionValInfoRating == 2) InductionValInfo2 = InductionValInfo2 + 1;
+                            if (InductionValInfoRating == 3) InductionValInfo3 = InductionValInfo3 + 1;
+                            if (InductionValInfoRating == 4) InductionValInfo4 = InductionValInfo4 + 1;
+                        }
+                        if (InductionQueriesRating == 1 || InductionQueriesRating == 2 || InductionQueriesRating == 3 || InductionQueriesRating == 4) {
+                            if (InductionQueriesRating == 1) InductionQueries1 = InductionQueries1 + 1;
+                            if (InductionQueriesRating == 2) InductionQueries2 = InductionQueries2 + 1;
+                            if (InductionQueriesRating == 3) InductionQueries3 = InductionQueries3 + 1;
+                            if (InductionQueriesRating == 4) InductionQueries4 = InductionQueries4 + 1;
+                        }
+                        if (InductionTimeRating == 1 || InductionTimeRating == 2 || InductionTimeRating == 3 || InductionTimeRating == 4) {
+                            if (InductionTimeRating == 1) InductionTime1 = InductionTime1 + 1;
+                            if (InductionTimeRating == 2) InductionTime2 = InductionTime2 + 1;
+                            if (InductionTimeRating == 3) InductionTime3 = InductionTime3 + 1;
+                            if (InductionTimeRating == 4) InductionTime4 = InductionTime4 + 1;
+                        }
+                        if (InductionLocRating == 1 || InductionLocRating == 2 || InductionLocRating == 3 || InductionLocRating == 4) {
+                            if (InductionLocRating == 1) InductionLoc1 = InductionLoc1 + 1;
+                            if (InductionLocRating == 2) InductionLoc2 = InductionLoc2 + 1;
+                            if (InductionLocRating == 3) InductionLoc3 = InductionLoc3 + 1;
+                            if (InductionLocRating == 4) InductionLoc4 = InductionLoc4 + 1;
+                        }
+                        if (InductionAmbRating == 1 || InductionAmbRating == 2 || InductionAmbRating == 3 || InductionAmbRating == 4) {
+                            if (InductionAmbRating == 1) InductionAmb1 = InductionAmb1 + 1;
+                            if (InductionAmbRating == 2) InductionAmb2 = InductionAmb2 + 1;
+                            if (InductionAmbRating == 3) InductionAmb3 = InductionAmb3 + 1;
+                            if (InductionAmbRating == 4) InductionAmb4 = InductionAmb4 + 1;
+                        }
+                        if (InductionFoodRating == 1 || InductionFoodRating == 2 || InductionFoodRating == 3 || InductionFoodRating == 4 || InductionFoodRating == 0) {
+                            if (InductionFoodRating == 1) InductionFood1 = InductionFood1 + 1;
+                            if (InductionFoodRating == 2) InductionFood2 = InductionFood2 + 1;
+                            if (InductionFoodRating == 3) InductionFood3 = InductionFood3 + 1;
+                            if (InductionFoodRating == 4) InductionFood4 = InductionFood4 + 1;
+                            if (InductionFoodRating == 0) InductionFood5 = InductionFood5 + 1;
+                        }
+                        if (InductionStayRating == 1 || InductionStayRating == 2 || InductionStayRating == 3 || InductionStayRating == 4 || InductionStayRating == 0) {
+                            if (InductionStayRating == 1) InductionStay1 = InductionStay1 + 1;
+                            if (InductionStayRating == 2) InductionStay2 = InductionStay2 + 1;
+                            if (InductionStayRating == 3) InductionStay3 = InductionStay3 + 1;
+                            if (InductionStayRating == 4) InductionStay4 = InductionStay4 + 1;
+                            if (InductionStayRating == 0) InductionStay5 = InductionStay5 + 1;
+                        }
+
+
+
+                    }
+                }
+                var getProgramWeightAge = OVerAllFeedbackWeightAge(selectedProgramName);
+                var OnlineData = getOnlineFeedEmployeeDetails(selectedProgramName);
+                //var ParticipantsInvited = getParticipantsInvited(selectedProgramName);
+                
+                var taskNames = GetMISEmpDetails(selectedProgramName);
+	            console.log(taskNames);
+	            //var MISReportEmployees = groupBy(taskNames,'Day');
+            
+	            var MISDupEmpRemv  = groupBy(taskNames,'EmpCode');
+	            console.log(MISDupEmpRemv);
+	            
+	            if(MISDupEmpRemv.length > 0)
+	            {
+	            var ParticipantsInvited = MISDupEmpRemv.length;
+	            }
+	            else
+	            {
+	            var ParticipantsInvited = "0";
+	            }
+
+                var NoOfFbPen = getOnlineFeedEmployeeDetails_1(selectedProgramName);
+                var totlaCheck = 0;
+                if (OnlineData.length > 0 && InductionUndtRating != '' && InductionUndtRating != null) {
+                    if (getProgramWeightAge.length > 0) {
+                        totlaCheck = totlaCheck + 1;
+                        
+                        var onLinetotalPersons = OnlineData[0].totalPersons;
+                        var totalusr = onLinetotalPersons + totalPersons;
+                        
+                        var ProgramSummary_1 = getProgramWeightAge[0].IndProgramSummary * InductionUndtRating + getProgramWeightAge[0].IndProgramSummary * InductionValInfoRating + getProgramWeightAge[0].IndProgramSummary * InductionQueriesRating + getProgramWeightAge[0].IndProgramSummary * InductionTimeRating;
+                        
+                        var InductionUndtAvg = (((InductionUndt1 * 1 * getProgramWeightAge[0].InductionUndt) / 4) + ((InductionUndt2 * 2 * getProgramWeightAge[0].InductionUndt) / 4)
+                            + ((InductionUndt3 * 3 * getProgramWeightAge[0].InductionUndt) / 4) + ((InductionUndt4 * getProgramWeightAge[0].InductionUndt)));
+                        var InductionValInfoavg = (((InductionValInfo1 * 1 * getProgramWeightAge[0].InductionValInfo) / 4) + ((InductionValInfo2 * 2 * getProgramWeightAge[0].InductionValInfo) / 4)
+                            + ((InductionValInfo3 * 3 * getProgramWeightAge[0].InductionValInfo) / 4) + ((InductionValInfo4 * getProgramWeightAge[0].InductionValInfo)));
+                        var InductionQueriesAvg = (((InductionQueries1 * 1 * getProgramWeightAge[0].InductionQueries) / 4) + ((InductionQueries2 * 2 * getProgramWeightAge[0].InductionQueries) / 4)
+                            + ((InductionQueries3 * 3 * getProgramWeightAge[0].InductionQueries) / 4) + ((InductionQueries4 * getProgramWeightAge[0].InductionQueries)));
+                        var InductionTimeAvg = (((InductionTime1 * 1 * getProgramWeightAge[0].InductionTime) / 4) + ((InductionTime2 * 2 * getProgramWeightAge[0].InductionTime) / 4)
+                            + ((InductionTime3 * 3 * getProgramWeightAge[0].InductionTime) / 4) + ((InductionTime4 * getProgramWeightAge[0].InductionTime)));
+
+
+                        var avgPgmSummary = (InductionUndtAvg + InductionValInfoavg + InductionQueriesAvg + InductionTimeAvg) / totalPersons;
+
+                        var InductionLocAvg = (((InductionLoc1 * 1 * getProgramWeightAge[0].InductionLoc) / 4) + ((InductionLoc2 * 2 * getProgramWeightAge[0].InductionLoc) / 4)
+                            + ((InductionLoc3 * 3 * getProgramWeightAge[0].InductionLoc) / 4) + ((InductionLoc4 * getProgramWeightAge[0].InductionLoc)));
+                        var InductionAmbAvg = (((InductionAmb1 * 1 * getProgramWeightAge[0].InductionAmb) / 4) + ((InductionAmb2 * 2 * getProgramWeightAge[0].InductionAmb) / 4)
+                            + ((InductionAmb3 * 3 * getProgramWeightAge[0].InductionAmb) / 4) + ((InductionAmb4 * getProgramWeightAge[0].InductionAmb)));
+                        var InductionFoodAvg = (((InductionFood5 * 0 * getProgramWeightAge[0].InductionFood) / 4) + ((InductionFood1 * 1 * getProgramWeightAge[0].InductionFood) / 4) + ((InductionFood2 * 2 * getProgramWeightAge[0].InductionFood) / 4)
+                            + ((InductionFood3 * 3 * getProgramWeightAge[0].InductionFood) / 4) + ((InductionFood4 * getProgramWeightAge[0].InductionFood)));
+                        var InductionStayAvg = (((InductionStay5 * 0 * getProgramWeightAge[0].InductionStay) / 4) + ((InductionStay1 * 1 * getProgramWeightAge[0].InductionStay) / 4) + ((InductionStay2 * 2 * getProgramWeightAge[0].InductionStay) / 4)
+                            + ((InductionStay3 * 3 * getProgramWeightAge[0].InductionStay) / 4) + ((InductionStay4 * getProgramWeightAge[0].InductionStay)));
+                            
+
+                        var avgVenueSummary  = (InductionLocAvg + InductionAmbAvg + InductionFoodAvg + InductionStayAvg) / totalPersons;
+      
+                        var pgmSummaryAvg = ((avgPgmSummary * 100) / getProgramWeightAge[0].IndProgramSummary).toFixed(2);
+
+                        var VenSummaryAvg = ((avgVenueSummary * 100) / getProgramWeightAge[0].IndVenueSummary).toFixed(2);
+
+                        //var ratFacilities = (FacilitiesAvg) / totalPersons;
+                        var totalRating = avgPgmSummary + avgVenueSummary;
+                        var totalsWeight = getProgramWeightAge[0].IndProgramSummary + getProgramWeightAge[0].IndVenueSummary;
+
+
+                        
+                        var onLineInductionUndtAvg = (((OnlineData[0].InductionUndt1 * 1 * getProgramWeightAge[0].InductionUndt) / 4) + ((OnlineData[0].InductionUndt2 * 2 * getProgramWeightAge[0].InductionUndt) / 4)
+                            + ((OnlineData[0].InductionUndt3 * 3 * getProgramWeightAge[0].InductionUndt) / 4) + ((OnlineData[0].InductionUndt4 * getProgramWeightAge[0].InductionUndt)));
+                        var onLineInductionValInfoavg = (((OnlineData[0].InductionValInfo1 * 1 * getProgramWeightAge[0].InductionValInfo) / 4) + ((OnlineData[0].InductionValInfo2 * 2 * getProgramWeightAge[0].InductionValInfo) / 4)
+                            + ((OnlineData[0].InductionValInfo3 * 3 * getProgramWeightAge[0].InductionValInfo) / 4) + ((OnlineData[0].InductionValInfo4 * getProgramWeightAge[0].InductionValInfo)));
+                        var onLineInductionQueriesAvg = (((OnlineData[0].InductionQueries1 * 1 * getProgramWeightAge[0].InductionQueries) / 4) + ((OnlineData[0].InductionQueries2 * 2 * getProgramWeightAge[0].InductionQueries) / 4)
+                            + ((OnlineData[0].InductionQueries3 * 3 * getProgramWeightAge[0].InductionQueries) / 4) + ((OnlineData[0].InductionQueries4 * getProgramWeightAge[0].InductionQueries)));
+						var onLineInductionTimeAvg = (((OnlineData[0].InductionTime1 * 1 * getProgramWeightAge[0].InductionTime) / 4) + ((OnlineData[0].InductionTime2 * 2 * getProgramWeightAge[0].InductionTime) / 4)
+                            + ((OnlineData[0].InductionTime3 * 3 * getProgramWeightAge[0].InductionTime) / 4) + ((OnlineData[0].InductionTime4 * getProgramWeightAge[0].InductionTime)));
+
+
+
+                        var onLineavgPgmSummary = (onLineInductionUndtAvg + onLineInductionValInfoavg + onLineInductionQueriesAvg + onLineInductionTimeAvg) / onLinetotalPersons;
+
+                        var onLineInductionLocAvg = (((OnlineData[0].InductionLoc1 * 1 * getProgramWeightAge[0].InductionLoc) / 4) + ((OnlineData[0].InductionLoc2 * 2 * getProgramWeightAge[0].InductionLoc) / 4)
+                            + ((OnlineData[0].InductionLoc3 * 3 * getProgramWeightAge[0].InductionLoc) / 4) + ((OnlineData[0].InductionLoc4 * getProgramWeightAge[0].InductionLoc)));
+                        var onLineInductionAmbAvg = (((OnlineData[0].InductionAmb1 * 1 * getProgramWeightAge[0].InductionAmb) / 4) + ((OnlineData[0].InductionAmb2 * 2 * getProgramWeightAge[0].InductionAmb) / 4)
+                            + ((OnlineData[0].InductionAmb3 * 3 * getProgramWeightAge[0].InductionAmb) / 4) + ((OnlineData[0].InductionAmb4 * getProgramWeightAge[0].InductionAmb)));
+                        var onLineInductionFoodAvg = (((OnlineData[0].InductionFood5 * 0 * getProgramWeightAge[0].InductionFood) / 4) + ((OnlineData[0].InductionFood1 * 1 * getProgramWeightAge[0].InductionFood) / 4) + ((OnlineData[0].InductionFood2 * 2 * getProgramWeightAge[0].InductionFood) / 4)
+                            + ((OnlineData[0].InductionFood3 * 3 * getProgramWeightAge[0].InductionFood) / 4) + ((OnlineData[0].InductionFood4 * getProgramWeightAge[0].InductionFood)));
+                        var onLineInductionStayAvg = (((OnlineData[0].InductionStay5 * 0 * getProgramWeightAge[0].InductionStay) / 4) + ((OnlineData[0].InductionStay1 * 1 * getProgramWeightAge[0].InductionStay) / 4) + ((OnlineData[0].InductionStay2 * 2 * getProgramWeightAge[0].InductionStay) / 4)
+                            + ((OnlineData[0].InductionStay3 * 3 * getProgramWeightAge[0].InductionStay) / 4) + ((OnlineData[0].InductionStay4 * getProgramWeightAge[0].InductionStay)));
+    
+                            
+                        var onLineavgVenueSummary = (onLineInductionLocAvg + onLineInductionAmbAvg + onLineInductionFoodAvg + onLineInductionStayAvg) / onLinetotalPersons;
+    
+    
+
+                        var onLineTrnSummaryAvg = ((onLineavgPgmSummary * 100) / getProgramWeightAge[0].IndProgramSummary).toFixed(2);
+                        var onLineVenSummaryAvg = ((onLineavgVenueSummary * 100) / getProgramWeightAge[0].IndVenueSummary).toFixed(2);
+
+                        //var onLineratFacilities = (onLineFacilitiesAvg) / onLinetotalPersons;
+                        var onLinetotalRating = onLineavgPgmSummary + onLineavgVenueSummary;
+                        var onLinetotalsWeight = getProgramWeightAge[0].IndProgramSummary + getProgramWeightAge[0].IndVenueSummary;
+
+                        var FinalTotal = totalPersons + onLinetotalPersons;
+                        NoOfFbPen = ParticipantsInvited - FinalTotal;
+                        $('#tbodyProgramDetails').append("<tr><td><b>No. of attendees</b></td><td id='td_ParticipantsInvited'>" + ParticipantsInvited + "</td><td id='td_ProgramStartDate'>" + ProgramStartDate + "</td><td id='td_ProgramEndDate'>" + ProgramEndDate + "</td></tr>"
+                                                              + "<tr><td><b>Faculty Name</b></td><td id='td_SpeakerName'>" + SpeakerName + "</td><td><b>Location</b></td><td id='td_ProgramLocation'>" + ProgramLocation + "</td></tr>"
+                                                              + "<tr><td><b>No. of feedback recieved</b></td><td id='td_FinalTotal'>" + FinalTotal + "</td>"
+                                                              + "<td><b>No. of feedback pending</b></td><td id='td_NoOfFbPen'>" + NoOfFbPen + "</td></tr>");
+						
+						var finalInductionUndt =(InductionUndtAvg + onLineInductionUndtAvg)/totalusr;
+						var finalInductionValInfo =(InductionValInfoavg + onLineInductionValInfoavg)/totalusr;
+						var finalonLineInductionQueries =(InductionQueriesAvg + onLineInductionQueriesAvg)/totalusr;
+						var finalInductionTime =(InductionTimeAvg + onLineInductionTimeAvg)/totalusr;
+					
+						var finalvensummary12 =(InductionLocAvg + onLineInductionLocAvg + InductionAmbAvg + onLineInductionAmbAvg + InductionFoodAvg + onLineInductionFoodAvg + InductionStayAvg + onLineInductionStayAvg)/totalusr;
+						
+						
+
+                        var finalavgpgmSummary = (finalInductionUndt + finalInductionValInfo + finalonLineInductionQueries + finalInductionTime);
+                        var finalavgVensmmary = (finalvensummary12);
+                        
+                        var finaltotalRating = finalavgpgmSummary + finalavgVensmmary;
+                        
+                        $('#tbodyProgramWeightAge').append("<tr><td style='color:#bf00ff;'>1. Program Summary</td><td id='td_prgmsumm'><b>" + finalavgpgmSummary.toFixed(2) + "</b></td><td id='td_prgmsumm100'><b>" + ((finalavgpgmSummary.toFixed(2) * 100) / getProgramWeightAge[0].IndProgramSummary).toFixed(2) + "</b></td></tr>"
+                            + "<tr><td style='color:#00bfff;'>2. Venue Summary</td><td id='td_vensumm'><b>" + finalavgVensmmary.toFixed(2) + "</b></td><td id='td_vensumm100'><b>" + ((finalavgVensmmary.toFixed(2) * 100) / getProgramWeightAge[0].IndVenueSummary).toFixed(2) + "</b></td></tr>"
+                            + "<tr><td><b>Feedback Score</b></td><td id='td_finscore'><b>" + finaltotalRating.toFixed(2) + "</b></td></tr>");
+                        $('#btntotalProgramReport').show();
+                        $('#btnGenReport').show();
+                        //$('#btnPartFB').show();
+
+                    }
+                }
+                if (OnlineData.length > 0 && totlaCheck == 0) {
+                    if (getProgramWeightAge.length > 0) {
+                        var onLinetotalPersons = OnlineData[0].totalPersons;
+                        var onLineInductionUndtAvg = (((OnlineData[0].InductionUndt1 * 1 * getProgramWeightAge[0].InductionUndt) / 4) + ((OnlineData[0].InductionUndt2 * 2 * getProgramWeightAge[0].InductionUndt) / 4)
+                            + ((OnlineData[0].InductionUndt3 * 3 * getProgramWeightAge[0].InductionUndt) / 4) + ((OnlineData[0].InductionUndt4 * getProgramWeightAge[0].InductionUndt)));
+                        var onLineInductionValInfoavg = (((OnlineData[0].InductionValInfo1 * 1 * getProgramWeightAge[0].InductionValInfo) / 4) + ((OnlineData[0].InductionValInfo2 * 2 * getProgramWeightAge[0].InductionValInfo) / 4)
+                            + ((OnlineData[0].InductionValInfo3 * 3 * getProgramWeightAge[0].InductionValInfo) / 4) + ((OnlineData[0].InductionValInfo4 * getProgramWeightAge[0].InductionValInfo)));
+                        var onLineInductionQueriesAvg = (((OnlineData[0].InductionQueries1 * 1 * getProgramWeightAge[0].InductionQueries) / 4) + ((OnlineData[0].InductionQueries2 * 2 * getProgramWeightAge[0].InductionQueries) / 4)
+                            + ((OnlineData[0].InductionQueries3 * 3 * getProgramWeightAge[0].InductionQueries) / 4) + ((OnlineData[0].InductionQueries4 * getProgramWeightAge[0].InductionQueries)));
+						var onLineInductionTimeAvg = (((OnlineData[0].InductionTime1 * 1 * getProgramWeightAge[0].InductionTime) / 4) + ((OnlineData[0].InductionTime2 * 2 * getProgramWeightAge[0].InductionTime) / 4)
+                            + ((OnlineData[0].InductionTime3 * 3 * getProgramWeightAge[0].InductionTime) / 4) + ((OnlineData[0].InductionTime4 * getProgramWeightAge[0].InductionTime)));
+
+
+
+                        var onLineavgPgmSummary = (onLineInductionUndtAvg + onLineInductionValInfoavg + onLineInductionQueriesAvg + onLineInductionTimeAvg) / onLinetotalPersons;
+
+                        var onLineInductionLocAvg = (((OnlineData[0].InductionLoc1 * 1 * getProgramWeightAge[0].InductionLoc) / 4) + ((OnlineData[0].InductionLoc2 * 2 * getProgramWeightAge[0].InductionLoc) / 4)
+                            + ((OnlineData[0].InductionLoc3 * 3 * getProgramWeightAge[0].InductionLoc) / 4) + ((OnlineData[0].InductionLoc4 * getProgramWeightAge[0].InductionLoc)));
+                        var onLineInductionAmbAvg = (((OnlineData[0].InductionAmb1 * 1 * getProgramWeightAge[0].InductionAmb) / 4) + ((OnlineData[0].InductionAmb2 * 2 * getProgramWeightAge[0].InductionAmb) / 4)
+                            + ((OnlineData[0].InductionAmb3 * 3 * getProgramWeightAge[0].InductionAmb) / 4) + ((OnlineData[0].InductionAmb4 * getProgramWeightAge[0].InductionAmb)));
+                        var onLineInductionFoodAvg = (((OnlineData[0].InductionFood5 * 0 * getProgramWeightAge[0].InductionFood) / 4) + ((OnlineData[0].InductionFood1 * 1 * getProgramWeightAge[0].InductionFood) / 4) + ((OnlineData[0].InductionFood2 * 2 * getProgramWeightAge[0].InductionFood) / 4)
+                            + ((OnlineData[0].InductionFood3 * 3 * getProgramWeightAge[0].InductionFood) / 4) + ((OnlineData[0].InductionFood4 * getProgramWeightAge[0].InductionFood)));
+                        var onLineInductionStayAvg = (((OnlineData[0].InductionStay5 * 0 * getProgramWeightAge[0].InductionStay) / 4) + ((OnlineData[0].InductionStay1 * 1 * getProgramWeightAge[0].InductionStay) / 4) + ((OnlineData[0].InductionStay2 * 2 * getProgramWeightAge[0].InductionStay) / 4)
+                            + ((OnlineData[0].InductionStay3 * 3 * getProgramWeightAge[0].InductionStay) / 4) + ((OnlineData[0].InductionStay4 * getProgramWeightAge[0].InductionStay)));
+    
+                            
+                        var onLineavgVenueSummary = (onLineInductionLocAvg + onLineInductionAmbAvg + onLineInductionFoodAvg + onLineInductionStayAvg) / onLinetotalPersons;
+    
+    
+
+                        var onLineTrnSummaryAvg = ((onLineavgPgmSummary * 100) / getProgramWeightAge[0].IndProgramSummary).toFixed(2);
+                        var onLineVenSummaryAvg = ((onLineavgVenueSummary * 100) / getProgramWeightAge[0].IndVenueSummary).toFixed(2);
+
+                        //var onLineratFacilities = (onLineFacilitiesAvg) / onLinetotalPersons;
+                        var onLinetotalRating = onLineavgPgmSummary + onLineavgVenueSummary;
+                        var onLinetotalsWeight = getProgramWeightAge[0].IndProgramSummary + getProgramWeightAge[0].IndVenueSummary;
+
+                        var FinalTotal = totalPersons + onLinetotalPersons;
+                        
+                        NoOfFbPen = ParticipantsInvited - FinalTotal;
+                        
+                        $('#tbodyProgramDetails').append("<tr><td><b>No. of attendees</b></td><td id='td_ParticipantsInvited'>" + ParticipantsInvited + "</td><td id='td_ProgramStartDate'>" + OnlineData[0].ProgramStartDate + "</td><td id='td_ProgramEndDate'>" + OnlineData[0].ProgramEndDate + "</td></tr>"
+                                                              + "<tr><td><b>Faculty Name</b></td><td id='td_SpeakerName'>" + OnlineData[0].SpeakerName + "</td><td><b>Location</b></td><td id='td_ProgramLocation'>" + ProgramLocation + "</td></tr>"
+                                                              + "<tr><td><b>No. of feedback recieved</b></td><td id='td_FinalTotal'>" + FinalTotal + "</td>"
+                                                              + "<td><b>No. of feedback pending</b></td><td id='td_NoOfFbPen'>" + NoOfFbPen + "</td></tr>");
+
+
+
+                        var finalavgpgmSummary = onLineavgPgmSummary;
+                        var finalvenuesummar1 = onLineavgVenueSummary;
+                        var finaltotalRating = onLinetotalRating;
+
+                        $('#tbodyProgramWeightAge').append("<tr><td style='color:#bf00ff;'>1. Program Summary</td><td id='td_prgmsumm'><b>" + finalavgpgmSummary.toFixed(2) + "</b></td><td id='td_prgmsumm100'><b>" + ((finalavgpgmSummary.toFixed(2) * 100) / getProgramWeightAge[0].IndProgramSummary).toFixed(2) + "</b></td></tr>"
+                            + "<tr><td style='color:#00bfff;'>2. Venue Summary</td><td id='td_vensumm'><b>" + finalvenuesummar1.toFixed(2) + "</b></td><td id='td_vensumm100'><b>" + ((finalvenuesummar1.toFixed(2) * 100) / getProgramWeightAge[0].IndVenueSummary).toFixed(2) + "</b></td></tr>"
+                            + "<tr><td><b>Feedback Score</b></td><td id='td_finscore'><b>" + finaltotalRating.toFixed(2) + "</b></td></tr>");
+                        $('#btntotalProgramReport').show();
+                        $('#btnGenReport').show();
+                         //$('#btnPartFB').show();
+                    }
+                }
+                else {
+                    if (getProgramWeightAge.length > 0 && InductionUndtRating != '' && InductionUndtRating != null && totlaCheck == 0) {
+                    
+                    
+                     var ProgramSummary_1 = getProgramWeightAge[0].IndProgramSummary * InductionUndtRating + getProgramWeightAge[0].IndProgramSummary * InductionValInfoRating + getProgramWeightAge[0].IndProgramSummary * InductionQueriesRating + getProgramWeightAge[0].IndProgramSummary * InductionTimeRating;
+                        
+                        var InductionUndtAvg = (((InductionUndt1 * 1 * getProgramWeightAge[0].InductionUndt) / 4) + ((InductionUndt2 * 2 * getProgramWeightAge[0].InductionUndt) / 4)
+                            + ((InductionUndt3 * 3 * getProgramWeightAge[0].InductionUndt) / 4) + ((InductionUndt4 * getProgramWeightAge[0].InductionUndt)));
+                        var InductionValInfoavg = (((InductionValInfo1 * 1 * getProgramWeightAge[0].InductionValInfo) / 4) + ((InductionValInfo2 * 2 * getProgramWeightAge[0].InductionValInfo) / 4)
+                            + ((InductionValInfo3 * 3 * getProgramWeightAge[0].InductionValInfo) / 4) + ((InductionValInfo4 * getProgramWeightAge[0].InductionValInfo)));
+                        var InductionQueriesAvg = (((InductionQueries1 * 1 * getProgramWeightAge[0].InductionQueries) / 4) + ((InductionQueries2 * 2 * getProgramWeightAge[0].InductionQueries) / 4)
+                            + ((InductionQueries3 * 3 * getProgramWeightAge[0].InductionQueries) / 4) + ((InductionQueries4 * getProgramWeightAge[0].InductionQueries)));
+                        var InductionTimeAvg = (((InductionTime1 * 1 * getProgramWeightAge[0].InductionTime) / 4) + ((InductionTime2 * 2 * getProgramWeightAge[0].InductionTime) / 4)
+                            + ((InductionTime3 * 3 * getProgramWeightAge[0].InductionTime) / 4) + ((InductionTime4 * getProgramWeightAge[0].InductionTime)));
+
+
+                        var avgPgmSummary = (InductionUndtAvg + InductionValInfoavg + InductionQueriesAvg + InductionTimeAvg) / totalPersons;
+
+                        var InductionLocAvg = (((InductionLoc1 * 1 * getProgramWeightAge[0].InductionLoc) / 4) + ((InductionLoc2 * 2 * getProgramWeightAge[0].InductionLoc) / 4)
+                            + ((InductionLoc3 * 3 * getProgramWeightAge[0].InductionLoc) / 4) + ((InductionLoc4 * getProgramWeightAge[0].InductionLoc)));
+                        var InductionAmbAvg = (((InductionAmb1 * 1 * getProgramWeightAge[0].InductionAmb) / 4) + ((InductionAmb2 * 2 * getProgramWeightAge[0].InductionAmb) / 4)
+                            + ((InductionAmb3 * 3 * getProgramWeightAge[0].InductionAmb) / 4) + ((InductionAmb4 * getProgramWeightAge[0].InductionAmb)));
+                        var InductionFoodAvg = (((InductionFood5 * 0 * getProgramWeightAge[0].InductionFood) / 4) + ((InductionFood1 * 1 * getProgramWeightAge[0].InductionFood) / 4) + ((InductionFood2 * 2 * getProgramWeightAge[0].InductionFood) / 4)
+                            + ((InductionFood3 * 3 * getProgramWeightAge[0].InductionFood) / 4) + ((InductionFood4 * getProgramWeightAge[0].InductionFood)));
+                        var InductionStayAvg = (((InductionStay5 * 0 * getProgramWeightAge[0].InductionStay) / 4) + ((InductionStay1 * 1 * getProgramWeightAge[0].InductionStay) / 4) + ((InductionStay2 * 2 * getProgramWeightAge[0].InductionStay) / 4)
+                            + ((InductionStay3 * 3 * getProgramWeightAge[0].InductionStay) / 4) + ((InductionStay4 * getProgramWeightAge[0].InductionStay)));
+                            
+
+                        var avgVenueSummary  = (InductionLocAvg + InductionAmbAvg + InductionFoodAvg + InductionStayAvg) / totalPersons;
+      
+                        var pgmSummaryAvg = ((avgPgmSummary * 100) / getProgramWeightAge[0].IndProgramSummary).toFixed(2);
+
+                        var VenSummaryAvg = ((avgVenueSummary * 100) / getProgramWeightAge[0].IndVenueSummary).toFixed(2);
+
+                        //var ratFacilities = (FacilitiesAvg) / totalPersons;
+                        var totalRating = avgPgmSummary + avgVenueSummary;
+                        var totalsWeight = getProgramWeightAge[0].IndProgramSummary + getProgramWeightAge[0].IndVenueSummary;
+
+                        NoOfFbPen = ParticipantsInvited - FinalTotal;
+                            
+                        $('#tbodyProgramDetails').append("<tr><td><b>No of attendees</b></td><td id='td_ParticipantsInvited'>" + ParticipantsInvited + "</td><td id='td_ProgramStartDate'>" + ProgramStartDate + "</td><td id='td_ProgramEndDate'>" + ProgramEndDate + "</td></tr>"
+                                        + "<tr><td><b>Faculty Name</b></td><td id='td_SpeakerName'>" + SpeakerName + "</td><td><b>Location</b></td><td id='td_ProgramLocation'>" + ProgramLocation + "</td></tr>"
+                                        + "<tr><td><b>No. of feedback recieved</b></td><td id='td_FinalTotal'>" + FinalTotal + "</td>"
+                                        + "<td><b>No. of feedback pending</b></td><td id='td_NoOfFbPen'>" + NoOfFbPen + "</td></tr>");
+                        
+                        var pgmSummaryAvg = ((avgPgmSummary * 100) / getProgramWeightAge[0].IndProgramSummary).toFixed(2);
+                        var VenSummaryAvg = ((avgVenueSummary * 100) / getProgramWeightAge[0].IndVenueSummary).toFixed(2);
+
+
+                        //var ratFacilities = (FacilitiesAvg) / totalPersons;
+                        var totalRating = avgPgmSummary + avgVenueSummary;
+                        var totalsWeight = getProgramWeightAge[0].IndProgramSummary+ getProgramWeightAge[0].IndVenueSummary;
+
+
+
+                        $('#tbodyProgramWeightAge').append("<tr><td style='color:#bf00ff;'>1. Program Summary</td><td id='td_prgmsumm'><b>" + avgPgmSummary.toFixed(2) + "</b></td><td id='td_prgmsumm100'><b>" + ((avgPgmSummary.toFixed(2) * 100) / getProgramWeightAge[0].IndProgramSummary).toFixed(2) + "</b></td></tr>"
+                            + "<tr><td style='color:#00bfff;'>2. Venue Summary</td><td id='td_vensumm'><b>" + avgVenueSummary.toFixed(2) + "</b></td><td id='td_vensumm100'><b>" + ((avgVenueSummary.toFixed(2) * 100) / getProgramWeightAge[0].IndVenueSummary).toFixed(2) + "</b></td></tr>"
+                            + "<tr><td><b>Feedback Score</b></td><td id='td_finscore'><b>" + totalRating.toFixed(2) + "</b></td></tr>");
+                        $('#btntotalProgramReport').show();
+                        $('#btnGenReport').show();
+                        // $('#btnPartFB').show();
+                    }
+
+                }
+                
+                 if(getProgramWeightAge.length == 0 && InductionUndtRating == 0 && OnlineData.length == 0)
+                {
+                $("#div_ind").hide();
+               $("#div_Qs").hide();
+                alert('No records found');
+                 window.location.reload();
+                }
+
+            },
+            error: function (data) {
+                $('#divTotalProgramReport').append("<span>Error Retreiving Records. Error : " + JSON.stringify(data) + "</span>")
+            }
+        });
+        
+        $.unblockUI({
+                    onUnblock: function () {
+                        console.log('');
+                    }
+                });
+            }, 600);
+
+    }
+
+
+</script>
+<script>
+    var currentuserEmailID = "";
+    function LoginUserEmail() {
+        $.ajax({
+            async: false,
+            url: _spPageContextInfo.webServerRelativeUrl +
+                 "//_api/SP.UserProfiles.PeopleManager/GetMyProperties?$select=email",
+            method: "GET",
+            headers: {
+                "accept": "application/json;odata=verbose"
+            },
+            success: function (d) {
+                currentuserEmailID = d.d.Email;
+
+            },
+            error: function (err) {
+                alert(JSON.stringify(err));
+            }
+        });
+        return currentuserEmailID;
+    }
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var ProgramName = $('#ddlProgramName').val();
+        $("#btntotalProgramReport").click(function () {
+       
+          
+            $('#tblFinalReport').show();
+            $('#div_Qs').show();
+            $('.dataTables_length,.dataTables_filter,.dataTables_info,.dataTables_paginate').remove();
+            $("#tblFinalReport").battatech_excelexport({
+                containerid: "tblFinalReport"
+                , datatype: 'table'
+                , worksheetName: ProgramName + ' ' + ' Over All Feedback Report'
+            });
+        });
+        
+        
+         function DeleteChildItems(ProgramName)
+{
+    getItems("/_api/web/lists/getByTitle('FinalGeneratedReport')/items?$filter=ProgramName eq %27" + ProgramName + "%27").done(function(data){
+        var noChildItems = data.d.results.length; //number of child items to be deleted
+        data.d.results.forEach(function(item){
+            var childId = item.ID;
+            deleteItem("/_api/Web/Lists/GetByTitle('FinalGeneratedReport')/getItemById("+childId+")",item).done(function(d_data){
+                //deleted child item.
+            });
+        });
+    });
+}
+
+
+function getItems(url){
+    return $.ajax({
+        url: _spPageContextInfo.webAbsoluteUrl + url,
+        type: "GET",
+        headers: {
+            "accept": "application/json;odata=verbose",
+        }
+    });
+}
+
+function deleteItem(url, oldItem) {
+    return $.ajax({
+        url: _spPageContextInfo.webAbsoluteUrl + url,
+        type: "DELETE",
+        headers: {
+            "accept": "application/json;odata=verbose",
+            "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+            "If-Match": oldItem.__metadata.etag
+        }
+    });
+}
+
+        
+        $("#btnGenReport").click(function () {
+       
+       
+       
+        var ProgramName = document.getElementById("thProgramName").innerText;
+        
+        
+        DeleteChildItems(ProgramName);
+        
+        var ProgramStartDate = document.getElementById("td_ProgramStartDate").innerText;
+        var ProgramEndDate = document.getElementById("td_ProgramEndDate").innerText;
+        var ProgramLocation = document.getElementById("td_ProgramLocation").innerText;
+        var FacultyName = document.getElementById("td_SpeakerName").innerText;
+        var NoOfAttendees = document.getElementById("td_ParticipantsInvited").innerText;
+        var NoOfFeedbckRcvd = document.getElementById("td_FinalTotal").innerText;
+        var NoOfFeedbckPnd = document.getElementById("td_NoOfFbPen").innerText;
+        var isInduction = "Y";
+        //var TrainerSummaryScr = document.getElementById("td_trnsumm").innerText;
+        var PrgrmSummaryScr = document.getElementById("td_prgmsumm").innerText;
+        var VenueSummayScr = document.getElementById("td_vensumm").innerText;
+        //var TrainerSummaryScrOut100 = document.getElementById("td_trnsumm100").innerText;
+        var PrgrmSummaryScrOut100 = document.getElementById("td_prgmsumm100").innerText;
+        var VenueSummayScrOut100 = document.getElementById("td_vensumm100").innerText;
+        
+        var FinalFeedbackScr = document.getElementById("td_finscore").innerText;
+         
+        var Creator = LoginUserEmail();
+        
+        var appWebUrl = window.location.protocol + "//" + window.location.host + _spPageContextInfo.webServerRelativeUrl;
+      
+        $.ajax({
+            url: appWebUrl + "//_api/web/lists/getbytitle('FinalGeneratedReport')/items",
+            type: "POST",
+            data: JSON.stringify({
+                '__metadata': { 'type': 'SP.Data.FinalGeneratedReportListItem' },
+                'Title': ProgramName,
+                'ProgramName': ProgramName,
+                'ProgramStartDate': ProgramStartDate,
+                'ProgramEndDate': ProgramEndDate,
+                'ProgramLocation': ProgramLocation,
+                'FacultyName': FacultyName,
+                'NoOfAttendees': NoOfAttendees,
+                'NoOfFeedbckRcvd': NoOfFeedbckRcvd,
+                'NoOfFeedbckPnd': NoOfFeedbckPnd,
+                'ReportCreator': Creator,
+                'isInduction': isInduction,
+          
+                'PrgrmSummaryScr': PrgrmSummaryScr,
+                'VenueSummayScr': VenueSummayScr,
+                
+                'PrgrmSummaryScrOut100': PrgrmSummaryScrOut100,
+                'VenueSummayScrOut100': VenueSummayScrOut100,
+                'FinalFeedbackScr': FinalFeedbackScr
+                
+            }),
+            headers: {
+                "Accept": "application/json;odata=verbose",
+                "content-type": "application/json; odata=verbose",
+                "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+            },
+            success: function (data) {
+               
+                //var pgmId = data.d.ID;
+                //var ProgramID = pgmId.toString();
+                //GetProgramDetails(ProgramID);
+                alert("Report Generated Successfully.");
+            },
+            error: function (err) {
+                alert("Error while adding item: " + JSON.stringify(err));
+            }
+        });
+          
+            
+        });
+
+        
+         $("#btnPartFB").click(function () {
+          var ProgramName_1 = $("#ProgramNameDynDropDown").children("option").filter(":selected").text();
+          getBindData(ProgramName_1);
+          getBindData_1(ProgramName_1);            
+             $('#tblFinalReport').show();
+            $('.dataTables_length,.dataTables_filter,.dataTables_info,.dataTables_paginate').remove();
+            $("#tblFinalReport").battatech_excelexport({
+                containerid: "tblFinalReport"
+                , datatype: 'table'
+                , worksheetName: ProgramName + ' ' + ' Over All Feedback Report'
+            });
+        });
+        
+    });
+    
+    
+</script>
+
+<script>
+
+function getBindData_1(ProgramName_1) {
+        //$("#tblFeedBackSpeakerBind_1").html("");
+        jQuery.ajax({
+            url: _spPageContextInfo.webAbsoluteUrl + "//_api/web/lists/getbytitle('InductionFeedback')/items?$filter=ProgramName eq %27" + ProgramName_1 + "%27&$orderby=ID%20desc",
+            type: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+                "content-type": "application/json;odata=verbose",
+                "X-RequestDigest": $("#__REQUESTDIGEST").val()
+            },
+            success: function (d) {
+                var arr = [];
+                i1 = 0;
+                $.each(d.d.results, function (index, results) {
+                    if (results.Status == "Active" && results.FeedbackStatus == "Completed") {
+                        arr[i1++] = index;
+                    }
+                });
+                for (var j1 = 0; j1 < arr.length; j1++) {
+                    var arrConfigK1 = arr[j1];
+                    var index = parseInt(j1 + 1);
+
+                    var ProgramName = d.d.results[arrConfigK1].ProgramName;
+                    var ProgramStartDate = d.d.results[arrConfigK1].ProgramStartDate;
+                    var ProgramEndDate = d.d.results[arrConfigK1].ProgramEndDate;
+                    
+                    
+                    if(d.d.results[arrConfigK1].ProgramLocation != "" && d.d.results[arrConfigK1].ProgramLocation != null)
+                    {
+                    ProgramLocation = d.d.results[arrConfigK1].ProgramLocation;
+                    }
+
+                    
+                    var InductionUndt = d.d.results[arrConfigK1].InductionUndt;
+                    var InductionValInfo = d.d.results[arrConfigK1].InductionValInfo;
+                    
+                    var SpeakerID = d.d.results[arrConfigK1].ID;
+                    
+                    var InductionQueries = d.d.results[arrConfigK1].InductionQueries;
+                    var InductionTime = d.d.results[arrConfigK1].InductionTime;
+                    var InductionLoc = d.d.results[arrConfigK1].InductionLoc;
+                    var InductionAmb = d.d.results[arrConfigK1].InductionAmb;
+                    var InductionFood = d.d.results[arrConfigK1].InductionFood;
+                    var InductionStay = d.d.results[arrConfigK1].InductionStay;
+                    
+                    var Suggestions = d.d.results[arrConfigK1].Suggestions;
+                    var MostAspects = d.d.results[arrConfigK1].MostAspects;
+                    var LeastAspects = d.d.results[arrConfigK1].LeastAspects;
+                    var Overall = d.d.results[arrConfigK1].Overall;
+                    
+					//var Suggestions_1="jasdkjasbhdkjbasjkdbjhabsjdhasvbdjavjsdvbjabdbhjasbdbjasbdhjjasdkjasbhdkjbasjkdbjhabsjdhasvbdjavjsdvbjabdbhjasbdbjasbdhjjasdkjasbhdkjbasjkdbjhabsjdhasvbdjavjsdvbjabdbhjasbdbjasbdhj";
+                    var SpeakerName = d.d.results[arrConfigK1].SpeakerName;
+                    var EmployeeName = d.d.results[arrConfigK1].EmployeeName;
+                    var EmployeeCode = d.d.results[arrConfigK1].EmployeeCode;
+					$("#Div_17").append("<tr><td>" + EmployeeName + "</td><td>" + EmployeeCode + "</td><td>" + InductionUndt + "</td><td >" + InductionValInfo + "</td><td>" + InductionQueries + "</td><td>" + InductionTime + "</td><td>" + InductionLoc + "</td><td>" + InductionAmb + "</td><td>" + InductionFood + "</td><td>" + InductionStay + "</td><td data-toggle='tooltip' style='max-width:150px;'  title='"+ Suggestions +"'>" + Suggestions + "</td><td data-toggle='tooltip' style='max-width:150px;'  title='"+ MostAspects +"'>" + MostAspects + "</td><td data-toggle='tooltip' style='max-width:150px;'  title='"+ LeastAspects +"'>" + LeastAspects + "</td><td data-toggle='tooltip' style='max-width:150px;'  title='"+ Overall +"'>" + Overall + "</td></tr>");
+                }
+                
+                
+                
+            },
+            error: function () { console.log('fail'); }
+        });
+    }
+
+
+
+function getBindData(ProgramName_1) {
+        //$("#tblFeedBackSpeakerBind").html("");
+        jQuery.ajax({
+            url: _spPageContextInfo.webAbsoluteUrl + "//_api/web/lists/getbytitle('InductionFeedbackSpeakerDetails')/items?$filter=ProgramName eq %27" + ProgramName_1 + "%27&$orderby=ID%20desc",
+            type: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+                "content-type": "application/json;odata=verbose",
+                "X-RequestDigest": $("#__REQUESTDIGEST").val()
+            },
+            success: function (d) {
+                var arr = [];
+                i = 0;
+                $.each(d.d.results, function (index, results) {
+                    if (results.Status == "Active") {
+                        arr[i++] = index;
+                    }
+                });
+                for (var j = 0; j < arr.length; j++) {
+                    var arrConfigK = arr[j];
+                    var index = parseInt(j + 1);
+
+                    var ProgramName = d.d.results[arrConfigK].ProgramName;
+                    var ProgramStartDate = d.d.results[arrConfigK].ProgramStartDate;
+                    var ProgramEndDate = d.d.results[arrConfigK].ProgramEndDate;
+                   if(d.d.results[arrConfigK].ProgramLocation != "" && d.d.results[arrConfigK].ProgramLocation != null)
+                    {
+                    ProgramLocation = d.d.results[arrConfigK].ProgramLocation;
+                    }
+                    
+                    
+                    
+                    var InductionUndt = d.d.results[arrConfigK].InductionUndt;
+                    var InductionValInfo = d.d.results[arrConfigK].InductionValInfo;
+                    var SpeakerID = d.d.results[arrConfigK].ID;
+                    var InductionQueries = d.d.results[arrConfigK].InductionQueries;
+                    var InductionTime = d.d.results[arrConfigK].InductionTime;
+                    var InductionLoc = d.d.results[arrConfigK].InductionLoc;
+                    var InductionAmb = d.d.results[arrConfigK].InductionAmb;
+                    var InductionFood = d.d.results[arrConfigK].InductionFood;
+                    var InductionStay = d.d.results[arrConfigK].InductionStay;
+                    
+                    
+                    var Suggestions = d.d.results[arrConfigK].Suggestions;
+                    var MostAspects = d.d.results[arrConfigK].MostAspects;
+                    var LeastAspects = d.d.results[arrConfigK].LeastAspects;
+                    var Overall = d.d.results[arrConfigK].Overall;
+
+                    
+                    var SpeakerName = d.d.results[arrConfigK].SpeakerName;
+                    var EmployeeName = d.d.results[arrConfigK].EmployeeName;
+                    var EmployeeCode = d.d.results[arrConfigK].EmployeeCode;
+                    $("#Div_17").append("<tr><td>" + EmployeeName + "</td><td>" + EmployeeCode + "</td><td>" + InductionUndt + "</td><td >" + InductionValInfo + "</td><td>" + InductionQueries + "</td><td>" + InductionTime + "</td><td>" + InductionLoc + "</td><td>" + InductionAmb + "</td><td>" + InductionFood + "</td><td>" + InductionStay + "</td><td data-toggle='tooltip' style='max-width:150px;'  title='"+ Suggestions +"'>" + Suggestions + "</td><td data-toggle='tooltip' style='max-width:150px;'  title='"+ MostAspects +"'>" + MostAspects + "</td><td data-toggle='tooltip' style='max-width:150px;'  title='"+ LeastAspects +"'>" + LeastAspects + "</td><td data-toggle='tooltip' style='max-width:150px;'  title='"+ Overall +"'>" + Overall + "</td></tr>");
+                }
+                
+            },
+            error: function () { console.log('fail'); }
+        });
+    }
+
+
+
+</script>
+
+<script>
+    function OVerAllFeedbackWeightAge(ProgramName) {
+        var getOVerAllFeedbackWeightAge = [];
+        var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('OverAllProgramWeightAge')/items?$filter=ProgramName eq '" + ProgramName + "'";
+        $.ajax({
+            url: RestUrl,
+            method: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+            },
+            success: function (d) {
+                var arr = [];
+                i = 0;
+                $.each(d.d.results, function (index, results) {
+                    arr[i++] = index;
+                });
+                MISUsers = [];
+                for (var k = 0; k < arr.length; k++) {
+                    var arrK = arr[k];
+                    var InductionUndt = d.d.results[arrK].InductionUndt;
+                    var InductionValInfo = d.d.results[arrK].InductionValInfo;
+                    var InductionQueries = d.d.results[arrK].InductionQueries;
+                    var InductionTime = d.d.results[arrK].InductionTime;
+                    var InductionLoc = d.d.results[arrK].InductionLoc;
+                    var InductionAmb = d.d.results[arrK].InductionAmb;
+                    var InductionFood = d.d.results[arrK].InductionFood;
+                    var InductionStay = d.d.results[arrK].InductionStay;
+
+                    var IndProgramSummary = d.d.results[arrK].IndProgramSummary;
+                    var IndVenueSummary = d.d.results[arrK].IndVenueSummary;
+                    
+                    getOVerAllFeedbackWeightAge.push({
+                        InductionUndt: InductionUndt,
+                        InductionValInfo: InductionValInfo,
+                        InductionQueries: InductionQueries,
+                        InductionTime: InductionTime,
+                        InductionLoc: InductionLoc,
+                        InductionAmb: InductionAmb,
+                        InductionFood: InductionFood,
+                        InductionStay: InductionStay,                      
+
+                        IndProgramSummary: IndProgramSummary,
+                        IndVenueSummary: IndVenueSummary
+                    });
+                }
+            },
+            error: function () { console.log('fail'); }
+        });
+        return getOVerAllFeedbackWeightAge;
+    }
+    
+    function GetPgmCncld(ChckCnclPgm) {
+     
+        var IsProgramCancelled = "";
+
+        var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('ProgramMaster')/items?$filter=Title%20eq%20%27" + ChckCnclPgm + "%27";
+        $.ajax({
+            url: RestUrl,
+            method: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+            },
+            success: function (d) {
+                  if (d.d.results.length > 0) {
+                  var arr = [];
+                  i = 0;
+                  $.each(d.d.results, function (index, results) {
+                  arr[i++] = index;
+                  });
+	              for (var k = 0; k < arr.length; k++) {
+	              var arrK = arr[k];
+				  IsProgramCancelled = d.d.results[arrK].IsProgramCancelled;
+	              }
+                }
+                else
+                {
+                IsProgramCancelled = 0;
+               }
+            },
+            error: function () { console.log('fail'); }
+        });
+        return IsProgramCancelled;
+    }
+    
+    function getParticipantsInvited(ProgramName) {
+        var Invited;
+        var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('InductionFeedback')/items?$top=5000&$filter=ProgramName eq '" + ProgramName + "'";
+        $.ajax({
+            url: RestUrl,
+            method: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+            },
+            success: function (d) {
+                if (d.d.results.length > 0) {
+                    Invited = d.d.results.length;
+                }
+                else {
+                    Invited = 0;
+                }
+
+            },
+            error: function (err) {
+                alert(JSON.stringify(err));
+            }
+        });
+        return Invited;
+    }
+    
+     function GetMISEmpDetails(selectedProgramName) {
+        var MISUsers = [];
+
+        var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('MISReportForInvities')/items?$top=5000&$filter=ProgramName eq '" + selectedProgramName + "' and Attendance eq 'Y'";
+        $.ajax({
+            url: RestUrl,
+            method: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+            },
+            success: function (d) {
+                var arr = [];
+                i = 0;
+                $.each(d.d.results, function (index, results) {
+                    arr[i++] = index;
+                });
+                MISUsers = [];
+                for (var k = 0; k < arr.length; k++) {
+                    var arrK = arr[k];
+                    var EmpCode = d.d.results[arrK].EmpCode;
+                    MISUsers.push({
+                        EmpCode: EmpCode
+                    });
+                }
+            },
+            error: function () { console.log('fail'); }
+        });
+        return MISUsers;
+    }
+    
+    function groupBy(items,propertyName)
+{
+    var result = [];
+    $.each(items, function(index, item) {
+       if ($.inArray(item[propertyName], result)==-1) {
+          result.push(item[propertyName]);
+       }
+    });
+    return result;
+}
+
+</script>

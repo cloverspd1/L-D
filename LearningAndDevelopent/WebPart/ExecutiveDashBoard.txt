@@ -1,0 +1,1395 @@
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="/sites/Anugamdev/SiteAssets/AnugamStyles/css/main.css" rel="stylesheet">
+<link href="/sites/Anugamdev/SiteAssets/AnugamStyles/Datatable/css/dataTables.bootstrap.min.css"
+      rel="stylesheet">
+<link href="/sites/Anugamdev/SiteAssets/AnugamStyles/Datatable/css/responsive.bootstrap.min.css"
+      rel="stylesheet">
+<link href="/sites/Anugamdev/SiteAssets/AnugamStyles/Datatable/css/responsive.bootstrap.min.css"
+      rel="stylesheet">
+<link href="https://bajajelect.sharepoint.com/sites/AnugamUAT/SiteAssets/JS/theme.default.css"
+      rel="stylesheet">
+
+
+      
+
+      
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+
+<!-- Latest compiled and minified JavaScript -->
+
+<style>
+
+.searchbox_1{
+float: left;
+background-color: #fffbf8;
+padding:7px;
+width:265px;
+margin: 10px auto;
+-webkit-box-sizing:border-box;
+-moz-box-sizing:border-box;
+box-sizing:border-box;
+border-radius:6px;
+-webkit-box-shadow:
+0 2px 4px 0 rgba(72, 72, 72, 0.83),
+0 10px 15px 0 rgba(126, 126, 126, 0.12),
+0 -2px 6px 1px rgba(199, 199, 199, 0.55) inset,
+0 2px 4px 2px rgba(255, 255, 255, 0.83) inset;
+-moz-box-shadow:
+0 2px 4px 0 rgba(72, 72, 72, 0.83),
+0 10px 15px 0 rgba(126, 126, 126, 0.12),
+0 -2px 6px 1px rgba(199, 199, 199, 0.55) inset,
+0 2px 4px 2px rgba(255, 255, 255, 0.83) inset;
+box-shadow:
+0 2px 4px 0 rgba(72, 72, 72, 0.83),
+0 10px 15px 0 rgba(126, 126, 126, 0.12),
+0 -2px 6px 1px rgba(199, 199, 199, 0.55) inset,
+0 2px 4px 2px rgba(255, 255, 255, 0.83) inset;
+}
+.search_1{
+width:250px;
+height:30px;
+padding-left:15px;
+border-radius:6px;
+border:none;
+color:#0F0D0D;;
+font-weight:500;
+background-color:#E2EFF7;;
+-webkit-box-shadow:
+0 -2px 2px 0 rgba(199, 199, 199, 0.55),
+0 1px 1px 0 #fff,
+0 2px 2px 1px #fafafa,
+0 2px 4px 0 #b2b2b2 inset,
+0 -1px 1px 0 #f2f2f2 inset,
+0 15px 15px 0 rgba(41, 41, 41, 0.09) inset;
+-moz-box-shadow:
+0 -2px 2px 0 rgba(199, 199, 199, 0.55),
+0 1px 1px 0 #fff,
+0 2px 2px 1px #fafafa,
+0 2px 4px 0 #b2b2b2 inset,
+0 -1px 1px 0 #f2f2f2 inset,
+0 15px 15px 0 rgba(41, 41, 41, 0.09) inset;
+box-shadow:
+0 -2px 2px 0 rgba(199, 199, 199, 0.55),
+0 1px 1px 0 #fff,
+0 2px 2px 1px #fafafa,
+0 2px 4px 0 #b2b2b2 inset,
+0 -1px 1px 0 #f2f2f2 inset,
+0 15px 15px 0 rgba(41, 41, 41, 0.09) inset;
+}
+
+</style>
+
+<div class="modal fade" id="myProgramActivities" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document" style="width: 920px !important;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    Program Details
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="col-md-12 padding-0 margin-top-15">
+                    <div class="col-md-12 margin-top-15">
+                        <label>
+                            Program Name
+                        </label>
+                        <input type="text" id="txtProgramName" class="form-control" readonly="readonly" />
+                    </div>
+                    <div class="col-md-12 margin-top-15 padding-0">
+                        <div class="col-md-4">
+                            <label>
+                                Program Start Date
+                            </label>
+                            <input type="text" id="txtProgramStartDate" class="form-control" readonly="readonly" />
+                        </div>
+                        <div class="col-md-4">
+                            <label>
+                                Program End Date
+                            </label>
+                            <input type="text" id="txtProgramEndDate" class="form-control" readonly="readonly" />
+                        </div>
+                        <div class="col-md-4">
+                            <label>
+                                Program Location
+                            </label>
+                            <input id="txtProgramLocation" class="form-control" readonly="readonly" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 padding-0 margin-top-15">
+                    <table id="tableActivity1" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Activity Name
+                                </th>
+                                <th>
+                                    Duration
+                                </th>
+                                <th>
+                                    From Date
+                                </th>
+                                <th>
+                                    To Date
+                                </th>
+
+                            </tr>
+                        </thead>
+                        <tbody id="tblProgramActvitiesBind"></tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" style="display:none" data-dismiss="modal">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div>
+    <div class="col-md-12 padding-0 page-content-header-style-1">
+        <h1 style="font-size:25px !Important; margin-left: -13px !Important;">
+            <b>Manage Programs</b>
+        </h1>
+    </div>
+    <div class="col-md-12" style= "margin-left:-40px;">
+        <div class="col-md-12 padding-0 margin-top-15">
+            <div class="col-md-12">
+                <label>
+                    Current Program Details
+                </label>
+            </div>
+            <div class="col-md-12">
+            <div id="divbeforeid">
+            </div>
+            
+            <div class="searchbox_1">
+            <div class="search">
+            <input type="search" id="myInput" class="search_1" onkeyup="myFunction()" style="font-size: smaller;" placeholder="Search for program names..">
+            </div></div>
+            
+                <table id="tableActivity" class="table-bordered table-striped myTable-rounded sortcolfil sortable" style="width: 85%;">
+                    <thead>
+                        <tr>
+                            <th>
+                                Program Name
+                            </th>
+                            <th>
+                                Start Date
+                            </th>
+                            <th>
+                                End Date
+                            </th>
+                             <th>
+                                Program Co-ordinator
+                            </th>
+                            <th>
+                                Date of creation
+                            </th>
+                            <th>
+                            	Venue Details Sent
+                            </th>
+                            <th>
+                            	Status
+                            </th>
+                            <th>
+                            	Confirm Date
+                            </th>
+							<th>
+                            	Close Date
+                            </th>
+                            <th>
+                            	Faculty Name
+                            </th>
+                            <th width="20%" colspan="2" style="padding-left:74px;">
+                                Action
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="tblConfigParametersBind"></tbody>
+                </table>
+            
+                <div id="divafterid">
+            </div>
+
+            </div>
+        </div>
+        <div class="col-md-12 padding-0 margin-top-15">
+            <div class="col-md-12">
+                <label>
+                    Completed Program Details
+                </label>
+            </div>
+            <div class="col-md-12">
+             <body onload="makeTableScroll();">
+          	 <div class="scrollingTable">
+          	 <div class="searchbox_1" >
+            <div class="search">
+          	 <input type="search" id="myInput_1" class="search_1" onkeyup="myFunction_1()" style="font-size: smaller;" placeholder="Search for program names..">
+          	 </div></div>
+                <table id="tableCompletedProgram" class="table-bordered table-striped myTable myTable-rounded tablesorter sortcolfil sortable">
+                    <thead>
+                        <tr>
+                            <th style="width: 10px;">
+                                Program Name
+                            </th>
+                            <th>
+                                Start Date
+                            </th>
+                            <th>
+                                End Date
+                            </th>
+                            <th>
+                                Date of creation
+                            </th>
+                            <th width="20%" colspan="2" style="padding-left: 30px;">
+                                Action
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="tblCompletedProgram"></tbody>
+                </table>
+                </div>
+                </body>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="throbber" style="display:none;">
+<img src="https://bajajelect.sharepoint.com/sites/HR-TrainingManagementSystem/SiteAssets/AnugamStyles/img/712_1.gif" /><br/></br><h3><b style="color:#0072c6 !Important;font-size:32px">Please Wait...</b><h3></div>
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+
+
+
+<script src="https://bajajelect.sharepoint.com/sites/AnugamUAT/SiteAssets/JS/excel-bootstrap-table-filter-bundle.js"></script>
+<script src="https://bajajelect.sharepoint.com/sites/AnugamUAT/SiteAssets/JS/sortable.js"></script>
+<script src="https://bajajelect.sharepoint.com/sites/AnugamUAT/SiteAssets/JS/jquery.tablesorter.min.js"></script>
+
+<script src="https://bajajelect.sharepoint.com/sites/AnugamUAT/SiteAssets/JS/sorttable.js"></script>
+
+ 
+ 
+
+
+
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js">
+
+<!-- Latest compiled and minified JavaScript -->
+
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="/sites/Anugamdev/SiteAssets/AnugamStyles/Datatable/js/jquery.dataTables.min.js"></script>
+<script src="/sites/Anugamdev/SiteAssets/AnugamStyles/Datatable/js/dataTables.bootstrap.min.js"></script>
+<script src="/sites/Anugamdev/SiteAssets/AnugamStyles/Datatable/js/dataTables.responsive.min.js"></script>
+<script src="/sites/Anugamdev/SiteAssets/AnugamStyles/Datatable/js/responsive.bootstrap.js"></script>
+<script src="/sites/Anugamdev/SiteAssets/AnugamStyles/Datatable/js/datatables.scroller.min.js"></script>
+<script src="/sites/Anugamdev/SiteAssets/AnugamStyles/Datepicker/js/moment.min.js"></script>
+<script src="/sites/Anugamdev/SiteAssets/AnugamStyles/Datepicker/js/daterangepicker.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.js"></script>
+
+<script src="https://bajajelect.sharepoint.com/sites/AnugamUAT/SiteAssets/Webparts/alluploadreferences/jquery.blockUI.js"></script>
+
+
+
+<style>
+.myTable {
+border: solid 1px #DDEEEE;
+border-collapse: collapse;
+border-spacing: 0;
+font: normal 13px Arial, sans-serif;
+}
+.myTable thead th {
+background-color: #DDEFEF;
+border: solid 1px #DDEEEE;
+color: #336B6B;
+padding: 10px;
+text-align: left;
+text-shadow: 1px 1px 1px #fff;
+}
+.myTable tbody td {
+border: solid 1px #DDEEEE;
+color: #333;
+padding: 10px;
+text-shadow: 1px 1px 1px #fff;
+}
+.myTable-rounded {
+border: none;
+}
+.myTable-rounded thead th {
+background-color: #CCC;
+border: none;
+text-shadow: 1px 1px 1px #ccc;
+color: #333;
+}
+.myTable-rounded thead th:first-child {
+border-radius: 10px 0 0 0;
+}
+.myTable-rounded thead th:last-child {
+border-radius: 0 10px 0 0;
+}
+.myTable-rounded tbody td {
+border: none;
+border-top: solid 1px #957030;
+background-color: #EEE;
+}
+.myTable-rounded tbody tr:last-child td:first-child {
+border-radius: 0 0 0 10px;
+}
+.myTable-rounded tbody tr:last-child td:last-child {
+border-radius: 0 0 10px 0;
+}
+</style>
+     
+
+
+<script>
+    var currentuserEmailID = "";
+    function LoginUserEmail() {
+
+        $.ajax({
+            async: false,
+            url: _spPageContextInfo.webServerRelativeUrl +
+                 "//_api/SP.UserProfiles.PeopleManager/GetMyProperties?$select=email",
+            method: "GET",
+            headers: {
+                "accept": "application/json;odata=verbose"
+            },
+            success: function (d) {
+                currentuserEmailID = d.d.Email;
+
+            },
+            error: function (err) {
+                alert(JSON.stringify(err));
+            }
+        });
+        return currentuserEmailID;
+    }
+    
+    
+ 
+
+</script>
+
+
+  <script>
+            
+            
+function getSpeakerName(ProgramName) {
+        var SpeakerName = '';
+        var Spkr='';
+        var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('NewInductionProgram')/items?$top=1000&?filter=Status eq 'Active' and ProgramName eq '" + ProgramName + "' and FeedBackNeed eq 'Yes'";
+        $.ajax({
+            url: RestUrl,
+            method: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+            },
+            success: function (d) {
+                var arr = [];
+                i = 0;
+                $.each(d.d.results, function (index, results) {
+                    arr[i++] = index;
+                });
+                for (var k = 0; k < arr.length; k++) {
+                    var arrK = arr[k];
+                    if (d.d.results[arrK].ProgramName == ProgramName) {
+                        var ActivityID = d.d.results[arrK].ActivityID;
+                        SpeakerName = getSpeakerNameOnActivityID(ActivityID);
+                         Spkr= Spkr + SpeakerName + ",";
+                    }
+                }
+                  if(Spkr != '')
+                {
+                var lastChar = Spkr.slice(-1);
+                if (lastChar == ',') {
+                SpeakerName = Spkr.slice(0, -1);
+                }
+                //alert(SpeakerName);
+                }
+
+            },
+            error: function () { console.log('fail'); }
+        });
+        return SpeakerName;
+    }
+
+    function getSpeakerNameOnActivityID(ActivityID) {
+        var SpeakerName = '';
+        var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('FeedBackDetails')/items?$filter=ActiviTyID eq '" + ActivityID + "'";
+        $.ajax({
+            url: RestUrl,
+            method: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+            },
+            success: function (d) {
+              //  if (d.d.results.length > 0) {
+                //    SpeakerName = d.d.results[0].NameOfTheSpeaker;
+                //}
+                  var arr = [];
+            i = 0;
+            $.each(d.d.results, function (index, results) {
+                if (results.Status == "Active") {
+                    arr[i++] = index;
+                }
+            });
+			for (var j = 0; j < arr.length; j++) {
+                   var arrConfigK = arr[j];
+                    if(arrConfigK<=0){
+                        SpeakerName = d.d.results[arrConfigK].NameOfTheSpeaker + ",";
+                    }
+                    else if(arrConfigK>=1){
+                        SpeakerName = SpeakerName + d.d.results[arrConfigK].NameOfTheSpeaker + ",";
+                    }
+              }
+               var lastChar = SpeakerName.slice(-1);
+                if (lastChar == ',') {
+                SpeakerName = SpeakerName.slice(0, -1);
+                }
+
+            },
+            error: function () { console.log('fail'); }
+        });
+        return SpeakerName;
+    }
+
+</script>
+
+<script>
+
+function GetParticipantEmailid(mngemlid)
+{
+var Emailid=''
+
+			 $.ajax({
+                url: _spPageContextInfo.webAbsoluteUrl + "/_api/Web/SiteUsers?$filter=Email eq '" + mngemlid + "'",
+                type: "GET",
+                async: false,
+                headers: {
+                    "accept": "application/json;odata=verbose",
+                    "content-type": "application/json;odata=verbose",
+                    "X-RequestDigest": $("#__REQUESTDIGEST").val()
+                },
+                success: function (d) {
+                    if (d.d.results[0].Title == 'undefined' || d.d.results[0].Title == null || d.d.results[0].Title == '') {
+                       Emailid = mngemlid;
+                    }
+                    else {
+                      
+                        Emailid= d.d.results[0].Title;
+                    }
+                },
+                error: function () { console.log('fail'); }
+            });
+            
+            return Emailid;
+            
+            }
+
+</script>
+
+<script>
+
+function getSpeakerName_1(ProgramName) {
+        var SpeakerName = '';
+        var Spkr='';
+        var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('NewInductionProgram')/items?$top=1000&?filter=Status eq 'Active' and ProgramName eq '" + ProgramName + "' and FeedBackNeed eq 'Yes'";
+        $.ajax({
+            url: RestUrl,
+            method: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+            },
+            success: function (d) {
+                var arr = [];
+                i = 0;
+                $.each(d.d.results, function (index, results) {
+                    arr[i++] = index;
+                });
+                SpeakerName = [];
+                for (var k = 0; k < arr.length; k++) {
+                    var arrK = arr[k];
+                    if (d.d.results[arrK].ProgramName == ProgramName) {
+                        var ActivityID = d.d.results[arrK].ActivityID;
+                        SpeakerName = getSpeakerNameOnActivityID_1(ActivityID);
+                         //Spkr= Spkr + SpeakerName + ",";
+                         
+                         if(SpeakerName.length > 0)
+                         {
+                         for (var k1 = 0; k1 < SpeakerName.length; k1++) {
+
+                         Spkr= Spkr + SpeakerName[k1].NameOfTheSpeaker + "(" + SpeakerName[k1].SpeakerDesc + "),";
+                         
+                         }
+                         
+                         }
+                    }
+                }
+
+            },
+            error: function () { console.log('fail'); }
+        });
+        return Spkr;
+    }
+
+    function getSpeakerNameOnActivityID_1(ActivityID) {
+        var SpeakerName = [];
+        var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('FeedBackDetails')/items?$filter=ActiviTyID eq '" + ActivityID + "'";
+        $.ajax({
+            url: RestUrl,
+            method: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+            },
+            success: function (d) {
+              //  if (d.d.results.length > 0) {
+                //    SpeakerName = d.d.results[0].NameOfTheSpeaker;
+                //}
+                  var arr = [];
+            i = 0;
+            $.each(d.d.results, function (index, results) {
+                if (results.Status == "Active") {
+                    arr[i++] = index;
+                }
+            });
+			for (var j = 0; j < arr.length; j++) {
+                   var arrConfigK = arr[j];
+                    
+                       var NameOfTheSpeaker = d.d.results[arrConfigK].NameOfTheSpeaker;
+                       var SpeakerDesc = d.d.results[arrConfigK].SpeakerDesc;
+                       
+                       if(d.d.results[arrConfigK].EmployeeCode != null && d.d.results[arrConfigK].EmployeeCode != "")
+                       {
+                       var EmployeeCode = "Team Bajaj";
+                       }
+                       else
+                       {
+                       var EmployeeCode = "Non-Bajaj";
+                       }
+                    
+
+				SpeakerName.push({
+                        NameOfTheSpeaker: NameOfTheSpeaker, SpeakerDesc: SpeakerDesc, EmployeeCode: EmployeeCode
+                    });                    
+              }
+               
+
+            },
+            error: function () { console.log('fail'); }
+        });
+        return SpeakerName;
+    }
+
+
+</script>
+
+<script>
+
+
+ $(document).ready(function () {
+
+
+$(".sortcolfil").tablesorter({widgets: ['zebra']});
+
+$("#tableCompletedProgram").tablesorter({widgets: ['zebra']});
+
+
+ });
+
+
+
+ 
+ function myFunction() {
+  // Declare variables 
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("tableActivity");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    } 
+  }
+}
+
+function myFunction_1() {
+  // Declare variables 
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput_1");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("tableCompletedProgram");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    } 
+  }
+}
+
+ 
+    var CurrentUserEmail = LoginUserEmail();
+    
+    function isCurrentUserMemberOfGroup(groupName) {
+    var userIsInGroup = false;
+    $.ajax({
+        async: false,
+        headers: { "accept": "application/json; odata=verbose" },
+        method: "GET",
+        url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/currentuser/groups",
+        success: function (data) {
+            data.d.results.forEach( function (value) {
+                if (value.Title == groupName) {               
+                     userIsInGroup = true;
+                }
+            });
+        },
+        error: function (response) {
+            console.log(response.status);
+        },
+    });    
+    return userIsInGroup;
+}
+
+var isAdmin = isCurrentUserMemberOfGroup("L&D Functional Admin");
+
+		if(!isAdmin)
+		{
+		var RestUrl = _spPageContextInfo.webAbsoluteUrl + "//_api/web/lists/getbytitle('ProgramMaster')/items?$top=5000&?filter=CreatedByUser eq %27" + CurrentUserEmail + "%27&$orderby=ID desc";
+		}
+		else
+		{
+		var RestUrl = _spPageContextInfo.webAbsoluteUrl + "//_api/web/lists/getbytitle('ProgramMaster')/items?$top=5000&?filter=Title ne null &$orderby=ID desc";
+		}
+    
+    
+    jQuery.ajax({
+        url: RestUrl,
+        type: "GET",
+        headers: {
+            "accept": "application/json;odata=verbose",
+            "content-type": "application/json;odata=verbose",
+            "X-RequestDigest": $("#__REQUESTDIGEST").val()
+        },
+        success: function (d) {
+            var arr = []; var arrSaveAsDrat = [];
+            i = 0; arrS = 0;
+            
+            		
+                       
+            $.each(d.d.results, function (index, results) {
+                var ProgramEndDate = results.ProgramEndDate;
+                var ChkProgramEndDate = new Date(ProgramEndDate.split("/").reverse().join("-"));
+                var ProgramClsDate = results.CloseDate;
+                var ChkProgramcloseDate = '';
+                if(ProgramClsDate != null)
+                {
+                ChkProgramcloseDate = new Date(ProgramClsDate.split("/").reverse().join("-"));
+                }
+                else
+                {
+                ChkProgramcloseDate = 'NA';
+                }
+                
+                var GetDate = new Date();
+                var ccDate = GetDate.setHours(0, 0, 0);
+                var Final = new Date(ccDate);
+                //|| ChkProgramEndDate.setHours(0, 0, 0, 0) == GetDate.setHours(0, 0, 0, 0)
+                //|| (results.IsPrgmPrev =='Y' && ChkProgramcloseDate >= Final) || (ChkProgramcloseDate == 'NA' && results.IsPrgmPrev =='Y')
+                if (ChkProgramEndDate >= Final || ((results.IsPrgmPrev =='Y' && ChkProgramcloseDate >= Final) && (ChkProgramcloseDate == 'NA' && results.IsPrgmPrev =='Y'))) {
+                    if (results.ProgramCreator == CurrentUserEmail || isAdmin) {
+                        if (results.Status == "Active" || results.Status == "SaveAsDraft") {
+                            arr[i++] = index;
+                        }
+                    }	
+                }
+            
+            });
+            
+            console.log(d.d.results);            
+            var duplocateProgram = '';
+            var i = 1;
+            for (var j = 0; j < arr.length; j++) {
+                var arrConfigK = arr[j];
+                if (duplocateProgram != d.d.results[arrConfigK].Title) {
+
+                    duplocateProgram = d.d.results[arrConfigK].Title;
+
+
+                    var index = parseInt(i);
+                    var ProgramName = d.d.results[arrConfigK].Title;
+                    var ProgramSdate = d.d.results[arrConfigK].ProgramStartDate;
+                    var ProgramEdate = d.d.results[arrConfigK].ProgramEndDate;
+                    var ProgramCreatedDate = d.d.results[arrConfigK].CreatedDateCal;
+                    var mangemlid = d.d.results[arrConfigK].ProgramCreator;
+                    var MngDispNme = GetParticipantEmailid(mangemlid);
+                    var PrgrmCreator = MngDispNme;
+                    var ActivityID = d.d.results[arrConfigK].ID;
+                    var fdbckclosedt = GetPrgmCloseDate(ProgramName);
+                    var pgmvendtls = GetPrgmVendtls(ProgramName);
+                    
+                    var PgmCancellation = fdbckclosedt[0].IsProgramCancelled;
+
+                    var confirmDt = d.d.results[arrConfigK].ConfirmDate;
+                     
+                    if(d.d.results[arrConfigK].CloseDate != null)
+                    {
+                    var clsDt = d.d.results[arrConfigK].CloseDate;
+                    }
+                    else
+                    {
+                    var clsDt = "NA"
+                    }
+                    
+                    var MainSpeakerName = getSpeakerName_1(ProgramName);
+                     var spkrnm = '';
+                     var spkrtyp = '';
+                     if(MainSpeakerName.length > 0)
+				                     
+                           			 {
+		                             
+		                                spkrnm = MainSpeakerName;
+		                                var lastChar = spkrnm.slice(-1);
+							                if (lastChar == ',') {
+							                spkrnm = spkrnm.slice(0, -1);
+							                }
+                             		}
+                             		else
+                             		{
+                             		 spkrnm = 'NA';
+                             		}
+                    //var SpeakerName = getSpeakerName(ProgramName);
+                    //var SpeakerOrg = getSpeakerOrg(ProgramName);
+                    //var SpeakerType = getSpeakerType(ProgramName);
+                    
+                   // if (SpeakerName != '' && SpeakerName != null) {
+					//		               var spkrnm = SpeakerName;
+				     //                      var spkrorg = "NA";
+				      //                     var spkrtyp = "NA";                    
+                    //}
+                    
+                    var sts=''
+                    var pgmven=''
+                    
+                    if(pgmvendtls > 0)
+                    {
+                    pgmven = "<td>Y</td>";
+                    }
+                    else
+                    {
+                    pgmven = "<td style='background-color:red;'>N</td>";
+                    }
+                    var sts_drft_1 = GetPrgmSts(ProgramName);
+                    var sts_drft_2 = sts_drft_1[0].Status
+                    if(sts_drft_2 == 'SaveAsDraft' && PgmCancellation == null)
+                    {
+                    sts = 'Draft';
+                    }
+                    else if(sts_drft_2 == 'Active' && PgmCancellation == null)
+                    {
+                    sts = 'InProcess'
+                    }
+                    else if(PgmCancellation != null && PgmCancellation == 'Yes')
+                    {
+                    sts = 'Cancelled'
+                    }
+
+                    //$("#tblConfigParametersBind").append("<tr><td>" + ProgramName + "</td><td>" + ProgramSdate + "</td><td>" + ProgramEdate + "</td><td>" + PrgrmCreator + "</td><td>" + ProgramCreatedDate + "</td>" + pgmven + "<td>" + sts + "</td><td width='10%'><a href='/sites/AnugamUAT/Pages/ProgramDetails.aspx?ProgramName=" + ProgramName + "&Status=" + sts +"'>Edit</a></td><td width='10%'><input type='button'  data-delete='popup-1'data-val='" + ProgramName + "' value='Delete'> </td></tr>");
+                    $("#tblConfigParametersBind").append("<tr><td>" + ProgramName + "</td><td>" + ProgramSdate + "</td><td>" + ProgramEdate + "</td><td>" + PrgrmCreator + "</td><td>" + ProgramCreatedDate + "</td>" + pgmven + "<td>" + sts + "</td><td>" + confirmDt + "</td><td>" + clsDt + "</td><td>" + spkrnm + "</td><td width='10%'><a href='/sites/AnugamUAT/Pages/ProgramDetails.aspx?ProgramName=" + ProgramName + "&Status=" + sts +"'>Edit</a></td><td width='10%'><input type='button'  data-delete='popup-1'data-val='" + ProgramName + "' value='Delete'> </td></tr>");
+                    i++;
+                }
+            }
+            
+            
+            $('[data-delete]').on('click', function (e) {
+                var DeleteCheck = false;
+                var a = confirm("Do you want to permanently delete the program?");
+               
+
+                if (a == true) {
+                    DeleteCheck = true;
+                    a = true;
+                }
+                else {
+                    DeleteCheck = false;
+                    a = false;
+                }
+                if (DeleteCheck == true) {
+                    ProgramName = $(this).data('val');
+                    
+                      $.blockUI.defaults.css = {		
+											padding: 0,		
+								            margin: 0,		
+								            width: '30%',		
+								            top: '40%',		
+								            left: '35%',		
+								            textAlign: 'center',
+								            cursor: 'wait'};
+								            
+						       $.blockUI.defaults.overlayCSS.backgroundColor = '#fff';
+						       $.blockUI.defaults.overlayCSS.opacity = 0.9;
+						       $.blockUI.defaults.overlayCSS.cursor = 'pointer';
+			
+				                $.blockUI({message: $('#throbber')});
+					     
+				                setTimeout(function () {
+				                
+                    $.ajax({
+                        async: false,
+                        url: _spPageContextInfo.webAbsoluteUrl + "//_api/web/lists/getbytitle('NewInductionProgram')/items?$top=5000&?filter=ProgramName eq '" + ProgramName + "'",
+                        type: "GET",
+                        headers: {
+                            "accept": "application/json;odata=verbose",
+                            "content-type": "application/json;odata=verbose",
+                            "X-RequestDigest": $("#__REQUESTDIGEST").val()
+                        },
+                        success: function (d) {
+                            var arr = [];
+                            i = 0;
+                            
+                            
+                            $.each(d.d.results, function (index, results) {
+                                if (results.Status == "Active" || results.Status == "SaveAsDraft") {
+                                    if (results.ProgramName == ProgramName) {
+                                        arr[i++] = index;
+                                    }
+                                }
+                            });
+                            for (var k = 0; k < arr.length; k++) {
+                                var arrK = arr[k];
+                                var ProgramID = d.d.results[arrK].ID;
+                                DeleteDataOnID_NewInd(ProgramID);
+                            }
+                            DeleteInvitationPrograms(ProgramName);
+		                    DeleteEmailNotificationPrograms(ProgramName);
+		                    DeleteProgramsDetails(ProgramName);
+                            //alert("Program deleted successfully!");
+                            bootbox.alert('Program deleted successfully!', function(){
+                            window.location.reload();
+						});
+							
+                        },
+                        error: function (error) {
+                            alert(JSON.stringify(error));
+                        },
+                    });
+                    
+                    
+							         $.unblockUI({
+                        onUnblock: function () {
+                         console.log('');
+                        }
+                    });
+                }, 600);
+                
+                    function DeleteDataOnID_NewInd(ProgramID) {
+                        var ProgramIDNew = ProgramID;
+                        $.ajax({
+                            url: _spPageContextInfo.webAbsoluteUrl + "//_api/web/lists/getbytitle('NewInductionProgram')/items(" + ProgramIDNew + ")",
+                            type: "POST",
+                            async: false,
+                            headers: {
+                                "ACCEPT": "application/json;odata=verbose",
+                                "content-type": "application/json;odata=verbose",
+                                "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+                                "IF-MATCH": "*",
+                                "X-HTTP-Method": "DELETE"
+                            },
+                            success: function (data) {
+                            },
+                            error: function (error) {
+                                alert(JSON.stringify(error));
+                            },
+                        });
+
+                    }
+                }
+            });
+        },
+        error: function () { console.log('fail'); }
+    });
+    
+    function GetPrgmCloseDate(ProgramName) {
+        var MISUsers5 = [];
+
+        var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('ProgramMaster')/items?$filter=Title eq '" + ProgramName + "'";
+        $.ajax({
+            url: RestUrl,
+            method: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+            },
+            success: function (d) {
+                var arr = [];
+                i = 0;
+                $.each(d.d.results, function (index, results) {
+                        arr[i++] = index;                   
+
+                });
+                MISUsers5 = [];
+                for (var k = 0; k < arr.length; k++) {
+                    var arrK = arr[k];
+                  
+                    var CloseDate = d.d.results[arrK].CloseDate;
+                    var IsProgramCancelled = d.d.results[arrK].IsProgramCancelled;
+
+                    MISUsers5.push({
+                        CloseDate: CloseDate, IsProgramCancelled: IsProgramCancelled
+                    });
+                }
+            },
+            error: function () { console.log('fail'); }
+        });
+        return MISUsers5;
+    }
+    
+    function GetPrgmSts(ProgramName) {
+        var MISUsers5 = [];
+
+        var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('NewInductionProgram')/items?$filter=Title eq '" + ProgramName + "'";
+        $.ajax({
+            url: RestUrl,
+            method: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+            },
+            success: function (d) {
+                var arr = [];
+                i = 0;
+                $.each(d.d.results, function (index, results) {
+                        arr[i++] = index;                   
+
+                });
+                MISUsers5 = [];
+                for (var k = 0; k < arr.length; k++) {
+                    var arrK = arr[k];
+                  
+                    var Status = d.d.results[arrK].Status;
+                    //var IsProgramCancelled = d.d.results[arrK].IsProgramCancelled;
+
+                    MISUsers5.push({
+                        Status: Status
+                    });
+                }
+            },
+            error: function () { console.log('fail'); }
+        });
+        return MISUsers5;
+    }
+    
+    function GetPrgmVendtls(ProgramName) {
+        var MISUsers5 = "";
+
+        var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('Invitation')/items?$filter=ProgramName  eq '" + ProgramName + "'";
+        $.ajax({
+            url: RestUrl,
+            method: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+            },
+            success: function (d) {
+                var arr = [];
+                i = 0;
+                $.each(d.d.results, function (index, results) {
+                    if (results.ProgramVenue != "" && results.ProgramVenue != null && results.Title == ProgramName) {
+                        arr[i++] = index;
+                    }
+                });
+
+               
+                for (var k = 0; k < arr.length; k++) {
+                    var arrK = arr[k];
+                  	MISUsers5 = arrK;
+                }
+            },
+            error: function () { console.log('fail'); }
+        });
+        return MISUsers5;
+    }
+    
+    
+    
+    function DeleteProgramsDetails(ProgramName) {
+        $.ajax({
+            async: false,
+            url: _spPageContextInfo.webAbsoluteUrl + "//_api/web/lists/getbytitle('ProgramMaster')/items?$top=5000&?filter=Title eq %27" + ProgramName + "%27",
+            type: "GET",
+            headers: {
+                "accept": "application/json;odata=verbose",
+                "content-type": "application/json;odata=verbose",
+                "X-RequestDigest": $("#__REQUESTDIGEST").val()
+            },
+            success: function (d) {
+                var arr = [];
+                i = 0;
+                $.each(d.d.results, function (index, results) {
+                    if (results.Status == "Active" && results.Title == ProgramName) {
+                        arr[i++] = index;
+                    }
+                });
+                for (var k = 0; k < arr.length; k++) {
+                    var arrK = arr[k];
+                    var ProgramID = d.d.results[arrK].ID;
+                    DeleteProgramonID(ProgramID);
+                }
+            },
+            error: function (error) {
+                alert(JSON.stringify(error));
+            },
+        });
+        function DeleteProgramonID(ProgramID) {
+            var ProgramIDNew = ProgramID;
+            $.ajax({
+                url: _spPageContextInfo.webAbsoluteUrl + "//_api/web/lists/getbytitle('ProgramMaster')/items(" + ProgramIDNew + ")",
+                type: "POST",
+                async: false,
+                headers: {
+                    "ACCEPT": "application/json;odata=verbose",
+                    "content-type": "application/json;odata=verbose",
+                    "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+                    "IF-MATCH": "*",
+                    "X-HTTP-Method": "DELETE"
+                },
+                success: function (data) {
+                },
+                error: function (error) {
+                    alert(JSON.stringify(error));
+                },
+            });
+        }
+    }
+
+
+    function DeleteInvitationPrograms(ProgramName) {
+        $.ajax({
+            async: false,
+            url: _spPageContextInfo.webAbsoluteUrl + "//_api/web/lists/getbytitle('Invitation')/items?$top=5000&?filter=ProgramName eq %27" + ProgramName + "%27",
+            type: "GET",
+            headers: {
+                "accept": "application/json;odata=verbose",
+                "content-type": "application/json;odata=verbose",
+                "X-RequestDigest": $("#__REQUESTDIGEST").val()
+            },
+            success: function (d) {
+                var arr = [];
+                i = 0;
+                $.each(d.d.results, function (index, results) {
+                    if (results.Status == "Active" && results.ProgramName == ProgramName) {
+                        arr[i++] = index;
+                    }
+                });
+                for (var k = 0; k < arr.length; k++) {
+                    var arrK = arr[k];
+                    var ProgramID = d.d.results[arrK].ID;
+                    DeleteDataOnID_Inv(ProgramID);
+                }
+            },
+            error: function (error) {
+                alert(JSON.stringify(error));
+            },
+        });
+        function DeleteDataOnID_Inv(ProgramID) {
+            var ProgramIDNew = ProgramID;
+            $.ajax({
+                url: _spPageContextInfo.webAbsoluteUrl + "//_api/web/lists/getbytitle('Invitation')/items(" + ProgramIDNew + ")",
+                type: "POST",
+                async: false,
+                headers: {
+                    "ACCEPT": "application/json;odata=verbose",
+                    "content-type": "application/json;odata=verbose",
+                    "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+                    "IF-MATCH": "*",
+                    "X-HTTP-Method": "DELETE"
+                },
+                success: function (data) {
+                },
+                error: function (error) {
+                    alert(JSON.stringify(error));
+                },
+            });
+
+        }
+    }
+    function DeleteEmailNotificationPrograms(ProgramName) {
+        $.ajax({
+            async: false,
+            url: _spPageContextInfo.webAbsoluteUrl + "//_api/web/lists/getbytitle('EmailNotification')/items?$top=5000&?filter=ProgramName eq %27" + ProgramName + "%27",
+            type: "GET",
+            headers: {
+                "accept": "application/json;odata=verbose",
+                "content-type": "application/json;odata=verbose",
+                "X-RequestDigest": $("#__REQUESTDIGEST").val()
+            },
+            success: function (d) {
+                var arr = [];
+                i = 0;
+                $.each(d.d.results, function (index, results) {
+                    if (results.Status == "Active" && results.ProgramName == ProgramName) {
+                        arr[i++] = index;
+                    }
+                });
+                for (var k = 0; k < arr.length; k++) {
+                    var arrK = arr[k];
+                    var ProgramID = d.d.results[arrK].ID;
+                    DeleteDataOnID_Eml(ProgramID);
+                }
+            },
+            error: function (error) {
+                alert(JSON.stringify(error));
+            },
+        });
+        function DeleteDataOnID_Eml(ProgramID) {
+            var ProgramIDNew = ProgramID;
+            $.ajax({
+                url: _spPageContextInfo.webAbsoluteUrl + "//_api/web/lists/getbytitle('EmailNotification')/items(" + ProgramIDNew + ")",
+                type: "POST",
+                async: false,
+                headers: {
+                    "ACCEPT": "application/json;odata=verbose",
+                    "content-type": "application/json;odata=verbose",
+                    "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+                    "IF-MATCH": "*",
+                    "X-HTTP-Method": "DELETE"
+                },
+                success: function (data) {
+                },
+                error: function (error) {
+                    alert(JSON.stringify(error));
+                },
+            });
+
+        }
+    }
+</script>
+
+<script>
+    var CurrentUserEmail = LoginUserEmail();
+    
+    var isAdmin = isCurrentUserMemberOfGroup("L&D Functional Admin");
+
+		if(!isAdmin)
+		{
+		var RestUrl = _spPageContextInfo.webAbsoluteUrl + "//_api/web/lists/getbytitle('NewInductionProgram')/items?$top=5000&?filter=CreatedByUser eq %27" + CurrentUserEmail + "%27&$orderby=ProgramName,ID%20desc";
+		}
+		else
+		{
+		var RestUrl = _spPageContextInfo.webAbsoluteUrl + "//_api/web/lists/getbytitle('NewInductionProgram')/items?$top=5000&?filter=ProgramName ne null &$orderby=ProgramName,ID%20desc";
+		}
+    
+    jQuery.ajax({
+        url: RestUrl,
+        type: "GET",
+        headers: {
+            "accept": "application/json;odata=verbose",
+            "content-type": "application/json;odata=verbose",
+            "X-RequestDigest": $("#__REQUESTDIGEST").val()
+        },
+        success: function (d) {
+            var arr = []; var arrSaveAsDrat = [];
+            i = 0; arrS = 0;
+            $.each(d.d.results, function (index, results) {
+                var ProgramEndDate = results.ProgramEndDate;
+                var ChkProgramEndDate = new Date(ProgramEndDate.split("/").reverse().join("-"));
+                var GetDate = new Date();
+                if (results.Status == "Active" && ChkProgramEndDate < GetDate && ChkProgramEndDate.setHours(0, 0, 0, 0) != GetDate.setHours(0, 0, 0, 0)) {
+                    if (results.CreatedByUser == CurrentUserEmail || isAdmin) {
+                        arr[i++] = index;
+                    }
+                }
+                //if (results.Status == "SaveAsDraft" && ChkProgramEndDate < GetDate && ChkProgramEndDate.setHours(0, 0, 0, 0) != GetDate.setHours(0, 0, 0, 0)) {
+                //    if (results.CreatedByUser == CurrentUserEmail) {
+                //        arrSaveAsDrat[arrS++] = index;
+                //    }
+                //}
+            });
+            var duplocateProgram = '';
+            var i = 1;
+            for (var j = 0; j < arr.length; j++) {
+                var arrConfigK = arr[j];
+                if (duplocateProgram != d.d.results[arrConfigK].ProgramName) {
+
+                    duplocateProgram = d.d.results[arrConfigK].ProgramName;
+
+                    var index = parseInt(i);
+                    var ProgramName = d.d.results[arrConfigK].ProgramName;
+                    var ProgramSdate = d.d.results[arrConfigK].ProgramStartDate;
+                    var ProgramEdate = d.d.results[arrConfigK].ProgramEndDate;
+                    var ProgramCreatedDate = d.d.results[arrConfigK].CreatedDateCal;
+                    var ActivityID = d.d.results[arrConfigK].ID;
+                    $("#tblCompletedProgram").append("<tr><td>" + ProgramName + "</td><td>" + ProgramSdate + "</td><td>" + ProgramEdate + "</td><td>" + ProgramCreatedDate + "</td><td width='10%'><input type='button'  data-View='popup-1'data-val='" + ProgramName + "' value='View Details'> </td></tr>");
+                    i++;
+                }
+            }
+            //var saveAsDrftduplocateProgram = '';
+            //var k = 1;
+            //for (var j = 0; j < arrSaveAsDrat.length; j++) {
+            //    var arrConfigK = arrSaveAsDrat[j];
+            //    if (duplocateProgram != d.d.results[arrConfigK].ProgramName) {
+
+            //        duplocateProgram = d.d.results[arrConfigK].ProgramName;
+
+            //        var index = parseInt(i);
+            //        var ProgramName = d.d.results[arrConfigK].ProgramName;
+            //        var ProgramSdate = d.d.results[arrConfigK].ProgramStartDate;
+            //        var ProgramEdate = d.d.results[arrConfigK].ProgramEndDate;
+            //        var ProgramCreatedDate = d.d.results[arrConfigK].CreatedDateCal;
+            //        var ActivityID = d.d.results[arrConfigK].ID;
+            //        $("#tblCompletedProgram").append("<tr><td>" + ProgramName + "</td><td>" + ProgramSdate + "</td><td>" + ProgramEdate + "</td><td>" + ProgramCreatedDate + "</td><td width='10%'><input type='button'  data-View='popup-1'data-val='" + ProgramName + "' value='View Details'> </td></tr>");
+            //        k++;
+            //    }
+            //}
+            $('[data-View]').click(function () {
+                ProgramName = $(this).data('val');
+                $('#myProgramActivities').modal('show');
+                $('#txtProgramName').val('');
+                $('#txtProgramLocation').val('');
+                $('#txtProgramEndDate').val('');
+                $('#txtProgramStartDate').val('');
+                $.ajax({
+                    async: false,
+                    url: _spPageContextInfo.webAbsoluteUrl + "//_api/web/lists/getbytitle('NewInductionProgram')/items?$top=5000&?filter=ProgramName eq %27" + ProgramName + "%27",
+                    type: "GET",
+                    headers: {
+                        "accept": "application/json;odata=verbose",
+                        "content-type": "application/json;odata=verbose",
+                        "X-RequestDigest": $("#__REQUESTDIGEST").val()
+                    },
+                    success: function (d) {
+                        var arr = [];
+                        i = 0;
+                        $.each(d.d.results, function (index, results) {
+                            if (results.Status == "Active" && results.ProgramName == ProgramName) {
+                                arr[i++] = index;
+                            }
+                        });
+                        $("#tblProgramActvitiesBind").empty();
+                        for (var k = 0; k < arr.length; k++) {
+                            var arrConfigK = arr[k];
+
+                            $('#txtProgramName').val(d.d.results[arrConfigK].ProgramName);
+                            $('#txtProgramStartDate').val(d.d.results[arrConfigK].ProgramStartDate);
+                            $('#txtProgramEndDate').val(d.d.results[arrConfigK].ProgramEndDate);
+                            $('#txtProgramLocation').val(d.d.results[arrConfigK].ProgramLocation);
+
+
+                            var ActivityName = d.d.results[arrConfigK].ActivityName;
+                            var Duration = d.d.results[arrConfigK].ActivityDuration;
+                            var StartDate = d.d.results[arrConfigK].ActivityStartDate;
+                            var EndDate = d.d.results[arrConfigK].ActivityEndDate;
+                            $("#tblProgramActvitiesBind").append("<tr><td>" + ActivityName + "</td><td>" + Duration + "</td><td id='actStartDate'>" + StartDate + "</td><td id='actEndDate'>" + EndDate + "</td></tr>");
+                        }
+                    },
+                    error: function () { console.log('fail'); }
+                });
+
+            });
+
+        },
+        error: function () { console.log('fail'); }
+    });
+</script>
+
+<style type="text/css">
+
+.div_round {
+  border-radius: 4px;
+  -moz-border-radius: 4px
+  -webkit-border-radius: 4px;
+  overflow: hidden; /*notice*/
+}
+	
+	.tablesorter-default
+	{
+	width : 82%;
+	}
+	
+        table {
+            width:  100%;
+            border-collapse: collapse;
+        }
+        td {
+            border: 1px solid black;
+        }
+        .scrollingTable {
+            width: 80em;
+            overflow-y: auto;
+        }
+        .scrollingTable_1 {
+            width: 80em;
+            overflow-y: auto;
+        }
+
+         
+    </style>
+    
+    <script type="text/javascript">
+        function makeTableScroll() {
+            // Constant retrieved from server-side via JSP
+            var maxRows = 20;
+
+            var table = document.getElementById('tableCompletedProgram');
+            var wrapper = table.parentNode;
+            var rowsInTable = table.rows.length;
+            var height = 0;
+            if (rowsInTable > maxRows) {
+                for (var i = 0; i < maxRows; i++) {
+                    height += table.rows[i].clientHeight;
+                }
+                wrapper.style.height = height + "px";
+            }
+        }
+        function makeTableScroll_1() {
+            // Constant retrieved from server-side via JSP
+            var maxRows = 20;
+
+            var table = document.getElementById('tableActivity');
+            var wrapper = table.parentNode;
+            var rowsInTable = table.rows.length;
+            var height = 0;
+            if (rowsInTable > maxRows) {
+                for (var i = 0; i < maxRows; i++) {
+                    height += table.rows[i].clientHeight;
+                }
+                wrapper.style.height = height + "px";
+            }
+        }
+
+    </script>
+    
+  

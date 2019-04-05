@@ -1,0 +1,2683 @@
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="/sites/AnugamUAT/SiteAssets/AnugamStyles/css/main.css" rel="stylesheet">
+<link href="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datatable/css/dataTables.bootstrap.min.css"
+      rel="stylesheet">
+<link href="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datatable/css/responsive.bootstrap.min.css"
+      rel="stylesheet">
+<link href="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datatable/css/responsive.bootstrap.min.css"
+      rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css"
+      rel="stylesheet">
+<link href="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datepicker/css/custom.css" rel="stylesheet">
+<link rel="stylesheet" href="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datepicker/css/datepicker.min.css" />
+<!--<script type="text/javascript" src="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datepicker/js/bootstrap-datepicker.min.js"></script>-->
+<style>
+    .errorBorder-color {
+        padding: 0px !important;
+        color: red;
+        font-size: 19px;
+        margin-left: 33px;
+    }
+
+    .btn-primary {
+        color: #fff !important;
+        background-color: #337ab7 !important;
+        border-color: #2e6da4 !important;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 6px 12px !important;
+        margin-bottom: 0 !important;
+        font-size: 14px !important;
+        font-weight: 400;
+        line-height: 1.42857143;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        -ms-touch-action: manipulation;
+        touch-action: manipulation;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background-image: none;
+        border: 1px solid transparent;
+        border-radius: 4px;
+    }
+
+    .requiredfieldsstyle {
+        padding-left: 15px !important;
+        font-size: 12px;
+        font-style: italic;
+    }
+    
+ 
+</style>
+
+
+
+<div class="modal fade" id="myModalP_1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog ui-widget-content" role="document" style="width: 920px !important;">
+        <div class="modal-content" style="width:1010px">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="H4_2">
+                    Feedback User Details
+                </h4>
+            </div>
+            <div class="modal-body" style="height: auto !important;">
+                <div class="col-md-12 margin-top-15 padding-0">
+                    <div class="col-md-4">
+                        <label>
+                            Speaker Name
+                        </label>
+                        <input type="text" id="txtPopUpSpeakerName_1" maxlength="50" class="form-control PopUpRequiredField " style="width:100%;overflow-x: auto;overflow-y: auto;" readonly="readonly" />
+                    </div>
+                    <div class="col-md-4">
+                        <label>
+                            Employee Name
+                        </label>
+                        <input type="text" id="txtPopUpEmployeeName_1" maxlength="50" class="form-control PopUpRequiredField PopUpclearTextboxData" />
+                    </div>
+                    <div class="col-md-4">
+                        <label>
+                            Employee Code
+                        </label>
+                        <input type="text" id="txtPopUpEmployeeCode_1" maxlength="50" class="form-control PopUpRequiredField PopUpclearTextboxData" />
+                    </div>
+                </div>
+                <div class="clear">
+                </div>
+                <div class="well margin-top-15">
+
+                    <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 border-style-1" style="width:900px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">Q1 . Was the Induction process helpful in providing a better understanding about the organization?</label>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="col-md-12 padding-0">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionUndt_1" value="Very much" class="PopUpcommonCSSForRadio"> Very much
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionUndt_1" value="Somewhat" class="PopUpcommonCSSForRadio"> Somewhat
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionUndt_1" value="Not Really" class="PopUpcommonCSSForRadio"> Not Really
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionUndt_1" value="Not at All" class="PopUpcommonCSSForRadio"> Not at All
+                                    </label>
+                                </div>
+                                <!--<input type="text" id="txtProgramContentValue" class="form-control RequiredField clearTextboxData" />-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 border-style-1"  style="width:900px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">Q2 . Did the Induction process provide valuable information about systems and processes?</label>
+                            </div>
+                            <div class="col-md-5 PopUpclsInductionValInfo">
+                                <div class="col-md-12 padding-0">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionValInfo_1" value="Very much" class="PopUpcommonCSSForRadio"> Very much
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionValInfo_1" value="Somewhat" class="PopUpcommonCSSForRadio"> Somewhat
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionValInfo_1" value="Not Really" class="PopUpcommonCSSForRadio"> Not Really
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionValInfo_1" value="Not at All" class="PopUpcommonCSSForRadio"> Not at All
+                                    </label>
+                                </div>
+                                <!--<input type="text" id="txtTasksActivitiesValue" class="form-control RequiredField clearTextboxData" />-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 border-style-1"  style="width:900px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">Q3 . Were your queries addressed during the program?</label>
+                            </div>
+                            <div class="col-md-5 PopUpclsInductionQueries">
+                                <div class="col-md-12 padding-0">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionQueries_1" value="Very much" class="PopUpcommonCSSForRadio"> Very much
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionQueries_1" value="Somewhat" class="PopUpcommonCSSForRadio"> Somewhat
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionQueries_1" value="Not Really" class="PopUpcommonCSSForRadio"> Not Really
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionQueries_1" value="Not at All" class="PopUpcommonCSSForRadio"> Not at All
+                                    </label>
+                                </div>
+                                <!--<input type="text" id="txtProgramUtilityValue" class="form-control RequiredField clearTextboxData" />-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 border-style-1"  style="width:900px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">Q4 . Was the time allocated to the program appropriate?</label>
+                            </div>
+                            <div class="col-md-5 PopUpclsInductionTime">
+                                <div class="col-md-12 padding-0">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionTime_1" value="Very much" class="PopUpcommonCSSForRadio"> Very much
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionTime_1" value="Somewhat" class="PopUpcommonCSSForRadio"> Somewhat
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionTime_1" value="Not Really" class="PopUpcommonCSSForRadio"> Not Really
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionTime_1" value="Not at All" class="PopUpcommonCSSForRadio"> Not at All
+                                    </label>
+                                </div>
+                                <!--<input type="text" id="txtTrainerAbilityEncourage" class="form-control RequiredField clearTextboxData" />-->
+                            </div>
+                        </div>
+                    </div>
+                            
+                                    
+                   <div class="col-md-12 margin-top-15">
+                    <br/><br/>
+                        <div class="col-md-12 border-style-1"  style="width:1041px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">Q5 . Were you satisfied with the facilities at the venue:</label>
+                            </div></div></div>
+
+                     
+                     
+                     <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 border-style-1"  style="width:1041px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a) Location</label>
+                            </div>
+                            <div class="col-md-5 PopUpclsInductionLoc">
+                                <div class="col-md-12 padding-0">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionLoc_1" value="Very much" class="PopUpcommonCSSForRadio"> Very much
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionLoc_1" value="Somewhat" class="PopUpcommonCSSForRadio"> Somewhat
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionLoc_1" value="Not Really" class="PopUpcommonCSSForRadio"> Not Really
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionLoc_1" value="Not at All" class="PopUpcommonCSSForRadio"> Not at All
+                                    </label>
+                                </div>
+                                <!--<input type="text" id="txtFacilitiesValue" class="form-control RequiredField clearTextboxData" />-->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 border-style-1"  style="width:1041px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b) Ambience</label>
+                            </div>
+                            <div class="col-md-5 PopUpclsInductionAmb">
+                                <div class="col-md-12 padding-0">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionAmb_1" value="Very much" class="PopUpcommonCSSForRadio"> Very much
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionAmb_1" value="Somewhat" class="PopUpcommonCSSForRadio"> Somewhat
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionAmb_1" value="Not Really" class="PopUpcommonCSSForRadio"> Not Really
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionAmb_1" value="Not at All" class="PopUpcommonCSSForRadio"> Not at All
+                                    </label>
+                                </div>
+                                <!--<input type="text" id="txtFacilitiesValue" class="form-control RequiredField clearTextboxData" />-->
+                            </div>
+                        </div>
+                    </div>
+                    
+                     <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 border-style-1"  style="width:1041px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c) Food</label>
+                            </div>
+                            <div class="col-md-5 PopUpclsInductionFood">
+                                <div class="col-md-12 padding-0">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionFood_1" value="Very much" class="PopUpcommonCSSForRadio"> Very much
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionFood_1" value="Somewhat" class="PopUpcommonCSSForRadio"> Somewhat
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionFood_1" value="Not Really" class="PopUpcommonCSSForRadio"> Not Really
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionFood_1" value="Not at All" class="PopUpcommonCSSForRadio"> Not at All
+                                    </label>
+                                </div>
+                                <!--<input type="text" id="txtFacilitiesValue" class="form-control RequiredField clearTextboxData" />-->
+                            </div>
+                        </div>
+                    </div>
+                    
+                     <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 border-style-1"  style="width:1041px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d) Stay</label>
+                            </div>
+                            <div class="col-md-5 PopUpclsInductionStay">
+                                <div class="col-md-12 padding-0">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionStay_1" value="Very much" class="PopUpcommonCSSForRadio"> Very much
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionStay_1" value="Somewhat" class="PopUpcommonCSSForRadio"> Somewhat
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionStay_1" value="Not Really" class="PopUpcommonCSSForRadio"> Not Really
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionStay_1" value="Not at All" class="PopUpcommonCSSForRadio"> Not at All
+                                    </label>
+                                </div>
+                                <!--<input type="text" id="txtFacilitiesValue" class="form-control RequiredField clearTextboxData" />-->
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="clear"></div>
+                </div>
+
+                <div class="well margin-top-15">
+                    <div class="col-md-12 margin-top-15">
+                        <label>Do you have any suggestions to improve the program?</label>
+                    </div>
+                    <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 padding-0">
+                            <textarea class="form-control PopUpRequiredField PopUpclearTextboxData" maxlength="150" placeholder="Max 150 Characters" id="txtPopUpImprvPrgm_1"></textarea>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="well margin-top-15">
+                    <div class="col-md-12 margin-top-15">
+                        <label>What was the most valuable aspect of the program?</label>
+                    </div>
+                    <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 padding-0">
+                            <textarea class="form-control PopUpRequiredField PopUpclearTextboxData" maxlength="150" placeholder="Max 150 Characters" id="txtPopUpmostValAsp_1"></textarea>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="well margin-top-15">
+                    <div class="col-md-12 margin-top-15">
+                        <label>What was the least valuable aspect of the program?</label>
+                    </div>
+                    <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 padding-0">
+                            <textarea class="form-control PopUpRequiredField PopUpclearTextboxData" maxlength="150" placeholder="Max 150 Characters" id="txtPopUpLeastValAsp_1"></textarea>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                
+                <div class="well margin-top-15">
+                    <div class="col-md-12 margin-top-15">
+                        <label>Your overall comment on the program.</label>
+                    </div>
+                    <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 padding-0">
+                            <textarea class="form-control PopUpRequiredField PopUpclearTextboxData" maxlength="150" placeholder="Max 150 Characters" id="txtPopUpOvrallCmnt_1"></textarea>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+                
+                <div class="clear">
+                </div>
+            </div>
+            <div class=" col-md-12 padding-0 margin-top-15">
+                <div id="divUpdateErrors_1" class="requiredfieldsstyle">
+                </div>
+            </div>
+            <div class="clear">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    Close
+                </button>
+                <input type="button" class="btn btn-primary btnValidations" id="btnUpdateDetails_1"
+                       value="Update" style="display:none;" />
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="myModalP" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog ui-widget-content" role="document" style="width: 920px !important;">
+        <div class="modal-content" style="width: 1094px;/* padding-right: 8px; */margin-left: -61px;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="H4_2">
+                    Feedback User Details
+                </h4>
+            </div>
+            <div class="modal-body" style="height: auto !important;">
+                <div class="col-md-12 margin-top-15 padding-0">
+                    <div class="col-md-4">
+                        <label>
+                            Speaker Name
+                        </label>
+                        <input type="text" id="txtPopUpSpeakerName" maxlength="50" class="form-control PopUpRequiredField " style="width:100%;overflow-x: auto;overflow-y: auto;" readonly="readonly" />
+                    </div>
+                    <div class="col-md-4">
+                        <label>
+                            Employee Name
+                        </label>
+                        <input type="text" id="txtPopUpEmployeeName" maxlength="50" class="form-control PopUpRequiredField PopUpclearTextboxData" />
+                    </div>
+                    <div class="col-md-4">
+                        <label>
+                            Employee Code
+                        </label>
+                        <input type="text" id="txtPopUpEmployeeCode" maxlength="50" class="form-control PopUpRequiredField PopUpclearTextboxData" />
+                    </div>
+                </div>
+                <div class="clear">
+                </div>
+                <div class="well margin-top-15">
+
+                    <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 border-style-1" style="width:1041px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">Q1 . Was the Induction process helpful in providing a better understanding about the organization?</label>
+                            </div>
+                            <div class="col-md-5 clsPopUpInductionUndt">
+                                <div class="col-md-12 padding-0">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionUndt" value="Very much" class="PopUpcommonCSSForRadio"> Very much
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionUndt" value="Somewhat" class="PopUpcommonCSSForRadio"> Somewhat
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionUndt" value="Not Really" class="PopUpcommonCSSForRadio"> Not Really
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionUndt" value="Not at All" class="PopUpcommonCSSForRadio"> Not at All
+                                    </label>
+                                </div>
+                                <!--<input type="text" id="txtProgramContentValue" class="form-control RequiredField clearTextboxData" />-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 border-style-1"  style="width:1041px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">Q2 . Did the Induction process provide valuable information about systems and processes?</label>
+                            </div>
+                            <div class="col-md-5 PopUpclsInductionValInfo">
+                                <div class="col-md-12 padding-0">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionValInfo" value="Very much" class="PopUpcommonCSSForRadio"> Very much
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionValInfo" value="Somewhat" class="PopUpcommonCSSForRadio"> Somewhat
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionValInfo" value="Not Really" class="PopUpcommonCSSForRadio"> Not Really
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionValInfo" value="Not at All" class="PopUpcommonCSSForRadio"> Not at All
+                                    </label>
+                                </div>
+                                <!--<input type="text" id="txtTasksActivitiesValue" class="form-control RequiredField clearTextboxData" />-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 border-style-1"  style="width:1041px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">Q3 . Were your queries addressed during the program?</label>
+                            </div>
+                            <div class="col-md-5 PopUpclsInductionQueries">
+                                <div class="col-md-12 padding-0">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionQueries" value="Very much" class="PopUpcommonCSSForRadio"> Very much
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionQueries" value="Somewhat" class="PopUpcommonCSSForRadio"> Somewhat
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionQueries" value="Not Really" class="PopUpcommonCSSForRadio"> Not Really
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionQueries" value="Not at All" class="PopUpcommonCSSForRadio"> Not at All
+                                    </label>
+                                </div>
+                                <!--<input type="text" id="txtProgramUtilityValue" class="form-control RequiredField clearTextboxData" />-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 border-style-1"  style="width:1041px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">Q4 . Was the time allocated to the program appropriate?</label>
+                            </div>
+                            <div class="col-md-5 PopUpclsInductionTime">
+                                <div class="col-md-12 padding-0">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionTime" value="Very much" class="PopUpcommonCSSForRadio"> Very much
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionTime" value="Somewhat" class="PopUpcommonCSSForRadio"> Somewhat
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionTime" value="Not Really" class="PopUpcommonCSSForRadio"> Not Really
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionTime" value="Not at All" class="PopUpcommonCSSForRadio"> Not at All
+                                    </label>
+                                </div>
+                                <!--<input type="text" id="txtTrainerAbilityEncourage" class="form-control RequiredField clearTextboxData" />-->
+                            </div>
+                        </div>
+                    </div>
+                   
+                    <div class="col-md-12 margin-top-15">
+                    <br/><br/>
+                        <div class="col-md-12 border-style-1"  style="width:1041px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">Q5 . Were you satisfied with the facilities at the venue:</label>
+                            </div></div></div>
+                     
+                     <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 border-style-1"  style="width:1041px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a) Location</label>
+                            </div>
+                            <div class="col-md-5 PopUpclsInductionLoc">
+                                <div class="col-md-12 padding-0">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionLoc" value="Very much" class="PopUpcommonCSSForRadio"> Very much
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionLoc" value="Somewhat" class="PopUpcommonCSSForRadio"> Somewhat
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionLoc" value="Not Really" class="PopUpcommonCSSForRadio"> Not Really
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionLoc" value="Not at All" class="PopUpcommonCSSForRadio"> Not at All
+                                    </label>
+                                </div>
+                                <!--<input type="text" id="txtFacilitiesValue" class="form-control RequiredField clearTextboxData" />-->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 border-style-1"  style="width:1041px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b) Ambience</label>
+                            </div>
+                            <div class="col-md-5 PopUpclsInductionAmb">
+                                <div class="col-md-12 padding-0">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionAmb" value="Very much" class="PopUpcommonCSSForRadio"> Very much
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionAmb" value="Somewhat" class="PopUpcommonCSSForRadio"> Somewhat
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionAmb" value="Not Really" class="PopUpcommonCSSForRadio"> Not Really
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionAmb" value="Not at All" class="PopUpcommonCSSForRadio"> Not at All
+                                    </label>
+                                </div>
+                                <!--<input type="text" id="txtFacilitiesValue" class="form-control RequiredField clearTextboxData" />-->
+                            </div>
+                        </div>
+                    </div>
+                    
+                     <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 border-style-1"  style="width:1041px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c) Food</label>
+                            </div>
+                            <div class="col-md-5 PopUpclsInductionFood">
+                                <div class="col-md-12 padding-0">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionFood" value="Very much" class="PopUpcommonCSSForRadio"> Very much
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionFood" value="Somewhat" class="PopUpcommonCSSForRadio"> Somewhat
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionFood" value="Not Really" class="PopUpcommonCSSForRadio"> Not Really
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionFood" value="Not at All" class="PopUpcommonCSSForRadio"> Not at All
+                                    </label>
+                                </div>
+                                <!--<input type="text" id="txtFacilitiesValue" class="form-control RequiredField clearTextboxData" />-->
+                            </div>
+                        </div>
+                    </div>
+                    
+                     <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 border-style-1"  style="width:1041px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d) Stay</label>
+                            </div>
+                            <div class="col-md-5 PopUpclsInductionStay">
+                                <div class="col-md-12 padding-0">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionStay" value="Very much" class="PopUpcommonCSSForRadio"> Very much
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionStay" value="Somewhat" class="PopUpcommonCSSForRadio"> Somewhat
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionStay" value="Not Really" class="PopUpcommonCSSForRadio"> Not Really
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="PopUpInductionStay" value="Not at All" class="PopUpcommonCSSForRadio"> Not at All
+                                    </label>
+                                </div>
+                                <!--<input type="text" id="txtFacilitiesValue" class="form-control RequiredField clearTextboxData" />-->
+                            </div>
+                        </div>
+                    </div>
+
+                  
+                    
+                    <div class="clear"></div>
+                </div>
+
+                <div class="well margin-top-15">
+                    <div class="col-md-12 margin-top-15">
+                        <label>Do you have any suggestions to improve the program?</label>
+                    </div>
+                    <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 padding-0">
+                            <textarea class="form-control PopUpRequiredField PopUpclearTextboxData" maxlength="150" placeholder="Max 150 Characters" id="txtPopUpImprvPrgm"></textarea>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="well margin-top-15">
+                    <div class="col-md-12 margin-top-15">
+                        <label>What was the most valuable aspect of the program?</label>
+                    </div>
+                    <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 padding-0">
+                            <textarea class="form-control PopUpRequiredField PopUpclearTextboxData" maxlength="150" placeholder="Max 150 Characters" id="txtPopUpmostValAsp"></textarea>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="well margin-top-15">
+                    <div class="col-md-12 margin-top-15">
+                        <label>What was the least valuable aspect of the program?</label>
+                    </div>
+                    <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 padding-0">
+                            <textarea class="form-control PopUpRequiredField PopUpclearTextboxData" maxlength="150" placeholder="Max 150 Characters" id="txtPopUpLeastValAsp"></textarea>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                
+                   <div class="well margin-top-15">
+                    <div class="col-md-12 margin-top-15">
+                        <label>Your overall comment on the program.</label>
+                    </div>
+                    <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 padding-0">
+                            <textarea class="form-control PopUpRequiredField PopUpclearTextboxData" maxlength="150" placeholder="Max 150 Characters" id="txtPopUpOvrallCmnt"></textarea>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="clear">
+                </div>
+            </div>
+            <div class=" col-md-12 padding-0 margin-top-15">
+                <div id="divUpdateErrors" class="requiredfieldsstyle">
+                </div>
+            </div>
+            <div class="clear">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    Close
+                </button>
+                <input type="button" class="btn btn-primary btnValidations" id="btnUpdateDetails"
+                       value="Update" style="display:none;" />
+            </div>
+        </div>
+    </div>
+</div>
+<!--POPUP END ********************-->
+<!--Program Name model dialoguebox Start-->
+<div class="col-md-12 margin-top-10 padding-0">
+    <div class="col-md-12 padding-0 page-content-header-style-1">
+        <h1 style="font-size:25px !Important;margin-left: 12px !Important;margin-right: 0px !Important;margin-top: 0px !Important; margin-bottom: 0px !Important;">
+            <b>Manual Induction Feedback Form</b>
+        </h1>
+    </div>
+    <div class="col-md-12 padding-0">
+        <div class="col-md-12 padding-0 margin-top-15">
+            <div id="divErrorMessage" class="errorBorder-color"></div>
+        </div>
+        <div class="col-md-12 margin-top-15">
+            <label>
+                Program Name
+            </label><label style="color: red;font-size: 20px;">*</label>
+            <div id="divProgramName">
+            </div>
+        </div>
+        <div class="col-md-12 margin-top-15 padding-0">
+            <div class="col-md-4">
+                <label>
+                    Program Start Date
+                </label>
+                <input type="text" id="txtProgramStartDate" class="form-control" readonly="readonly" />
+            </div>
+            <div class="col-md-4">
+                <label>
+                    Program End Date
+                </label>
+                <input type="text" id="txtProgramEndDate" class="form-control" readonly="readonly" />
+            </div>
+            <div class="col-md-4">
+                <label>
+                    Program Location
+                </label>
+                <input id="txtProgramLocation" class="form-control clearTextboxData" readonly="readonly" />
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-12 margin-top-15 padding-0">
+        <div class="col-md-4">
+            <label>
+                Speaker Name
+            </label><label style="color: white;font-size: 20px;">*</label>
+            <textarea name="text" id="txtSpeakerName" class="form-control RequiredField" rows="1" cols="2" wrap="soft" readonly="readonly"> </textarea>
+            
+        </div>
+        <div class="col-md-4">
+            <label>
+                Employee Name
+            </label><label style="color: red;font-size: 20px;">*</label>
+            <input type="text" id="txtEmployeeName" maxlength="50" class="form-control RequiredField clearTextboxData" />
+        </div>
+        <div class="col-md-4">
+            <label>
+                Employee Code
+            </label><label style="color: red;font-size: 20px;">*</label>
+            <input type="text" id="txtEmployeeCode" maxlength="50" class="form-control RequiredField clearTextboxData" />
+        </div>
+    </div>
+    <div class="clear">
+    </div>
+    <div class="well margin-top-15">
+
+        <div class="col-md-12 margin-top-15">
+            <div class="col-md-12 border-style-1">
+                <div class="col-md-7">
+                    <label class="margin-bottom-0">Q1 . Was the Induction process helpful in providing a better understanding about the organization?<b><span style="color:red;font-size:20px">*</span></b></label>
+                </div>
+                <div class="col-md-5 clsInductionUndt">
+                    <div class="col-md-12 padding-0">
+                        <label class="radio-inline">
+                            <input type="radio" name="InductionUndt" value="Very much" class="commonCSSForRadio radioChecked1"> Very much
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="InductionUndt" value="Somewhat" class="commonCSSForRadio radioChecked1"> Somewhat
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="InductionUndt" value="Not Really" class="commonCSSForRadio radioChecked1"> Not Really
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="InductionUndt" value="Not at All" class="commonCSSForRadio radioChecked1"> Not at All
+                        </label>
+                    </div>
+                    <!--<input type="text" id="txtProgramContentValue" class="form-control RequiredField clearTextboxData" />-->
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 margin-top-15">
+            <div class="col-md-12 border-style-1">
+                <div class="col-md-7">
+                    <label class="margin-bottom-0">Q2 . Did the Induction process provide valuable information about systems and processes?<b><span style="color:red;font-size:20px">*</span></b></label>
+                </div>
+                <div class="col-md-5 clsInductionValInfo">
+                    <div class="col-md-12 padding-0">
+                        <label class="radio-inline">
+                            <input type="radio" name="InductionValInfo" value="Very much" class="commonCSSForRadio radioChecked2"> Very much
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="InductionValInfo" value="Somewhat" class="commonCSSForRadio radioChecked2"> Somewhat
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="InductionValInfo" value="Not Really" class="commonCSSForRadio radioChecked2"> Not Really
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="InductionValInfo" value="Not at All" class="commonCSSForRadio radioChecked2"> Not at All
+                        </label>
+                    </div>
+                    <!--<input type="text" id="txtTasksActivitiesValue" class="form-control RequiredField clearTextboxData" />-->
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 margin-top-15">
+            <div class="col-md-12 border-style-1">
+                <div class="col-md-7">
+                    <label class="margin-bottom-0">Q3 . Were your queries addressed during the program?</label><label style="color: red;font-size: 20px;">*</label>
+                </div>
+                <div class="col-md-5 clsInductionQueries">
+                    <div class="col-md-12 padding-0">
+                        <label class="radio-inline">
+                            <input type="radio" name="InductionQueries" value="Very much" class="commonCSSForRadio radioChecked3"> Very much
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="InductionQueries" value="Somewhat" class="commonCSSForRadio radioChecked3"> Somewhat
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="InductionQueries" value="Not Really" class="commonCSSForRadio radioChecked3"> Not Really
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="InductionQueries" value="Not at All" class="commonCSSForRadio radioChecked3"> Not at All
+                        </label>
+                    </div>
+                    <!--<input type="text" id="txtProgramUtilityValue" class="form-control RequiredField clearTextboxData" />-->
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 margin-top-15">
+            <div class="col-md-12 border-style-1">
+                <div class="col-md-7">
+                    <label class="margin-bottom-0">Q4 . Was the time allocated to the program appropriate?</label><label style="color: red;font-size: 20px;">*</label>
+                </div>
+                <div class="col-md-5 clsInductionTime">
+                    <div class="col-md-12 padding-0">
+                        <label class="radio-inline">
+                            <input type="radio" name="InductionTime" value="Very much" class="commonCSSForRadio radioChecked4"> Very much
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="InductionTime" value="Somewhat" class="commonCSSForRadio radioChecked4"> Somewhat
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="InductionTime" value="Not Really" class="commonCSSForRadio radioChecked4"> Not Really
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="InductionTime" value="Not at All" class="commonCSSForRadio radioChecked4"> Not at All
+                        </label>
+                    </div>
+                    <!--<input type="text" id="txtTrainerAbilityEncourage" class="form-control RequiredField clearTextboxData" />-->
+                </div>
+            </div>
+        </div>
+        
+        
+                    <div class="col-md-12 margin-top-15">
+                    <br/><br/>
+                        <div class="col-md-12 border-style-1"  style="width:1041px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">Q5 . Were you satisfied with the facilities at the venue:</label><label style="color: red;font-size: 20px;">*</label>
+                            </div></div></div>
+                     
+                     
+                     <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 border-style-1"  style="width:1041px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a) Location</label>
+                            </div>
+                            <div class="col-md-5 clsInductionLoc">
+                                <div class="col-md-12 padding-0">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="InductionLoc" value="Very much" class="commonCSSForRadio radioChecked5"> Very much
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="InductionLoc" value="Somewhat" class="commonCSSForRadio radioChecked5"> Somewhat
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="InductionLoc" value="Not Really" class="commonCSSForRadio radioChecked5"> Not Really
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="InductionLoc" value="Not at All" class="commonCSSForRadio radioChecked5"> Not at All
+                                    </label>
+                                </div>
+                                <!--<input type="text" id="txtFacilitiesValue" class="form-control RequiredField clearTextboxData" />-->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 border-style-1"  style="width:1041px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b) Ambience</label>
+                            </div>
+                            <div class="col-md-5 clsInductionAmb">
+                                <div class="col-md-12 padding-0">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="InductionAmb" value="Very much" class="commonCSSForRadio radioChecked6"> Very much
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="InductionAmb" value="Somewhat" class="commonCSSForRadio radioChecked6"> Somewhat
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="InductionAmb" value="Not Really" class="commonCSSForRadio radioChecked6"> Not Really
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="InductionAmb" value="Not at All" class="commonCSSForRadio radioChecked6"> Not at All
+                                    </label>
+                                </div>
+                                <!--<input type="text" id="txtFacilitiesValue" class="form-control RequiredField clearTextboxData" />-->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 border-style-1"  style="width:1041px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c) Food</label>
+                            </div>
+                            <div class="col-md-5 clsInductionFood">
+                                <div class="col-md-12 padding-0">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="InductionFood" value="Very much" class="commonCSSForRadio radioChecked7"> Very much
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="InductionFood" value="Somewhat" class="commonCSSForRadio radioChecked7"> Somewhat
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="InductionFood" value="Not Really" class="commonCSSForRadio radioChecked7"> Not Really
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="InductionFood" value="Not at All" class="commonCSSForRadio radioChecked7"> Not at All
+                                    </label>
+                                </div>
+                                <!--<input type="text" id="txtFacilitiesValue" class="form-control RequiredField clearTextboxData" />-->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-12 margin-top-15">
+                        <div class="col-md-12 border-style-1"  style="width:1041px">
+                            <div class="col-md-7">
+                                <label class="margin-bottom-0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d) Stay</label>
+                            </div>
+                            <div class="col-md-5 clsInductionStay">
+                                <div class="col-md-12 padding-0">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="InductionStay" value="Very much" class="commonCSSForRadio radioChecked8"> Very much
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="InductionStay" value="Somewhat" class="commonCSSForRadio radioChecked8"> Somewhat
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="InductionStay" value="Not Really" class="commonCSSForRadio radioChecked8"> Not Really
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="InductionStay" value="Not at All" class="commonCSSForRadio radioChecked8"> Not at All
+                                    </label>
+                                </div>
+                                <!--<input type="text" id="txtFacilitiesValue" class="form-control RequiredField clearTextboxData" />-->
+                            </div>
+                        </div>
+                    </div>
+                    
+        <div class="clear"></div>
+    </div>
+
+    <div class="well margin-top-15">
+        <div class="col-md-12 margin-top-15">
+            <label>Do you have any suggestions to improve the program?</label><label style="color: red;font-size: 20px;">*</label>
+        </div>
+        <div class="col-md-12 margin-top-15">
+            <div class="col-md-12 padding-0">
+                <textarea class="form-control RequiredField clearTextboxData" maxlength="150" placeholder="Max 150 Characters" id="txtImprvPrgm"></textarea>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="well margin-top-15">
+        <div class="col-md-12 margin-top-15">
+            <label>What was the most valuable aspect of the program?</label><label style="color: red;font-size: 20px;">*</label>
+        </div>
+        <div class="col-md-12 margin-top-15">
+            <div class="col-md-12 padding-0">
+                <textarea class="form-control RequiredField clearTextboxData" maxlength="150" placeholder="Max 150 Characters" id="txtmostValAsp"></textarea>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <div class="well margin-top-15">
+        <div class="col-md-12 margin-top-15">
+            <label>What was the least valuable aspect of the program?</label><label style="color: red;font-size: 20px;">*</label>
+        </div>
+        <div class="col-md-12 margin-top-15">
+            <div class="col-md-12 padding-0">
+                <textarea class="form-control RequiredField clearTextboxData" maxlength="150" placeholder="Max 150 Characters" id="txtLeastValAsp"></textarea>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    
+    <div class="well margin-top-15">
+        <div class="col-md-12 margin-top-15">
+            <label>Your overall comment on the program.</label><label style="color: red;font-size: 20px;">*</label>
+        </div>
+        <div class="col-md-12 margin-top-15">
+            <div class="col-md-12 padding-0">
+                <textarea class="form-control RequiredField clearTextboxData" maxlength="150" placeholder="Max 150 Characters" id="txtOvrallCmnt"></textarea>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <div class="clear">
+    </div>
+    <div class=" col-md-12 padding-0 margin-top-10">
+        <div id="divFeedBackSpeakerErrors" class="requiredfieldsstyle"></div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="col-md-12 margin-top-10">
+        <input type="button" class="btn btn-primary" id="btnAddSpeaker" value="Add" />
+    </div>
+</div>
+<div>
+    <div class="col-md-12">
+        <div class="col-md-12 padding-0 margin-top-15">
+            <div class="col-md-12 padding-0">
+                <label>
+                    Manual Feedback Details
+                </label>
+            </div>
+            <div class="col-md-12 padding-0">
+                <table id="tableFeedBackSpeaker" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                SlNo
+                            </th>
+                            <th>
+                                Program Name
+                            </th>
+                            <th>
+                                Program Start Date
+                            </th>
+                            <th>
+                                Program End Date
+                            </th>
+                            <th>
+                                Speaker Name
+                            </th>
+                            <th>
+                                Employee Name
+                            </th>
+                            <th width="20%" colspan="2">
+                                Action
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="tblFeedBackSpeakerBind"></tbody>
+                </table>
+            </div>
+            
+            
+<div class="col-md-12 margin-top-10">
+        <input type="button" class="btn btn-primary" id="btnSubmit" value="Submit" style="margin-left: -6px;" />
+        <input type="button" class="btn btn-primary" id="btnSaveAsDraft" value="Save As Draft" style="display:none;"/>
+     <br/><br/></div>
+   
+    <div class="col-md-12 padding-0">
+                <label>
+                    Online Feedback Details
+                </label>
+            </div>
+            <div class="col-md-12 padding-0">
+                <table id="tableFeedBackSpeaker_1" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                SlNo
+                            </th>
+                            <th>
+                                Program Name
+                            </th>
+                            <th>
+                                Program Start Date
+                            </th>
+                            <th>
+                                Program End Date
+                            </th>
+                            <th>
+                                Speaker Name
+                            </th>
+                            <th>
+                                Employee Name
+                            </th>
+                            <th width="20%" colspan="2">
+                                Action
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="tblFeedBackSpeakerBind_1"></tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+    
+
+</div>
+
+<div id="throbber" style="display:none;">
+<img src="https://bajajelect.sharepoint.com/sites/HR-TrainingManagementSystem/SiteAssets/AnugamStyles/img/712_1.gif" /><br/></br><h3><b style="color:#0072c6 !Important;font-size:32px">Please Wait...</b><h3></div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datatable/js/jquery.dataTables.min.js"></script>
+<script src="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datatable/js/dataTables.bootstrap.min.js"></script>
+<script src="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datatable/js/dataTables.responsive.min.js"></script>
+<script src="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datatable/js/responsive.bootstrap.js"></script>
+<script src="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datatable/js/datatables.scroller.min.js"></script>
+<script src="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datepicker/js/moment.min.js"></script>
+<script src="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datepicker/js/daterangepicker.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.js"></script>
+<script src="https://bajajelect.sharepoint.com/sites/AnugamUAT/SiteAssets/Webparts/alluploadreferences/jquery.blockUI.js"></script>
+<!-- bootstrap-daterangepicker -->
+<script>
+    $(document).ready(function () {
+        PopulateProgramDropDown();
+
+    });
+
+    function PopulateProgramDropDown() {
+        var listName = "NewInductionProgram";
+        var url = _spPageContextInfo.webAbsoluteUrl;
+        var UserEmail = LoginUserEmail();
+        getProgram(UserEmail, listName, url, function (data) {
+            var TodayDate = new Date();
+            var items = data.d.results;
+            var pgmFinalData = []; var j = 0;
+            var arrPGM = [];
+            var arrPGMUnique = [];
+            for (var k = 0; k < items.length; k++) {
+                var ChkProgramEndDate = new Date(items[k].ProgramEndDate.split("/").reverse().join("-"));
+                var CreatedDate = new Date(items[k].CreatedDateCal.split("/").reverse().join("-"));
+                if (new Date(items[k].ProgramEndDate.split("/").reverse().join("-")) >= TodayDate || ChkProgramEndDate.setHours(0, 0, 0, 0) == TodayDate.setHours(0, 0, 0, 0) || CreatedDate >= ChkProgramEndDate) {
+                    var NameProgram = items[k].ProgramName;
+                    var ChckCnclPgm = items[k].ProgramName;
+	                var PrgrmCancellation = GetPgmCncld(ChckCnclPgm);
+	                if(PrgrmCancellation != 'Yes')
+                	{
+
+                    if (pgmFinalData[j++] != NameProgram) {
+                        pgmFinalData[j++] = NameProgram;
+                    }
+                    }
+                }
+            }
+            var uniqueProgramNames = '';
+            var result = [];
+            $.each(pgmFinalData, function (index, pgmFinalData) {
+                if ($.inArray(pgmFinalData, result) == -1) {
+                    result.push(pgmFinalData);
+                }
+            });
+            console.log(ChkProgramEndDate);
+            //var programBind = GroupByProgramData(pgmFinalData, 'ProgramName');
+            var inputElement = '<select id="ddlProgramName" class="form-control RequiredField"><option  value="--Select Program--">--Select Program--</option>';
+            // Add all the new items
+            for (var i = 0; i < result.length; i++) {
+                if (result[i] != undefined) {
+                    var itemId = result[i],
+                        itemVal = result[i];
+                    inputElement += '<option value="' + itemVal + '"selected>' + itemId + '</option>';
+                }
+            }
+            inputElement += '</select>';
+            $('#divProgramName').append(inputElement);
+            $("#ddlProgramName").each(function () {
+                $('option', this).each(function () {
+
+                    if ($(this).text() == '--Select Program--') {
+                        $(this).attr('selected', 'selected')
+                    };
+                });
+            });
+            $('#ddlProgramName').on('change', function () {
+                var selectedProgramName = $(this).val();
+                $("#txtProgramLocation").val('');
+                $("#txtProgramStartDate").val('');
+                $("#txtProgramEndDate").val('');
+                $('#txtSpeakerName').val('');
+                $.blockUI.defaults.css = {		
+											padding: 0,		
+								            margin: 0,		
+								            width: '30%',		
+								            top: '40%',		
+								            left: '35%',		
+								            textAlign: 'center',
+								            cursor: 'wait'};
+								            
+		       $.blockUI.defaults.overlayCSS.backgroundColor = '#fff';
+		       $.blockUI.defaults.overlayCSS.opacity = 0.9;
+		       $.blockUI.defaults.overlayCSS.cursor = 'pointer';
+								            
+		       
+                $.blockUI({message: $('#throbber')});
+                
+                
+                setTimeout(function () {
+                  getProgramLocation(selectedProgramName);
+                    getBindData_1(selectedProgramName);
+                    getBindData(selectedProgramName);
+                   
+                    $.unblockUI({
+                        onUnblock: function () {
+                            console.log('');
+                        }
+                    });
+                }, 600);              
+                var SpeakerName = getSpeakerName(selectedProgramName);
+                if (SpeakerName != '' && SpeakerName != null) {
+                    $('#txtSpeakerName').val(SpeakerName);
+                }
+            });
+
+        }, function (data) {
+            alert("An error occured while getting ConfigParameters. Please try again");
+        });
+    }
+
+    function getSpeakerName(ProgramName) {
+        var SpeakerName = '';
+        var Spkr='';
+        var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('NewInductionProgram')/items?$filter=Status%20eq%20%27Active%27and%20ProgramName%20eq%20%27" + ProgramName + "%27 and FeedBackNeed eq 'Yes'";
+        $.ajax({
+            url: RestUrl,
+            method: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+            },
+            success: function (d) {
+                var arr = [];
+                i = 0;
+                $.each(d.d.results, function (index, results) {
+                    arr[i++] = index;
+                });
+                for (var k = 0; k < arr.length; k++) {
+                    var arrK = arr[k];
+                    if (d.d.results[arrK].ProgramName == ProgramName) {
+                        var ActivityID = d.d.results[arrK].ActivityID;
+                        SpeakerName = getSpeakerNameOnActivityID(ActivityID);
+                         Spkr= Spkr + SpeakerName + ",";
+                    }
+                }
+                  if(Spkr != '')
+                {
+                var lastChar = Spkr.slice(-1);
+                if (lastChar == ',') {
+                SpeakerName = Spkr.slice(0, -1);
+                }
+                //alert(SpeakerName);
+                }
+
+            },
+            error: function () { console.log('fail'); }
+        });
+        return SpeakerName;
+    }
+    function getSpeakerNameOnActivityID(ActivityID) {
+        var SpeakerName = '';
+        var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('FeedBackDetails')/items?$filter=ActiviTyID eq '" + ActivityID + "'";
+        $.ajax({
+            url: RestUrl,
+            method: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+            },
+            success: function (d) {
+              //  if (d.d.results.length > 0) {
+                //    SpeakerName = d.d.results[0].NameOfTheSpeaker;
+                //}
+                  var arr = [];
+            i = 0;
+            $.each(d.d.results, function (index, results) {
+                if (results.Status == "Active") {
+                    arr[i++] = index;
+                }
+            });
+			for (var j = 0; j < arr.length; j++) {
+                   var arrConfigK = arr[j];
+                    if(arrConfigK<=0){
+                        SpeakerName = d.d.results[arrConfigK].NameOfTheSpeaker + ",";
+                    }
+                    else if(arrConfigK>=1){
+                        SpeakerName = SpeakerName + d.d.results[arrConfigK].NameOfTheSpeaker + ",";
+                    }
+              }
+               var lastChar = SpeakerName.slice(-1);
+                if (lastChar == ',') {
+                SpeakerName = SpeakerName.slice(0, -1);
+                }
+
+            },
+            error: function () { console.log('fail'); }
+        });
+        return SpeakerName;
+    }
+    function getProgram(UserEmail, listName, siteurl, success, failure) {
+
+        var urlTest = siteurl + "/_vti_bin/listdata.svc/" + listName + "?$filter=CreatedByUser eq %27" + UserEmail + "%27 and Status eq 'Active' and FeedBackNeed eq 'Yes' and InductionProgram eq 'Yes'&$orderby= Created desc";
+        $.ajax({
+            url: urlTest,
+            method: "GET",
+            headers: { "Accept": "application/json; odata=verbose" },
+            success: function (data) {
+                success(data);
+            },
+            error: function (data) {
+                failure(data);
+            }
+        });
+    }
+    function getProgramLocation(selectedProgramName) {
+        var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('NewInductionProgram')/items?$top=1000&?filter=Status%20eq%20%27Active%27and%20ProgramName%20eq%20%27" + selectedProgramName + "%27";
+        $.ajax({
+            url: RestUrl,
+            method: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+            },
+            success: function (d) {
+                var arr = [];
+                i = 0;
+                $.each(d.d.results, function (index, results) {
+                    arr[i++] = index;
+                });
+                for (var k = 0; k < arr.length; k++) {
+                    var arrK = arr[k];
+                    if (d.d.results[arrK].ProgramName == selectedProgramName) {
+                        var PgrmLocation = d.d.results[arrK].ProgramLocation;
+                        var PgrmStartDate = d.d.results[arrK].ProgramStartDate;
+                        var PgrmEndDate = d.d.results[arrK].ProgramEndDate;
+                        $("#txtProgramLocation").val(PgrmLocation);
+                        $("#txtProgramStartDate").val(PgrmStartDate);
+                        $("#txtProgramEndDate").val(PgrmEndDate);
+                        break;
+                    }
+                }
+            },
+            error: function () { console.log('fail'); }
+        });
+    }
+</script>
+<script>
+    var currentuserEmailID = "";
+    function LoginUserEmail() {
+        $.ajax({
+            async: false,
+            url: _spPageContextInfo.webServerRelativeUrl +
+                 "//_api/SP.UserProfiles.PeopleManager/GetMyProperties?$select=email",
+            method: "GET",
+            headers: {
+                "accept": "application/json;odata=verbose"
+            },
+            success: function (d) {
+                currentuserEmailID = d.d.Email;
+
+            },
+            error: function (err) {
+                alert(JSON.stringify(err));
+            }
+        });
+        return currentuserEmailID;
+    }
+</script>
+
+<script>
+    $('#btnAddSpeaker').click(function () {
+        if (IsValidData()) {           
+            $.blockUI.defaults.css = {		
+											padding: 0,		
+								            margin: 0,		
+								            width: '30%',		
+								            top: '40%',		
+								            left: '35%',		
+								            textAlign: 'center',
+								            cursor: 'wait'};
+								            
+		       $.blockUI.defaults.overlayCSS.backgroundColor = '#fff';
+		       $.blockUI.defaults.overlayCSS.opacity = 0.9;
+		       $.blockUI.defaults.overlayCSS.cursor = 'pointer';
+								            
+		       
+                $.blockUI({message: $('#throbber')});
+                
+                
+                setTimeout(function () {
+                AddDetails();
+                $.unblockUI({
+                    onUnblock: function () {
+                        console.log('');
+                    }
+                });
+            }, 600);
+        }
+    });
+    function AddDetails()
+    {
+        var ProgramName = $("#ddlProgramName").val();
+        var ProgramStartDate = $("#txtProgramStartDate").val();
+        var ProgramEndDate = $("#txtProgramEndDate").val();
+        var ProgramLocation = $("#txtProgramLocation").val();
+        
+        var InductionUndt = $('input[name=InductionUndt]:radio:checked').val();
+        var InductionValInfo = $('input[name=InductionValInfo]:radio:checked').val();
+        var InductionQueries = $('input[name=InductionQueries]:radio:checked').val();
+        var InductionTime = $('input[name=InductionTime]:radio:checked').val();
+        var InductionLoc = $('input[name=InductionLoc]:radio:checked').val();
+        var InductionAmb = $('input[name=InductionAmb]:radio:checked').val();
+        var InductionFood = $('input[name=InductionFood]:radio:checked').val();
+        var InductionStay = $('input[name=InductionStay]:radio:checked').val();
+        
+        var SpeakerName = $("#txtSpeakerName").val();
+        var EmployeeName = $("#txtEmployeeName").val();
+        var EmployeeCode = $("#txtEmployeeCode").val();
+        var CurrentLoginUser = LoginUserEmail();
+        
+        var Suggestions  = $("#txtImprvPrgm").val();
+        var MostAspects = $("#txtmostValAsp").val();
+        var LeastAspects = $("#txtLeastValAsp").val();
+        var Overall = $("#txtOvrallCmnt").val();
+
+
+        $.ajax({
+            url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('InductionFeedbackSpeakerDetails')/items",
+            type: "POST",
+            async: false,
+            data: JSON.stringify({
+                '__metadata': { 'type': 'SP.Data.InductionFeedbackSpeakerDetailsListItem' },
+                'Title': ProgramName,
+                'ProgramName': ProgramName,
+                'ProgramStartDate': ProgramStartDate,
+                'ProgramEndDate': ProgramEndDate,
+                'ProgramLocation': ProgramLocation,
+                'InductionUndt': InductionUndt,
+                'InductionValInfo': InductionValInfo,
+                'InductionQueries': InductionQueries,
+                'InductionTime': InductionTime,
+                'InductionLoc': InductionLoc,
+                'InductionAmb': InductionAmb,
+                'InductionFood': InductionFood,
+                'InductionStay': InductionStay,
+				'Suggestions': Suggestions,
+                'MostAspects': MostAspects,
+                'LeastAspects': LeastAspects,
+				'Overall': Overall,
+                'SpeakerName': SpeakerName,
+                'EmployeeName': EmployeeName,
+                'Status': "Default",
+                'CreatedByUser': CurrentLoginUser,
+                'EmployeeCode': EmployeeCode
+            }),
+            headers: {
+                "Accept": "application/json;odata=verbose",
+                "content-type": "application/json; odata=verbose",
+                "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+            },
+            success: function (data) {
+                alert("Feedback added successfully");
+                
+                getBindData(ProgramName);
+                getBindData_1(ProgramName);
+                clearData();
+            },
+            error: function (err) {
+                alert("Error while adding item: " + JSON.stringify(err));
+            }
+        });
+    }
+
+    function clearData() {
+        //$('input:radio[name=Facilities]').attr('checked', false);
+        //$('input:radio[name=ProgramContent]').attr('checked', false);
+        //$('input:radio[name=TasksActivities]').attr('checked', false);
+        //$('input:radio[name=ProgramUtility]').attr('checked', false);
+        //$('input:radio[name=TrainerAbilityEncourage]').attr('checked', false);
+        //$('input:radio[name=TrainerAbilityCommunicate]').attr('checked', false);
+        $(".commonCSSForRadio").each(function (i) {
+            this.checked = false;
+        });
+        $('.clearTextboxData').each(function () {
+            $(this).val('');
+        });
+    }
+    function IsValidData() {
+        isValid = true;
+        $('.RequiredField').each(function () {
+            if ($.trim($(this).val()) == '' || $.trim($(this).val()) == '--Select Program--') {
+                isValid = false;
+                $(this).css({
+                    "border": "1px solid red"
+                });
+            }
+            else {
+                $(this).css({
+                    "border": ""
+                });
+            }
+        });
+        if ($('input[name="InductionUndt"]:checked').length == 0) {
+            isValid = false;
+            $('.clsInductionUndt').css({
+                "border": "1px solid red"
+            });
+        }
+        else {
+            $('.clsInductionUndt').css({
+                "border": ""
+            });
+        }
+        if ($('input[name="InductionValInfo"]:checked').length == 0) {
+            isValid = false;
+            $('.clsInductionValInfo').css({
+                "border": "1px solid red"
+            });
+        }
+        else {
+            $('.clsInductionValInfo').css({
+                "border": ""
+            });
+        }
+        if ($('input[name="InductionQueries"]:checked').length == 0) {
+            isValid = false;
+            $('.clsInductionQueries').css({
+                "border": "1px solid red"
+            });
+        }
+        else {
+            $('.clsInductionQueries').css({
+                "border": ""
+            });
+        }
+        if ($('input[name="InductionTime"]:checked').length == 0) {
+            isValid = false;
+            $('.clsInductionTime').css({
+                "border": "1px solid red"
+            });
+        }
+        else {
+            $('.clsInductionTime').css({
+                "border": ""
+            });
+        }
+        if ($('input[name="InductionLoc"]:checked').length == 0) {
+            isValid = false;
+            $('.clsInductionLoc').css({
+                "border": "1px solid red"
+            });
+        }
+        else {
+            $('.clsInductionLoc').css({
+                "border": ""
+            });
+        }
+        if ($('input[name="InductionAmb"]:checked').length == 0) {
+            isValid = false;
+            $('.clsInductionAmb').css({
+                "border": "1px solid red"
+            });
+        }
+        else {
+            $('.clsInductionAmb').css({
+                "border": ""
+            });
+        }
+        
+        if ($('input[name="InductionFood"]:checked').length == 0) {
+            isValid = false;
+            $('.clsInductionFood').css({
+                "border": "1px solid red"
+            });
+        }
+        else {
+            $('.clsInductionFood').css({
+                "border": ""
+            });
+        }
+        
+        if ($('input[name="InductionStay"]:checked').length == 0) {
+            isValid = false;
+            $('.clsInductionStay').css({
+                "border": "1px solid red"
+            });
+        }
+        else {
+            $('.clsInductionStay').css({
+                "border": ""
+            });
+        }
+        
+       
+        if (isValid == false) {
+            $('#divFeedBackSpeakerErrors').empty();
+            $('#divFeedBackSpeakerErrors').css('color', 'red');
+            $('#divFeedBackSpeakerErrors').append("Highlighted fields are mandatory");
+        }
+        else {
+            $('#divFeedBackSpeakerErrors').css('color', '');
+            $('#divFeedBackSpeakerErrors').empty();
+        }
+
+        return isValid;
+    }
+    $('.RequiredField').change(function () {
+        $(this).css({
+            "border": ""
+        });
+    });
+</script>
+<script>
+function getBindData_1(ProgramID) {
+        $("#tblFeedBackSpeakerBind_1").html("");
+        jQuery.ajax({
+            url: _spPageContextInfo.webAbsoluteUrl + "//_api/web/lists/getbytitle('InductionFeedback')/items?$filter=ProgramName eq %27" + ProgramID + "%27&$orderby=ID%20desc",
+            type: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+                "content-type": "application/json;odata=verbose",
+                "X-RequestDigest": $("#__REQUESTDIGEST").val()
+            },
+            success: function (d) {
+                var arr = [];
+                i1 = 0;
+                $.each(d.d.results, function (index, results) {
+                    if (results.Status == "Active" && results.FeedbackStatus == "Completed") {
+                        arr[i1++] = index;
+                    }
+                });
+                for (var j1 = 0; j1 < arr.length; j1++) {
+                    var arrConfigK1 = arr[j1];
+                    var index = parseInt(j1 + 1);
+
+                    var ProgramName = d.d.results[arrConfigK1].ProgramName;
+                    var ProgramStartDate = d.d.results[arrConfigK1].ProgramStartDate;
+                    var ProgramEndDate = d.d.results[arrConfigK1].ProgramEndDate;
+                    var ProgramLocation = d.d.results[arrConfigK1].ProgramLocation;
+                    
+                    var InductionUndt = d.d.results[arrConfigK1].InductionUndt;
+                    var InductionValInfo = d.d.results[arrConfigK1].InductionValInfo;
+                    
+                    var SpeakerID = d.d.results[arrConfigK1].ID;
+                    
+                    var InductionQueries = d.d.results[arrConfigK1].InductionQueries;
+                    var InductionTime = d.d.results[arrConfigK1].InductionTime;
+                    var InductionLoc = d.d.results[arrConfigK1].InductionLoc;
+                    var InductionAmb = d.d.results[arrConfigK1].InductionAmb;
+                    var InductionFood = d.d.results[arrConfigK1].InductionFood;
+                    var InductionStay = d.d.results[arrConfigK1].InductionStay;
+                    
+
+                    var SpeakerName = d.d.results[arrConfigK1].SpeakerName;
+                    var EmployeeName = d.d.results[arrConfigK1].EmployeeName;
+                    $("#tblFeedBackSpeakerBind_1").append("<tr><td style='display:none'>" + SpeakerID + "</td><td>" + index + "</td><td>" + ProgramName + "</td><td>" + ProgramStartDate + "</td><td >" + ProgramEndDate + "</td><td>" + SpeakerName + "</td><td >" + EmployeeName + "</td><td width='10%'><input type='button' data-toggle='modal'  data-edit='popup-1'data-val='" + SpeakerID + "' value='View' /></td></tr>");
+                }
+
+                $('[data-delete]').on('click', function (e) {
+                    var DeleteCheck = false;
+                    //var a = confirm("Do you want to delete the activity ?");
+                    //if (a == true) {
+                    //    DeleteCheck = true;
+                    //    a = true;
+                   // }
+                   // else {
+                  //      DeleteCheck = false;
+                    //    a = false;
+                   // }
+                    if (DeleteCheck == true) {
+                        SelectID = $(this).data('val');
+                        var requestUri = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getByTitle('InductionFeedback')/items(" + SelectID + ")";
+                        $.ajax({
+                            url: requestUri,
+                            type: "POST",
+                            headers: {
+                                "ACCEPT": "application/json;odata=verbose",
+                                "content-type": "application/json;odata=verbose",
+                                "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+                                "IF-MATCH": "*",
+                                "X-HTTP-Method": "DELETE"
+                            },
+                            success: function (data) {
+                                if (SelectID != "") {
+                                    var ProgramName = $("#ddlProgramName").val();
+                                    getBindData(ProgramName);
+                                    getBindData_1(ProgramName);
+                                }
+                            },
+                            error: function (error) {
+                                alert(JSON.stringify(error));
+                            },
+                        });
+                        e.preventDefault();
+                    }
+                });
+
+               
+
+            },
+            error: function () { console.log('fail'); }
+        });
+    }
+
+</script>
+
+<script>
+    var SelectID = "";
+    function getBindData(ProgramID) {
+        $("#tblFeedBackSpeakerBind").html("");
+        jQuery.ajax({
+            url: _spPageContextInfo.webAbsoluteUrl + "//_api/web/lists/getbytitle('InductionFeedbackSpeakerDetails')/items?$filter=ProgramName eq %27" + ProgramID + "%27&$orderby=ID%20desc",
+            type: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+                "content-type": "application/json;odata=verbose",
+                "X-RequestDigest": $("#__REQUESTDIGEST").val()
+            },
+            success: function (d) {
+                var arr = [];
+                i = 0;
+                $.each(d.d.results, function (index, results) {
+                    if (results.Status == "Active" || results.Status == "Default" || results.Status == "SaveAsDraft") {
+                        arr[i++] = index;
+                    }
+                });
+                for (var j = 0; j < arr.length; j++) {
+                    var arrConfigK = arr[j];
+                    var index = parseInt(j + 1);
+
+                    var ProgramName = d.d.results[arrConfigK].ProgramName;
+                    var ProgramStartDate = d.d.results[arrConfigK].ProgramStartDate;
+                    var ProgramEndDate = d.d.results[arrConfigK].ProgramEndDate;
+                    var ProgramLocation = d.d.results[arrConfigK].ProgramLocation;
+                    
+                    var InductionUndt = d.d.results[arrConfigK].InductionUndt;
+                    var InductionValInfo = d.d.results[arrConfigK].InductionValInfo;
+                    var SpeakerID = d.d.results[arrConfigK].ID;
+                    var InductionQueries = d.d.results[arrConfigK].InductionQueries;
+                    var InductionTime = d.d.results[arrConfigK].InductionTime;
+                    var InductionLoc = d.d.results[arrConfigK].InductionLoc;
+                    var InductionAmb = d.d.results[arrConfigK].InductionAmb;
+                    var InductionFood = d.d.results[arrConfigK].InductionFood;
+                    var InductionStay = d.d.results[arrConfigK].InductionStay;
+                    
+                    
+                    var SpeakerName = d.d.results[arrConfigK].SpeakerName;
+                    var EmployeeName = d.d.results[arrConfigK].EmployeeName;
+                    $("#tblFeedBackSpeakerBind").append("<tr><td style='display:none'>" + SpeakerID + "</td><td>" + index + "</td><td>" + ProgramName + "</td><td>" + ProgramStartDate + "</td><td >" + ProgramEndDate + "</td><td>" + SpeakerName + "</td><td >" + EmployeeName + "</td><td width='10%'><input type='button' data-toggle='modal'  data-edit='popup-1'data-val='" + SpeakerID + "' value='View' /></td><td width='10%'><input type='button'  data-delete='popup-1'data-val='" + SpeakerID + "' value='Remove'> </td></tr>");
+                }
+
+                $('[data-delete]').on('click', function (e) {
+                    var DeleteCheck = false;
+                    var a = confirm("Do you want to delete the selected employee manual feedback details?");
+                    if (a == true) {
+                        DeleteCheck = true;
+                        a = true;
+                    }
+                    else {
+                        DeleteCheck = false;
+                        a = false;
+                    }
+                    if (DeleteCheck == true) {
+                        SelectID = $(this).data('val');
+                        var requestUri = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getByTitle('InductionFeedbackSpeakerDetails')/items(" + SelectID + ")";
+                        $.ajax({
+                            url: requestUri,
+                            type: "POST",
+                            headers: {
+                                "ACCEPT": "application/json;odata=verbose",
+                                "content-type": "application/json;odata=verbose",
+                                "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+                                "IF-MATCH": "*",
+                                "X-HTTP-Method": "DELETE"
+                            },
+                            success: function (data) {
+                                if (SelectID != "") {
+                                    var ProgramName = $("#ddlProgramName").val();
+                                    getBindData(ProgramName);
+                                    getBindData_1(ProgramName);
+                                }
+                            },
+                            error: function (error) {
+                                alert(JSON.stringify(error));
+                            },
+                        });
+                        e.preventDefault();
+                    }
+                });
+
+                $('[data-edit]').on('click', function (e) {
+                    $('.clearTextboxData').each(function () {
+                        $(this).val('');
+                    });
+                    $(".PopUpcommonCSSForRadio").each(function (i) {
+                        this.checked = false;
+                    });
+
+                    SelectID = $(this).data('val');
+                    
+                    var requestUri = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getByTitle('InductionFeedbackSpeakerDetails')/items(" + SelectID + ")";
+                    $.ajax({
+                        url: requestUri,
+                        type: "GET",
+                        async: false,
+                        headers: {
+                            "accept": "application/json;odata=verbose",
+                            "content-type": "application/json;odata=verbose",
+                            "X-RequestDigest": $("#__REQUESTDIGEST").val()
+                        },
+                        success: function (d) {
+
+if(d.d.ProgramName == ProgramID)
+{
+$('#myModalP').modal('show');
+                            $('input[name=PopUpInductionUndt][value="' + d.d.InductionUndt + '"]').prop('checked', true);
+                            $('input[name=PopUpInductionValInfo][value="' + d.d.InductionValInfo + '"]').prop('checked', true);
+
+                            $('input[name=PopUpInductionQueries][value="' + d.d.InductionQueries + '"]').prop('checked', true);
+                            $('input[name=PopUpInductionTime][value="' + d.d.InductionTime + '"]').prop('checked', true);
+                            $('input[name=PopUpInductionLoc][value="' + d.d.InductionLoc + '"]').prop('checked', true);
+                            $('input[name=PopUpInductionAmb][value="' + d.d.InductionAmb + '"]').prop('checked', true);
+                            $('input[name=PopUpInductionFood][value="' + d.d.InductionFood + '"]').prop('checked', true);
+							$('input[name=PopUpInductionStay][value="' + d.d.InductionStay + '"]').prop('checked', true);
+
+                            $("#txtPopUpSpeakerName").val(d.d.SpeakerName);
+                            $("#txtPopUpEmployeeName").val(d.d.EmployeeName);
+                            $("#txtPopUpEmployeeCode").val(d.d.EmployeeCode);
+                            $("#txtProgramLocation").val(d.d.ProgramLocation);
+                            
+                            $("#txtPopUpImprvPrgm").val(d.d.Suggestions);
+                            $("#txtPopUpmostValAsp").val(d.d.MostAspects);
+                            $("#txtPopUpLeastValAsp").val(d.d.LeastAspects);
+                            $("#txtPopUpOvrallCmnt").val(d.d.Overall);
+                            }
+                        },
+                        error: function () { console.log('fail'); }
+                    });
+                    
+                    
+                     var requestUri = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getByTitle('InductionFeedback')/items(" + SelectID + ")";
+                    $.ajax({
+                        url: requestUri,
+                        type: "GET",
+                        async: false,
+                        headers: {
+                            "accept": "application/json;odata=verbose",
+                            "content-type": "application/json;odata=verbose",
+                            "X-RequestDigest": $("#__REQUESTDIGEST").val()
+                        },
+                        success: function (d) {
+
+if(d.d.ProgramName == ProgramID)
+{
+$('#myModalP').modal('show');
+                            $('input[name=PopUpInductionUndt][value="' + d.d.InductionUndt + '"]').prop('checked', true);
+                            $('input[name=PopUpInductionValInfo][value="' + d.d.InductionValInfo + '"]').prop('checked', true);
+
+                            $('input[name=PopUpInductionQueries][value="' + d.d.InductionQueries + '"]').prop('checked', true);
+                            $('input[name=PopUpInductionTime][value="' + d.d.InductionTime + '"]').prop('checked', true);
+                            $('input[name=PopUpInductionLoc][value="' + d.d.InductionLoc + '"]').prop('checked', true);
+                            $('input[name=PopUpInductionAmb][value="' + d.d.InductionAmb + '"]').prop('checked', true);
+                            $('input[name=PopUpInductionFood][value="' + d.d.InductionFood + '"]').prop('checked', true);                            
+                            $('input[name=PopUpInductionStay][value="' + d.d.InductionStay + '"]').prop('checked', true);
+                            
+                            $("#txtPopUpSpeakerName").val(d.d.SpeakerName);
+                            $("#txtPopUpEmployeeName").val(d.d.EmployeeName);
+                            $("#txtPopUpEmployeeCode").val(d.d.EmployeeCode);
+                            $("#txtProgramLocation").val(d.d.ProgramLocation);
+                            
+                            $("#txtPopUpImprvPrgm").val(d.d.Suggestions);
+                            $("#txtPopUpmostValAsp").val(d.d.MostAspects);
+                            $("#txtPopUpLeastValAsp").val(d.d.LeastAspects);
+                             $("#txtPopUpOvrallCmnt").val(d.d.Overall);
+
+                            }
+                        },
+                        error: function () { console.log('fail'); }
+                    });
+                    
+
+                    
+                });
+
+            },
+            error: function () { console.log('fail'); }
+        });
+    }
+    $('#btnUpdateDetails').click(function () {
+        if (checkValidationOnUpdate() && SelectID != '' && SelectID != null) {
+            UpdateProgramDetaiails(SelectID);
+            $('#myModalP').modal('hide');
+        }
+    });
+    function checkValidationOnUpdate() {
+        isValid = true;
+        $('.PopUpRequiredField').each(function () {
+            if ($.trim($(this).val()) == '' || $.trim($(this).val()) == '--Select Program--') {
+                isValid = false;
+                $(this).css({
+                    "border": "1px solid red"
+                });
+            }
+            else {
+                $(this).css({
+                    "border": ""
+                });
+            }
+        });
+        if ($('input[name="PopUpInductionUndt"]:checked').length == 0) {
+            isValid = false;
+            $('.clsPopUpInductionUndt').css({
+                "border": "1px solid red"
+            });
+        }
+        else {
+            $('.clsPopUpInductionUndt').css({
+                "border": ""
+            });
+        }
+        if ($('input[name="PopUpInductionValInfo"]:checked').length == 0) {
+            isValid = false;
+            $('.PopUpclsInductionValInfo').css({
+                "border": "1px solid red"
+            });
+        }
+        else {
+            $('.PopUpclsInductionValInfo').css({
+                "border": ""
+            });
+        }
+        if ($('input[name="PopUpInductionQueries"]:checked').length == 0) {
+            isValid = false;
+            $('.PopUpclsInductionQueries').css({
+                "border": "1px solid red"
+            });
+        }
+        else {
+            $('.PopUpclsInductionQueries').css({
+                "border": ""
+            });
+        }
+
+        if ($('input[name="PopUpInductionTime"]:checked').length == 0) {
+            isValid = false;
+            $('.PopUpclsInductionTime').css({
+                "border": "1px solid red"
+            });
+        }
+        else {
+            $('.PopUpclsInductionTime').css({
+                "border": ""
+            });
+        }
+        if ($('input[name="PopUpInductionLoc"]:checked').length == 0) {
+            isValid = false;
+            $('.PopUpclsInductionLoc').css({
+                "border": "1px solid red"
+            });
+        }
+        else {
+            $('.PopUpclsInductionLoc').css({
+                "border": ""
+            });
+        }
+        if ($('input[name="PopUpInductionAmb"]:checked').length == 0) {
+            isValid = false;
+            $('.PopUpclsInductionAmb').css({
+                "border": "1px solid red"
+            });
+        }
+        else {
+            $('.PopUpclsInductionAmb').css({
+                "border": ""
+            });
+        }
+        if ($('input[name="PopUpInductionFood"]:checked').length == 0) {
+            isValid = false;
+            $('.PopUpclsInductionFood').css({
+                "border": "1px solid red"
+            });
+        }
+        else {
+            $('.PopUpclsInductionFood').css({
+                "border": ""
+            });
+        }
+        
+        if ($('input[name="PopUpInductionStay"]:checked').length == 0) {
+            isValid = false;
+            $('.PopUpclsInductionStay').css({
+                "border": "1px solid red"
+            });
+        }
+        else {
+            $('.PopUpclsInductionStay').css({
+                "border": ""
+            });
+        }
+        
+       
+        if (isValid == false) {
+            $('#divUpdateErrors').empty();
+            $('#divUpdateErrors').css('color', 'red');
+            $('#divUpdateErrors').append("Highlighted fields are mandatory");
+        }
+        else {
+            $('#divUpdateErrors').css('color', '');
+            $('#divUpdateErrors').empty();
+        }
+
+        return isValid;
+    }
+    function UpdateProgramDetaiails(SelectID) {
+    
+    
+        var InductionUndt = $('input[name=PopUpInductionUndt]:radio:checked').val();
+        var InductionValInfo = $('input[name=PopUpInductionValInfo]:radio:checked').val();
+        var InductionQueries = $('input[name=PopUpInductionQueries]:radio:checked').val();
+        var InductionTime = $('input[name=PopUpInductionTime]:radio:checked').val();
+        var InductionLoc = $('input[name=PopUpInductionLoct]:radio:checked').val();
+        var InductionAmb = $('input[name=PopUpInductionAmb]:radio:checked').val();
+        var InductionFood = $('input[name=PopUpInductionFood]:radio:checked').val();
+        var InductionStay = $('input[name=PopUpInductionStay]:radio:checked').val();
+        var SpeakerName = $("#txtPopUpSpeakerName").val();
+        var EmployeeName = $("#txtPopUpEmployeeName").val();
+        var EmployeeCode = $("#txtPopUpEmployeeCode").val();
+        var CurrentLoginUser = LoginUserEmail();
+        
+        var Suggestions = $("#txtPopUpImprvPrgm").val();
+        var MostAspects = $("#txtPopUpmostValAsp").val();
+        var LeastAspects = $("#txtPopUpLeastValAsp").val();
+        var Overall = $("#txtPopUpOvrallCmnt").val();
+
+
+        $.ajax({
+            url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getByTitle('InductionFeedbackSpeakerDetails')/items(" + SelectID + ")",
+            type: "POST",
+            data: JSON.stringify({
+                '__metadata': { 'type': 'SP.Data.InductionFeedbackSpeakerDetailsListItem' },
+                'InductionUndt': InductionUndt,
+                'InductionValInfo': InductionValInfo,
+                'InductionQueries': InductionQueries,
+                'InductionTime': InductionTime,
+                'InductionLoc': InductionLoc,
+                'InductionAmb': InductionAmb,
+                'InductionFood': InductionFood,
+                'InductionStay': InductionStay,
+                'Status': "Active",
+                'CreatedByUser': CurrentLoginUser,
+                'EmployeeCode': EmployeeCode,
+                'Suggestions': Suggestions,
+                'MostAspects': MostAspects,
+                'LeastAspects': LeastAspects,
+                'Overall': Overall
+            }),
+            headers: {
+                "Accept": "application/json;odata=verbose",
+                "content-type": "application/json; odata=verbose",
+                "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+                "X-HTTP-Method": "MERGE",
+                "If-Match": "*"
+            },
+            success: function (data) {
+                alert('Program details updated successfully');
+                
+                
+                var ProgramName = $('#ddlProgramName').val();
+                getBindData(ProgramName);
+                getBindData_1(ProgramName);
+
+            },
+            error: function (err) {
+                alert("Error while adding item: " + JSON.stringify(err));
+            }
+        });
+    }
+
+    $('#btnSaveAsDraft').click(function () {
+     if (validateGroup()) { 
+        var ddlPName = $('#ddlProgramName').val();   
+       $.blockUI.defaults.css = {		
+											padding: 0,		
+								            margin: 0,		
+								            width: '30%',		
+								            top: '40%',		
+								            left: '35%',		
+								            textAlign: 'center',
+								            cursor: 'wait'};
+								            
+		       $.blockUI.defaults.overlayCSS.backgroundColor = '#fff';
+		       $.blockUI.defaults.overlayCSS.opacity = 0.9;
+		       $.blockUI.defaults.overlayCSS.cursor = 'pointer';
+								            
+		       
+                $.blockUI({message: $('#throbber')});
+                
+                
+                setTimeout(function () {
+          
+            SaveasDraftDetails();
+            getBindData(ddlPName);
+            $.unblockUI({
+                onUnblock: function () {
+                    alert('Program saved as draft successfully');
+                    
+                }
+            });
+        }, 600);
+        }
+    });
+    function SaveasDraftDetails()
+    {
+        $("#tableFeedBackSpeaker tr:gt(0)").each(function () {
+            var this_row = $(this);
+            var FeedBackSpeakerID = $.trim(this_row.find('td:eq(0)').html());
+            if (FeedBackSpeakerID != '' && FeedBackSpeakerID != null) {
+                $.ajax({
+                    url: _spPageContextInfo.webAbsoluteUrl + "//_api/web/lists/getbytitle('InductionFeedbackSpeakerDetails')/items(" + FeedBackSpeakerID + ")",
+                    type: "POST",
+                    async: false,
+                    data: JSON.stringify({
+                        '__metadata': { 'type': 'SP.Data.InductionFeedbackSpeakerDetailsListItem' },
+                        'Status': 'SaveAsDraft'
+                    }),
+                    headers: {
+                        "Accept": "application/json;odata=verbose",
+                        "content-type": "application/json; odata=verbose",
+                        "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+                        "X-HTTP-Method": "MERGE",
+                        "If-Match": "*"
+                    },
+                    success: function (data) {
+                    },
+                    error: function (err) {
+                        alert("Error while adding item: " + JSON.stringify(err));
+                    }
+                });
+            }
+        });
+    }
+
+    $('#btnSubmit').click(function () {
+      if (validateGroup()) {  
+       $.blockUI.defaults.css = {		
+											padding: 0,		
+								            margin: 0,		
+								            width: '30%',		
+								            top: '40%',		
+								            left: '35%',		
+								            textAlign: 'center',
+								            cursor: 'wait'};
+								            
+		       $.blockUI.defaults.overlayCSS.backgroundColor = '#fff';
+		       $.blockUI.defaults.overlayCSS.opacity = 0.9;
+		       $.blockUI.defaults.overlayCSS.cursor = 'pointer';
+								            
+		       
+                $.blockUI({message: $('#throbber')});
+                
+                
+                setTimeout(function () {
+            InsertWeightDetails();
+            SaveDetails();
+            $.unblockUI({
+                onUnblock: function () {
+                    alert('Feedback submitted successfully');
+                    location.reload();
+                    
+                }
+            });
+        }, 600);   
+        }     
+    });
+    
+     function validateGroup() {
+     
+     var valid = true;
+     
+     if ($('#tblFeedBackSpeakerBind tr').length <= 0) {
+      		$('#divFeedBackSpeakerErrors').empty();
+            $('#divFeedBackSpeakerErrors').css('color', 'red');
+            $('#divFeedBackSpeakerErrors').append("Please add atleast one feedback details & submit");
+            valid = false;
+        }
+        else {
+            $('#divFeedBackSpeakerErrors').css('color', '');
+            $('#divFeedBackSpeakerErrors').empty();
+        }
+
+        return valid;
+
+ }
+
+    function SaveDetails()
+    {
+    
+        $("#tableFeedBackSpeaker tr:gt(0)").each(function () {
+            var this_row = $(this);
+            var FeedBackSpeakerID = $.trim(this_row.find('td:eq(0)').html());
+            if (FeedBackSpeakerID != '' && FeedBackSpeakerID != null) {
+                $.ajax({
+                    url: _spPageContextInfo.webAbsoluteUrl + "//_api/web/lists/getbytitle('InductionFeedbackSpeakerDetails')/items(" + FeedBackSpeakerID + ")",
+                    type: "POST",
+                    async: false,
+                    data: JSON.stringify({
+                        '__metadata': { 'type': 'SP.Data.InductionFeedbackSpeakerDetailsListItem' },
+                        'Status': 'Active'
+                    }),
+                    headers: {
+                        "Accept": "application/json;odata=verbose",
+                        "content-type": "application/json; odata=verbose",
+                        "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+                        "X-HTTP-Method": "MERGE",
+                        "If-Match": "*"
+                    },
+                    success: function (data) {
+                    },
+                    error: function (err) {
+                        alert("Error while adding item: " + JSON.stringify(err));
+                    }
+                });
+            }
+        });
+    }
+    
+    function getWieghtageValues()
+    {
+     var exists = false;
+        var WeightAgeID = ""; var pushExistingValues = [];
+        var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('InductionWeightageMasters')/items";
+        $.ajax({
+            url: RestUrl,
+            method: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+            },
+            success: function (d) {
+                if (d.d.results.length > 0) {
+                    exists = true;
+                    pushExistingValues.push({
+                        WeightID:d.d.results[0].ID,
+                        InductionUndt:d.d.results[0].InductionUndt,
+                        InductionValInfo:d.d.results[0].InductionValInfo,
+                        InductionQueries:d.d.results[0].InductionQueries,
+                        InductionTime:d.d.results[0].InductionTime,
+                        InductionLoc:d.d.results[0].InductionLoc,
+                        InductionAmb:d.d.results[0].InductionAmb,
+                        InductionFood:d.d.results[0].InductionFood,
+                        InductionStay:d.d.results[0].InductionStay
+                    });
+                }
+            },
+            error: function () { console.log('fail'); }
+        });
+        return pushExistingValues;
+
+    }
+
+    function InsertWeightDetails() {
+        var ProgramName = $("#ddlProgramName").val();
+        var ProgramStartDate = $("#txtProgramStartDate").val();
+        var ProgramEndDate = $("#txtProgramEndDate").val();
+        var ProgramLocation = $("#txtProgramLocation").val();
+        
+        var alreadyExisit2 = getWieghtageValues();
+                var UpdateID1='';
+                if (alreadyExisit2.length > 0) {
+
+                 UpdateID1= alreadyExisit2[0].WeightID;
+                var InductionUndt = alreadyExisit2[0].InductionUndt;
+                var InductionValInfo =  alreadyExisit2[0].InductionValInfo;
+                var InductionQueries = alreadyExisit2[0].InductionQueries;
+                var InductionTime =  alreadyExisit2[0].InductionTime;
+                var InductionLoc = alreadyExisit2[0].InductionLoc;
+                var InductionAmb = alreadyExisit2[0].InductionAmb;
+                var InductionFood = alreadyExisit2[0].InductionFood;
+                var InductionStay = alreadyExisit2[0].InductionStay;
+					}
+
+        
+        var SpeakerName = $("#txtSpeakerName").val();
+        var CurrentLoginUser = LoginUserEmail();
+        
+        var IndProgramSummary = parseInt(InductionUndt) + parseInt(InductionValInfo) + parseInt(InductionQueries) + parseInt(InductionTime);
+        var IndVenueSummary= parseInt(InductionLoc) + parseInt(InductionAmb) + parseInt(InductionFood) + parseInt(InductionStay);
+        
+        $.ajax({
+            url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('OverAllProgramWeightAge')/items",
+            type: "POST",
+            async: false,
+            data: JSON.stringify({
+                '__metadata': { 'type': 'SP.Data.OverAllProgramWeightAgeListItem' },
+                'Title': ProgramName,
+                'ProgramName': ProgramName,
+                'ProgramStartDate': ProgramStartDate,
+                'ProgramEndDate': ProgramEndDate,
+                'ProgramLocation': ProgramLocation,
+
+                'InductionUndt': InductionUndt,
+                'InductionValInfo': InductionValInfo,
+                'InductionQueries': InductionQueries,
+                'InductionTime': InductionTime,
+                'IndProgramSummary': IndProgramSummary,
+
+                'InductionLoc': InductionLoc,
+                'InductionAmb': InductionAmb,
+                'InductionFood': InductionFood,
+                'InductionStay': InductionStay,
+                'IndProgramSummary': IndProgramSummary,
+                
+
+                'SpeakerName': SpeakerName,
+
+                'Status': "Active",
+                'CreatedByUser': CurrentLoginUser,
+
+            }),
+            headers: {
+                "Accept": "application/json;odata=verbose",
+                "content-type": "application/json; odata=verbose",
+                "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+            },
+            success: function (data) {
+            },
+            error: function (err) {
+                alert("Error while adding item: " + JSON.stringify(err));
+            }
+        });
+    }
+</script>
+
+
+<script>
+$("#txtEmployeeCode").change(function () {
+         var EmpCode = document.getElementById("txtEmployeeCode").value.trim(/^\s+|\s+$/g, '');
+         var selectedProgramName = $('#ddlProgramName').val();
+         //var ProgramName = $('#ProgramNameDynDropDown').val();
+         
+        var validempcode = CheckValidEmpCd(EmpCode,selectedProgramName)     
+		var OvrallFeedbck= GetOverAllFeedbck(EmpCode,selectedProgramName);
+		var OverallMAnFeedback = GetOverAllManFeedbck(EmpCode,selectedProgramName);
+		
+		if(validempcode <= 0)
+		{
+		 alert('Please enter only the participants employee code who have participated in the program');
+		 
+
+		 $('#txtEmployeeCode').val('');
+         $('#btnAddSpeaker').hide();
+		}
+		else if(OvrallFeedbck > 0 || OverallMAnFeedback >0 )
+         {                      
+         alert('Feedback already submitted for the entered employee code');
+         
+         $('#txtEmployeeCode').val('');
+         $('#btnAddSpeaker').hide();
+         }
+         else
+         {
+          $('#btnAddSpeaker').show();
+         }
+             
+
+    });
+    
+
+</script>
+
+<script>
+
+function CheckValidEmpCd(EmpCode,selectedProgramName) {
+        var CheckValidEmpCdCount = 0;
+        
+         var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('Invitation')/items?$filter=EmployeeCode eq '" + EmpCode + "' and ProgramName eq '" + selectedProgramName + "' and Confirmation eq 'Yes'";
+        $.ajax({
+            url: RestUrl,
+            method: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+            },
+            success: function (d) {
+                var arr = [];
+                i = 0;
+                $.each(d.d.results, function (index, results) {
+                   
+                        arr[i++] = index;
+                   
+                });
+                
+                if(arr.length > 0)
+                {
+                CheckValidEmpCdCount =arr.length;
+                }
+            },
+            error: function () { console.log('fail'); }
+        });
+
+return CheckValidEmpCdCount ;
+}
+
+
+function GetOverAllFeedbck(EmpCode,selectedProgramName) {
+        var OverallFdbckCount = 0;
+        
+         var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('InductionFeedback')/items?$filter=EmployeeCode eq '" + EmpCode + "' and ProgramName eq '" + selectedProgramName + "'";
+        $.ajax({
+            url: RestUrl,
+            method: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+            },
+            success: function (d) {
+                var arr = [];
+                i = 0;
+                $.each(d.d.results, function (index, results) {
+                    if (results.FeedbackStatus == "Completed") {
+                        arr[i++] = index;
+                    }
+                });
+                
+                if(arr.length > 0)
+                {
+                OverallFdbckCount =arr.length;
+                }
+            },
+            error: function () { console.log('fail'); }
+        });
+
+return OverallFdbckCount ;
+}
+
+function GetOverAllManFeedbck(EmpCode,selectedProgramName) {
+        var OverallManFdbckCount = 0;
+        
+         var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('InductionFeedbackSpeakerDetails')/items?$filter=EmployeeCode eq '" + EmpCode + "' and ProgramName eq '" + selectedProgramName + "'";
+        $.ajax({
+            url: RestUrl,
+            method: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+            },
+            success: function (d) {
+                var arr = [];
+                i = 0;
+                $.each(d.d.results, function (index, results) {
+                     if (results.Status != "") {
+                        arr[i++] = index;
+                    }
+                });
+                
+                if(arr.length > 0)
+                {
+                OverallManFdbckCount =arr.length;
+                }
+            },
+            error: function () { console.log('fail'); }
+        });
+
+return OverallManFdbckCount ;
+}
+
+
+</script>
+
+
+<script>
+
+$('.clsInductionUndt').change(function () {
+       
+        if ($(".radioChecked1").is(':checked') == false) {
+           
+            $('.clsInductionUndt').css({
+                "border": "1px solid red"
+            });
+            
+        }
+        else {
+            $('.clsInductionUndt').css({
+                "border": ""
+            });
+            $('#divFeedBackSpeakerErrors').empty();
+        }
+
+        
+         });
+
+$('.clsInductionValInfo').change(function () {
+       
+        if ($(".radioChecked2").is(':checked') == false) {
+           
+            $('.clsInductionValInfo').css({
+                "border": "1px solid red"
+            });
+            
+        }
+        else {
+            $('.clsInductionValInfo').css({
+                "border": ""
+            });
+            $('#divFeedBackSpeakerErrors').empty();
+        }
+
+        
+         });
+
+$('.clsInductionQueries').change(function () {
+       
+        if ($(".radioChecked3").is(':checked') == false) {
+           
+            $('.clsInductionQueries').css({
+                "border": "1px solid red"
+            });
+            
+        }
+        else {
+            $('.clsInductionQueries').css({
+                "border": ""
+            });
+            $('#divFeedBackSpeakerErrors').empty();
+        }
+
+        
+         });
+
+
+$('.clsInductionTime').change(function () {
+       
+        if ($(".radioChecked4").is(':checked') == false) {
+           
+            $('.clsInductionTime').css({
+                "border": "1px solid red"
+            });
+            
+        }
+        else {
+            $('.clsInductionTime').css({
+                "border": ""
+            });
+            $('#divFeedBackSpeakerErrors').empty();
+        }
+
+        
+         });
+         
+         
+         
+         $('.clsInductionLoc').change(function () {
+       
+        if ($(".radioChecked5").is(':checked') == false) {
+           
+            $('.clsInductionLoc').css({
+                "border": "1px solid red"
+            });
+            
+        }
+        else {
+            $('.clsInductionLoc').css({
+                "border": ""
+            });
+            $('#divFeedBackSpeakerErrors').empty();
+        }
+
+        
+         });
+
+
+ $('.clsInductionAmb').change(function () {
+       
+        if ($(".radioChecked6").is(':checked') == false) {
+           
+            $('.clsInductionAmb').css({
+                "border": "1px solid red"
+            });
+            
+        }
+        else {
+            $('.clsInductionAmb').css({
+                "border": ""
+            });
+            $('#divFeedBackSpeakerErrors').empty();
+        }
+
+        
+         });
+         
+         $('.clsInductionFood').change(function () {
+       
+        if ($(".radioChecked7").is(':checked') == false) {
+           
+            $('.clsInductionFood').css({
+                "border": "1px solid red"
+            });
+            
+        }
+        else {
+            $('.clsInductionFood').css({
+                "border": ""
+            });
+            $('#divFeedBackSpeakerErrors').empty();
+        }
+
+        
+         });
+         
+         
+         $('.clsInductionStay').change(function () {
+       
+        if ($(".radioChecked8").is(':checked') == false) {
+           
+            $('.clsInductionStay').css({
+                "border": "1px solid red"
+            });
+            
+        }
+        else {
+            $('.clsInductionStay').css({
+                "border": ""
+            });
+            $('#divFeedBackSpeakerErrors').empty();
+        }
+
+        
+         });
+         
+         
+         function GetPgmCncld(ChckCnclPgm) {
+     
+        var IsProgramCancelled = "";
+
+        var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('ProgramMaster')/items?$filter=Title%20eq%20%27" + ChckCnclPgm + "%27";
+        $.ajax({
+            url: RestUrl,
+            method: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+            },
+            success: function (d) {
+                  if (d.d.results.length > 0) {
+                  var arr = [];
+                  i = 0;
+                  $.each(d.d.results, function (index, results) {
+                  arr[i++] = index;
+                  });
+	              for (var k = 0; k < arr.length; k++) {
+	              var arrK = arr[k];
+				  IsProgramCancelled = d.d.results[arrK].IsProgramCancelled;
+	              }
+                }
+                else
+                {
+                IsProgramCancelled = 0;
+               }
+            },
+            error: function () { console.log('fail'); }
+        });
+        return IsProgramCancelled;
+    }
+
+         
+</script>
+

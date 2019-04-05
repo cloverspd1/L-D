@@ -1,0 +1,2059 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="/sites/Anugamdev/SiteAssets/AnugamStyles/css/main.css" rel="stylesheet">
+<link href="/sites/Anugamdev/SiteAssets/AnugamStyles/Datatable/css/dataTables.bootstrap.min.css"
+      rel="stylesheet">
+<link href="/sites/Anugamdev/SiteAssets/AnugamStyles/Datatable/css/responsive.bootstrap.min.css"
+      rel="stylesheet">
+<link href="/sites/Anugamdev/SiteAssets/AnugamStyles/Datatable/css/responsive.bootstrap.min.css"
+      rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css"
+      rel="stylesheet">
+<script type="text/javascript" src="https://bajajelect.sharepoint.com/sites/Anugamdev/SiteAssets/Webparts/alluploadreferences/jquery.min.js"></script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.7.7/xlsx.core.min.js"></script>  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xls/0.7.4-a/xls.core.min.js"></script> 
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="/sites/Anugamdev/SiteAssets/AnugamStyles/Datatable/js/jquery.dataTables.min.js"></script>
+<script src="/sites/Anugamdev/SiteAssets/AnugamStyles/Datatable/js/dataTables.bootstrap.min.js"></script>
+<script src="/sites/Anugamdev/SiteAssets/AnugamStyles/Datatable/js/dataTables.responsive.min.js"></script>
+<script src="/sites/Anugamdev/SiteAssets/AnugamStyles/Datatable/js/responsive.bootstrap.js"></script>
+<script src="/sites/Anugamdev/SiteAssets/AnugamStyles/Datatable/js/datatables.scroller.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.js"></script>
+
+<script src="/sites/AnugamDev/SiteAssets/AnugamStyles/EncriptJSFiles/md5.js"></script>
+<script src="/sites/AnugamDev/SiteAssets/AnugamStyles/EncriptJSFiles/aes.js"></script>
+
+<script src="https://bajajelect.sharepoint.com/sites/AnugamUAT/SiteAssets/Webparts/alluploadreferences/jquery.blockUI.js"></script>
+
+<style type="text/css">
+
+
+    body {
+        font-family: Arial;
+        font-size: 10pt;
+    }
+
+    .btn-primary {
+        color: #fff !important;
+        background-color: #337ab7 !important;
+        border-color: #2e6da4 !important;
+    }
+
+    .requiredfieldsstyle {
+        padding-left: 15px !important;
+        font-size: 12px;
+        font-style: italic;
+    }
+    .bordered {
+    width: auto;
+    height: auto;
+    padding: 0px;
+    border: 1px solid darkorange;
+    border-radius: 8px;
+  }
+  .bootbox-close-button close
+	    {
+	    display:none;
+	    }
+	    .close
+	    {
+	    display:none;
+	    }
+
+  
+</style>
+<div>
+    <div class="col-md-12 padding-0 page-content-header-style-1">
+        <h1 style="font-size:25px !Important;margin-left: 10px !Important;">
+            <b>Send Invites</b>
+        </h1>
+    </div>
+    <div class="col-md-12 padding-0">
+        <div class="col-md-6 margin-top-15">
+            <div class="col-md-3 padding-0"><label>Program Name</label><label style="color: red;font-size: 20px;">*</label></div>
+            <select id="ProgramNameDynDropDown" class="form-control changeText"></select>
+        </div>
+        <div class="col-md-3 margin-top-15" >
+            <div class="col-md-12 padding-0"><label>Program Location</label><label style="color: white;font-size: 20px;">*</label></div>
+            <input type="text" class="form-control padding-0" id="programLocaation" readonly="readonly" />
+        </div>
+        <div class="col-md-3 margin-top-15" style="display:none;">
+            <label>
+                Need Remainder
+            </label>
+            <div class="col-md-12 padding-0">
+                <div class="col-md-12 padding-0" id="divNeedRemainder">
+                    <label class="radio-inline">
+                        <input type="radio" class="radioChecked uncheckRadio" name="isNeedRemainder" id="isNeedRemainderYes"
+                               value="Yes">
+                        Yes
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" class="radioChecked uncheckRadio" name="isNeedRemainder" id="isNeedRemainderNo"
+                               value="No">
+                        No
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 padding-0 margin-top-15" style="display:none" id="divNeedRemainderDetails">
+        <div class="col-md-4 margin-top-10">
+            <label>Reminder To Start From</label>
+            <div class="col-md-12 padding-0">
+                <div class="col-md-6 col-sm-6 col-xs-6 padding-0">
+                    <input type="text" class="form-control right-rad-0 allownumericwithoutdecimal changeText" placeholder="Number" id="txtRMStartFromNumber" />
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-6 padding-0">
+                    <select class="form-control left-rad-0 changeText" id="ddlRMStartFromType">
+                        <option value="--Select--">--Select--</option>
+                        <option value="Hours">Hours</option>
+                        <option value="Days">Days</option>
+                        <option value="Weeks">Weeks</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 margin-top-10">
+            <label>Frequency</label>
+            <div class="col-md-12 padding-0">
+                <div class="col-md-6 col-sm-6 col-xs-6 padding-0">
+                    <input type="text" class="form-control right-rad-0 allownumericwithoutdecimal changeText" placeholder="Number" id="txtRMFrequencyNumber" />
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-6 padding-0">
+                    <select class="form-control left-rad-0 changeText" id="ddlRMFrequencyType">
+                        <option value="--Select--">--Select--</option>
+                        <option value="Hours">Hours</option>
+                        <option value="Days">Days</option>
+                        <option value="Weeks">Weeks</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 margin-top-10">
+            <label>Reminder To Stop Before</label>
+            <div class="col-md-12 padding-0">
+                <div class="col-md-6 col-sm-6 col-xs-6 padding-0">
+                    <input type="text" class="form-control right-rad-0 allownumericwithoutdecimal changeText" placeholder="Number" id="txtRMStopNumber" />
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-6 padding-0">
+                    <select class="form-control left-rad-0 changeText" id="ddlRMStopType">
+                        <option value="--Select--">--Select--</option>
+                        <option value="Hours">Hours</option>
+                        <option value="Days">Days</option>
+                        <option value="Weeks">Weeks</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-12 margin-top-15 padding-0">
+        <div class="col-md-6">
+            <div class="col-md-6 padding-0"><label>Email Template</label><label style="color: red;font-size: 20px;">*</label></div>
+            <div id="TemplateNameID"></div>
+        </div>
+        <div class="col-md-4">
+            <label>Upload participants list</label><label style="color: red;font-size: 20px;">*</label>
+            <input type="file" id="btnFileUpload" class="form-control padding-0" accept=".csv" />
+        </div>
+
+        <div class="col-md-2" style="padding-top: 10px">
+            <label class=" col-md-12 opacity-0">Status</label>
+
+            <input type="button" id="btnupload" class="btn btn-primary btn-block margin-0" value="Upload" />
+        </div>
+
+        <div class="clear"></div>
+
+    </div>
+    <div class="clear"></div>
+			<br/>    
+    
+    <div style="margin-left:560px;"><a title="Click here to download sample csv file!!!" href="https://bajajelect.sharepoint.com/sites/AnugamUAT/_layouts/download.aspx?SourceUrl=https://bajajelect.sharepoint.com/sites/AnugamUAT/Shared%20Documents/Sample_Upload_Format.csv"><input type="image" src="https://bajajelect.sharepoint.com/sites/AnugamUAT/SiteAssets/AnugamStyles/img/download.png" alt="Submit" width="15" height="15">Download Sample file</a></div>
+
+    <div class="col-md-12 margin-top-15">
+    <INPUT type="button" value="Delete Row" id="deleterows" onclick="deleteRow('InvitationDynTable')" style="margin-left: 0px;
+    margin-bottom: 12px; display:none;" />
+     <body onload="makeTableScroll();">
+          	 <div class="scrollingTable">
+        <table class="table table-bordered" id="InvitationDynTable" style="display:none">
+            <thead>
+                <tr> 
+                   <th><INPUT type="checkbox" id="chk_1" onchange="checkAll(this)" name="chk[]" style="margin-top: 0px;" />&nbsp;&nbsp;&nbsp;Select all</th>                  
+                    <th>Employee Name</th>
+                    <th>Employee Code</th>
+                    <th>Email Id</th>
+                    <th>Is Campus Hire</th>
+                </tr>
+            </thead>
+            <tbody id="tbleinvitationDynTable"></tbody>
+        </table>
+        
+        </div>
+        </body>
+        <div id="div_partcount"></div>
+    </div>
+    
+      <div class="col-md-12 margin-top-15" style="display:none;">
+        <table class="table table-bordered" id="InvitationDynTable1">
+            
+        </table>
+    </div>
+
+
+    <div class=" col-md-12 padding-0 margin-top-15">
+        <div id="divpopMessage" class="requiredfieldsstyle">
+        </div>
+    </div>
+    <div class="col-md-12 padding-0 margin-top-5">
+        <div class="col-md-2">
+            <!--<button class="btn btn-success btn-block" id="btnSubmit">SUBMIT</button>-->
+            <input type="button" id="btnSubmit" class="btn btn-primary btn-block margin-0" value="Send Invitation" />
+        </div>
+    </div>
+
+
+    <div class="col-md-12 padding-0 margin-top-15" style="display:none;">
+        <div class="col-md-12">
+            <div class="col-md-12">
+                <table style="width: 100%;">
+                    <tr>
+                        <td>
+                            <div id="divInviationDetails" style="width: 100%;">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+<br/><br/><br/><br/><br/>
+</div>
+
+
+<div id="throbber" style="display:none;">
+<img src="https://bajajelect.sharepoint.com/sites/HR-TrainingManagementSystem/SiteAssets/AnugamStyles/img/712_1.gif" /><br/></br><h3><b style="color:#0072c6 !Important;font-size:32px">Please Wait...</b><h3></div>
+
+<div id="result"></div>
+
+<div style="margin-left: 16px;">
+<span  style="color:red;"><b>Note: 1) Make sure the no. of invitees to be uploaded should not exceed more than 30 count. You can upload the remaining invitees in batches of 30 count multiple times.</b></span><br/>
+<span  style="color:red;margin-left: 38px;""><b>2) Participants marked as "Yes" under campus field in the uploaded file will, not receive an invite but will be part of participant pool.</b></span>
+</div>
+
+
+<!--DYNAMIC DROPDOWN FOR PROGRAMNAME START-->
+
+<script type="text/javascript" language="javascript">
+function checkfile(sender) {
+    var validExts = new Array(".csv");
+    var fileExt = sender.value;
+    fileExt = fileExt.substring(fileExt.lastIndexOf('.'));
+    if (validExts.indexOf(fileExt) < 0) {
+      alert("Invalid file selected, valid files are of " +
+               validExts.toString() + " types.");
+      return false;
+    }
+    else return true;
+}
+</script>
+
+<script type="text/javascript">
+
+
+
+
+        function makeTableScroll() {
+            // Constant retrieved from server-side via JSP
+            var maxRows = 20;
+
+            var table = document.getElementById('InvitationDynTable');
+            var wrapper = table.parentNode;
+            var rowsInTable = table.rows.length;
+            var height = 0;
+            if (rowsInTable > maxRows) {
+                for (var i = 0; i < maxRows; i++) {
+                    height += table.rows[i].clientHeight;
+                }
+                wrapper.style.height = height + "px";
+            }
+        }
+        
+        </script>
+
+<script>
+
+function Update() {
+    var listName = "KnowledgeBase";   
+    var itemId = "3"; // Update Item Id here
+    var titleVal = "New Updated comments";
+    UpdateListItem(listName,itemId,titleVal);
+}
+
+function UpdateListItem(listName,itemId,titleVal){
+	var itemType = GetItemTypeForListName(listName);
+    var item = {
+        "__metadata": { "type": itemType },
+        "_Comments": titleVal    
+    };
+    var strURL = "https://bajajelect.sharepoint.com/BusinessUnit/cp/sales";
+    $.ajax({
+        url: strURL + "/_api/web/lists/getbytitle('" + listName + "')/items("+itemId+")",
+        type: "POST",
+        contentType: "application/json;odata=verbose",
+        data: JSON.stringify(item),
+        headers: {
+            "Accept": "application/json;odata=verbose",
+            "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+            "X-HTTP-Method": "MERGE",
+            "If-Match": "*"
+        },
+        success: function (data) {
+            alert('Success');
+            window.location.href=window.location.href;
+        },
+        error: function (data) {
+            alert("Error");
+        }
+    });
+}
+// Get List Item Type metadata
+function GetItemTypeForListName(name) {
+    return "SP.Data." + name.charAt(0).toUpperCase() + name.split(" ").join("").slice(1) + "Item";
+}  
+
+    $(document).ready(function () {
+    setInterval(KeepSessionAlive, 100000);
+    
+    
+    
+    $.blockUI.defaults.css = {		
+											padding: 0,		
+								            margin: 0,		
+								            width: '30%',		
+								            top: '40%',		
+								            left: '35%',		
+								            textAlign: 'center',
+								            cursor: 'wait'};
+								            
+		       $.blockUI.defaults.overlayCSS.backgroundColor = '#fff';
+		       $.blockUI.defaults.overlayCSS.opacity = 0.9;
+		       $.blockUI.defaults.overlayCSS.cursor = 'pointer';
+
+
+		       $.blockUI({message: $('#throbber')});
+                 setTimeout(function () {
+                 
+                 
+		       setInterval(ProgramNameDynDropDownBind(), 100000);
+		       
+		            
+			
+			$.unblockUI({
+                    onUnblock: function () {
+                        console.log('');
+                    }
+                });
+            }, 600);
+        
+       //  var UserBaseLocation = GetUserBaseLocation("cloverspd@bajajelectricals.com");
+        //                if (UserBaseLocation != '') {
+                           // console.log(UserBaseLocation);
+         //               }
+         
+         
+         
+       //  var EamilID_1 = ["k348@bajajelectricals.com"];
+        // for (var i = 0; i < EamilID_1.length; i++) {
+        //var csvInvitaionEmailId_1 = EamilID_1[i].trim(/^\s+|\s+$/g, '');
+        //console.log(csvInvitaionEmailId_1)
+        //var partemailid_1 = GetParticipantEmailid(csvInvitaionEmailId_1)
+        //var mangemlid_1=GetParticipantMangEmailid(csvInvitaionEmailId_1)
+        //console.log(mangemlid_1);
+        //var manactemailid_1=GetParticipantEmailid(mangemlid_1);
+        //console.log("Employee Login :" + csvInvitaionEmailId_1 + "- Manager Email ID:" + manactemailid_1);
+        //console.log(partemailid_1);
+      //}
+                                
+                                
+
+    });
+    
+    
+    
+     function isCurrentUserMemberOfGroup(groupName) {
+    var userIsInGroup = false;
+    $.ajax({
+        async: false,
+        headers: { "accept": "application/json; odata=verbose" },
+        method: "GET",
+        url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/currentuser/groups",
+        success: function (data) {
+            data.d.results.forEach( function (value) {
+                if (value.Title == groupName) {               
+                     userIsInGroup = true;
+                }
+            });
+        },
+        error: function (response) {
+            console.log(response.status);
+        },
+    });    
+    return userIsInGroup;
+}
+
+    
+   
+    
+     function GetUserBaseLocation(UserEamilID) {
+        var BaseLocation1 = '';
+        var BaseLocation2 = '';
+        var BaseLocation3 = '';
+        var BaseLocationFinal = '';
+        $.ajax({
+            url: _spPageContextInfo.webAbsoluteUrl + "/_api/SP.UserProfiles.PeopleManager/GetPropertiesFor(accountName=@v)?@v=%27i:0%23.f|membership|" + UserEamilID + "%27",
+            type: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+                "content-type": "application/json;odata=verbose",
+                "X-RequestDigest": $("#__REQUESTDIGEST").val()
+            },
+            success: function (d) {
+                if (d.d.DisplayName == 'undefined' || d.d.DisplayName == null || d.d.DisplayName == '') {
+                    BaseLocationFinal = '';
+                }
+                else {
+                    var BaseLocation1 = d.d.UserProfileProperties.results[61].Value;
+                    console.log("1-" + BaseLocation1);
+                    var BaseLocation2 = d.d.UserProfileProperties.results[62].Value;
+                    console.log("2-" + BaseLocation2);
+                    var BaseLocation3 = d.d.UserProfileProperties.results[55].Value;
+                    console.log("3-" + BaseLocation3);
+
+                    if (BaseLocation1 != null && BaseLocation1 != '') {
+                        BaseLocationFinal = BaseLocation1;
+                    }
+                    else if (BaseLocation2 != null && BaseLocation2 != '') {
+                        BaseLocationFinal = BaseLocation2;
+                    }
+                    else if (BaseLocation3 != null && BaseLocation3 != '') {
+                        BaseLocationFinal = BaseLocation3;
+                    }
+                }
+            },
+            error: function () { console.log('fail'); }
+        });
+        return BaseLocationFinal;
+    }
+
+    
+    function KeepSessionAlive() {           
+            $.post("https://bajajelect.sharepoint.com/sites/AnugamUAT/Pages/Invitation.aspx", null, function() {
+                $("#result").append("<p><p/>");
+            });   
+        }  
+        
+        
+        
+
+
+        
+    function ProgramNameDynDropDownBind() {
+                    
+        var listName = "NewInductionProgram";
+        var url = _spPageContextInfo.webAbsoluteUrl;
+        var UserEmail = LoginUserEmail();
+        
+         var isAdmin = isCurrentUserMemberOfGroup("L&D Functional Admin");
+         
+        getProgramNameListItems(isAdmin,UserEmail, listName, url, function (data) {
+            var TodayDate = new Date();
+            var day = TodayDate.getDate();
+            var mm = TodayDate.getMonth() + 1;
+            var Year = TodayDate.getFullYear();
+            var items = data.d.results;
+            var pgmFinalData = []; var j = 0;
+            var arrPGM = [];
+            var arrPGMUnique = [];
+            
+                var GetDate = new Date();
+                var ccDate = GetDate.setHours(0, 0, 0);
+                var Final = new Date(ccDate);
+
+            
+            for (var k = 0; k < items.length; k++) {
+                var ChkProgramEndDate = new Date(items[k].ProgramEndDate.split("/").reverse().join("-"));
+                
+                var ProgramClsDate = items[k].CloseDate;
+                var ChkProgramcloseDate = '';
+                if(ProgramClsDate != null)
+                {
+                ChkProgramcloseDate = new Date(ProgramClsDate.split("/").reverse().join("-"));
+                }
+                else
+                {
+                ChkProgramcloseDate = 'NA';
+                }
+
+                
+                if (new Date(items[k].ProgramEndDate.split("/").reverse().join("-")) >= TodayDate || ChkProgramEndDate.setHours(0, 0, 0, 0) == TodayDate.setHours(0, 0, 0, 0) || (items[k].IsPrgmPrev =='Y' && ChkProgramcloseDate >= Final) || (ChkProgramcloseDate == 'NA' && items[k].IsPrgmPrev =='Y')) {
+                    var NameProgram = items[k].ProgramName;
+                    var ChckCnclPgm = items[k].ProgramName;
+	                var PrgrmCancellation = GetPgmCncld(ChckCnclPgm);
+	                if(PrgrmCancellation != 'Yes')
+	                {
+                    if (pgmFinalData[j++] != NameProgram) {
+                        pgmFinalData[j++] = NameProgram;
+                    }
+                }
+                }
+            }
+            var uniqueProgramNames = '';
+            var result = [];
+            $.each(pgmFinalData, function (index, pgmFinalData) {
+                if ($.inArray(pgmFinalData, result) == -1) {
+                    result.push(pgmFinalData);
+                }
+            });
+            console.log(result);
+           
+            var inputElement = '<option  value="">--Select Program--</option>';
+            // Add all the new items
+            for (var i = 0; i < result.length; i++) {
+                if (result[i] != undefined) {
+                    var itemId = result[i],
+                        itemVal = result[i];
+                    inputElement += '<option value="' + itemVal + '"selected>' + itemId + '</option>';
+                }
+            }
+            inputElement += '</select>';
+            $('#ProgramNameDynDropDown').append(inputElement);
+            $("#ProgramNameDynDropDown").each(function () {
+                $('option', this).each(function () {
+
+                    if ($(this).text() == '--Select Program--') {
+                        $(this).attr('selected', 'selected')
+                    };
+                });
+            });
+            
+        }, function (data) {
+            alert("Ooops, an error occured. Please try again");
+        });
+    }
+    function getProgramNameListItems(isAdmin,UserEmail, listName, siteurl, success, failure) {
+        var TodayDate = new Date();
+        var day = TodayDate.getDate();
+        var mm = TodayDate.getMonth() + 1;
+        var Year = TodayDate.getFullYear();
+        if(!isAdmin)
+        {
+        var InvitationUrl = siteurl + "/_vti_bin/listdata.svc/" + listName + "?$filter=CreatedByUser eq %27" + UserEmail + "%27 and Status eq 'Active'&$orderby= Created desc";
+        }
+        else
+        {
+        var InvitationUrl = siteurl + "/_vti_bin/listdata.svc/" + listName + "?$filter=Status eq 'Active'&$orderby= Created desc";
+        }
+        $.ajax({
+            url: InvitationUrl,
+            method: "GET",
+            headers: { "Accept": "application/json; odata=verbose" },
+            success: function (data) {
+                success(data);
+            },
+            error: function (data) {
+                failure(data);
+            }
+        });
+    }
+
+</script>
+<!--DYNAMIC DROPDOWN FOR PROGRAMNAME START-->
+<!--DYNAMIC DROPDOWN FOR Template START-->
+<script>
+
+    $(document).ready(function () {
+    
+    			$.blockUI.defaults.css = {		
+											padding: 0,		
+								            margin: 0,		
+								            width: '30%',		
+								            top: '40%',		
+								            left: '35%',		
+								            textAlign: 'center',
+								            cursor: 'wait'};
+								            
+		       $.blockUI.defaults.overlayCSS.backgroundColor = '#fff';
+		       $.blockUI.defaults.overlayCSS.opacity = 0.9;
+		       $.blockUI.defaults.overlayCSS.cursor = 'pointer';
+
+
+		       $.blockUI({message: $('#throbber')});
+		       setTimeout(function () {
+	           TemplateNameDynamicDropDownBind();
+	           $.unblockUI({
+                    onUnblock: function () {
+                        console.log('');
+                    }
+                });
+            }, 600);
+	           
+    });
+    function TemplateNameDynamicDropDownBind() {
+        var listName = "EmailTemplate";
+        var url = _spPageContextInfo.webAbsoluteUrl;
+
+        getTemplateNameListItems(listName, url, function (data) {
+        
+        if(data.d.results.length > 0)
+        {
+            var items = data.d.results;
+
+            var inputElement = '<select id="TemplateNameDynDropDown" class="form-control changeText" onchange="TemplateNameFunction()"><option  value="">--Select Template--</option>';
+            // Add all the new items
+            for (var i = 0; i < items.length; i++) {
+                var itemId = items[i].EmailTemplateName,
+                   itemVal = items[i].ID;
+                inputElement += '<option value="' + itemVal + '"selected>' + itemId + '</option>';
+
+            }
+            inputElement += '</select>';
+            $('#TemplateNameID').append(inputElement);
+
+            $("#TemplateNameDynDropDown").each(function () {
+                $('option', this).each(function () {
+
+                    if ($(this).text() == '--Select Template--') {
+                        $(this).attr('selected', 'selected')
+                    };
+                });
+            });
+            // assign the change event to provide an alert of the selected option value
+            $('#TemplateNameDynDropDown').on('change', function () {
+                $('#divpopMessage').empty();
+                $(this).css("border", "");
+            });
+            }
+            else
+            {
+            //alert('Please Add/Modify Invite template.');
+                    bootbox.alert('Please Add/Modify Invite template', function(){
+                    var url_new = _spPageContextInfo.webAbsoluteUrl + "/Lists/EmailTemplate/AllItems.aspx";
+		  	        window.open(url_new, '_self');
+});
+
+            
+            }
+
+        }, function (data) {
+            alert("Ooops, an error occured. Please try again");
+        });
+    }
+    function getTemplateNameListItems(listName, siteurl, success, failure) {
+    
+    var userId = _spPageContextInfo.userId;
+        $.ajax({
+			 url: "https://bajajelect.sharepoint.com/sites/AnugamUAT//_api/web/lists/getbytitle('EmailTemplate')/items?$filter=AuthorId eq " + userId + "",
+            method: "GET",
+            headers: { "Accept": "application/json; odata=verbose" },
+            success: function (data) {
+                success(data);
+            },
+            error: function (data) {
+                failure(data);
+            }
+        });
+    }
+    function GroupByData(items, propertyName) {
+        var result = [];
+        $.each(items, function (index, item) {
+            if ($.inArray(item[propertyName], result) == -1) {
+                result.push(item[propertyName]);
+            }
+        });
+        return result;
+    }
+</script>
+
+
+
+<script type="text/javascript">
+   $(function () {
+        $("#btnupload").bind("click", function () {
+            $("#tbleinvitationDynTable").empty();
+            $('#divpopMessage').empty();
+            
+            $.blockUI.defaults.css = {		
+											padding: 0,		
+								            margin: 0,		
+								            width: '30%',		
+								            top: '40%',		
+								            left: '35%',		
+								            textAlign: 'center',
+								            cursor: 'wait'};
+								            
+		       $.blockUI.defaults.overlayCSS.backgroundColor = '#fff';
+		       $.blockUI.defaults.overlayCSS.opacity = 0.9;
+		       $.blockUI.defaults.overlayCSS.cursor = 'pointer';
+		       //$('#throbber').empty();
+               //$('#throbber').prepend('<img src="https://bajajelect.sharepoint.com/sites/HR-TrainingManagementSystem/SiteAssets/AnugamStyles/img/712_1.gif" />');
+		       //$('<img src="https://bajajelect.sharepoint.com/sites/HR-TrainingManagementSystem/SiteAssets/AnugamStyles/img/712_1.gif" alt="My Gif" title="Loading" />').prependTo('#throbber');
+		       //$("#throbber").html('<img src="https://bajajelect.sharepoint.com/sites/HR-TrainingManagementSystem/SiteAssets/AnugamStyles/img/712_1.gif" />');
+		       //$("#throbber").html($("#throbber").html());
+		        //var message = "<div id="throbber_1"><img src="https://bajajelect.sharepoint.com/sites/HR-TrainingManagementSystem/SiteAssets/AnugamStyles/img/712_1.gif" /><br/></br><h3><b style="color:#0072c6 !Important;font-size:32px">Please Wait...</b><h3></div>";
+				//$.blockUI.defaults.message = message;
+                $.blockUI({message: $('#throbber')});
+                
+                
+                setTimeout(function () {
+                                 
+				 //setInterval(uploadexcelsheet, 100000);
+                uploadexcelsheet();
+				//window.setTimeout(uploadexcelsheet,10000);
+   
+                $.unblockUI({
+                    onUnblock: function () {
+                        console.log('');
+                    }
+                });
+            }, 600);
+        });
+    });
+
+
+
+function removeDuplicateRows($table){
+    function getVisibleRowText($row){
+        return $row.find('td:visible').text().toLowerCase();
+    }
+
+    $table.find('tr').each(function(index, row){
+        var $row = $(row);
+        $row.nextAll('tr').each(function(index, next){
+            var $next = $(next);
+            if(getVisibleRowText($next) == getVisibleRowText($row))
+                $next.remove();
+        })
+    });
+}
+
+
+ function uploadexcelsheet()
+    {
+    
+     var cmp_count = 0;
+     var cmp_count_non = 0;
+     
+     var str = $("#btnFileUpload").val().toLowerCase();
+     var index = str.lastIndexOf(".csv");
+
+     var len = str.length;
+	 var res = "";
+     
+        var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.csv|.txt)$/;
+        if(len - index  == 4) 
+{
+       // if (regex.test($("#btnFileUpload").val().toLowerCase())) {
+            if (typeof (FileReader) != "undefined") {
+            
+            
+
+                var reader = new FileReader();
+                reader.onload = function (e) {
+              
+                  $("#InvitationDynTable").show();
+                    var table = $("#InvitationDynTable");
+                    var rows = e.target.result.split("\n");
+                    
+                    var prvCell = "";
+                    var isValid = 0;
+                    var isFormatValid = 0;
+                   
+  
+
+                    for (var i = 1; i < rows.length; i++) {
+                    
+                    
+                        var row = $("<tr />");
+                       					        
+                        var cells = rows[i].split(",");
+                        if (cells[0] != '' && cells[1] != '') {
+                            var EmailId = cells[2];
+                            var cmphire = $.trim(cells[3]);
+                            //alert(cmphire);
+                            if (cmphire == 'Yes') {
+                            //cmp_count++;
+                                var checkFormat = getFormatOfEmail(EmailId);
+                                if (checkFormat == false) {
+                                    if (prvCell != cells[1]) {
+                                    $("<td />").html('<input type="checkbox" value="Test"/>').appendTo(row);
+                                        for (var j = 0; j < cells.length; j++) {
+                                            var cell = $("<td />");
+                                            cell.html(cells[j]);
+                                            row.append(cell);
+                                        }
+                                        prvCell = cells[1];
+                                        $("#tbleinvitationDynTable").append(row);
+
+                                    }
+                                    row.css('color', 'red');
+                                    isFormatValid = isFormatValid + 1;
+                                }
+                                else {
+                                    if (prvCell != cells[1]) {
+                                    $("<td />").html('<input type="checkbox" value="Test"/>').appendTo(row);
+                                        for (var j = 0; j < cells.length; j++) {
+                                            var cell = $("<td />");
+                                            cell.html(cells[j]);
+                                            row.append(cell);
+                                        }
+                                        prvCell = cells[1];
+
+                                        $("#tbleinvitationDynTable").append(row);
+                                    }
+                                }
+                            }	
+                            else {
+                              cmp_count_non++;
+                                var isExists = getValidUsers(EmailId);
+                                if (isExists == false) {
+                                    if (prvCell != cells[1]) {
+                                    $("<td />").html('<input type="checkbox" value="Test" />').appendTo(row);
+                                        for (var j = 0; j < cells.length; j++) {
+                                            var cell = $("<td />");
+                                            cell.html(cells[j]);
+                                            row.append(cell);
+                                        }
+                                        prvCell = cells[1];
+                                        $("#tbleinvitationDynTable").append(row);
+                                    }
+                                    row.css('color', 'red');
+                                    isValid = isValid + 1;
+                                }
+                                else {
+                                    if (prvCell != cells[1]) {
+                                     $("<td />").html('<input type="checkbox" value="Test"/>').appendTo(row);
+                                        for (var j = 0; j < cells.length; j++) {
+                                        
+                                            var cell = $("<td />");
+                                            cell.html(cells[j]);
+                                            console.log(cell);
+                                            row.append(cell);
+                                        }
+                                        prvCell = cells[1];
+                                        console.log(prvCell);
+                                        console.log(row);
+
+                                        $("#tbleinvitationDynTable").append(row);
+                                    }
+                                }
+                                
+                                
+                            }
+                            
+                           
+                        }
+                    }
+                    
+                    //removeDuplicateRows($('InvitationDynTable'));
+                    
+                    
+					                    var cats = [];
+					$('#InvitationDynTable tr').each(function() {
+					    var text = $(this).text();
+					    if ($.inArray(text, cats) === -1) {
+					        cats.push(text);
+					    } else {
+					        $(this).remove()
+					    }
+					});
+					
+					
+                    $("#div_partcount").empty();
+                    var count1 = $('#tbleinvitationDynTable tr').length;
+                    
+                    
+                     $('#tbleinvitationDynTable tr').each(function() {
+  			 
+  			  var iscamphire = $(this).find("td").eq(4).html();
+  			     			   
+  			   if ($.trim(iscamphire) == 'Yes') {
+  			  cmp_count++;
+  			  }
+  			  else
+  			  {
+  			  }
+  			  
+  			  });
+
+                    //$("#div_partcount").append('<p class="bordered"><b>Total No. of Participants : ' + count1 + ' || No. of Campus hiree : ' + cmp_count + ' || No. of Non Camopus hiree : ' + cmp_count_non +  '</b><p/>');
+					$("#div_partcount").append('<TABLE BORDER="5" WIDTH="50%"  CELLPADDING="4" CELLSPACING="3"><TR><TH>Total No. of Participants</TH><TH>No. of Campus hiree</TH><TH>No. of Non Campus hiree</TH></TR><TR ALIGN="CENTER"><TD>' + count1  + '</TD><TD>' + cmp_count + '</TD><TD>' + (count1-cmp_count) + '</TD></TR></TABLE>' );                    
+                    if (isValid == 0 && isFormatValid == 0) {
+                        $('#btnSubmit').show();
+                         $('#deleterows').show();
+                        $('#divpopMessage').empty();
+                        $('#divpopMessage').css('color', '');
+                    }
+                    else {
+                        $('#btnSubmit').hide();
+                        $('#deleterows').show();
+                        $('#divpopMessage').css('color', 'red');
+                        $('#divpopMessage').append("Invalid participant details");
+                    }
+                    var EmpId = []; iEmpId = 0;
+                    $.ajax({
+                        async: false,
+                        url: _spPageContextInfo.webAbsoluteUrl + "//_api/web/lists/getbytitle('EmployeeList')/items",
+                        type: "GET",
+                        headers: {
+                            "accept": "application/json;odata=verbose",
+                            "content-type": "application/json;odata=verbose",
+                            "X-RequestDigest": $("#__REQUESTDIGEST").val()
+                        },
+                        success: function (d) {
+                            var arr = [];
+                            i = 0;
+                            $.each(d.d.results, function (index, results) {
+                                if (results.Status == "Active" && results.EmployeeCode != "") {
+                                    arr[i++] = index;
+                                }
+                            });
+                            for (var k = 0; k < arr.length; k++) {
+                                var arrK = arr[k];
+                                var EmpId = d.d.results[arrK].ID;
+                                DeleteDataOnID(EmpId);
+                            }
+                        },
+                        error: function (error) {
+                            alert(JSON.stringify(error));
+                        },
+                    });
+                    function DeleteDataOnID(EmpId) {
+                        var EidNew = EmpId;
+                        $.ajax({
+                            url: _spPageContextInfo.webAbsoluteUrl + "//_api/web/lists/getbytitle('EmployeeList')/items(" + EidNew + ")",
+                            type: "POST",
+                            async: false,
+                            headers: {
+                                "ACCEPT": "application/json;odata=verbose",
+                                "content-type": "application/json;odata=verbose",
+                                "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+                                "IF-MATCH": "*",
+                                "X-HTTP-Method": "DELETE"
+                            },
+                            success: function (data) {
+                            },
+                            error: function (error) {
+                                alert(JSON.stringify(error));
+                            },
+                        });
+                    }
+                    var appWebUrl = window.location.protocol + "//" + window.location.host + _spPageContextInfo.webServerRelativeUrl;
+
+                    $("#InvitationDynTable tr:gt(0)").each(function () {
+                        var this_row = $(this);
+                       
+                        var Name = $.trim(this_row.find('td:eq(1)').html());
+                        var EmpCode = $.trim(this_row.find('td:eq(2)').html());
+                        var EmailId = $.trim(this_row.find('td:eq(3)').html());
+                        var CompusHire = $.trim(this_row.find('td:eq(4)').html());
+                        var isExists = getValidUsers(EmailId);
+                        var isInvalidFormat = getFormatOfEmail(EmailId);
+                        if (isExists == true || CompusHire == 'Yes') {
+                            if (EmpCode != "" && Name != "") {
+                                $.ajax({
+                                    url: appWebUrl + "//_api/web/lists/getbytitle('EmployeeList')/items",
+                                    type: "POST",
+                                    async: false,
+                                    data: JSON.stringify({
+                                        '__metadata': { 'type': 'SP.Data.EmployeeListListItem' },
+                                        'Title': Name,
+                                        'EmployeeName': Name,
+                                        'EmployeeCode': EmpCode,
+                                        'EmailID': EmailId,
+                                        'CompusHire': CompusHire,
+                                        'Status': "Active",
+                                        'IsValidUser': 'Yes',
+                                        'ValidEmailId': 'Yes'
+                                    }),
+                                    headers: {
+                                        "Accept": "application/json;odata=verbose",
+                                        "content-type": "application/json; odata=verbose",
+                                        "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+                                    },
+                                    success: function (data) {
+                                    },
+                                    error: function (err) {
+                                        alert("Error while adding item: " + JSON.stringify(err));
+                                    }
+                                });
+                            }
+                        }
+                        else {
+                            if (EmpCode != "" && Name != "") {
+                                $.ajax({
+                                    url: appWebUrl + "//_api/web/lists/getbytitle('EmployeeList')/items",
+                                    type: "POST",
+                                    async: false,
+                                    data: JSON.stringify({
+                                        '__metadata': { 'type': 'SP.Data.EmployeeListListItem' },
+                                        'Title': Name,
+                                        'EmployeeName': Name,
+                                        'EmployeeCode': EmpCode,
+                                        'EmailID': EmailId,
+                                        'CompusHire': CompusHire,
+                                        'Status': "Active",
+                                        'IsValidUser': 'No',
+                                        'ValidEmailId': 'No'
+                                    }),
+                                    headers: {
+                                        "Accept": "application/json;odata=verbose",
+                                        "content-type": "application/json; odata=verbose",
+                                        "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+                                    },
+                                    success: function (data) {
+                                    },
+                                    error: function (err) {
+                                        alert("Error while adding item: " + JSON.stringify(err));
+                                    }
+                                });
+                            }
+                        }
+
+                    });
+                }
+                reader.readAsText($("#btnFileUpload")[0].files[0]);
+                $('.scrollingTable').css("overflow", "scroll");
+					$('.scrollingTable').css("width", "78em");
+					$('.scrollingTable').css("height", "250px");
+                    
+            } else {
+                alert("This browser does not support HTML5.");
+                
+            }
+        } else {
+            //alert("Please upload a valid CSV file");
+            bootbox.alert('Please upload a valid CSV file', function(){
+});
+            
+        }
+    }
+
+function ExportToTable() {  
+     var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.xlsx|.xls)$/;  
+     /*Checks whether the file is a valid excel file*/  
+     if (regex.test($("#btnFileUpload").val().toLowerCase())) {  
+         var xlsxflag = false; /*Flag for checking whether excel is .xls format or .xlsx format*/  
+         if ($("#btnFileUpload").val().toLowerCase().indexOf(".xlsx") > 0) {  
+             xlsxflag = true;  
+         }  
+         /*Checks whether the browser supports HTML5*/  
+         if (typeof (FileReader) != "undefined") {  
+             var reader = new FileReader();  
+             reader.onload = function (e) {  
+                 var data = e.target.result;
+                 //alert(data);  
+                 /*Converts the excel data in to object*/  
+                 if (xlsxflag) {  
+                     var workbook = XLSX.read(data, { type: 'binary' });  
+                 }  
+                 else {  
+                     var workbook = XLS.read(data, { type: 'binary' });  
+                 }  
+                 /*Gets all the sheetnames of excel in to a variable*/  
+                 var sheet_name_list = workbook.SheetNames;  
+  
+                 var cnt = 0; /*This is used for restricting the script to consider only first sheet of excel*/  
+                 sheet_name_list.forEach(function (y) { /*Iterate through all sheets*/  
+                     /*Convert the cell value to Json*/  
+                     if (xlsxflag) {  
+                         var exceljson = XLSX.utils.sheet_to_json(workbook.Sheets[y]);  
+                     }  
+                     else {  
+                         var exceljson = XLS.utils.sheet_to_row_object_array(workbook.Sheets[y]);  
+                     }  
+                     if (exceljson.length > 0 && cnt == 0) {  
+                         BindTable(exceljson, '#InvitationDynTable1');  
+                         cnt++;  
+                     }  
+                 });  
+                 $('#exceltable').show();  
+             }  
+             if (xlsxflag) {/*If excel file is .xlsx extension than creates a Array Buffer from excel*/  
+                 reader.readAsArrayBuffer($("#btnFileUpload")[0].files[0]);  
+             }  
+             else {  
+                 reader.readAsBinaryString($("#btnFileUpload")[0].files[0]);  
+             }  
+         }  
+         else {  
+             alert("Sorry! Your browser does not support HTML5!");
+             
+         }  
+     }  
+     else {  
+         alert("Please upload a valid Excel file!");
+         
+ 
+     }  
+ }  
+
+function BindTable(jsondata, tableid) {/*Function used to convert the JSON array to Html Table*/  
+     var columns = BindTableHeader(jsondata, tableid); /*Gets all the column headings of Excel*/  
+     for (var i = 0; i < jsondata.length; i++) {  
+         var row$ = $('<tr/>');  
+         for (var colIndex = 0; colIndex < columns.length; colIndex++) {  
+             var cellValue = jsondata[i][columns[colIndex]];  
+             if (cellValue == null)  
+                 cellValue = "";  
+             row$.append($('<td/>').html(cellValue));  
+         }  
+         $(tableid).append(row$);  
+     }  
+ }  
+ function BindTableHeader(jsondata, tableid) {/*Function used to get all column names from JSON and bind the html table header*/  
+     var columnSet = [];  
+     var headerTr$ = $('<tr/>');  
+     for (var i = 0; i < jsondata.length; i++) {  
+         var rowHash = jsondata[i];  
+         for (var key in rowHash) {  
+             if (rowHash.hasOwnProperty(key)) {  
+                 if ($.inArray(key, columnSet) == -1) {/*Adding each unique column names to a variable array*/  
+                     columnSet.push(key);  
+                     headerTr$.append($('<th/>').html(key));  
+                 }  
+             }  
+         }  
+     }  
+     $(tableid).append(headerTr$);  
+     return columnSet;  
+ }  
+ 
+    function getValidUsers(EmailId) {
+        var IsExists = false;
+        $.ajax({
+            url: _spPageContextInfo.webAbsoluteUrl + "/_api/SP.UserProfiles.PeopleManager/GetPropertiesFor(accountName=@v)?@v=%27i:0%23.f|membership|" + EmailId + "%27",
+            type: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+                "content-type": "application/json;odata=verbose",
+                "X-RequestDigest": $("#__REQUESTDIGEST").val()
+            },
+            success: function (d) {
+                if (d.d.DisplayName == 'undefined' || d.d.DisplayName == null || d.d.DisplayName == '') {
+                    IsExists = false;
+                }
+                else {
+                    IsExists = true;
+                }
+            },
+            error: function () { console.log('fail'); }
+        });
+        return IsExists;
+    }
+    function getFormatOfEmail(EmailId) {
+        var IsValidEmailID = false;
+        var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+        if (!emailReg.test(EmailId)) {
+            IsValidEmailID = false;
+        } else {
+            IsValidEmailID = true;
+        }
+        return IsValidEmailID;
+    }
+</script>
+
+
+<script type="text/javascript">
+    var EmployeeID = []; var EamilID = []; var EmplCode = []; var EmployeeName = []; var arrEmpLocation = []; var arrCompurHire = [];
+    EmpID = 0; EmailID = 0; EmpCode = 0; EName = 0; Eloc = 0; icompusHire = 0;
+    var isValid = []; IsValid = 0;
+    function GetEmployeeDetails() {
+        $.ajax({
+            url: _spPageContextInfo.webAbsoluteUrl + "//_api/web/lists/getbytitle('EmployeeList')/items?$select=CompusHire,Title,EmployeeCode,EmployeeName,EmailID,Status,ID&$orderby=%20ID%20desc&$filter=IsValidUser eq %27Yes%27",
+            type: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+                "content-type": "application/json;odata=verbose",
+                "X-RequestDigest": $("#__REQUESTDIGEST").val()
+            },
+            success: function (d) {
+                var arr = [];
+                i = 0;
+                $.each(d.d.results, function (index, results) {
+                    if (results.Status == "Active" && results.EmployeeCode != "") {
+                        arr[i++] = index;
+                    }
+                });
+                for (var k = 0; k < arr.length; k++) {
+                    var arrK = arr[k];
+                    arrCompurHire[icompusHire++] = d.d.results[arrK].CompusHire;
+                    EmployeeID[EmpID++] = d.d.results[arrK].ID;
+                    EamilID[EmailID++] = d.d.results[arrK].EmailID;
+                    EmplCode[EmpCode++] = d.d.results[arrK].EmployeeCode;
+                    EmployeeName[EName++] = d.d.results[arrK].EmployeeName;
+                }
+            },
+            error: function () { console.log('fail'); }
+        });
+    }
+
+    var EmailTemplateId = ""; var EmailTemplate = ""; var EmailBody = []; iEmailBody = 0;
+    function TemplateNameFunction() {
+        EmailTemplateId = document.getElementById("TemplateNameDynDropDown");
+        EmailTemplate = EmailTemplateId.options[EmailTemplateId.selectedIndex].value;
+        jQuery.ajax({
+            url: _spPageContextInfo.webAbsoluteUrl + "//_api/web/lists/getbytitle('EmailTemplate')/items?$filter=ID eq '" + EmailTemplate + "'",
+            type: "GET",
+            headers: {
+                "accept": "application/json;odata=verbose",
+                "content-type": "application/json;odata=verbose",
+                "X-RequestDigest": $("#__REQUESTDIGEST").val()
+            },
+            success: function (d) {
+                var arr = [];
+                i = 0;
+                $.each(d.d.results, function (index, results) {
+                    arr[i++] = index;
+                });
+                for (var k = 0; k < arr.length; k++) {
+                    var arrK = arr[k];
+                    EmailBody[iEmailBody++] = d.d.results[arrK].EmailBody;
+                }
+            },
+            error: function () { console.log('fail'); }
+        });
+    }
+    var ProgramLoction = ""; var ProgramSDate = ""; var ProgramEDate = "";
+
+    $("#ProgramNameDynDropDown").change(function () {
+        var ProgramName = $('#ProgramNameDynDropDown').val();
+        $('#TemplateNameDynDropDown').prop('selectedIndex',0);
+	     $('#btnFileUpload').val("");
+        $.ajax({
+            url: _spPageContextInfo.webAbsoluteUrl + "//_api/web/lists/getbytitle('NewInductionProgram')/items?$top=1000&?filter=ProgramName eq 'ProgramName'",
+            type: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+                "content-type": "application/json;odata=verbose",
+                "X-RequestDigest": $("#__REQUESTDIGEST").val()
+            },
+            success: function (d) {
+            
+            
+            $.blockUI.defaults.css = {		
+											padding: 0,		
+								            margin: 0,		
+								            width: '30%',		
+								            top: '40%',		
+								            left: '35%',		
+								            textAlign: 'center',
+								            cursor: 'wait'};
+								            
+		       $.blockUI.defaults.overlayCSS.backgroundColor = '#fff';
+		       $.blockUI.defaults.overlayCSS.opacity = 0.9;
+		       $.blockUI.defaults.overlayCSS.cursor = 'pointer';
+								            
+		       
+                $.blockUI({message: $('#throbber')});
+                
+                
+                setTimeout(function () {   
+
+                var arr = [];
+                i = 0;
+                $.each(d.d.results, function (index, results) {
+                    arr[i++] = index;
+                });
+                for (var k = 0; k < arr.length; k++) {
+                    var arrK = arr[k];
+                    if (d.d.results[arrK].ProgramName == ProgramName) {
+                        ProgramLoction = d.d.results[arrK].ProgramLocation;
+                        ProgramSDate = d.d.results[arrK].ProgramStartDate;
+                        ProgramEDate = d.d.results[arrK].ProgramEndDate;
+                        RemainderFrValue = d.d.results[arrK].RemainderFrValue;
+                        RemainderFrText = d.d.results[arrK].RemainderFrText;
+                        ProgramDesc = d.d.results[arrK].ProgramDesc;
+
+                        $("#programLocaation").val(ProgramLoction);
+                        break;
+                    }
+                }
+                
+                $.unblockUI({		
+	                        onUnblock: function () {		
+	                            console.log('');		
+	                        }		
+	                    });		
+	                }, 600);  
+
+            },
+            error: function (err) {
+                alert("Error while adding item: " + JSON.stringify(err));
+            }
+        });
+
+    });
+    
+    $('#isNeedRemainderYes').click(function () {
+        $('#divNeedRemainderDetails').show();
+        $('#divpopMessage').empty();
+        $('#divNeedRemainder').css({
+            "border": ""
+        });
+    });
+    $('#isNeedRemainderNo').click(function () {
+        $('#divNeedRemainderDetails').hide();
+        $('#divpopMessage').empty();
+        $('#divNeedRemainder').css({
+            "border": ""
+        });
+    });
+    $("#btnSubmit").click(function () {
+        $('#divpopMessage').css('color', '');
+        $('#divpopMessage').empty();
+        $('#TemplateNameDynDropDown').css('color', '');
+        $('#ProgramNameDynDropDown').css('color', '');
+        $("#btnFileUpload").css('color', '');
+        $(".allownumericwithoutdecimal").each(function () {
+            $(".allownumericwithoutdecimal").css('color', '');
+        });
+        var IsValid = true;
+        var TemplateNameDynDropDown = $('#TemplateNameDynDropDown').val();
+        var ProgramNameDynDropDown = $('#ProgramNameDynDropDown').val();
+        var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.csv|.txt)$/;
+       
+        if (ProgramNameDynDropDown == '') {
+            $('#ProgramNameDynDropDown').css("border", "1px solid red");
+            $('#divpopMessage').css('color', 'red');
+            $('#divpopMessage').append("Highlighted fields are mandatory");
+            IsValid = false;
+        }
+        else if (TemplateNameDynDropDown == '') {
+            $('#TemplateNameDynDropDown').css("border", "1px solid red");
+            $('#divpopMessage').css('color', 'red');
+            $('#divpopMessage').append("Highlighted fields are mandatory");
+            IsValid = false;
+        }
+        else if ($('#txtRMStartFromNumber').val() == '' && $("#isNeedRemainderYes").is(':checked') == true ) {
+            $('#txtRMStartFromNumber').css("border", "1px solid red");
+            $('#divpopMessage').css('color', 'red');
+            $('#divpopMessage').append("Highlighted fields are mandatory");
+            IsValid = false;
+        }
+        else if ($('#ddlRMStartFromType').val() == '--Select--' && $("#isNeedRemainderYes").is(':checked') == true) {
+            $('#ddlRMStartFromType').css("border", "1px solid red");
+            $('#divpopMessage').css('color', 'red');
+            $('#divpopMessage').append("Highlighted fields are mandatory");
+            IsValid = false;
+        }
+
+        else if ($('#txtRMFrequencyNumber').val() == '--Select--' && $("#isNeedRemainderYes").is(':checked') == true) {
+            $('#txtRMFrequencyNumber').css("border", "1px solid red");
+            $('#divpopMessage').css('color', 'red');
+            $('#divpopMessage').append("Highlighted fields are mandatory");
+            IsValid = false;
+        }
+        else if ($('#ddlRMFrequencyType').val() == '--Select--' && $("#isNeedRemainderYes").is(':checked') == true) {
+            $('#ddlRMFrequencyType').css("border", "1px solid red");
+            $('#divpopMessage').css('color', 'red');
+            $('#divpopMessage').append("Highlighted fields are mandatory");
+            IsValid = false;
+        }
+        else if ($('#txtRMStopNumber').val() == '' && $("#isNeedRemainderYes").is(':checked') == true) {
+            $('#txtRMStopNumber').css("border", "1px solid red");
+            $('#divpopMessage').css('color', 'red');
+            $('#divpopMessage').append("Highlighted fields are mandatory");
+            IsValid = false;
+        }
+        else if ($('#ddlRMStopType').val() == '--Select--' && $("#isNeedRemainderYes").is(':checked') == true) {
+            $('#ddlRMStopType').css("border", "1px solid red");
+            $('#divpopMessage').css('color', 'red');
+            $('#divpopMessage').append("Highlighted fields are mandatory");
+            IsValid = false;
+        }
+        else if ((typeof (FileReader) != "undefined")) {
+            if ($('#InvitationDynTable tr').length <= 1) {
+                $("#btnFileUpload").css("border", "1px solid red");
+                $('#divpopMessage').css('color', 'red');
+                $('#divpopMessage').append("There  are no participants to send invite");
+                IsValid = false;
+            }
+            else {
+                IsValid = true;
+            }
+        }
+        else {
+            $('#divNeedRemainder').css({
+                "border": ""
+            });
+        }
+        if (IsValid == true) {
+            $.blockUI.defaults.css = {		
+											padding: 0,		
+								            margin: 0,		
+								            width: '30%',		
+								            top: '40%',		
+								            left: '35%',		
+								            textAlign: 'center',
+								            cursor: 'wait'};
+								            
+		       $.blockUI.defaults.overlayCSS.backgroundColor = '#fff';
+		       $.blockUI.defaults.overlayCSS.opacity = 0.9;
+		       $.blockUI.defaults.overlayCSS.cursor = 'pointer';
+								            
+		       
+                $.blockUI({message: $('#throbber')});
+                
+                
+                setTimeout(function () {
+                SaveInvitationDetails();
+                $.unblockUI({
+                    onUnblock: function () {
+                    
+                   //alert("Invite sent successfully");
+                   bootbox.alert('Invite sent successfully', function(){
+                   location.reload();
+});
+
+                   
+                    }
+                });
+            }, 600);
+            }
+    });
+    
+    
+    function SaveInvitationDetails()
+    {
+        var appWebUrl = window.location.protocol + "//" + window.location.host + _spPageContextInfo.webServerRelativeUrl;
+        var ProgramNameId = document.getElementById("ProgramNameDynDropDown");
+        var ProgramName = ProgramNameId.options[ProgramNameId.selectedIndex].value;
+        var ProgramNameText = ProgramNameId.options[ProgramNameId.selectedIndex].text;
+        var EmailTemplateId = document.getElementById("TemplateNameDynDropDown");
+        var EmailTemplate = EmailTemplateId.options[EmailTemplateId.selectedIndex].value;
+        var EmailTemplateText = EmailTemplateId.options[EmailTemplateId.selectedIndex].text;
+        var InvitationTitle = ProgramNameId.options[ProgramNameId.selectedIndex].text;
+        var isNeedRemainder = $('input[name=isNeedRemainder]:radio:checked').val();
+
+        /* Remainder Code */
+        var RmFrValue = $('#txtRMFrequencyNumber').val();
+        var RmFrType = $('#ddlRMFrequencyType').val();
+        var RmStartFrom = $('#txtRMStartFromNumber').val();
+        var RmStartType = $('#ddlRMStartFromType').val();
+        var RmStopValue = $('#txtRMStopNumber').val();
+        var RmStopType = $('#ddlRMStopType').val();
+        
+        var FinaPSDate = new Date(ProgramSDate.split("/").reverse().join("/"));
+        console.log(FinaPSDate);
+        
+         var FinaPEDate = new Date(ProgramEDate.split("/").reverse().join("/"));
+        console.log(FinaPEDate);
+
+        /* End Of Remainder Code */
+        var CurrentLoginUserEmail = LoginUserEmail();
+        var Confirmation;
+        GetEmployeeDetails();
+      
+        var getInvitaionSentUsers = GetInvitaionSentUsers(ProgramName);
+        var InvitaionEmailId;
+        var fcheck = '';
+        if (EmployeeID.length > 0 && EmailBody.length > 0 && arrCompurHire.length > 0) {
+            for (var i = 0; i < EmployeeID.length; i++) {
+                var csvInvitaionEmailId = EamilID[i].trim(/^\s+|\s+$/g, '');
+                var partemailid = GetParticipantEmailid(csvInvitaionEmailId)
+                var mangemlid=GetParticipantMangEmailid(csvInvitaionEmailId)
+                var manactemailid=GetParticipantEmailid(mangemlid)
+                if (arrCompurHire[i] == "Yes") {
+                    ProgramStatus = "Completed"
+                    Confirmation = "Yes";
+                }
+                else {
+                    ProgramStatus = "";
+                    Confirmation = "";
+                }
+                if (getInvitaionSentUsers.length > 0) {
+                    for (k = 0; k < getInvitaionSentUsers.length; k++) {
+                        var InvitaionEmailId = getInvitaionSentUsers[k].EmpEmailID;
+                        fcheck = true;
+                        if (csvInvitaionEmailId == InvitaionEmailId) {
+                            fcheck = false;
+                            break;
+                        }
+                    }
+                    if (fcheck) {
+                        $.ajax({
+                            url: _spPageContextInfo.webAbsoluteUrl + "//_api/web/lists/getbytitle('Invitation')/items",
+                            type: "POST",
+                            async: false,
+                            data: JSON.stringify({
+                                '__metadata': { 'type': 'SP.Data.InvitationListItem' },
+                                'Title': InvitationTitle,
+                                'ProgramName': ProgramNameText,
+                                'ProgramNameId': ProgramName,
+                                'ProgramLocation': ProgramLoction,
+                                'ProgramStartDate': ProgramSDate,
+                                'PSDATECheck': FinaPSDate,
+                                'PEDATECheck': FinaPEDate,
+                                'RemainderFrValue': parseInt(RmStartFrom),
+                                'RemainderFrText': RmStartType,
+                                'NeedRemainder': isNeedRemainder,
+                                'RMStartFromNumber': parseInt(RmFrValue),
+                                'RMStartFromType': RmFrType,
+
+                                'RMStopNumber': parseInt(RmStopValue),
+                                'RMStopType': RmStopType,
+
+                                'ProgramDesc': ProgramDesc,
+                                'ProgramEndDate': ProgramEDate,
+                                'EmailTemplateBody': EmailBody[0],
+                                'EmailTemplateName': EmailTemplateText,
+                                'Status': "Active",
+                                'EmployeeCode': EmplCode[i],
+                                'EmployeeName': EmployeeName[i],
+                                'EmployeeEmailId': csvInvitaionEmailId,
+                                'ParticipantEmail': partemailid,
+                                'ManagerEmailId' : manactemailid,
+                                'EmployeeType': arrCompurHire[i],
+                                'ProgramStatus': ProgramStatus,
+                                'CreatedByUser': CurrentLoginUserEmail,
+                                'Confirmation': Confirmation,
+
+                            }),
+                            headers: {
+                                "Accept": "application/json;odata=verbose",
+                                "content-type": "application/json; odata=verbose",
+                                "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+                            },
+                            success: function (data) {
+                            },
+                            error: function (err) {
+                                alert("Error while adding item: " + JSON.stringify(err));
+                            }
+                        });
+                    }
+                }
+                else {
+                    $.ajax({
+                        url: _spPageContextInfo.webAbsoluteUrl + "//_api/web/lists/getbytitle('Invitation')/items",
+                        type: "POST",
+                        async: false,
+                        data: JSON.stringify({
+                            '__metadata': { 'type': 'SP.Data.InvitationListItem' },
+                            'Title': InvitationTitle,
+                            'PSDATECheck': FinaPSDate,
+                            'PEDATECheck': FinaPEDate,
+                            'ProgramName': ProgramNameText,
+                            'ProgramNameId': ProgramName,
+                            'ProgramLocation': ProgramLoction,
+                            'ProgramStartDate': ProgramSDate,
+                            'RemainderFrValue': parseInt(RmStartFrom),
+                            'RemainderFrText': RmStartType,
+
+                            'RMStartFromNumber': parseInt(RmFrValue),
+                            'RMStartFromType': RmFrType,
+
+                            'RMStopNumber': parseInt(RmStopValue),
+                            'RMStopType': RmStopType,
+                            'NeedRemainder': isNeedRemainder,
+                            'ProgramDesc': ProgramDesc,
+                            'ProgramEndDate': ProgramEDate,
+                            'EmailTemplateBody': EmailBody[0],
+                            'EmailTemplateName': EmailTemplateText,
+
+                            'Status': "Active",
+
+                            'EmployeeCode': EmplCode[i],
+                            'EmployeeName': EmployeeName[i],
+                            'EmployeeEmailId': csvInvitaionEmailId,
+                            'ParticipantEmail': partemailid,
+                            'ManagerEmailId' : manactemailid,
+                            'EmployeeType': arrCompurHire[i],
+                            'ProgramStatus': ProgramStatus,
+                            'CreatedByUser': CurrentLoginUserEmail,
+                            'Confirmation': Confirmation,
+
+                        }),
+                        headers: {
+                            "Accept": "application/json;odata=verbose",
+                            "content-type": "application/json; odata=verbose",
+                            "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+                        },
+                        success: function (data) {
+                        },
+                        error: function (err) {
+                            alert("Error while adding item: " + JSON.stringify(err));
+                        }
+                    });
+                }
+
+            }
+        }
+    }
+
+    
+    function GetInvitaionSentUsers(selectedProgramName) {
+        var arrInvitaionSentUsers = [];
+        var ProgramNameDynDropDown = $('#ProgramNameDynDropDown').val();
+        var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('Invitation')/items?$filter=ProgramName%20eq%20%27" + selectedProgramName + "%27";
+        $.ajax({
+            url: RestUrl,
+            method: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+            },
+            success: function (d) {
+                var arrEdit = [];
+                iEdit = 0;
+                $.each(d.d.results, function (index, results) {
+                    arrEdit[iEdit++] = index;
+                });
+                arrInvitaionSentUsers = [];
+                for (var k = 0; k < arrEdit.length; k++) {
+                    var indexK = arrEdit[k];
+                    var EmpEmailID = d.d.results[indexK].EmployeeEmailId;
+                    arrInvitaionSentUsers.push({
+                        EmpEmailID: EmpEmailID
+                    })
+                }
+            },
+            error: function (d) {
+                console.log('Fail');
+            }
+        });
+        return arrInvitaionSentUsers;
+    }
+</script>
+
+<script>
+
+
+    var currentuserEmailID = "";
+    $.ajax({
+        async: false,
+        url: _spPageContextInfo.webServerRelativeUrl + "//_api/SP.UserProfiles.PeopleManager/GetMyProperties?$select=email",
+        method: "GET",
+        headers: {
+            "accept": "application/json;odata=verbose"
+        },
+        success: function (d) {
+            currentuserEmailID = d.d.Email;
+
+        },
+        error: function (err) {
+            alert(JSON.stringify(err));
+        }
+    });
+
+    var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('Invitation')/items?$filter=Status eq 'Active' and CreatedByUser eq '" + currentuserEmailID + "'";
+    $.ajax({
+        url: RestUrl,
+        method: "GET",
+        async: false,
+        headers: {
+            "accept": "application/json;odata=verbose",
+        },
+        success: function (data) {
+            if (data.d.results.length > 0) {
+                //construct HTML Table from the JSON Data
+                $('#divInviationDetails').append(GenerateTableFromJson(data.d.results));
+                //Bind the HTML data with Jquery DataTable
+                var oTable = $('#tblProgramInvites').dataTable({
+                    "iDisplayLength": 10,
+                    "aLengthMenu": [
+                    [10, 20, 50, 100],
+                    [10, 20, 50, 100]
+                    ],
+                    "sPaginationType": "full_numbers"
+                });
+            } else {
+                $('#divInviationDetails').append("<span>No Customer Records Found.</span>");
+            }
+        },
+        error: function (data) {
+            $('#divInviationDetails').append("<span>Error Retreiving Customer Records. Error : " + JSON.stringify(data) + "</span>");
+        }
+    });
+    function GenerateTableFromJson(objArray) {
+        $('tbodyProgramBind').empty();
+        var tableContent = '<table id="tblProgramInvites" style="width:100%" class="table table-striped table-bordered dt-responsive nowrap"><thead><tr>' + '<td>Sl.No.</td>' + '<td>Program Name</td>' + '<td>Invitees</td>' + '</tr></thead><tbody>';
+        var j = 0;
+        tableContent += '<tr>';
+        if (objArray.length > 0) {
+            var programNameUnique = '';
+            for (var i = 0; i < objArray.length; i++) {
+                if (programNameUnique != objArray[i].ProgramName) {
+                    j++;
+                    programNameUnique = objArray[i].ProgramName;
+                    var programlength = getProgramInvitiesLength(programNameUnique);
+                    tableContent += '<td>' + j + '</td>';
+                    tableContent += '<td>' + programNameUnique + '</td>';
+                    tableContent += '<td>' + programlength + '</td>';
+                    tableContent += '</tr>';
+                }
+            }
+            return tableContent;
+        }
+
+    }
+
+    function getProgramInvitiesLength(programNameUnique) {
+        var CountNo = 0;
+        var CurrentLoginUser = currentuserEmailID;
+        var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('Invitation')/items?$filter=Status eq 'Active' and ProgramName eq '" + programNameUnique + "' and CreatedByUser eq '" + CurrentLoginUser + "'";
+        $.ajax({
+            url: RestUrl,
+            method: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+            },
+            success: function (data) {
+                if (data.d.results.length > 0) {
+                    CountNo = data.d.results.length
+                }
+            },
+            error: function (data) {
+                console.log('Fail');
+            }
+        });
+        return CountNo;
+    }
+</script>
+<script>
+    var currentuserEmailID = "";
+    function LoginUserEmail() {
+
+        $.ajax({
+            async: false,
+            url: _spPageContextInfo.webServerRelativeUrl +
+                 "//_api/SP.UserProfiles.PeopleManager/GetMyProperties?$select=email",
+            method: "GET",
+            headers: {
+                "accept": "application/json;odata=verbose"
+            },
+            success: function (d) {
+                currentuserEmailID = d.d.Email;
+
+            },
+            error: function (err) {
+                alert(JSON.stringify(err));
+            }
+        });
+        return currentuserEmailID;
+    }
+    $(".allownumericwithoutdecimal").on("keypress keyup blur", function (event) {
+        $(this).val($(this).val().replace(/[^\d].+/, ""));
+        if ((event.which < 48 || event.which > 57)) {
+            event.preventDefault();
+        }
+    });
+    $('.changeText').change(function () {
+        $('#divpopMessage').empty();
+        $(this).css("border", "");
+    });
+</script>
+
+<script>
+function checkAll(ele) {
+     var checkboxes = document.getElementsByTagName('input');
+     if (ele.checked) {
+         for (var i = 0; i < checkboxes.length; i++) {
+             if (checkboxes[i].type == 'checkbox') {
+                 checkboxes[i].checked = true;
+             }
+         }
+     } else {
+         for (var i = 0; i < checkboxes.length; i++) {
+             console.log(i)
+             if (checkboxes[i].type == 'checkbox') {
+                 checkboxes[i].checked = false;
+             }
+         }
+     }
+ }
+ 
+ function deleteRow(tableID) {
+        try {
+        var isValid = 0;
+        var isFormatValid = 0;
+        var isChckValid = 1;
+        
+        var cmp_Non_hr = 0;
+        var cmp_hr = 0;
+
+        var table = document.getElementById(tableID);
+        var rowCount = table.rows.length;
+
+			$.blockUI.defaults.css = {		
+											padding: 0,		
+								            margin: 0,		
+								            width: '30%',		
+								            top: '40%',		
+								            left: '35%',		
+								            textAlign: 'center',
+								            cursor: 'wait'};
+								            
+		       $.blockUI.defaults.overlayCSS.backgroundColor = '#fff';
+		       $.blockUI.defaults.overlayCSS.opacity = 0.9;
+		       $.blockUI.defaults.overlayCSS.cursor = 'pointer';
+								            
+		       
+                $.blockUI({message: $('#throbber')});
+                
+                
+                setTimeout(function () {        
+                var rowCount_1=rowCount;
+                console.log(rowCount_1);
+                for(var i=1; i<rowCount; i++) {
+            var row = table.rows[i];
+            var chkbox = row.cells[0].childNodes[0];
+            if(null != chkbox && true == chkbox.checked) {
+            	var objCells = table.rows.item(i).cells;
+            	
+            	console.log(objCells.item(2).innerHTML)
+            	var emplid=objCells.item(2).innerHTML;
+            	DeleteChildItems(emplid);
+                            	
+                table.deleteRow(i);
+                //alert($(this.id).html());
+                rowCount--;
+                i--;
+            }
+            else if(false == chkbox.checked)
+            {
+            isChckValid = isChckValid + 1;
+            }
+        }
+        console.log(isChckValid);
+        
+        
+          $('#tbleinvitationDynTable tr').each(function() {
+  			  var customerId = $(this).find("td").eq(3).html();
+  			  var iscamphire = $(this).find("td").eq(4).html();
+  			  
+  			     			   
+  			   if ($.trim(iscamphire) == 'Yes') {
+  			  var checkFormat = getFormatOfEmail(customerId);
+  			  
+  			  cmp_hr++;
+  			  if (checkFormat == false) {
+  			  isFormatValid = isFormatValid + 1;
+
+			}
+			}
+			else
+			{
+			var isExists = getValidUsers(customerId);
+			cmp_Non_hr++;
+             if (isExists == false) {
+              isValid = isValid + 1;
+                                }
+     		}
+     		
+     		if (isValid == 0 && isFormatValid == 0) {
+                        $('#btnSubmit').show();
+                        $('#deleterows').show();	
+                        $('#divpopMessage').empty();
+                        $('#divpopMessage').css('color', '');
+                        
+                    }
+                    else {
+                        $('#btnSubmit').hide();
+                        $('#deleterows').show();
+                         $('#divpopMessage').empty();
+                        $('#divpopMessage').css('color', 'red');
+                        $('#divpopMessage').append("Invalid participant details");
+                    }
+			});
+			
+			$("#div_partcount").empty();
+			var count = $('#tbleinvitationDynTable tr').length;
+            //alert(count1);
+            //$("#div_partcount").append('<p><b>No. of Participants : ' + count + '</b><p/>');
+            //$("#div_partcount").append('<p class="bordered"><b>Total No. of Participants : ' + count + ' || No. of Campus hiree : ' + cmp_del_hr + ' || No. of Non Camopus hiree : ' + cmp_del +  '</b><p/>');
+            
+            $("#div_partcount").append('<TABLE BORDER="5" WIDTH="50%"  CELLPADDING="4" CELLSPACING="3"><TR><TH>Total No. of Participants</TH><TH>No. of Campus hiree</TH><TH>No. of Non Campus hiree</TH></TR><TR ALIGN="CENTER"><TD>' + count + '</TD><TD>' + cmp_hr + '</TD><TD>' + cmp_Non_hr + '</TD></TR></TABLE>' );                    
+
+		if(rowCount == rowCount_1)
+        {
+        //alert('Please select participants to delete');
+        bootbox.alert('Please select participants to delete', function(){
+});
+
+        }
+        else
+        {
+			//alert('Participant(s) deleted successfully')
+			                   bootbox.alert('Participant(s) deleted successfully', function(){
+});
+
+			 $('#chk_1').prop('checked',false);
+
+			}
+			 $.unblockUI({
+                    onUnblock: function () {
+                        console.log('');
+                    }
+                });
+
+ }, 600);
+ 
+ 
+        }catch(e) {
+            alert(e);
+        }
+      }
+</script>
+
+
+<script>
+function GetParticipantEmailid(csvInvitaionEmailId)
+{
+var Emailid=''
+
+ $.ajax({
+                url: _spPageContextInfo.webAbsoluteUrl + "/_api/SP.UserProfiles.PeopleManager/GetPropertiesFor(accountName=@v)?@v=%27i:0%23.f|membership|" + csvInvitaionEmailId + "%27",
+                type: "GET",
+                async: false,
+                headers: {
+                    "accept": "application/json;odata=verbose",
+                    "content-type": "application/json;odata=verbose",
+                    "X-RequestDigest": $("#__REQUESTDIGEST").val()
+                },
+                success: function (d) {
+                    if (d.d.DisplayName == 'undefined' || d.d.DisplayName == null || d.d.DisplayName == '') {
+                       Emailid=csvInvitaionEmailId;
+                    }
+                    else {
+                      
+                        Emailid= d.d.Email;
+                    }
+                },
+                error: function () { console.log('fail'); }
+            });
+            
+            return Emailid;
+            
+            }
+
+</script>
+
+<script>
+function GetParticipantMangEmailid(csvInvitaionEmailId)
+{
+var MangEmailid=''
+
+ $.ajax({
+                url: _spPageContextInfo.webAbsoluteUrl + "/_api/SP.UserProfiles.PeopleManager/GetUserProfilePropertyFor(accountName=@v,propertyName='Manager')?@v=%27i:0%23.f|membership|" + csvInvitaionEmailId + "%27",
+                type: "GET",
+                async: false,
+                headers: {
+                    "accept": "application/json;odata=verbose",
+                    "content-type": "application/json;odata=verbose",
+                    "X-RequestDigest": $("#__REQUESTDIGEST").val()
+                },
+                success: function (d) {
+                   
+                        MangEmailid=d.d.GetUserProfilePropertyFor;
+                       
+					   MangEmailid= MangEmailid.split("|").pop();
+					                     
+                },
+                error: function () { console.log('fail'); }
+            });
+            
+            return MangEmailid;
+            
+            }
+
+</script>
+
+<script>
+function DeleteChildItems(emplid)
+{
+    getItems("/_api/web/lists/getByTitle('EmployeeList')/items?$filter=EmployeeCode eq %27" + emplid + "%27").done(function(data){
+        var noChildItems = data.d.results.length; //number of child items to be deleted
+        data.d.results.forEach(function(item){
+            var childId = item.ID;
+            deleteItem("/_api/Web/Lists/GetByTitle('EmployeeList')/getItemById("+childId+")",item).done(function(d_data){
+                //deleted child item.
+            });
+        });
+    });
+}
+
+//Get items
+function getItems(url){
+    return $.ajax({
+        url: _spPageContextInfo.webAbsoluteUrl + url,
+        type: "GET",
+        headers: {
+            "accept": "application/json;odata=verbose",
+        }
+    });
+}
+
+
+//Delete Item
+function deleteItem(url, oldItem) {
+    return $.ajax({
+        url: _spPageContextInfo.webAbsoluteUrl + url,
+        type: "DELETE",
+        headers: {
+            "accept": "application/json;odata=verbose",
+            "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+            "If-Match": oldItem.__metadata.etag
+        }
+    });
+}
+
+  function GetPgmCncld(ChckCnclPgm) {
+     
+        var IsProgramCancelled = "";
+
+        var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('ProgramMaster')/items?$filter=Title%20eq%20%27" + ChckCnclPgm + "%27";
+        $.ajax({
+            url: RestUrl,
+            method: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+            },
+            success: function (d) {
+                  if (d.d.results.length > 0) {
+                  var arr = [];
+                  i = 0;
+                  $.each(d.d.results, function (index, results) {
+                  arr[i++] = index;
+                  });
+	              for (var k = 0; k < arr.length; k++) {
+	              var arrK = arr[k];
+				  IsProgramCancelled = d.d.results[arrK].IsProgramCancelled;
+	              }
+                }
+                else
+                {
+                IsProgramCancelled = 0;
+               }
+            },
+            error: function () { console.log('fail'); }
+        });
+        return IsProgramCancelled;
+    }
+
+
+</script>

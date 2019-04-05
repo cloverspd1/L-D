@@ -1,0 +1,1391 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="/sites/AnugamUAT/SiteAssets/AnugamStyles/css/main.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css"
+      rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<link href="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datatable/css/dataTables.bootstrap.min.css" rel="stylesheet">
+<link href="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datatable/css/responsive.bootstrap.min.css" rel="stylesheet">
+
+<link href="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datepicker/css/custom.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css" rel="stylesheet">
+<script src="https://bajajelect.sharepoint.com/sites/AnugamUAT/SiteAssets/Webparts/alluploadreferences/jquery.blockUI.js"></script>
+
+
+
+<style>
+    .clear {
+        clear: both;
+    }
+
+    .opacity-0 {
+        opacity: 0;
+    }
+
+    .padding-0 {
+        padding: 0 !important;
+    }
+
+    .margin-0 {
+        margin: 0 !important;
+    }
+
+    .margin-top-0 {
+        margin-top: 0 !important;
+    }
+
+    .margin-bottom-0 {
+        margin-bottom: 0 !important;
+    }
+
+    .margin-top-5 {
+        margin-top: 5px !important;
+    }
+
+    .margin-top-10 {
+        margin-top: 10px !important;
+    }
+
+    .margin-top-15 {
+        margin-top: 15px !important;
+    }
+
+    .form-control-style-1 {
+        background-color: #d5ecd5 !important;
+        border: 1px solid #a9d4a9 !important;
+    }
+
+    .border-style-1 {
+        border: 1px solid #e3e3e3;
+        padding: 10px;
+        border-radius: 4px;
+    }
+
+    .requiredfieldsstyle {
+        padding-left: 15px !important;
+        font-size: 12px;
+        font-style: italic;
+    }
+    .bootbox-close-button close
+    {
+    display:none;
+    }
+    .close
+    {
+    display:none;
+    }
+
+</style>
+<style>
+#main_div
+{
+margin-left: -108px !Important;
+}
+#lft_div
+{
+display:none !Important;
+}
+
+.spkcls
+    {
+    width:auto !important;
+    }
+
+</style>
+<div >
+<div class="col-md-12 padding-0 page-content-header-style-1">
+        <h1 style="font-size:25px !important; margin-left:-68px !important; margin-right:0px !important; margin-top:0px !important;margin-bottom:0px !important;font-weight: bolder;">
+		<b>Induction Feedback Form</b>
+        </h1>
+    </div>
+
+    <button type="button" class="dashboard-button" onclick="goToLink();" id="Tesging" style="display:none;">Go To Link</button>
+    <div class="col-md-12" id="main_div">
+    <div id="mob_ovr_main_div">
+        <div class="col-md-12 margin-top-15 ">
+            <div class="col-md-6">
+                <label>Program Name</label>
+                <input type="text" class="form-control form-control-style-1" readonly="readonly" id="txtProgramName" style="overflow:auto;" />
+            </div>
+            <div class="col-md-3">
+                <label>Start Day</label>
+                <input type="text" class="form-control  form-control-style-1" readonly="readonly" id="txtProgramSdate" />
+            </div>
+            <div class="col-md-3">
+                <label>End Day</label>
+                <input type="text" class="form-control form-control-style-1" readonly="readonly" id="txtProgramEdate" />
+            </div>
+            <div class="col-md-3" style="display:none">
+                <label>End Day</label>
+                <input type="text" class="form-control  form-control-style-1" readonly="readonly" id="txtProgramLocation" />
+            </div>
+        </div>
+        <div class="clear"></div>
+
+        <div class="padding-0-xs margin-top-15" id="speakerdetialsbind">
+        </div>
+        <div class="well margin-top-15">
+            <div class="col-md-12 margin-top-15">
+                <label>Do you have any suggestions to improve the program?</label>
+            </div>
+            <div class="col-md-12 margin-top-15">
+                <div class="col-md-12 padding-0">
+                    <textarea class="form-control Required" id="txtsuggestion"></textarea>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+
+        <div class="well margin-top-15">
+            <div class="col-md-12 margin-top-15">
+                <label>What was the most valuable aspect of the program?</label>
+            </div>
+            <div class="col-md-12 margin-top-15">
+                <div class="col-md-12 padding-0">
+                    <textarea class="form-control Required" id="txtmostaspects"></textarea>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="well margin-top-15">
+            <div class="col-md-12 margin-top-15">
+                <label>What was the least valuable aspect of the program?</label>
+            </div>
+            <div class="col-md-12 margin-top-15">
+                <div class="col-md-12 padding-0">
+                    <textarea class="form-control Required" id="txtleastaspects"></textarea>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        
+        <div class="well margin-top-15">
+            <div class="col-md-12 margin-top-15">
+                <label>Your overall comment on the program.</label>
+            </div>
+            <div class="col-md-12 margin-top-15">
+                <div class="col-md-12 padding-0">
+                    <textarea class="form-control Required" id="txtoverall"></textarea>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+
+
+
+        <div class="col-md-12 padding-0 margin-top-15">
+            <div id="divErrorMessage" class="requiredfieldsstyle"></div>
+        </div>
+        <div class="clear"></div>
+        <div class="col-md-12 margin-top-15">
+            <div class="col-md-2">
+                <button class="btn btn-success btn-block btncls_ovr" style="margin-left:-30px;" id="btnSubmit">SUBMIT</button>
+            </div>
+        </div>
+
+</div>
+    </div>
+
+
+</div>
+
+
+<div id="throbber" style="display:none;">
+<img src="https://bajajelect.sharepoint.com/sites/HR-TrainingManagementSystem/SiteAssets/AnugamStyles/img/712_1.gif" /><br/></br><h3><b style="color:#0072c6 !Important;font-size:32px">Please Wait...</b><h3></div>
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datepicker/js/moment.min.js"></script>
+<script src="/sites/AnugamUAT/SiteAssets/AnugamStyles/Datepicker/js/daterangepicker.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.js"></script>
+
+
+<script src="https://bajajelect.sharepoint.com/sites/AnugamUAT/SiteAssets/Webparts/alluploadreferences/jquery.blockUI.js"></script>
+
+<script>
+
+
+    var UserOffice = "";
+    var UserOfficeNew = "";
+    var EmailOfUser = "";
+    var ProgramName = "";
+    var UserLoginEmailId = "";
+    $.ajax({
+        async: false,
+        url: _spPageContextInfo.webServerRelativeUrl + "//_api/SP.UserProfiles.PeopleManager/GetMyProperties",
+        method: "GET",
+        headers: {
+            "accept": "application/json;odata=verbose"
+        },
+        success: function (d) {
+            //UserOffice = d.d.Office;
+            UserOfficeNew = d.d.UserProfileProperties.results[60].Value;
+            UserOffice = d.d.UserProfileProperties.results[61].Value;
+            EmailOfUser = d.d.Email;
+            UserLoginEmailId = d.d.UserProfileProperties.results[19].Value.toUpperCase();
+        },
+        error: function (err) {
+            alert(JSON.stringify(err));
+        }
+    });
+    function getQueryStrings() {
+        var assoc = {};
+        var decode = function (s) { return decodeURIComponent(s.replace(/\+/g, " ")); };
+        var queryString = location.search.substring(1);
+        var keyValues = queryString.split('&');
+
+        for (var i in keyValues) {
+            var key = keyValues[i].split('=');
+            if (key.length > 1) {
+                assoc[decode(key[0])] = decode(key[1]);
+            }
+        }
+
+        return assoc;
+    }
+   // var tempvar=tempvar_1;
+    var qs = getQueryStrings();
+    var ProgramID = qs["FeedbackID"];
+    //var param_1=qs["w"];
+    //alert(param_1)
+    var ActID = "";
+   // var  OverallManFdbckCount1=0;
+    var appWebUrl = window.location.protocol + "//" + window.location.host + _spPageContextInfo.webServerRelativeUrl;
+    var ProgramName = '';
+    $.ajax({
+        async: false,
+        url: appWebUrl + "/_api/web/lists/getbytitle('InductionFeedback')/items(" + ProgramID + ")",
+        type: "GET",
+        headers: {
+            "accept": "application/json;odata=verbose",
+            "content-type": "application/json;odata=verbose",
+            "x-requestdigest": $("#__requestdigest").val(),
+        },
+        success: function (d) {
+            var UserWithoutDomain = EmailOfUser.substring(0, EmailOfUser.lastIndexOf("@"));
+            var res = UserWithoutDomain.toUpperCase();
+            var eMailID = d.d.EmployeeEmail;
+            var EcodeUpper = eMailID.toUpperCase();
+            var EmpCode = d.d.EmployeeCode;
+            var selectedProgramName = d.d.ProgramName;
+            
+           //var OverallManFdbckCount1 = GetOverAllManFeedbck_1(EmpCode,selectedProgramName);
+
+            if (d.d.ID == ProgramID && d.d.FeedbackStatus != "Completed" && EcodeUpper == EmailOfUser.toUpperCase() || EcodeUpper == UserLoginEmailId) {
+                ProgramName = d.d.ProgramName;
+                var ProgramEndDate = d.d.ProgramEndDate;
+                var ProgramStartDate = d.d.ProgramStartDate;
+                var ProgramLocation = d.d.ProgramLocation;
+                $("#txtProgramName").val(ProgramName);
+                $("#txtProgramSdate").val(ProgramStartDate);
+                $("#txtProgramEdate").val(ProgramEndDate);
+                $("#txtProgramLocation").val(ProgramLocation);
+            }
+            if ((d.d.ID == ProgramID && d.d.FeedbackStatus == "Completed")) {
+           
+                
+                window.location.href = "https://bajajelect.sharepoint.com/";
+            
+            }
+        },
+        error: function () { console.log('fail'); }
+    });
+    var activityID = []; iactivityID = 0; var arrSequnce = []; iarrSequnce = 0; var arrSaveActId = []; iarrSaveActId = 0;
+    var arractivityName = []; iarractivityName = 0; var activityUniID = []; iactivityUniID = 0;
+    if (ProgramName != "" && ProgramName != null) {
+        $.ajax({
+            url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('NewInductionProgram')/items?$top=1000&?filter=FeedBackNeed%20eq%20%27Yes%27&$orderby=actSequence%20asc",
+            type: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+                "content-type": "application/json;odata=verbose",
+                "X-RequestDigest": $("#__REQUESTDIGEST").val()
+            },
+            success: function (d) {
+                var arr = [];
+                i2 = 0;
+                $.each(d.d.results, function (index, results) {
+                    if (results.Status == "Active" && results.ProgramName == ProgramName) {
+                        arr[i2++] = index;
+                    }
+                });
+                for (var i = 0; i < arr.length; i++) {
+                    var arrKey = arr[i];
+                    activityID = d.d.results[arrKey].ActivityID;
+                    arractivityName[iarractivityName++] = d.d.results[arrKey].ActivityName;
+                    arrSaveActId[iarrSaveActId++] = d.d.results[arrKey].ActivityID;
+                    arrSequnce[iarrSequnce++] = d.d.results[arrKey].actSequence;
+                    activityUniID[iactivityUniID++] = d.d.results[arrKey].ID;
+                    var ProgramStartDate = d.d.results[0].ProgramStartDate;
+                    var ProgramStartDate = d.d.results[0].ProgramEndDate;
+                    $('#PSdate').val(ProgramStartDate);
+                    $('#PEdate').val(ProgramStartDate);
+
+                    //var SpeakerOrder = i + 1;
+                   // GetSpeakerDetailsBind(activityID, SpeakerOrder);
+                }
+               var SpeakerName = getSpeakerName(ProgramName);
+                if (SpeakerName != '' && SpeakerName != null) {
+                    $('#txtSpeakerName').val(SpeakerName);
+                     var Sequence = 1; var arrSequence = [];
+                     SpeakerEmail ="abc";
+                     EmployeeCode ="slks";
+                     SpeakerDepartment ="dept";
+                     
+
+                      $("#speakerdetialsbind").append('<div class="FormValidations well padding-0-xs SpeakerSeq-' + Sequence + '" id=' + Sequence + '>'
+        + '<div class="col-md-12 margin-top-15 padding-0">'
+            + '<div class="col-md-4"><label>Speaker Name</label><p class="form-control form-control-style-1 spkcls" style="overflow: auto;width:980px !Important" id=SpeakerName' + Sequence + '>' + SpeakerName + '</p></div>'
+            + '<div class="col-md-3" style="display:none"><label>Speaker Email</label><p class="form-control form-control-style-1" id=SpeakerEmail' + Sequence + '>' + SpeakerEmail + '</p></div><div class="col-md-3" style="display:none">'
+            + '<label>Speaker Ecode</label><p class="form-control form-control-style-1" id=SpeakerECode' + Sequence + '>' + EmployeeCode + '</p>'
+            + '</div><div class="col-md-4" style="display:none"><label> Speaker Department</label><p class="form-control form-control-style-1" style="width:100%;overflow-x: auto;overflow-y: auto;" id=SpeakerDept' + Sequence + '>' + SpeakerDepartment + '</p></div></div>'
+        + '<div class="col-md-12 margin-top-15 padding-0"><div class="col-md-12"><div class="col-md-12 border-style-1"><div class="col-md-7"><label class="margin-bottom-0" id=' + Sequence + '>Q1 . Was the Induction process helpful in providing a better understanding about the organization?</label></div>'
+                    + '<div class="col-md-5">'
+                        + '<div class="FormValidationsRadio1 col-md-12 padding-0 validationInductionUndt' + Sequence + '" id="validationInductionUndt' + Sequence + '">'
+                            + '<label class="radio-inline"><input type="radio" title="InductionUndt' + Sequence + ' " class="InductionUndt radioChecked1" name="InductionUndt' + Sequence + '" value="Very much" id=' + Sequence + '>Very much</label><label class="radio-inline">'
+                + '<input type="radio" class="InductionUndthide radioChecked1" name="InductionUndt' + Sequence + '" value="Somewhat" id=' + Sequence + '>Somewhat'
+            + '</label><label class="radio-inline"><input type="radio" class="InductionUndthide radioChecked1" name="InductionUndt' + Sequence + '" value="Not Really" id=' + Sequence + '>Not Really</label><label class="radio-inline">'
+                + '<input type="radio" class="InductionUndthide radioChecked1" name="InductionUndt' + Sequence + '" value="Not at All" id=' + Sequence + '>Not at All</label></div></div></div></div>'
+        + '<div class="col-md-12">'
+        + '<div class=" col-md-12 margin-top-10  border-style-1">'
+         + '<div class="col-md-7"><label class="margin-bottom-0" id=' + Sequence + '>Q2 . Did the Induction process provide valuable information about systems and processes?</label></div>'
+         + '<div class="col-md-5">'
+        + '<div class="FormValidationsRadio2 col-md-12 padding-0 validationInductionValInfo' + Sequence + '" id="validationInductionValInfo' + Sequence + '">'
+            + '<label class="radio-inline"><input type="radio" title="InductionValInfo' + Sequence + ' " class="InductionValInfo radioChecked2" name="InductionValInfo' + Sequence + '" value="Very much" id=' + Sequence + '>Very much</label><label class="radio-inline">'
+                + '<input type="radio" class="InductionValInfohide radioChecked2" name="InductionValInfo' + Sequence + '" value="Somewhat" id=' + Sequence + '>Somewhat'
+            + '</label><label class="radio-inline"><input type="radio" class="InductionValInfohide radioChecked2" name="InductionValInfo' + Sequence + '" value="Not Really" id=' + Sequence + '>Not Really</label><label class="radio-inline">'
+                + '<input type="radio" class="InductionValInfohide radioChecked2" name="InductionValInfo' + Sequence + '" value="Not at All" id=' + Sequence + '>Not at All'
+            + '</label></div></div></div></div>'
++ '<div class="col-md-12">'
++ '<div class=" col-md-12 margin-top-10  border-style-1">'
+    + '<div class="col-md-7"><label class="margin-bottom-0" id=' + Sequence + '>Q3 . Were your queries addressed during the program?</label></div>'
+    + '<div class="col-md-5">'
+        + '<div class="FormValidationsRadio3 col-md-12 padding-0 validationInductionQueries' + Sequence + '" id="validationInductionQueries' + Sequence + '">'
+            + '<label class="radio-inline"><input type="radio" title="InductionQueries' + Sequence + ' " class="InductionQueries radioChecked3" name="InductionQueries' + Sequence + '" value="Very much" id=' + Sequence + '>Very much</label><label class="radio-inline">'
+                + '<input type="radio" class="InductionQuerieshide radioChecked3" name="InductionQueries' + Sequence + '" value="Somewhat" id=' + Sequence + '>Somewhat'
+            + '</label><label class="radio-inline"><input type="radio" class="InductionQuerieshide radioChecked3" name="InductionQueries' + Sequence + '" value="Not Really" id=' + Sequence + '>Not Really</label><label class="radio-inline">'
+                + '<input type="radio" class="InductionQuerieshide radioChecked3" name="InductionQueries' + Sequence + '" value="Not at All" id=' + Sequence + '>Not at All'
+           + ' </label></div></div></div></div>'
++ '<div class="col-md-12">'
++ '<div class=" col-md-12 margin-top-10  border-style-1">'
+    + '<div class="col-md-7"><label class="margin-bottom-0" id=' + Sequence + '>Q4 . Was the time allocated to the program appropriate?</label></div>'
+    + '<div class="col-md-5">'
+        + '<div class="FormValidationsRadio4 col-md-12 padding-0 validationInductionTime' + Sequence + '" id="validationInductionTime' + Sequence + '">'
+           + ' <label class="radio-inline"><input type="radio" title="InductionTime' + Sequence + ' " class="InductionTime radioChecked4" name="InductionTime' + Sequence + '" value="Very much" id=' + Sequence + '>Very much</label><label class="radio-inline">'
+                + '<input type="radio" class="InductionTimehide radioChecked4" name="InductionTime' + Sequence + '" value="Somewhat" id=' + Sequence + '>Somewhat'
+            + '</label><label class="radio-inline"><input type="radio" class="InductionTimehide radioChecked4" name="InductionTime' + Sequence + '" value="Not Really" id=' + Sequence + '>Not Really</label><label class="radio-inline">'
+                + '<input type="radio" class="InductionTimehide radioChecked4" name="InductionTime' + Sequence + '" value="Not at All" id=' + Sequence + '>Not at All'
+            + '</label></div></div></div></div>'
++ '<div class="col-md-12">'
++ '<div class=" col-md-12 margin-top-10  border-style-1">'
+    + '<div class="col-md-7"><label class="margin-bottom-0" id=' + Sequence + '>Q5 . Were you satisfied with the facilities at the venue:</label></div></div></div>'
+  
+           + '<div class="col-md-12">'
++ '<div class=" col-md-12 margin-top-10  border-style-1">'
+    + '<div class="col-md-7"><label class="margin-bottom-0" id=' + Sequence + '>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a) Location</label></div>'
+   + ' <div class="col-md-5">'
+        + '<div class="FormValidationsRadio5 col-md-12 padding-0 validationInductionLoc' + Sequence + '" id="validationInductionLoc' + Sequence + '">'
+           + ' <label class="radio-inline"><input type="radio" title="InductionLoc' + Sequence + ' " class="InductionLoc radioChecked5" name="InductionLoc' + Sequence + '" value="Very much" id=' + Sequence + '>Very much</label><label class="radio-inline">'
+                + '<input type="radio" class="InductionLochide radioChecked5" name="InductionLoc' + Sequence + '" value="Somewhat" id=' + Sequence + '>Somewhat'
+            + '</label><label class="radio-inline"><input type="radio" class="InductionLochide radioChecked5" name="InductionLoc' + Sequence + '" value="Not Really" id=' + Sequence + '>Not Really</label><label class="radio-inline">'
+                + '<input type="radio" class="InductionLocthide radioChecked5" name="InductionLoc' + Sequence + '" value="Not at All" id=' + Sequence + '>Not at All'
+           + ' </label></div></div></div></div>'
+           + '<div class="col-md-12">'
++ '<div class=" col-md-12 margin-top-10  border-style-1">'
+    + '<div class="col-md-7"><label class="margin-bottom-0" id=' + Sequence + '>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b) Ambience</label></div>'
+   + ' <div class="col-md-5">'
+        + '<div class="FormValidationsRadio6 col-md-12 padding-0 validationInductionAmb' + Sequence + '" id="validationInductionAmb' + Sequence + '">'
+           + ' <label class="radio-inline"><input type="radio" title="InductionAmb' + Sequence + ' " class="InductionAmb radioChecked6" name="InductionAmb' + Sequence + '" value="Very much" id=' + Sequence + '>Very much</label><label class="radio-inline">'
+                + '<input type="radio" class="InductionAmbhide radioChecked6" name="InductionAmb' + Sequence + '" value="Somewhat" id=' + Sequence + '>Somewhat'
+            + '</label><label class="radio-inline"><input type="radio" class="InductionAmbhide radioChecked6" name="InductionAmb' + Sequence + '" value="Not Really" id=' + Sequence + '>Not Really</label><label class="radio-inline">'
+                + '<input type="radio" class="InductionAmbhide radioChecked6" name="InductionAmb' + Sequence + '" value="Not at All" id=' + Sequence + '>Not at All'
+           + ' </label></div></div></div></div>'
++ '<div class="col-md-12">'
++ '<div class=" col-md-12 margin-top-10  border-style-1">'
+    + '<div class="col-md-7"><label class="margin-bottom-0" id=' + Sequence + '>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c) Food</label></div>'
+   + ' <div class="col-md-5">'
+        + '<div class="FormValidationsRadio7 col-md-12 padding-0 validationInductionFood' + Sequence + '" id="validationInductionFood' + Sequence + '">'
+           + ' <label class="radio-inline"><input type="radio" title="InductionFood' + Sequence + ' " class="InductionFood radioChecked7" name="InductionFood' + Sequence + '" value="Very much" id=' + Sequence + '>Very much</label><label class="radio-inline">'
+                + '<input type="radio" class="InductionFoodhide radioChecked7" name="InductionFood' + Sequence + '" value="Somewhat" id=' + Sequence + '>Somewhat'
+            + '</label><label class="radio-inline"><input type="radio" class="InductionFoodhide radioChecked7" name="InductionFood' + Sequence + '" value="Not Really" id=' + Sequence + '>Not Really</label><label class="radio-inline">'
+                + '<input type="radio" class="InductionFoodhide radioChecked7" name="InductionFood' + Sequence + '" value="Not at All" id=' + Sequence + '>Not at All'
+           + ' </label></div></div></div></div>'
++ '<div class="col-md-12">'
++ '<div class=" col-md-12 margin-top-10  border-style-1">'
+    + '<div class="col-md-7"><label class="margin-bottom-0" id=' + Sequence + '>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d) Stay</label></div>'
+   + ' <div class="col-md-5">'
+        + '<div class="FormValidationsRadio8 col-md-12 padding-0 validationInductionStay' + Sequence + '" id="validationInductionStay' + Sequence + '">'
+           + ' <label class="radio-inline"><input type="radio" title="InductionStay' + Sequence + ' " class="InductionStay radioChecked8" name="InductionStay' + Sequence + '" value="Very much" id=' + Sequence + '>Very much</label><label class="radio-inline">'
+                + '<input type="radio" class="InductionStayhide radioChecked8" name="InductionStay' + Sequence + '" value="Somewhat" id=' + Sequence + '>Somewhat'
+            + '</label><label class="radio-inline"><input type="radio" class="InductionStayhide radioChecked8" name="InductionStay' + Sequence + '" value="Not Really" id=' + Sequence + '>Not Really</label><label class="radio-inline">'
+                + '<input type="radio" class="InductionStayhide radioChecked8" name="InductionStay' + Sequence + '" value="Not at All" id=' + Sequence + '>Not at All'
+           + ' </label></div></div></div></div></div><div class=" clear"></div></div>');
+
+//alert($("#SpeakerName1 p").text(););
+
+
+                }
+                
+            },
+            error: function (err) {
+                alert("Error while adding item: " + JSON.stringify(err));
+            }
+        });
+
+    }
+
+    var Sequence = ""; var arrSequence = [];
+    function GetSpeakerDetailsBind(activityID, SpeakerOrder) {
+        $.ajax({
+            url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('FeedBackDetails')/items?$filter=ActiviTyID eq %27" + activityID + "%27",
+            type: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+                "content-type": "application/json;odata=verbose",
+                "X-RequestDigest": $("#__REQUESTDIGEST").val()
+            },
+            success: function (d) {
+                 var arr = [];
+            i = 0;
+            $.each(d.d.results, function (index, results) {
+                if (results.Status == "Active") {
+                    arr[i++] = index;
+                }
+            });
+
+ for (var j = 0; j < arr.length; j++) {
+                   var arrConfigK = arr[j];
+                    if(arrConfigK<=0){
+                var SpeakerName = d.d.results[arrConfigK].NameOfTheSpeaker +",";
+                var SpeakerEmail = d.d.results[arrConfigK].SpeakerEmail +",";
+                var EmployeeCode = d.d.results[arrConfigK].EmployeeCode +",";
+                var SpeakerDepartment = d.d.results[arrConfigK].SpeakerDepartment +",";
+                Sequence = d.d.results[arrConfigK].Sequence;
+                 }
+                 else if(arrConfigK>=1){
+
+                var SpeakerName = SpeakerName + d.d.results[arrConfigK].NameOfTheSpeaker +",";
+                var SpeakerEmail = SpeakerEmail +  d.d.results[arrConfigK].SpeakerEmail +",";
+                var EmployeeCode = EmployeeCode + d.d.results[arrConfigK].EmployeeCode +",";
+                var SpeakerDepartment = SpeakerDepartment + d.d.results[arrConfigK].SpeakerDepartment +",";
+                Sequence = d.d.results[arrConfigK].Sequence;
+                 }
+
+}
+               // var SpeakerName = d.d.results[0].NameOfTheSpeaker;
+               // var SpeakerEmail = d.d.results[0].SpeakerEmail;
+              //  var EmployeeCode = d.d.results[0].EmployeeCode;
+              //  var SpeakerDepartment = d.d.results[0].SpeakerDepartment;
+             //   Sequence = d.d.results[0].Sequence;
+             
+             
+              var lastChar = SpeakerName.slice(-1);
+  if (lastChar == ',') {
+  SpeakerName = SpeakerName.slice(0, -1);
+  }
+   var lastChar1 = SpeakerEmail.slice(-1);
+  if (lastChar1 == ',') {
+  SpeakerEmail = SpeakerEmail.slice(0, -1);
+  }
+   var lastChar2 = EmployeeCode.slice(-1);
+  if (lastChar2 == ',') {
+  EmployeeCode = EmployeeCode.slice(0, -1);
+  }
+   var lastChar3 = SpeakerDepartment.slice(-1);
+  if (lastChar3 == ',') {
+  SpeakerDepartment = SpeakerDepartment.slice(0, -1);
+  }
+
+             
+                $("#speakerdetialsbind").append('<div class="FormValidations well padding-0-xs SpeakerSeq-' + Sequence + '" id=' + Sequence + '>'
+        + '<div class="col-md-12 margin-top-15 padding-0">'
+            + '<div class="col-md-4"><label>Speaker Name</label><p class="form-control form-control-style-1 spkcls" style="overflow: auto;" id=SpeakerName' + Sequence + '>' + SpeakerName + '</p></div>'
+            + '<div class="col-md-3" style="display:none"><label>Speaker Email</label><p class="form-control form-control-style-1" id=SpeakerEmail' + Sequence + '>' + SpeakerEmail + '</p></div><div class="col-md-3" style="display:none">'
+            + '<label>Speaker Ecode</label><p class="form-control form-control-style-1" id=SpeakerECode' + Sequence + '>' + EmployeeCode + '</p>'
+            + '</div><div class="col-md-4" style="display:none"><label> Speaker Department</label><p class="form-control form-control-style-1" style="width:100%;overflow-x: auto;overflow-y: auto;" id=SpeakerDept' + Sequence + '>' + SpeakerDepartment + '</p></div></div>'
+        + '<div class="col-md-12 margin-top-15 padding-0"><div class="col-md-12"><div class="col-md-12 border-style-1"><div class="col-md-7"><label class="margin-bottom-0" id=' + Sequence + '>Q1 . Was the Induction process helpful in providing a better understanding about the organization?</label></div>'
+                    + '<div class="col-md-5">'
+                        + '<div class="FormValidationsRadio1 col-md-12 padding-0 validationInductionUndt' + Sequence + '" id="validationInductionUndt' + Sequence + '">'
+                            + '<label class="radio-inline"><input type="radio" title="InductionUndt' + Sequence + ' " class="InductionUndt radioChecked1" name="InductionUndt' + Sequence + '" value="Very much" id=' + Sequence + '>Very much</label><label class="radio-inline">'
+                + '<input type="radio" class="InductionUndthide radioChecked1" name="InductionUndt' + Sequence + '" value="Somewhat" id=' + Sequence + '>Somewhat'
+            + '</label><label class="radio-inline"><input type="radio" class="InductionUndthide radioChecked1" name="InductionUndt' + Sequence + '" value="Not Really" id=' + Sequence + '>Not Really</label><label class="radio-inline">'
+                + '<input type="radio" class="InductionUndthide radioChecked1" name="InductionUndt' + Sequence + '" value="Not at All" id=' + Sequence + '>Not at All</label></div></div></div></div>'
+        + '<div class="col-md-12">'
+        + '<div class=" col-md-12 margin-top-10  border-style-1">'
+         + '<div class="col-md-7"><label class="margin-bottom-0" id=' + Sequence + '>Q2 . Did the Induction process provide valuable information about systems and processes?</label></div>'
+         + '<div class="col-md-5">'
+        + '<div class="FormValidationsRadio2 col-md-12 padding-0 validationInductionValInfo' + Sequence + '" id="validationInductionValInfo' + Sequence + '">'
+            + '<label class="radio-inline"><input type="radio" title="InductionValInfo' + Sequence + ' " class="InductionValInfo radioChecked2" name="InductionValInfo' + Sequence + '" value="Very much" id=' + Sequence + '>Very much</label><label class="radio-inline">'
+                + '<input type="radio" class="InductionValInfohide radioChecked2" name="InductionValInfo' + Sequence + '" value="Somewhat" id=' + Sequence + '>Somewhat'
+            + '</label><label class="radio-inline"><input type="radio" class="InductionValInfohide radioChecked2" name="InductionValInfo' + Sequence + '" value="Not Really" id=' + Sequence + '>Not Really</label><label class="radio-inline">'
+                + '<input type="radio" class="InductionValInfohide radioChecked2" name="InductionValInfo' + Sequence + '" value="Not at All" id=' + Sequence + '>Not at All'
+            + '</label></div></div></div></div>'
++ '<div class="col-md-12">'
++ '<div class=" col-md-12 margin-top-10  border-style-1">'
+    + '<div class="col-md-7"><label class="margin-bottom-0" id=' + Sequence + '>Q3 . Were your queries addressed during the program?</label></div>'
+    + '<div class="col-md-5">'
+        + '<div class="FormValidationsRadio3 col-md-12 padding-0 validationInductionQueries' + Sequence + '" id="validationInductionQueries' + Sequence + '">'
+            + '<label class="radio-inline"><input type="radio" title="InductionQueries' + Sequence + ' " class="InductionQueries radioChecked3" name="InductionQueries' + Sequence + '" value="Very much" id=' + Sequence + '>Very much</label><label class="radio-inline">'
+                + '<input type="radio" class="InductionQuerieshide radioChecked3" name="InductionQueries' + Sequence + '" value="Somewhat" id=' + Sequence + '>Somewhat'
+            + '</label><label class="radio-inline"><input type="radio" class="InductionQuerieshide radioChecked3" name="InductionQueries' + Sequence + '" value="Not Really" id=' + Sequence + '>Not Really</label><label class="radio-inline">'
+                + '<input type="radio" class="InductionQuerieshide radioChecked3" name="InductionQueries' + Sequence + '" value="Not at All" id=' + Sequence + '>Not at All'
+           + ' </label></div></div></div></div>'
++ '<div class="col-md-12">'
++ '<div class=" col-md-12 margin-top-10  border-style-1">'
+    + '<div class="col-md-7"><label class="margin-bottom-0" id=' + Sequence + '>Q4 . Was the time allocated to the program appropriate?</label></div>'
+    + '<div class="col-md-5">'
+        + '<div class="FormValidationsRadio4 col-md-12 padding-0 validationInductionTime' + Sequence + '" id="validationInductionTime' + Sequence + '">'
+           + ' <label class="radio-inline"><input type="radio" title="InductionTime' + Sequence + ' " class="InductionTime radioChecked4" name="InductionTime' + Sequence + '" value="Very much" id=' + Sequence + '>Very much</label><label class="radio-inline">'
+                + '<input type="radio" class="InductionTimehide radioChecked4" name="InductionTime' + Sequence + '" value="Somewhat" id=' + Sequence + '>Somewhat'
+            + '</label><label class="radio-inline"><input type="radio" class="InductionTimehide radioChecked4" name="InductionTime' + Sequence + '" value="Not Really" id=' + Sequence + '>Not Really</label><label class="radio-inline">'
+                + '<input type="radio" class="InductionTimehide radioChecked4" name="InductionTime' + Sequence + '" value="Not at All" id=' + Sequence + '>Not at All'
+            + '</label></div></div></div></div>'
++ '<div class="col-md-12">'
++ '<div class=" col-md-12 margin-top-10  border-style-1">'
+    + '<div class="col-md-7"><label class="margin-bottom-0" id=' + Sequence + '>Q5 . Were you satisfied with the facilities at the venue:</label></div></div></div>'
+  
+           + '<div class="col-md-12">'
++ '<div class=" col-md-12 margin-top-10  border-style-1">'
+    + '<div class="col-md-7"><label class="margin-bottom-0" id=' + Sequence + '>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a) Location</label></div>'
+   + ' <div class="col-md-5">'
+        + '<div class="FormValidationsRadio5 col-md-12 padding-0 validationInductionLoc' + Sequence + '" id="validationInductionLoc' + Sequence + '">'
+           + ' <label class="radio-inline"><input type="radio" title="InductionLoc' + Sequence + ' " class="InductionLoc radioChecked5" name="InductionLoc' + Sequence + '" value="Very much" id=' + Sequence + '>Very much</label><label class="radio-inline">'
+                + '<input type="radio" class="InductionLochide radioChecked5" name="InductionLoc' + Sequence + '" value="Somewhat" id=' + Sequence + '>Somewhat'
+            + '</label><label class="radio-inline"><input type="radio" class="InductionLochide radioChecked5" name="InductionLoc' + Sequence + '" value="Not Really" id=' + Sequence + '>Not Really</label><label class="radio-inline">'
+                + '<input type="radio" class="InductionLocthide radioChecked5" name="InductionLoc' + Sequence + '" value="Not at All" id=' + Sequence + '>Not at All'
+           + ' </label></div></div></div></div>'
+           + '<div class="col-md-12">'
++ '<div class=" col-md-12 margin-top-10  border-style-1">'
+    + '<div class="col-md-7"><label class="margin-bottom-0" id=' + Sequence + '>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b) Ambience</label></div>'
+   + ' <div class="col-md-5">'
+        + '<div class="FormValidationsRadio6 col-md-12 padding-0 validationInductionAmb' + Sequence + '" id="validationInductionAmb' + Sequence + '">'
+           + ' <label class="radio-inline"><input type="radio" title="InductionAmb' + Sequence + ' " class="InductionAmb radioChecked6" name="InductionAmb' + Sequence + '" value="Very much" id=' + Sequence + '>Very much</label><label class="radio-inline">'
+                + '<input type="radio" class="InductionAmbhide radioChecked6" name="InductionAmb' + Sequence + '" value="Somewhat" id=' + Sequence + '>Somewhat'
+            + '</label><label class="radio-inline"><input type="radio" class="InductionAmbhide radioChecked6" name="InductionAmb' + Sequence + '" value="Not Really" id=' + Sequence + '>Not Really</label><label class="radio-inline">'
+                + '<input type="radio" class="InductionAmbhide radioChecked6" name="InductionAmb' + Sequence + '" value="Not at All" id=' + Sequence + '>Not at All'
+           + ' </label></div></div></div></div>'
++ '<div class="col-md-12">'
++ '<div class=" col-md-12 margin-top-10  border-style-1">'
+    + '<div class="col-md-7"><label class="margin-bottom-0" id=' + Sequence + '>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c) Food</label></div>'
+   + ' <div class="col-md-5">'
+        + '<div class="FormValidationsRadio7 col-md-12 padding-0 validationInductionFood' + Sequence + '" id="validationInductionFood' + Sequence + '">'
+           + ' <label class="radio-inline"><input type="radio" title="InductionFood' + Sequence + ' " class="InductionFood radioChecked7" name="InductionFood' + Sequence + '" value="Very much" id=' + Sequence + '>Very much</label><label class="radio-inline">'
+                + '<input type="radio" class="InductionFoodhide radioChecked7" name="InductionFood' + Sequence + '" value="Somewhat" id=' + Sequence + '>Somewhat'
+            + '</label><label class="radio-inline"><input type="radio" class="InductionFoodhide radioChecked7" name="InductionFood' + Sequence + '" value="Not Really" id=' + Sequence + '>Not Really</label><label class="radio-inline">'
+                + '<input type="radio" class="InductionFoodhide radioChecked7" name="InductionFood' + Sequence + '" value="Not at All" id=' + Sequence + '>Not at All'
+           + ' </label></div></div></div></div>'
++ '<div class="col-md-12">'
++ '<div class=" col-md-12 margin-top-10  border-style-1">'
+    + '<div class="col-md-7"><label class="margin-bottom-0" id=' + Sequence + '>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d) Stay</label></div>'
+   + ' <div class="col-md-5">'
+        + '<div class="FormValidationsRadio8 col-md-12 padding-0 validationInductionStay' + Sequence + '" id="	' + Sequence + '">'
+           + ' <label class="radio-inline"><input type="radio" title="InductionStay' + Sequence + ' " class="InductionStay radioChecked8" name="InductionStay' + Sequence + '" value="Very much" id=' + Sequence + '>Very much</label><label class="radio-inline">'
+                + '<input type="radio" class="InductionStayhide radioChecked8" name="InductionStay' + Sequence + '" value="Somewhat" id=' + Sequence + '>Somewhat'
+            + '</label><label class="radio-inline"><input type="radio" class="InductionStayhide radioChecked8" name="InductionStay' + Sequence + '" value="Not Really" id=' + Sequence + '>Not Really</label><label class="radio-inline">'
+                + '<input type="radio" class="InductionStayhide radioChecked8" name="InductionStay' + Sequence + '" value="Not at All" id=' + Sequence + '>Not at All'
+           + ' </label></div></div></div></div></div><div class=" clear"></div></div>');
+            },
+            error: function () { console.log('fail'); }
+        });
+    }
+    
+    function GetOverAllManFeedbck_1(EmpCode,selectedProgramName) {
+        var OverallManFdbckCount = 0;
+        
+         var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('FeedbackSpeakerDetails')/items?$filter=EmployeeCode eq '" + EmpCode + "' and ProgramName eq '" + selectedProgramName + "'";
+        $.ajax({
+            url: RestUrl,
+            method: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+            },
+            success: function (d) {
+                var arr = [];
+                i = 0;
+                $.each(d.d.results, function (index, results) {
+                     if (results.Status == "Active") {
+                        arr[i++] = index;
+                    }
+                });
+                
+                if(arr.length > 0)
+                {
+                OverallManFdbckCount =arr.length;
+                }
+            },
+            error: function () { console.log('fail'); }
+        });
+
+return OverallManFdbckCount ;
+}
+
+    function getSpeakerName(ProgramName) {
+        var SpeakerName = '';
+        var Spkr='';
+        var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('NewInductionProgram')/items?$top=1000&?filter=Status%20eq%20%27Active%27and%20ProgramName%20eq%20%27" + ProgramName + "%27 and FeedBackNeed eq 'Yes'";
+        $.ajax({
+            url: RestUrl,
+            method: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+            },
+            success: function (d) {
+                var arr = [];
+                i = 0;
+                $.each(d.d.results, function (index, results) {
+                    arr[i++] = index;
+                });
+                for (var k = 0; k < arr.length; k++) {
+                    var arrK = arr[k];
+                    if (d.d.results[arrK].ProgramName == ProgramName) {
+                        var ActivityID = d.d.results[arrK].ActivityID;
+                        SpeakerName = getSpeakerNameOnActivityID(ActivityID);
+                         Spkr= Spkr + SpeakerName + ",";
+                    }
+                }
+                  if(Spkr != '')
+                {
+                var lastChar = Spkr.slice(-1);
+                if (lastChar == ',') {
+                SpeakerName = Spkr.slice(0, -1);
+                }
+                //alert(SpeakerName);
+                }
+
+            },
+            error: function () { console.log('fail'); }
+        });
+        return SpeakerName;
+    }
+function getSpeakerNameOnActivityID(ActivityID) {
+        var SpeakerName = '';
+        var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('FeedBackDetails')/items?$filter=ActiviTyID eq '" + ActivityID + "'";
+        $.ajax({
+            url: RestUrl,
+            method: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+            },
+            success: function (d) {
+              //  if (d.d.results.length > 0) {
+                //    SpeakerName = d.d.results[0].NameOfTheSpeaker;
+                //}
+                  var arr = [];
+            i = 0;
+            $.each(d.d.results, function (index, results) {
+                if (results.Status == "Active") {
+                    arr[i++] = index;
+                }
+            });
+			for (var j = 0; j < arr.length; j++) {
+                   var arrConfigK = arr[j];
+                    if(arrConfigK<=0){
+                        SpeakerName = d.d.results[arrConfigK].NameOfTheSpeaker + ",";
+                    }
+                    else if(arrConfigK>=1){
+                        SpeakerName = SpeakerName + d.d.results[arrConfigK].NameOfTheSpeaker + ",";
+                    }
+              }
+               var lastChar = SpeakerName.slice(-1);
+                if (lastChar == ',') {
+                SpeakerName = SpeakerName.slice(0, -1);
+                }
+
+            },
+            error: function () { console.log('fail'); }
+        });
+        return SpeakerName;
+    }
+
+    $("#btnSubmit").click(function () {
+        $('#divErrorMessage').css('color', '');
+        $('#divErrorMessage').empty();
+        var Couunt = 0;
+        var isvalid = true;
+        var names = []
+        $('input:radio').each(function () {
+            var rname = $(this).attr('name');
+            if ($.inArray(rname, names) == -1) names.push(rname);
+        });
+        console.log(names);
+        var radioError = true;
+        $.each(names, function (i, name) {
+            var seq = name.match(/\d+/);
+            name[name.length - 1];
+            var NameOfRadioButton = '';
+            if ($('input[name="' + name + '"]:checked').length == 0) {
+                radioError = false;
+                NameOfRadioButton = name.replace(/\d+/g, '')
+                //name.substring(0, name.length - 1);
+                console.log(NameOfRadioButton);
+                if (NameOfRadioButton == 'InductionUndt') {
+                    $("#divErrorMessage").empty();
+                    $('#divErrorMessage').css('color', 'red');
+                    $('#divErrorMessage').append("Highlighted fields are mandatory");
+                    $('.validationInductionUndt' + seq + '').css({ "border": "1px solid red" });
+                    radioError = false;
+                }
+                if (NameOfRadioButton == 'InductionValInfo') {
+                    $("#divErrorMessage").empty();
+                    $('#divErrorMessage').css('color', 'red');
+                    $('#divErrorMessage').append("Highlighted fields are mandatory");
+                    $('.validationInductionValInfo' + seq + '').css({ "border": "1px solid red" });
+                    radioError = false;
+                }
+                if (NameOfRadioButton == 'InductionQueries') {
+                    $("#divErrorMessage").empty();
+                    $('#divErrorMessage').css('color', 'red');
+                    $('#divErrorMessage').append("Highlighted fields are mandatory");
+                    $('.validationInductionQueries' + seq + '').css({ "border": "1px solid red" });
+                    radioError = false;
+                }
+                if (NameOfRadioButton == 'InductionTime') {
+                    $("#divErrorMessage").empty();
+                    $('#divErrorMessage').css('color', 'red');
+                    $('#divErrorMessage').append("Highlighted fields are mandatory");
+                    $('.validationInductionTime' + seq + '').css({ "border": "1px solid red" });
+                    radioError = false;
+                }
+                if (NameOfRadioButton == 'InductionLoc') {
+                    $("#divErrorMessage").empty();
+                    $('#divErrorMessage').css('color', 'red');
+                    $('#divErrorMessage').append("Highlighted fields are mandatory");
+                    $('.validationInductionLoc' + seq + '').css({ "border": "1px solid red" });
+                    radioError = false;
+                }
+                if (NameOfRadioButton == 'InductionAmb') {
+                    $("#divErrorMessage").empty();
+                    $('#divErrorMessage').css('color', 'red');
+                    $('#divErrorMessage').append("Highlighted fields are mandatory");
+                    $('.validationInductionAmb' + seq + '').css({ "border": "1px solid red" });
+                    radioError = false;
+                }
+                if (NameOfRadioButton == 'InductionFood') {
+                    $("#divErrorMessage").empty();
+                    $('#divErrorMessage').css('color', 'red');
+                    $('#divErrorMessage').append("Highlighted fields are mandatory");
+                    $('.validationInductionFood' + seq + '').css({ "border": "1px solid red" });
+                    radioError = false;
+                }
+                if (NameOfRadioButton == 'InductionStay') {
+                    $("#divErrorMessage").empty();
+                    $('#divErrorMessage').css('color', 'red');
+                    $('#divErrorMessage').append("Highlighted fields are mandatory");
+                    $('.validationInductionStay' + seq + '').css({ "border": "1px solid red" });
+                    radioError = false;
+                }
+                
+            }
+            else {
+                NameOfRadioButton = name.replace(/\d+/g, '')
+                if (NameOfRadioButton == 'InductionUndt') {
+                    $("#divErrorMessage").empty();
+                    $('#divErrorMessage').css('color', '');
+                    $('.validationInductionUndt' + seq + '').css({ "border": "" });
+                }
+                if (NameOfRadioButton == 'InductionValInfo') {
+                    $("#divErrorMessage").empty();
+                    $('#divErrorMessage').css('color', '');
+                    $('.validationInductionValInfo' + seq + '').css({ "border": "" });
+                }
+                if (NameOfRadioButton == 'InductionQueries') {
+                    $("#divErrorMessage").empty();
+                    $('#divErrorMessage').css('color', '');
+                    $('.validationInductionQueries' + seq + '').css({ "border": "" });
+                }
+                if (NameOfRadioButton == 'InductionTime') {
+                    $("#divErrorMessage").empty();
+                    $('#divErrorMessage').css('color', '');
+                    $('.validationInductionTime' + seq + '').css({ "border": "" });
+                }
+                if (NameOfRadioButton == 'InductionLoc') {
+                    $("#divErrorMessage").empty();
+                    $('#divErrorMessage').css('color', '');
+                    $('.validationInductionLoc' + seq + '').css({ "border": "" });
+                }
+                if (NameOfRadioButton == 'InductionAmb') {
+                    $("#divErrorMessage").empty();
+                    $('#divErrorMessage').css('color', '');
+                    $('.validationInductionAmb' + seq + '').css({ "border": "" });
+                }
+                 if (NameOfRadioButton == 'InductionFood') {
+                    $("#divErrorMessage").empty();
+                    $('#divErrorMessage').css('color', '');
+                    $('.validationInductionFood' + seq + '').css({ "border": "" });
+                }
+                 if (NameOfRadioButton == 'InductionStay') {
+                    $("#divErrorMessage").empty();
+                    $('#divErrorMessage').css('color', '');
+                    $('.validationInductionStay' + seq + '').css({ "border": "" });
+                }
+                 
+            }
+        });
+        var textboxIsValid = true;
+        $('#divErrorMessage').empty();
+        $('.Required').each(function () {
+            if ($.trim($(this).val()) == '' || $.trim($(this).val()) == '0') {
+                textboxIsValid = false;
+                $(this).css({
+                    "border": "1px solid red"
+                });
+            }
+            else {
+                $(this).css({
+                    "border": ""
+                });
+            }
+        });
+        if (textboxIsValid == false) {
+            $('#divErrorMessage').css('color', 'red');
+            $('#divErrorMessage').append("Highlighted fields are mandatory");
+            return false;
+        }
+        if (radioError == false) {
+	        $('#divErrorMessage').css('color', 'red');
+            $('#divErrorMessage').append("Highlighted fields are mandatory");
+            return false;
+        }
+        if (radioError == true && textboxIsValid == true) {
+            if (arrSequnce.length > 0 && arrSaveActId.length > 0 && activityUniID.length > 0) {
+            
+            //in
+            
+            $.blockUI.defaults.css = {		
+											padding: 0,		
+								            margin: 0,		
+								            width: '30%',		
+								            top: '40%',		
+								            left: '35%',		
+								            textAlign: 'center',
+								            cursor: 'wait'};
+								            
+		       $.blockUI.defaults.overlayCSS.backgroundColor = '#fff';
+		       $.blockUI.defaults.overlayCSS.opacity = 0.9;
+		       $.blockUI.defaults.overlayCSS.cursor = 'pointer';
+		       
+		       
+               $.blockUI({message: $('#throbber')});
+               
+                
+                setTimeout(function () {
+
+            
+                for (var i = 0; i < arrSequnce.length; i++) {
+                    var ActUinqueID = activityUniID[i];
+                    var actID = arrSaveActId[i];
+                    var actName = arractivityName[i];
+                    var SeqId = arrSequnce[i];
+                    var CnfFdBkProgramName = $('#txtProgramName').val();
+                    var CnfFdBkStartDay = $('#txtProgramSdate').val();
+                    var CnfFdBkEndDay = $('#txtProgramEdate').val();
+                    //var ProgramContent = $('input[type=radio][name=ProgramContent' + SeqId + ']:checked').attr('id');
+                    //var ProgramContent = $('input[type=radio][name=ProgramContent]:checked').val();
+                    //var ProgramContent = $('input[name="ProgramContent"]:checked').val();
+                    var InductionUndt = $('input[type=radio][name=InductionUndt' + SeqId + ']:checked').val();
+
+                    var InductionValInfo = $('input[type=radio][name=InductionValInfo' + SeqId + ']:checked').val();
+                    var InductionQueries = $('input[type=radio][name=InductionQueries' + SeqId + ']:checked').val();
+                    var InductionTime = $('input[type=radio][name=InductionTime' + SeqId + ']:checked').val();
+                    var InductionLoc = $('input[type=radio][name=InductionLoc' + SeqId + ']:checked').val();
+                    var InductionAmb = $('input[type=radio][name=InductionAmb' + SeqId + ']:checked').val();
+                    var InductionFood = $('input[type=radio][name=InductionFood' + SeqId + ']:checked').val();
+                    var InductionStay = $('input[type=radio][name=InductionStay' + SeqId + ']:checked').val();
+                    
+                    var Suggestions = $('#txtsuggestion').val();
+                    var MostAspects = $('#txtmostaspects').val();
+                    var LeastAspects = $('#txtleastaspects').val();
+                    var Overall = $('#txtoverall').val();
+
+                    if (SeqId.toString() != '') {
+                        var SpeakerName = ""; var SpeakerEmail = ""; var EmployeeCode = ""; var SpeakerDepartment = ""; var SpeakerName = "";
+                        $.ajax({
+                            url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('FeedBackDetails')/items?$filter=ActiviTyID eq %27" + actID + "%27",
+                            type: "GET",
+                            async: false,
+                            headers: {
+                                "accept": "application/json;odata=verbose",
+                                "content-type": "application/json;odata=verbose",
+                                "X-RequestDigest": $("#__REQUESTDIGEST").val()
+                            },
+                            success: function (d) {
+                                //SpeakerName = d.d.results[0].NameOfTheSpeaker;
+                                //SpeakerEmail = d.d.results[0].SpeakerEmail;
+                                //SpeakerECode = d.d.results[0].EmployeeCode;
+                                //SpeakerDepartment = d.d.results[0].SpeakerDepartment;
+                               SpeakerName = $("#SpeakerName1").text();
+
+                            },
+                            error: function () { console.log('fail'); }
+                        });
+                        InsertFeedBack(SpeakerName, "", InductionUndt, InductionValInfo, InductionQueries, InductionTime, InductionLoc, InductionAmb, InductionFood, InductionStay, Suggestions, MostAspects, LeastAspects, Overall);
+                       
+                    }
+                }
+                
+                //alert("Thank you for your response.");
+                 
+                 
+ 
+ //out
+ 
+ $.unblockUI({
+                        onUnblock: function () {
+                           console.log('');
+                           //goToLink();
+                        } 
+                   });
+                }, 600);
+                
+goToLink();
+				 
+            }
+        }
+        
+    });
+    
+    
+      function getQueryVariable(variable) {
+  	 var query = window.location.search.substring(1);
+     var vars = query.split('&');
+     for (var i=0; i<vars.length; i++) {
+          var pair = vars[i].split('=');
+          if (pair[0] == variable) {
+            return pair[1];
+          }
+     }
+
+     return false;
+  }
+      
+    function updateURL() {
+      if (history.pushState) {
+          var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?para=1';
+          window.history.pushState({path:newurl},'',newurl);
+      }
+    }
+
+function deletePost() {
+    var ask = window.confirm("Thank you for your response.");
+    if (ask) {
+        ///window.alert("This post was successfully deleted.");
+
+        window.location.href = "https://bajajelect.sharepoint.com/";
+
+    }
+}
+
+    if (ProgramName != "" && ProgramName != null) {
+        var qs = getQueryStrings();
+        var ProgramID = qs["FeedbackID"];
+        var FeedID = parseInt(ProgramID);
+        function InsertFeedBack(SpeakerName, SpeakerDepartment, InductionUndt, InductionValInfo, InductionQueries, InductionTime, InductionLoc, InductionAmb, InductionFood, InductionStay, Suggestions, MostAspects, LeastAspects, Overall) {
+
+            var appWebUrl = _spPageContextInfo.webAbsoluteUrl;
+            if (ProgramID != "" && ProgramID != "null") {
+                $.ajax({
+                    async: false,
+                    url: appWebUrl + "/_api/web/lists/getbytitle('InductionFeedback')/items(" + FeedID + ")",
+                    type: "POST",
+                    data: JSON.stringify({
+                        '__metadata': { 'type': 'SP.Data.InductionFeedbackListItem' },
+
+                        'SpeakerName': SpeakerName,
+                        'SpeakerDepartment': SpeakerDepartment,
+                        'InductionUndt': InductionUndt,
+                        'InductionValInfo': InductionValInfo,
+                        'InductionQueries': InductionQueries,
+                        'InductionTime': InductionTime,
+                        'InductionLoc': InductionLoc,
+                        'InductionAmb': InductionAmb,
+                        'InductionFood': InductionFood,
+                        'InductionStay': InductionStay,
+                        'Suggestions': Suggestions,
+                        'MostAspects': MostAspects,
+                        'LeastAspects': LeastAspects,
+                        'Overall': Overall,
+                        'FeedbackStatus': "Completed",
+                    }),
+                    headers: {
+                        "Accept": "application/json;odata=verbose",
+                        "content-type": "application/json; odata=verbose",
+                        "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+                        "X-HTTP-Method": "MERGE",
+                        "If-Match": "*"
+                    },
+                    success: function (data) {
+                    goToLink();
+                        var exists = getWeightageExisis(ProgramName);
+                        if (exists == false) {
+                            InsertWeightDetails(SpeakerName);
+                        }
+                          
+                       
+                    },
+                    error: function (err) {
+                        alert("Error while adding item: " + JSON.stringify(err));
+                    }
+                });
+            }
+        }
+    }
+
+    $('.Required').change(function () {
+        $(this).css({
+            "border": ""
+        });
+
+    });
+    function getWeightageExisis(ProgramName) {
+        var isExists = false;
+        $.ajax({
+            url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('OverAllProgramWeightAge')/items?$filter=ProgramName eq %27" + ProgramName + "%27",
+            type: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+                "content-type": "application/json;odata=verbose",
+                "X-RequestDigest": $("#__REQUESTDIGEST").val()
+            },
+            success: function (d) {
+                if (d.d.results.length > 0) {
+                    isExists = true;
+                }
+            },
+            error: function (err) {
+                alert("Error while adding item: " + JSON.stringify(err));
+            }
+        });
+        return isExists;
+    }
+    
+     function getWieghtageValues()
+    {
+     var exists = false;
+        var WeightAgeID = ""; var pushExistingValues = [];
+        var RestUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('InductionWeightageMasters')/items";
+        $.ajax({
+            url: RestUrl,
+            method: "GET",
+            async: false,
+            headers: {
+                "accept": "application/json;odata=verbose",
+            },
+            success: function (d) {
+                if (d.d.results.length > 0) {
+                    exists = true;
+                    pushExistingValues.push({
+                        WeightID:d.d.results[0].ID,
+                        InductionUndt:d.d.results[0].InductionUndt,
+                        InductionValInfo:d.d.results[0].InductionValInfo,
+                        InductionQueries:d.d.results[0].InductionQueries,
+                        InductionTime:d.d.results[0].InductionTime,
+                        InductionLoc:d.d.results[0].InductionLoc,
+                        InductionAmb:d.d.results[0].InductionAmb,
+                        InductionFood:d.d.results[0].InductionFood,
+                        InductionStay:d.d.results[0].InductionStay
+                    });
+                }
+            },
+            error: function () { console.log('fail'); }
+        });
+        return pushExistingValues;
+
+    }
+
+    function InsertWeightDetails(SpeakerName) {
+        var ProgramName = $("#txtProgramName").val();
+        var ProgramStartDate = $("#txtProgramSdate").val();
+        var ProgramEndDate = $("#txtProgramEdate").val();
+        var ProgramLocation = $("#txtProgramLocation").val();
+        
+        
+        var alreadyExisit2 = getWieghtageValues();
+                var UpdateID1='';
+                if (alreadyExisit2.length > 0) {
+
+                UpdateID1= alreadyExisit2[0].WeightID;
+                var InductionUndt = alreadyExisit2[0].InductionUndt;
+                var InductionValInfo =  alreadyExisit2[0].InductionValInfo;
+                var InductionQueries = alreadyExisit2[0].InductionQueries;
+                var InductionTime =  alreadyExisit2[0].InductionTime;
+                var InductionLoc = alreadyExisit2[0].InductionLoc;
+                var InductionAmb = alreadyExisit2[0].InductionAmb;
+                var InductionFood = alreadyExisit2[0].InductionFood;
+                var InductionStay = alreadyExisit2[0].InductionStay;
+					}
+
+
+        //var FacilitiesValue = 0;
+
+        //var ProgramContentValue = 0;
+        //var TasksActivitiesValue = 0;
+        //var ProgramUtilityValue = 0;
+
+        //var TrainerAbilityEncourage = 0;
+        //var TrainerAbilityCommunicate = 0;
+        var spakerName = SpeakerName;
+
+
+		var IndProgramSummary = parseInt(InductionUndt) + parseInt(InductionValInfo) + parseInt(InductionQueries) + parseInt(InductionTime);
+        var IndVenueSummary = parseInt(InductionLoc) + parseInt(InductionAmb) + parseInt(InductionFood) + parseInt(InductionStay);
+        var CurrentLoginUser = LoginUserEmail();
+        $.ajax({
+            url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('OverAllProgramWeightAge')/items",
+            type: "POST",
+            async: false,
+            data: JSON.stringify({
+                '__metadata': { 'type': 'SP.Data.OverAllProgramWeightAgeListItem' },
+                'Title': ProgramName,
+                'ProgramName': ProgramName,
+                'ProgramStartDate': ProgramStartDate,
+                'ProgramEndDate': ProgramEndDate,
+                'ProgramLocation': ProgramLocation,
+
+                'InductionUndt': InductionUndt,
+                'InductionValInfo': InductionValInfo,
+                'InductionQueries': InductionQueries,
+                'InductionTime': InductionTime,
+                
+                'InductionLoc': InductionLoc,
+                'InductionAmb': InductionAmb,
+                'InductionFood': InductionFood,
+                'InductionStay': InductionStay,
+
+                'IndProgramSummary': IndProgramSummary,
+                
+                'IndVenueSummary': IndVenueSummary,
+
+                'SpeakerName': spakerName,
+
+                'Status': "Active",
+                'CreatedByUser': CurrentLoginUser,
+
+
+            }),
+            headers: {
+                "Accept": "application/json;odata=verbose",
+                "content-type": "application/json; odata=verbose",
+                "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+            },
+            success: function (data) {
+            },
+            error: function (err) {
+                alert("Error while adding item: " + JSON.stringify(err));
+            }
+        });
+    }
+</script>
+
+<script>
+    var currentuserEmailID = "";
+    function LoginUserEmail() {
+        $.ajax({
+            async: false,
+            url: _spPageContextInfo.webServerRelativeUrl +
+                 "//_api/SP.UserProfiles.PeopleManager/GetMyProperties?$select=email",
+            method: "GET",
+            headers: {
+                "accept": "application/json;odata=verbose"
+            },
+            success: function (d) {
+                currentuserEmailID = d.d.Email;
+
+            },
+            error: function (err) {
+                alert(JSON.stringify(err));
+            }
+        });
+        return currentuserEmailID;
+    }
+</script>
+
+<script type="text/javascript">
+    function goToLink() {
+alert("Feedback submitted successfully");
+var url = "https://bajajelect.sharepoint.com/";
+        window.location = url;
+
+   // bootbox.alert('Feedback submitted successfully', function(){
+   // window.open('https://bajajelect.sharepoint.com/', '_self');
+//});
+
+    }
+    function redirect() {
+        var url = "https://bajajelect.sharepoint.com/";
+        window.location = url;
+        return;
+    }
+</script>
+
+<script>
+ $('.FormValidationsRadio1').change(function () {
+       
+        if ($(".radioChecked1").is(':checked') == false) {
+           
+            $('.FormValidationsRadio1').css({
+                "border": "1px solid red"
+            });
+            
+        }
+        else {
+            $('.FormValidationsRadio1').css({
+                "border": ""
+            });
+            $('#divErrorMessage').empty();
+        }
+
+        
+         });
+         
+         $('.FormValidationsRadio2').change(function () {
+       
+        if ($(".radioChecked2").is(':checked') == false) {
+           
+            $('.FormValidationsRadio2').css({
+                "border": "1px solid red"
+            });
+            
+        }
+        else {
+            $('.FormValidationsRadio2').css({
+                "border": ""
+            });
+            $('#divErrorMessage').empty();
+        }
+
+        
+         });
+         
+         
+         $('.FormValidationsRadio3').change(function () {
+       
+        if ($(".radioChecked3").is(':checked') == false) {
+           
+            $('.FormValidationsRadio3').css({
+                "border": "1px solid red"
+            });
+            
+        }
+        else {
+            $('.FormValidationsRadio3').css({
+                "border": ""
+            });
+            $('#divErrorMessage').empty();
+        }
+
+        
+         });
+
+
+$('.FormValidationsRadio4').change(function () {
+       
+        if ($(".radioChecked4").is(':checked') == false) {
+           
+            $('.FormValidationsRadio4').css({
+                "border": "1px solid red"
+            });
+            
+        }
+        else {
+            $('.FormValidationsRadio4').css({
+                "border": ""
+            });
+            $('#divErrorMessage').empty();
+        }
+
+        
+         });
+
+
+$('.FormValidationsRadio5').change(function () {
+       
+        if ($(".radioChecked5").is(':checked') == false) {
+           
+            $('.FormValidationsRadio5').css({
+                "border": "1px solid red"
+            });
+            
+        }
+        else {
+            $('.FormValidationsRadio5').css({
+                "border": ""
+            });
+            $('#divErrorMessage').empty();
+        }
+
+        
+         });
+
+
+$('.FormValidationsRadio6').change(function () {
+       
+        if ($(".radioChecked6").is(':checked') == false) {
+           
+            $('.FormValidationsRadio6').css({
+                "border": "1px solid red"
+            });
+            
+        }
+        else {
+            $('.FormValidationsRadio6').css({
+                "border": ""
+            });
+            $('#divErrorMessage').empty();
+        }
+
+        
+         });
+         
+         
+         $('.FormValidationsRadio7').change(function () {
+       
+        if ($(".radioChecked7").is(':checked') == false) {
+           
+            $('.FormValidationsRadio7').css({
+                "border": "1px solid red"
+            });
+            
+        }
+        else {
+            $('.FormValidationsRadio7').css({
+                "border": ""
+            });
+            $('#divErrorMessage').empty();
+        }
+
+        
+         });
+
+$('.FormValidationsRadio8').change(function () {
+       
+        if ($(".radioChecked8").is(':checked') == false) {
+           
+            $('.FormValidationsRadio8').css({
+                "border": "1px solid red"
+            });
+            
+        }
+        else {
+            $('.FormValidationsRadio8').css({
+                "border": ""
+            });
+            $('#divErrorMessage').empty();
+        }
+
+        
+         });
+
+</script>

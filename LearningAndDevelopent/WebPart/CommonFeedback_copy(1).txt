@@ -1,0 +1,144 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="/sites/Anugamdev/SiteAssets/AnugamStyles/css/main.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css"
+      rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<link href="/sites/Anugamdev/SiteAssets/AnugamStyles/Datatable/css/dataTables.bootstrap.min.css" rel="stylesheet">
+<link href="/sites/Anugamdev/SiteAssets/AnugamStyles/Datatable/css/responsive.bootstrap.min.css" rel="stylesheet">
+
+<link href="/sites/Anugamdev/SiteAssets/AnugamStyles/Datepicker/css/custom.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css" rel="stylesheet">
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="/sites/Anugamdev/SiteAssets/AnugamStyles/Datepicker/js/moment.min.js"></script>
+<script src="/sites/Anugamdev/SiteAssets/AnugamStyles/Datepicker/js/daterangepicker.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.js"></script>
+
+
+<script>
+    var UserOffice = "";
+    var UserOfficeNew = "";
+    var EmailOfUser = "";
+    var ProgramName = "";
+    var UserLoginEmailId = "";
+    $.ajax({
+        async: false,
+        url: _spPageContextInfo.webServerRelativeUrl + "//_api/SP.UserProfiles.PeopleManager/GetMyProperties",
+        method: "GET",
+        headers: {
+            "accept": "application/json;odata=verbose"
+        },
+        success: function (d) {
+            //UserOffice = d.d.Office;
+            UserOfficeNew = d.d.UserProfileProperties.results[60].Value;
+            UserOffice = d.d.UserProfileProperties.results[61].Value;
+            EmailOfUser = d.d.Email;
+            UserLoginEmailId = d.d.UserProfileProperties.results[19].Value.toUpperCase();
+        },
+        error: function (err) {
+            alert(JSON.stringify(err));
+        }
+    });
+    function getQueryStrings() {
+        var assoc = {};
+        var decode = function (s) { return decodeURIComponent(s.replace(/\+/g, " ")); };
+        var queryString = location.search.substring(1);
+        var keyValues = queryString.split('&');
+
+        for (var i in keyValues) {
+            var key = keyValues[i].split('=');
+            if (key.length > 1) {
+                assoc[decode(key[0])] = decode(key[1]);
+            }
+        }
+
+        return assoc;
+    }
+    var qs = getQueryStrings();
+    var PrgmName = qs["pname"];
+    var Day = qs["day"];
+    var ActID = "";
+    var appWebUrl = window.location.protocol + "//" + window.location.host + _spPageContextInfo.webServerRelativeUrl;
+    var ProgramName; var ProgramInvitationID; var ID; var empCode; var EmployeeName; var EmpLocation; var programLoc = "";
+    $.ajax({
+        async: false,
+        url: appWebUrl + "/_api/web/lists/getbytitle('EmailNotification')/items?$filter=ProgramName eq '" + PrgmName + "' and ACTDayNo eq '" + Day + "' and ParticipantEmail eq '" + EmailOfUser + "'",
+        type: "GET",
+        headers: {
+            "accept": "application/json;odata=verbose",
+            "content-type": "application/json;odata=verbose",
+            "x-requestdigest": $("#__requestdigest").val(),
+        },
+        success: function (d) {
+        
+         var arr = [];
+                i = 0;
+                var ID;
+                var Sts;
+                $.each(d.d.results, function (index, results) {
+                   if (results.FeedBackStatus != "Completed") {
+                        arr[i++] = index;
+                    }
+
+                });
+                
+                 for (var k = 0; k < arr.length; k++) {
+                    var arrK = arr[k];
+                  
+                    ID = d.d.results[arrK].ID;
+                    Sts = d.d.results[arrK].FeedBackStatus;
+                    
+                    }
+
+
+
+console.log(ID);
+            if (Sts != "Completed") {
+            	//ID = d.d.ID;
+            	if(ID != null && ID != undefined)
+            	{
+            	var URL ="https://bajajelect.sharepoint.com/sites/AnugamDev/Pages/FeedBack.aspx?InvitatioD="+ID;
+            	window.open(URL, '_self');
+            	}
+            	else
+            	{
+            	  bootbox.alert('Please contact Program admin', function(){
+    window.open('https://bajajelect.sharepoint.com/', '_self');
+});
+            	}
+            	
+            }
+            else if(Sts == "Completed")
+            {
+            
+              bootbox.alert('Feedback already submitted', function(){
+    window.open('https://bajajelect.sharepoint.com/', '_self');
+});
+
+            
+            }
+            
+        },
+        error: function () { console.log('fail'); }
+    });
+    
+
+
+   
+
+   
+    
+</script>
+
+<script type="text/javascript">
+    function RedirectioLink() {
+        window.location.href = 'https://bajajelect.sharepoint.com/SitePages/Home.aspx';
+    }
+</script>
